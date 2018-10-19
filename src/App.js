@@ -10,6 +10,9 @@ import Landing from './components/layout/Landing';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 
+//Css
+import './components/css/App.css';
+
 class App extends Component {
   render() {
     return (
