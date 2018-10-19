@@ -1,11 +1,26 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+
+//Components
+import LiveCurrency from './components/LiveCurrency';
+
+//Layout
+import Landing from './components/layout/Landing';
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <p>we are live</p>
-      </div>
+      <Router>
+        <div className='wrapper'>
+          <Navbar />
+          <Route  exact path='/landing' component={Landing} />
+          <Route  exact path='/live-currency' component={LiveCurrency} />
+          <Footer />
+        </div>
+      </Router>
     );
   }
 }
