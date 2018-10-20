@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class LiveCurrency extends Component {
+export default class Currency extends Component {
   render() {
     return (
       <div>
@@ -9,5 +9,3 @@ class LiveCurrency extends Component {
     )
   }
 }
-
-export default LiveCurrency;

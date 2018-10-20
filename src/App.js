@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 //Components
-import LiveCurrency from './components/LiveCurrency';
+import LiveCurrency from './components/currency/LiveCurrency';
 
 //Layout
 import Landing from './components/layout/Landing';
