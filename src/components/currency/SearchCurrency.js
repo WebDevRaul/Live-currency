@@ -4,7 +4,7 @@ export default class SearchCurrency extends Component {
   render() {
     return (
       <div>
-        seaarch currency
+        search currency
       </div>
     )
   }

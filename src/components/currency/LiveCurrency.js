@@ -4,10 +4,14 @@ import Currency from './Currency';
 
 class LiveCurrency extends Component {
   render() {
+    const test = ['test1', 'test2', 'test3'];
+
+    const res = test.map((rez) => <Currency key={rez} test={rez}/>)
+
     return (
       <div className='liveCurrency'>
         <SearchCurrency />
-        <Currency />
+        {res}
       </div>
     )
   }
