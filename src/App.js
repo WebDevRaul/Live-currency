@@ -13,17 +13,23 @@ import Footer from './components/layout/Footer';
 //Css
 import './components/css/App.css';
 
+//Redux
+import store from './store';
+import { Provider } from 'react-redux';
+
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div className='wrapper'>
-          <Navbar />
-            <Route  exact path='/' component={Landing} />
-            <Route  exact path='/live-currency' component={LiveCurrency} />
-          <Footer />
-        </div>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <div className='wrapper'>
+            <Navbar />
+              <Route  exact path='/' component={Landing} />
+              <Route  exact path='/live-currency' component={LiveCurrency} />
+            <Footer />
+          </div>
+        </Router>
+      </Provider>
     );
   }
 }
