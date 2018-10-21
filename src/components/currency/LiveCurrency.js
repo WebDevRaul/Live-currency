@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import SearchCurrency from './SearchCurrency';
 import Currency from './Currency';
-import axios from 'axios';
 
 //Redux
 import { connect } from 'react-redux';
@@ -16,15 +15,9 @@ class LiveCurrency extends Component {
   }
 
   componentDidMount() {
-    axios
-      .get('http://data.fixer.io/api/latest?access_key=b0ab4945712b358052a8fc54d02e7b3d&base=EUR&symbols=USD,CAD')
-      .then(res => {
-        const response = res.data;
-        this.setState({ currency: response })
-      });
-
       this.props.firstCall();
   }
+
   render() {
     const test = ['test1', 'test2', 'test3'];
 
@@ -38,5 +31,7 @@ class LiveCurrency extends Component {
     )
   }
 }
+
+
 
 export default connect(null, { firstCall })(LiveCurrency);
