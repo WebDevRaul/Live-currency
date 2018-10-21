@@ -4,7 +4,7 @@ export default class Currency extends Component {
   render() {
     return (
       <div>
-        {this.props.test}
+        {this.props.data.date}
       </div>
     )
   }

@@ -10,7 +10,6 @@ class LiveCurrency extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstData:{},
       errors: {}
     }
   }
@@ -23,20 +22,17 @@ class LiveCurrency extends Component {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors })
     }
-    if (nextProps.firstData) {
-      this.setState({ firstData: nextProps.firstData })
-    }
   }
 
   render() {
-    const test = ['test1', 'test2', 'test3'];
 
-    const res = test.map((rez) => <Currency key={rez} test={rez}/>)
+    const  firstData  = this.props.firstData.firstData.rates;
+
+    console.log(firstData);
 
     return (
       <div className='liveCurrency'>
         <SearchCurrency />
-        {res}
       </div>
     )
   }
