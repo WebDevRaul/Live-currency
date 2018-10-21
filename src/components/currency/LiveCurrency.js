@@ -3,6 +3,10 @@ import SearchCurrency from './SearchCurrency';
 import Currency from './Currency';
 import axios from 'axios';
 
+//Redux
+import { connect } from 'react-redux';
+import { firstCall } from '../../redux/actions/firstCallAction';
+
 class LiveCurrency extends Component {
   constructor() {
     super();
@@ -17,7 +21,9 @@ class LiveCurrency extends Component {
       .then(res => {
         const response = res.data;
         this.setState({ currency: response })
-      })
+      });
+
+      this.props.firstCall();
   }
   render() {
     const test = ['test1', 'test2', 'test3'];
@@ -33,4 +39,4 @@ class LiveCurrency extends Component {
   }
 }
 
-export default LiveCurrency;
+export default connect(null, { firstCall })(LiveCurrency);
