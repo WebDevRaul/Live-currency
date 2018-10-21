@@ -12,7 +12,7 @@ export const firstCall  = calldata => dispatch => {
     }))
     .catch(err => dispatch({
       type: GET_ERRORS,
-      payload: err.response.data
+      payload: err
     }));
 };
 

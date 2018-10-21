@@ -4,5 +4,5 @@ import firstCallReducer from './firstCallReducer';
 
 export default combineReducers({
   errors: errorReducer,
-  firstCall: firstCallReducer
+  firstData: firstCallReducer
 });

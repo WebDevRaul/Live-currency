@@ -2,7 +2,7 @@ import { GET_FIRST_CALL, GET_LOADING } from '../actions/types';
 
 const initialState = {
   loading: false,
-  data: {}
+  firstData: {}
 };
 
 export default function(state = initialState, action) {
@@ -16,8 +16,8 @@ export default function(state = initialState, action) {
     case GET_FIRST_CALL:
       return {
         ...state,
-        data: action.payload,
-        loading: false
+        loading: false,
+        firstData: action.payload
       }
 
     default:
