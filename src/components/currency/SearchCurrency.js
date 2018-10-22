@@ -1,4 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
+//Redux
+import { connect } from 'react-redux';
+import { submitRate } from '../../redux/actions/submitRateAction';
 
 class SearchCurrency extends Component {
   constructor() {
@@ -13,7 +17,7 @@ class SearchCurrency extends Component {
 
   onSubmit(e) {
     e.preventDefault()
-    console.log(this.state.text)
+    this.props.submitRate(this.state.text)
     this.setState({ text: '' })
   }
 
@@ -37,4 +41,4 @@ class SearchCurrency extends Component {
     )
   }
 }
-export default SearchCurrency;
+export default connect(null, { submitRate })(SearchCurrency)

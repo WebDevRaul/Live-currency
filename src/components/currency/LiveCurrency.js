@@ -34,6 +34,7 @@ class LiveCurrency extends Component {
         <SearchCurrency />
         {data.date} base: {data.base}
         {baseRates}
+        
       </div>
     )
   }
@@ -42,7 +43,8 @@ class LiveCurrency extends Component {
 const mapStateToProps = state => ({
   errors: state.errors,
   ratesData: state.ratesData,
-  data: state.data
+  data: state.data,
+  rate: state.rate
 });
 
 export default connect(mapStateToProps, { firstCall })(LiveCurrency);
