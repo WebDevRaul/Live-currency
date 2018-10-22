@@ -4,7 +4,10 @@ class SearchCurrency extends Component {
   render() {
     return (
       <div>
-        
+        <form>
+          <input />
+          <button>Search</button>
+        </form>
       </div>
     )
   }
