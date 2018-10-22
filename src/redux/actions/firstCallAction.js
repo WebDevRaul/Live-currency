@@ -5,10 +5,10 @@ import { GET_FIRST_CALL, GET_ERRORS, GET_LOADING } from './types';
 export const firstCall  = calldata => dispatch => {
   dispatch(setLoading());
   axios
-    .get('http://data.fixer.io/api/latest?access_key=b0ab4945712b358052a8fc54d02e7b3d&base=EUR&symbols=USD,CAD')
+    .get('http://data.fixer.io/api/latest?access_key=b0ab4945712b358052a8fc54d02e7b3d&base=EUR&symbols=USD,CAD,CHF,GBP,AUD')
     .then(res => dispatch({
       type: GET_FIRST_CALL,
-      payload: res.data
+      payload: res.data.rates
     }))
     .catch(err => dispatch({
       type: GET_ERRORS,

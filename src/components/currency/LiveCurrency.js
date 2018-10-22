@@ -10,6 +10,7 @@ class LiveCurrency extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      firstData: {},
       errors: {}
     }
   }
@@ -22,17 +23,19 @@ class LiveCurrency extends Component {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors })
     }
+    if (nextProps.firstData) {
+      this.setState({ firstData: nextProps.firstData.firstData }) // here was the problem
+    }
   }
 
   render() {
-
-    const  firstData  = this.props.firstData.firstData.rates;
-
-    console.log(firstData);
-
+    const { firstData } = this.props.firstData
+    const baseRates = Object.keys(firstData).map(i => <Currency key={i} name={i} data ={firstData[i]}/>)
+    
     return (
       <div className='liveCurrency'>
         <SearchCurrency />
+        {baseRates}
       </div>
     )
   }

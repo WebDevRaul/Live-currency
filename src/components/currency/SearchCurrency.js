@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 
-export default class SearchCurrency extends Component {
+class SearchCurrency extends Component {
   render() {
     return (
       <div>
-        search currency
+        
       </div>
     )
   }
 }
+export default SearchCurrency;
