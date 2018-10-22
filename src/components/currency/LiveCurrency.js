@@ -10,40 +10,39 @@ class LiveCurrency extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstData: {},
       errors: {}
     }
-  }
+  };
 
   componentDidMount() {
       this.props.firstCall();
-  }
+  };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors })
     }
-    if (nextProps.firstData) {
-      this.setState({ firstData: nextProps.firstData.firstData }) // here was the problem
-    }
-  }
+  };
 
   render() {
-    const { firstData } = this.props.firstData
-    const baseRates = Object.keys(firstData).map(i => <Currency key={i} name={i} data ={firstData[i]}/>)
+    const obj = this.props.ratesData.ratesData;
+    const baseRates = Object.keys(obj).map(i => <Currency key={i} name={i} data ={obj[i]}/>);
+    const { data } = this.props.ratesData;
     
     return (
       <div className='liveCurrency'>
         <SearchCurrency />
+        {data.date} base: {data.base}
         {baseRates}
       </div>
     )
   }
-}
+};
 
 const mapStateToProps = state => ({
   errors: state.errors,
-  firstData: state.firstData
+  ratesData: state.ratesData,
+  data: state.data
 });
 
 export default connect(mapStateToProps, { firstCall })(LiveCurrency);
