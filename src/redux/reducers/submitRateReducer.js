@@ -1,7 +1,7 @@
 import { GET_SUBMIT_RATE, GET_LOADING } from '../actions/types';
 
 const initialState = {
-  loading: true,
+  loading: false,
   rate: {}
 };
 

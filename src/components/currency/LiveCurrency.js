@@ -10,6 +10,7 @@ class LiveCurrency extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      requestRate: '',
       errors: {}
     }
   };
@@ -22,6 +23,9 @@ class LiveCurrency extends Component {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors })
     }
+    if (nextProps.requestRate) {
+      this.setState({ requestRate: nextProps.requestRate.rate })
+    }
   };
 
   render() {
@@ -29,12 +33,16 @@ class LiveCurrency extends Component {
     const baseRates = Object.keys(obj).map(i => <Currency key={i} name={i} data ={obj[i]}/>);
     const { date } = this.props.defaultRates;
     const { base } = this.props.defaultRates;
+
+    const { requestRate } = this.state;
+    const rate = Object.keys(requestRate).map(i => <p key={i}>{i} - {requestRate[i]}</p>);
     
     return (
       <div className='liveCurrency'>
         <SearchCurrency />
         {baseRates}
         {date} - {base}
+        {rate}
       </div>
     )
   }
@@ -43,6 +51,7 @@ class LiveCurrency extends Component {
 const mapStateToProps = state => ({
   errors: state.errors,
   defaultRates: state.defaultRates,
+  requestRate: state.requestRate
 });
 
 export default connect(mapStateToProps, { firstCall })(LiveCurrency);

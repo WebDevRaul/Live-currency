@@ -6,5 +6,5 @@ import submitRateReducer from './submitRateReducer';
 export default combineReducers({
   errors: errorReducer,
   defaultRates: firstCallReducer,
-  rate: submitRateReducer
+  requestRate: submitRateReducer
 });
