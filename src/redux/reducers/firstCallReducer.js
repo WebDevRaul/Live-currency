@@ -2,8 +2,9 @@ import { GET_FIRST_CALL, GET_LOADING } from '../actions/types';
 
 const initialState = {
   loading: false,
-  ratesData: {},
-  data: {}
+  rates: {},
+  date: undefined,
+  base: undefined
 };
 
 export default function(state = initialState, action) {
@@ -18,8 +19,9 @@ export default function(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        ratesData: action.payload.rates,
-        data: action.payload
+        rates: action.payload.rates,
+        date: action.payload.date,
+        base: action.payload.base
       }
 
     default:

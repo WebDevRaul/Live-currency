@@ -5,6 +5,6 @@ import submitRateReducer from './submitRateReducer';
 
 export default combineReducers({
   errors: errorReducer,
-  ratesData: firstCallReducer,
+  defaultRates: firstCallReducer,
   rate: submitRateReducer
 });

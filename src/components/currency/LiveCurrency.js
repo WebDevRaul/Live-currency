@@ -25,16 +25,16 @@ class LiveCurrency extends Component {
   };
 
   render() {
-    const obj = this.props.ratesData.ratesData;
+    const obj = this.props.defaultRates.rates;
     const baseRates = Object.keys(obj).map(i => <Currency key={i} name={i} data ={obj[i]}/>);
-    const { data } = this.props.ratesData;
+    const { date } = this.props.defaultRates;
+    const { base } = this.props.defaultRates;
     
     return (
       <div className='liveCurrency'>
         <SearchCurrency />
-        {data.date} base: {data.base}
         {baseRates}
-        
+        {date} - {base}
       </div>
     )
   }
@@ -42,9 +42,7 @@ class LiveCurrency extends Component {
 
 const mapStateToProps = state => ({
   errors: state.errors,
-  ratesData: state.ratesData,
-  data: state.data,
-  rate: state.rate
+  defaultRates: state.defaultRates,
 });
 
 export default connect(mapStateToProps, { firstCall })(LiveCurrency);
