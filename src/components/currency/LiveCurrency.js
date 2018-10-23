@@ -27,6 +27,20 @@ class LiveCurrency extends Component {
     if (nextProps.requestRate) {
       this.setState({ requestRate: nextProps.requestRate.rate })
     }
+    if (nextProps.requestRate.rate === undefined || null ) {
+      return null;
+    } else {
+      const rate = this.props.requestRate.rate;
+      if (localStorage.getItem('data') == null ) {
+        const data = [];
+        data.push(rate);
+        localStorage.setItem('data', JSON.stringify(data));
+      } else {
+        const data = JSON.parse(localStorage.getItem('data'));
+        data.push(rate);
+        localStorage.setItem('data', JSON.stringify(data));
+      }
+    }
   };
 
   render() {
@@ -64,3 +78,5 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { firstCall })(LiveCurrency);
+
+//fix on click w/o val return all rates
