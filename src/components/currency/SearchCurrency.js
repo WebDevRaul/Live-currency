@@ -13,16 +13,21 @@ class SearchCurrency extends Component {
     }
     this.onSubmit = this.onSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.onClick = this.onClick.bind(this);
   };
 
   onSubmit(e) {
-    e.preventDefault()
-    this.props.submitRate(this.state.text)
-    this.setState({ text: '' })
+    e.preventDefault();
+    this.props.submitRate(this.state.text);
+    this.setState({ text: '' });
   }
 
   onChange(e) {
     this.setState({ text: e.target.value })
+  }
+
+  onClick() {
+    alert('test');
   }
 
   render() {
@@ -35,7 +40,10 @@ class SearchCurrency extends Component {
             value={this.state.text}
             onChange={this.onChange}
           />
-          <button type='submit'>Search</button>
+          <button 
+            type='submit'
+            onClick={this.onClick}
+          >Search</button>
         </form>
       </div>
     )
