@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SearchCurrency from './SearchCurrency';
 import Currency from './Currency';
+import PropTypes from 'prop-types';
 
 //Redux
 import { connect } from 'react-redux';
@@ -31,6 +32,7 @@ class LiveCurrency extends Component {
   render() {
     const obj = this.props.defaultRates.rates;
     const baseRates = Object.keys(obj).map(i => <Currency key={i} name={i} data ={obj[i]}/>);
+    
     const { date } = this.props.defaultRates;
     const { base } = this.props.defaultRates;
 
@@ -47,6 +49,13 @@ class LiveCurrency extends Component {
     )
   }
 };
+
+LiveCurrency.propTypes = {
+  errors: PropTypes.object.isRequired,
+  defaultRates: PropTypes.object.isRequired,
+  requestRate: PropTypes.object.isRequired,
+  firstCall: PropTypes.func.isRequired
+}
 
 const mapStateToProps = state => ({
   errors: state.errors,
