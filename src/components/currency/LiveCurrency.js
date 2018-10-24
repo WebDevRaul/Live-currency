@@ -7,6 +7,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { firstCall } from '../../redux/actions/firstCallAction';
 
+//common
+import isEmpty from '../common/isEmpty';
+
 class LiveCurrency extends Component {
   constructor(props) {
     super(props);
@@ -27,8 +30,12 @@ class LiveCurrency extends Component {
     if (nextProps.requestRate) {
       this.setState({ requestRate: nextProps.requestRate.rate })
     }
-    if (nextProps.requestRate.rate === undefined || null ) {
-      return null;
+  };
+
+  render() {
+
+    //Save to localStorate
+    if (isEmpty(this.props.requestRate.rate)) {
     } else {
       const rate = this.props.requestRate.rate;
       if (localStorage.getItem('data') == null ) {
@@ -41,9 +48,9 @@ class LiveCurrency extends Component {
         localStorage.setItem('data', JSON.stringify(data));
       }
     }
-  };
 
-  render() {
+    let item = JSON.parse(localStorage.getItem('data'));
+
     const obj = this.props.defaultRates.rates;
     const baseRates = Object.keys(obj).map(i => <Currency key={i} name={i} data ={obj[i]}/>);
 
@@ -59,6 +66,7 @@ class LiveCurrency extends Component {
         {baseRates}
         {date} - {base}
         {rate}
+        {item.USD}
       </div>
     )
   }
@@ -80,3 +88,4 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, { firstCall })(LiveCurrency);
 
 //fix on click w/o val return all rates
+//save to loval storage but duble data (to fix)
