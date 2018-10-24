@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div className='wrapper'>
+          <div className='container'>
             <Navbar />
               <Route  exact path='/' component={Landing} />
               <Route  exact path='/live-currency' component={LiveCurrency} />

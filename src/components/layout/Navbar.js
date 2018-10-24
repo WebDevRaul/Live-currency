@@ -1,9 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
+//Css
+import '../css/Navbar.css';
 
 class Navbar extends Component {
   render() {
     return (
-      <div>
+      <div className='navBar'>
         Navbar
       </div>
     )
