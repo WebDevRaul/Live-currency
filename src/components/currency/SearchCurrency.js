@@ -48,6 +48,7 @@ class SearchCurrency extends Component {
             value={this.state.text}
             onChange={this.onChange}
           />
+          <span>i</span> {/* this is for info */}
           <button type='submit'>Search</button>
         </form>
       </div>
