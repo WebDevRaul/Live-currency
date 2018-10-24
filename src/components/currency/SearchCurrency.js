@@ -11,7 +11,7 @@ class SearchCurrency extends Component {
   constructor() {
     super();
     this.state = {
-      text: '',
+      text: [],
       error: {}
     }
     this.onSubmit = this.onSubmit.bind(this);
@@ -20,13 +20,18 @@ class SearchCurrency extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+
+    const { text } = this.state;
+
     if(isEmpty(this.state.text)) {
       //do error here
+    } else if(text.trim().split(',').lenght !== 0) {
+      this.props.submitRate(text)
     } else {
-      this.props.submitRate(this.state.text);
+      //do error for comma
     }
 
-    this.setState({ text: '' });
+    this.setState({ text: [] });
   }
 
   onChange(e) {
