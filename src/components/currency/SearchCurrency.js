@@ -4,6 +4,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { submitRate } from '../../redux/actions/submitRateAction';
 
+//common
+import isEmpty from '../common/isEmpty';
+
 class SearchCurrency extends Component {
   constructor() {
     super();
@@ -17,7 +20,12 @@ class SearchCurrency extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    this.props.submitRate(this.state.text);
+    if(isEmpty(this.state.text)) {
+      //do error here
+    } else {
+      this.props.submitRate(this.state.text);
+    }
+
     this.setState({ text: '' });
   }
 
