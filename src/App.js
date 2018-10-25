@@ -9,6 +9,7 @@ import LiveCurrency from './components/currency/LiveCurrency';
 import Landing from './components/layout/Landing';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import Test from './Test';
 
 //Css
 import './components/css/App.css';
@@ -25,7 +26,7 @@ class App extends Component {
           <div className='container'>
             <Navbar />
               <Route  exact path='/' component={Landing} />
-              <Route  exact path='/live-currency' component={LiveCurrency} />
+              <Route  exact path='/live-currency' component={Test} />
             <Footer />
           </div>
         </Router>
