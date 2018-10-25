@@ -63,7 +63,6 @@ class SearchCurrency extends Component {
             name='text'
             value={this.state.text}
             onChange={this.onChange}
-            autoFocus={this.state.input}
           />
           <span className='searchIcon'
             onClick={this.onClick}
