@@ -30,16 +30,14 @@ class SearchCurrency extends Component {
     const { text } = this.state;
     const { setError } = this.props;
 
-    if(isEmpty(this.state.text)) {
-      this.props.setError({ searchBar: 'Name your error here' })
-    };
+    if (text.length > 1) {
+      //do error .. but not working yet
+    }
 
-    if (text.indexOf(',') !== -1) {
+    if(isEmpty(text)) {
+      setError({ searchBar: 'Name your error here' })
+    } else {
       this.props.submitRate(text)
-    };
-
-    if (text.splice) {
-      setError({ multiData: 'Name your error here, (comma)' })
     }
 
     this.setState({ text: [] });
