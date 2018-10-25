@@ -1,5 +1,8 @@
 import axios from 'axios';
-import { GET_FIRST_CALL, GET_ERRORS, GET_LOADING } from './types';
+import { GET_FIRST_CALL, GET_ERRORS } from './types';
+
+//common
+import { setLoading } from './commonAction';
 
 //Make request to fixer.io for first 5 base rates
 export const firstCall  = calldata => dispatch => {
@@ -14,11 +17,4 @@ export const firstCall  = calldata => dispatch => {
       type: GET_ERRORS,
       payload: err
     }));
-};
-
-//Set loading state
-export const setLoading = () => {
-  return {
-    type: GET_LOADING
-  };
 };

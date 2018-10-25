@@ -4,6 +4,7 @@ import classnames from 'classnames';
 //Redux
 import { connect } from 'react-redux';
 import { submitRate } from '../../redux/actions/submitRateAction';
+import { setError } from '../../redux/actions/commonAction';
 
 //common
 import isEmpty from '../common/isEmpty';
@@ -27,13 +28,18 @@ class SearchCurrency extends Component {
     e.preventDefault();
 
     const { text } = this.state;
+    const { setError } = this.props;
 
     if(isEmpty(this.state.text)) {
-      //do error here
-    } else if(text.trim().split(',').lenght !== 0) {
+      this.props.setError({ searchBar: 'Name your error here' })
+    };
+
+    if (text.indexOf(',') !== -1) {
       this.props.submitRate(text)
-    } else {
-      //do error for comma
+    };
+
+    if (text.splice) {
+      setError({ multiData: 'Name your error here, (comma)' })
     }
 
     this.setState({ text: [] });
@@ -71,4 +77,4 @@ class SearchCurrency extends Component {
   }
 }
 
-export default connect(null, { submitRate })(SearchCurrency)
+export default connect(null, { submitRate, setError })(SearchCurrency)

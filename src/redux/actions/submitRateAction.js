@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { GET_SUBMIT_RATE, GET_ERRORS } from './types';
-import { setLoading } from './firstCallAction';
+
+//common
+import { setLoading } from './commonAction';
 
 //Make request to Fixer.io with specific rate
 export const submitRate = rateData => dispatch => {
