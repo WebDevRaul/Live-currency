@@ -17,6 +17,7 @@ class SearchCurrency extends Component {
     super();
     this.state = {
       text: [],
+      input: false,
       error: {}
     }
     this.onSubmit = this.onSubmit.bind(this);
@@ -28,7 +29,6 @@ class SearchCurrency extends Component {
     e.preventDefault();
 
     const { text } = this.state;
-    const { setError } = this.props;
 
     if (text.length > 1) {
       //do error .. but not working yet
@@ -48,7 +48,7 @@ class SearchCurrency extends Component {
   }
 
   onClick() {
-    
+    this.setState(prevState => ({ input: !prevState.input }))
   }
 
   render() {
@@ -57,12 +57,13 @@ class SearchCurrency extends Component {
         <form onSubmit={this.onSubmit}>
           <input
             className={classnames('searchInput', {
-              'searchInputBorder': this.onClick()
+              'searchInputBorder': this.state.input
             })}
             type='text'
             name='text'
             value={this.state.text}
             onChange={this.onChange}
+            autoFocus={this.state.input}
           />
           <span className='searchIcon'
             onClick={this.onClick}
