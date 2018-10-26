@@ -31,11 +31,22 @@ class SearchCurrency extends Component {
     const { text } = this.state;
 
     if (isEmpty(text)) {
-      this.props.setError({ emptyInput: 'Name your error here' })
-    };
-
-    if (text.length > 3 && !text.includes(',')) {
-      this.props.setError({ greaterInput: 'Name your error here' })
+      this.props.setError({ emptyInput: 'Please insert a value' })
+    } else if (text.length > 3 && !text.includes(',')) {
+      this.props.setError({ greaterInput: 'For multiple value please insert " , "' })
+    } else if (text.length > 3 && text.includes(',')) {
+      const split = text.split(',');
+      const value = split.map(i => i.trim());
+      let element;
+      for (let i = 0; i < value.length; i++) {
+        element = value[i];
+      }
+      if (element.length > 3) {
+        this.props.setError({ test: `${element} is not a valid value` })
+      }
+    } else {
+      console.log(text)
+      this.props.submitRate(text)
     }
 
     this.setState({ text: [] });
