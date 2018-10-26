@@ -30,14 +30,12 @@ class SearchCurrency extends Component {
 
     const { text } = this.state;
 
-    if (text.length > 1) {
-      //do error .. but not working yet
-    }
+    if (isEmpty(text)) {
+      this.props.setError({ emptyInput: 'Name your error here' })
+    };
 
-    if(isEmpty(text)) {
-      setError({ searchBar: 'Name your error here' })
-    } else {
-      this.props.submitRate(text)
+    if (text.length > 3 && !text.includes(',')) {
+      this.props.setError({ greaterInput: 'Name your error here' })
     }
 
     this.setState({ text: [] });
@@ -66,7 +64,7 @@ class SearchCurrency extends Component {
           />
           <span className='searchIcon'
             onClick={this.onClick}
-          ><i class="fas fa-search"></i></span>
+          ><i className="fas fa-search"></i></span>
           <span>i</span> {/* this is for info */}
           <button type='submit'>Search</button>
         </form>

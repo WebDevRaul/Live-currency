@@ -20,17 +20,17 @@ export default class Test extends Component {
 
     const { text } = this.state;
 
-    if(text.trim().length > 3) {
-      if (text.indexOf(',') > -1) {
-        const x = text.trim().split(',')
-        console.log(x)
-        if (x.map(e => e).length > 3) {
-          console.log('second is greater then 3')
-        }
-      }
-      console.log('greater then 3')
-    } else {
-      console.log('else')
+    if (text.length === 0) {
+      console.log('no value')
+    }
+
+    if (text.length > 3 && !text.includes(',')) {
+      console.log('greater then 3 and no comma')
+    }
+
+    if (text.length > 3 && text.includes(',')) {
+      text.trim();
+      console.log(text)
     }
   } 
 

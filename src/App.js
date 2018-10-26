@@ -26,7 +26,7 @@ class App extends Component {
           <div className='container'>
             <Navbar />
               <Route  exact path='/' component={Landing} />
-              <Route  exact path='/live-currency' component={Test} />
+              <Route  exact path='/live-currency' component={LiveCurrency} />
             <Footer />
           </div>
         </Router>
