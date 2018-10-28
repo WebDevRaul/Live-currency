@@ -48,9 +48,14 @@ class LiveCurrency extends Component {
       <div className='liveCurrency'>
         <SearchCurrency />
         <p>Date : <span>{date}</span></p>
-        {baseRates}
-        <hr />
-        {newRate}
+        <div className='row'>
+          <div className='col'>
+            {baseRates}
+          </div>
+          <div className='col'>
+            {newRate}
+          </div>
+        </div>
       </div>
     )
   }
