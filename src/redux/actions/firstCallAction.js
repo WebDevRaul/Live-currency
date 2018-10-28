@@ -8,7 +8,7 @@ import { setLoading } from './commonAction';
 export const firstCall  = calldata => dispatch => {
   dispatch(setLoading());
   axios
-    .get('http://data.fixer.io/api/latest?access_key=b0ab4945712b358052a8fc54d02e7b3d&base=EUR&symbols=USD,CAD,CHF,GBP,AUD')
+    .get('https://api.exchangeratesapi.io/latest?base=GBP&symbols=USD,EUR,CAD,CHF,JPY')
     .then(res => dispatch({
       type: GET_FIRST_CALL,
       payload: res.data
