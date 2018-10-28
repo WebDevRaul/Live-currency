@@ -32,6 +32,24 @@ class SearchCurrency extends Component {
 
     if (isEmpty(text)) {
       this.props.setError({ emptyInput: 'Please insert a value' })
+    };
+    if (text.length > 3 && !text.includes(',')) {
+      this.props.setError({ greaterInput: 'For multiple value please insert " , "' })
+    };
+     if (text.length > 3 && text.includes(',')) {
+      const split = text.split(',');
+      const value = split.map(i => i.trim());
+      let element;
+      for (let i = 0; i < value.length; i++) {
+        element = value[i];
+      }
+      if (element.length > 3) {
+        this.props.setError({ test: `${element} is not a valid value` })
+      }
+    };
+
+    if (isEmpty(text)) {
+      this.props.setError({ emptyInput: 'Please insert a value' })
     } else if (text.length > 3 && !text.includes(',')) {
       this.props.setError({ greaterInput: 'For multiple value please insert " , "' })
     } else if (text.length > 3 && text.includes(',')) {
@@ -44,9 +62,11 @@ class SearchCurrency extends Component {
       if (element.length > 3) {
         this.props.setError({ test: `${element} is not a valid value` })
       }
-    } else {
-      console.log(text)
+    } else if (!isEmpty(text)) {
       this.props.submitRate(text)
+      console.log(text)
+    } else {
+      return null;
     }
 
     this.setState({ text: [] });
@@ -62,23 +82,30 @@ class SearchCurrency extends Component {
 
   render() {
     return (
-      <div className='searchCurrency'>
-        <form onSubmit={this.onSubmit}>
-          <input
-            className={classnames('searchInput', {
-              'searchInputBorder': this.state.input
-            })}
-            type='text'
-            name='text'
-            value={this.state.text}
-            onChange={this.onChange}
-          />
-          <span className='searchIcon'
-            onClick={this.onClick}
-          ><i className="fas fa-search"></i></span>
-          <span>i</span> {/* this is for info */}
-          <button type='submit'>Search</button>
-        </form>
+      <div className='row'>
+        <div className='col'>
+          <div className='searchCurrency'>
+            <form onSubmit={this.onSubmit}>
+              <input
+                className='searchInput'
+                type='text'
+                name='text'
+                value={this.state.text}
+                onChange={this.onChange}
+              />
+              {/* <span className='searchIcon'
+                onClick={this.onClick}
+              ><i className="fas fa-search"></i></span> */}
+              <span
+                className='searchInfo'
+              >i</span>
+              <button 
+                className='searchButton'
+                type='submit'
+                >Search</button>
+            </form>
+          </div>
+        </div>
       </div>
     )
   }

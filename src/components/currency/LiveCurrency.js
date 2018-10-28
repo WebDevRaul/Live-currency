@@ -66,4 +66,4 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, { firstCall })(LiveCurrency);
 
-//fix on click w/o val return all rates
+//fix send multiple values
