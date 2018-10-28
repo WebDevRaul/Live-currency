@@ -1,3 +1,6 @@
 textarea:focus, input:focus{
   outline: none;
 }
+hr {
+  margin: 0 0 10px 0 !important;
+}

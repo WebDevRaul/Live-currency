@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import SearchCurrency from './SearchCurrency';
 import Currency from './Currency';
+import NewCurrency from './NewCurrency';
 import PropTypes from 'prop-types';
 
 //Redux
 import { connect } from 'react-redux';
 import { firstCall } from '../../redux/actions/firstCallAction';
+
+//Css
+import '../css/LiveCurrency.css';
 
 class LiveCurrency extends Component {
   constructor(props) {
@@ -38,14 +42,15 @@ class LiveCurrency extends Component {
     const { base } = this.props.defaultRates;
 
     const { requestRate } = this.state;
-    const rate = Object.keys(requestRate).map(i => <p key={i}>{i} - {requestRate[i]}</p>);
+    const newRate = Object.keys(requestRate).map(i => <NewCurrency key={i} name={i} data={requestRate[i]}/>);
     
     return (
       <div className='liveCurrency'>
         <SearchCurrency />
+        <p>Date : <span>{date}</span></p>
         {baseRates}
-        {date} - {base}
-        {rate}
+        <hr />
+        {newRate}
       </div>
     )
   }
