@@ -47,7 +47,7 @@ class LiveCurrency extends Component {
     return (
       <div className='liveCurrency'>
         <SearchCurrency />
-        <p>Date : <span>{date}</span></p>
+        <p className='coll'>Your base currency is <span>{base}</span></p>
         <div className='row'>
           <div className='col'>
             {baseRates}
