@@ -1,12 +1,10 @@
-import React, { Component } from 'react'
-import SearchCurrency from './SearchCurrency';
+import React, { Component } from 'react';
 import Currency from './Currency';
-import NewCurrency from './NewCurrency';
-import PropTypes from 'prop-types';
 
 //Redux
 import { connect } from 'react-redux';
-import { firstCall } from '../../redux/actions/firstCallAction';
+import { getBaseList } from '../../redux/actions/getBaseListAction';
+import { getBaseRates } from '../../redux/actions/getBaseRatesAction';
 
 //Css
 import '../css/LiveCurrency.css';
@@ -15,65 +13,77 @@ class LiveCurrency extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      requestRate: '',
-      errors: {}
+      base: '',
+      symbols:['USD','EUR','CAD','CHF','JPY'],
+      errors: {},
     }
+
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   };
 
+
+
   componentDidMount() {
-      this.props.firstCall();
+    const base = 'GBP'
+    const { symbols } = this.state
+
+    this.props.getBaseList(base);
+    this.props.getBaseRates(base, symbols);
   };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors })
     }
-    if (nextProps.requestRate) {
-      this.setState({ requestRate: nextProps.requestRate.rate })
-    }
   };
 
+  onChange(e) {
+    this.setState({base: e.target.value});
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    const { base, symbols } = this.state;
+    this.props.getBaseRates(base, symbols);
+  }
+  
   render() {
-
-    const obj = this.props.defaultRates.rates;
-    const baseRates = Object.keys(obj).map(i => <Currency key={i} name={i} data ={obj[i]}/>);
-
-    const { date } = this.props.defaultRates;
-    const { base } = this.props.defaultRates;
-
-    const { requestRate } = this.state;
-    const newRate = Object.keys(requestRate).map(i => <NewCurrency key={i} name={i} data={requestRate[i]}/>);
+    const { baseList } = this.props.baseList;
+    const { baseRates } = this.props.baseRates
+    
+    const baseListOption = Object.keys(baseList).map(i => <option value={i} key={i}>{i}</option>)
+    const baseRatesList = Object.keys(baseRates).map(i => <Currency key={i} name={i} data={baseRates[i]} />)
+    
     
     return (
       <div className='liveCurrency'>
-        <SearchCurrency />
-        <p className='coll'>Your base currency is <span>{base}</span></p>
-        <div className='row'>
-          <div className='col'>
-            {baseRates}
-          </div>
-          <div className='col'>
-            {newRate}
-          </div>
-        </div>
+        <form onSubmit={this.onSubmit}>
+          <label>
+            Change base Rate: 
+            <select
+              value= {this.state.base}
+              onChange={this.onChange}
+            >
+              <option defaultValue='GBP'>GBP</option>
+              {baseListOption}
+            </select>
+          </label>
+          <button
+            type='submit'
+            value='Submit'
+          >submit</button>
+        </form>
+        {baseRatesList}
       </div>
     )
   }
 };
 
-LiveCurrency.propTypes = {
-  errors: PropTypes.object.isRequired,
-  defaultRates: PropTypes.object.isRequired,
-  requestRate: PropTypes.object.isRequired,
-  firstCall: PropTypes.func.isRequired
-}
-
 const mapStateToProps = state => ({
   errors: state.errors,
-  defaultRates: state.defaultRates,
-  requestRate: state.requestRate
+  baseList: state.baseList,
+  baseRates: state.baseRates,
 });
 
-export default connect(mapStateToProps, { firstCall })(LiveCurrency);
-
-//fix send multiple values
+export default connect(mapStateToProps, { getBaseList, getBaseRates })(LiveCurrency);

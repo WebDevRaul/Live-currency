@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import errorReducer from './errorReducer';
-import firstCallReducer from './firstCallReducer';
-import submitRateReducer from './submitRateReducer';
+import getBaseListReducer from './getBaseListReducer';
+import getBaseRatesReducer from './getBaseRatesReducer';
 
 export default combineReducers({
   errors: errorReducer,
-  defaultRates: firstCallReducer,
-  requestRate: submitRateReducer
+  baseList: getBaseListReducer,
+  baseRates: getBaseRatesReducer
 });
