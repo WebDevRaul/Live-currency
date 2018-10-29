@@ -42,6 +42,47 @@ export default class Test extends Component {
     }
   } 
 
+
+  // if (isEmpty(text)) {
+  //   this.props.setError({ emptyInput: 'Please insert a value' })
+  // } else if (text.length > 3 && !text.includes(',')) {
+  //   this.props.setError({ greaterInput: 'For multiple value please insert " , "' })
+  // } else if (text.length > 3 && text.includes(',')) {
+  //   const split = text.split(',');
+  //   const value = split.map(i => i.trim());
+  //   let element;
+  //   for (let i = 0; i < value.length; i++) {
+  //     element = value[i];
+  //   }
+  //   if (element.length > 3) {
+  //     this.props.setError({ test: `${element} is not a valid value` })
+  //   }
+  // } else if (!isEmpty(text)) {
+  //   this.props.submitRate(text)
+  //   console.log(text)
+  // } else {
+  //   return null;
+  // }
+
+  // if (isEmpty(text)) {
+  //   this.props.setError({ emptyInput: 'Please insert a value' })
+  // };
+  // if (text.length > 3 && !text.includes(',')) {
+  //   this.props.setError({ greaterInput: 'For multiple value please insert " , "' })
+  // };
+  //  if (text.length > 3 && text.includes(',')) {
+  //   const split = text.split(',');
+  //   const value = split.map(i => i.trim());
+  //   let element;
+  //   for (let i = 0; i < value.length; i++) {
+  //     element = value[i];
+  //   }
+  //   if (element.length > 3) {
+  //     this.props.setError({ test: `${element} is not a valid value` })
+  //   }
+  // };
+
+
   render() {
     return (
       <div>
