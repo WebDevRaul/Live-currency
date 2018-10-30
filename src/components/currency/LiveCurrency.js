@@ -26,10 +26,8 @@ class LiveCurrency extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   };
 
-
-
   componentDidMount() {
-    const { base, symbols } = this.state
+    const { base, symbols } = this.state;
 
     this.props.getBaseList(base);
     this.props.getBaseRates(base, symbols);
@@ -61,6 +59,10 @@ class LiveCurrency extends Component {
 
   
   render() {
+    const { date } = this.props.baseList;
+    const newDate = new Date(date);
+    const yesterday = ( newDate => new Date(newDate.setDate(newDate.getDate()- 1)) )(new Date(date));
+
     const { baseList } = this.props.baseList;
     const { baseRates } = this.props.baseRates;
     const { newRate } = this.state.newRate;
@@ -90,6 +92,7 @@ class LiveCurrency extends Component {
                 </select>
               </label>
               <button
+                className='live'
                 type='submit'
                 value='Submit'
               >submit</button>

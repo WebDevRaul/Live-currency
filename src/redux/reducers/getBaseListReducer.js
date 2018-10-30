@@ -2,7 +2,8 @@ import { GET_BASE_LIST, GET_LOADING } from '../actions/types';
 
 const initialState = {
   loading: false,
-  baseList: {}
+  baseList: {},
+  date: ''
 };
 
 export default function(state = initialState, action) {
@@ -17,7 +18,8 @@ export default function(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        baseList: action.payload.rates
+        baseList: action.payload.rates,
+        date: action.payload.date
       }
 
     default:
