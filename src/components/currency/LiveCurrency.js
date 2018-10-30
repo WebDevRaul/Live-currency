@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { getBaseList } from '../../redux/actions/getBaseListAction';
 import { getBaseRates } from '../../redux/actions/getBaseRatesAction';
 import { getNewRates } from '../../redux/actions/getNewRatesAction';
+import { getYesterday } from '../../redux/actions/getYesterdayAction';
 
 //Css
 import '../css/LiveCurrency.css';
@@ -19,6 +20,7 @@ class LiveCurrency extends Component {
       base: 'GBP',
       symbols:['USD','EUR','CAD','CHF','JPY'],
       newRate: [],
+      date: '',
       errors: {},
     }
 
@@ -27,8 +29,11 @@ class LiveCurrency extends Component {
   };
 
   componentDidMount() {
-    const { base, symbols } = this.state;
+    const { base, symbols, date} = this.state;
+    const today = new Date(date).toDateString();
+    const yesterday = ( today => new Date(today.setDate(today.getDate() - 1)) )(new Date(date)).toDateString();
 
+    this.props.getYesterday(base,symbols,yesterday,today);
     this.props.getBaseList(base);
     this.props.getBaseRates(base, symbols);
   };
@@ -39,6 +44,9 @@ class LiveCurrency extends Component {
     }
     if (nextProps.newRate) {
       this.setState({ newRate: nextProps.newRate })
+    }
+    if (nextProps.date) {
+      this.setState({ date: nextProps.date })
     }
   };
 
@@ -59,7 +67,8 @@ class LiveCurrency extends Component {
 
   
   render() {
-    const { date } = this.props.baseList;
+    // const { date } = this.props.baseList;
+    const { date } = this.state;
     const today = new Date(date).toDateString();
     const yesterday = ( today => new Date(today.setDate(today.getDate() - 1)) )(new Date(date)).toDateString();
 
@@ -126,7 +135,9 @@ const mapStateToProps = state => ({
   errors: state.errors,
   baseList: state.baseList,
   baseRates: state.baseRates,
-  newRate: state.newRate
+  newRate: state.newRate,
+  date: state.baseList.date,
+  yesterdayRate: state.yesterdayRate
 });
 
-export default connect(mapStateToProps, { getBaseList, getBaseRates, getNewRates })(LiveCurrency);
+export default connect(mapStateToProps, { getBaseList, getBaseRates, getNewRates, getYesterday })(LiveCurrency);
