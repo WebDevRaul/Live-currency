@@ -60,8 +60,13 @@ class LiveCurrency extends Component {
   
   render() {
     const { date } = this.props.baseList;
-    const newDate = new Date(date);
-    const yesterday = ( newDate => new Date(newDate.setDate(newDate.getDate()- 1)) )(new Date(date));
+    const today = new Date(date);
+    const yesterday = ( today => new Date(today.setDate(today.getDate() - 1)) )(new Date(date)).toDateString();
+
+    //i dont like how it is(might not be accurate in future [364/365 days per year]) to fix
+    const lastYear = ( today => new Date(today.setDate(today.getDate() - 365)) )(new Date(date)).toDateString();
+    
+    console.log(lastYear)
 
     const { baseList } = this.props.baseList;
     const { baseRates } = this.props.baseRates;
@@ -102,8 +107,18 @@ class LiveCurrency extends Component {
             <SearchCurrency base={this.state.base} />
           </div>
         </div>
-        {baseRatesList}
         {newRateList}
+        <table>
+          <thead>
+            <th>Currency</th>
+            <th> up or down</th>
+            <th>{yesterday}</th>
+            <th>{lastYear}</th>
+          </thead>
+          <tbody>
+            {baseRatesList}
+          </tbody>
+        </table>
       </div>
     )
   }
