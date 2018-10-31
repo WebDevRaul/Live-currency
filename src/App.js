@@ -9,7 +9,7 @@ import LiveCurrency from './components/currency/LiveCurrency';
 import Landing from './components/layout/Landing';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-import Test from './Test';
+// import Test from './Test';
 
 //Css
 import './components/css/App.css';

@@ -10,5 +10,5 @@ export default combineReducers({
   baseList: getBaseListReducer,
   baseRates: getBaseRatesReducer,
   newRate: getNewRatesReducer,
-  yesterdayRate: getYesterdayReducer
+  yesterdayRate: getYesterdayReducer,
 });

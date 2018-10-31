@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import classnames from 'classnames';
+// import classnames from 'classnames';
 
 //Redux
 import { connect } from 'react-redux';
@@ -7,7 +7,7 @@ import { setError } from '../../redux/actions/commonAction';
 import { getNewRates } from '../../redux/actions/getNewRatesAction';
 
 //common
-import isEmpty from '../common/isEmpty';
+// import isEmpty from '../common/isEmpty';
 
 //Css
 import '../css/SearchCurrency.css';

@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import { getBaseList } from '../../redux/actions/getBaseListAction';
 import { getBaseRates } from '../../redux/actions/getBaseRatesAction';
 import { getNewRates } from '../../redux/actions/getNewRatesAction';
-import { getYesterday } from '../../redux/actions/getYesterdayAction';
 
 //Css
 import '../css/LiveCurrency.css';
@@ -20,7 +19,6 @@ class LiveCurrency extends Component {
       base: 'GBP',
       symbols:['USD','EUR','CAD','CHF','JPY'],
       newRate: [],
-      date: '',
       errors: {},
     }
 
@@ -29,12 +27,9 @@ class LiveCurrency extends Component {
   };
 
   componentDidMount() {
-    const { base, symbols, date} = this.state;
-    const today = new Date(date).toDateString();
-    const yesterday = ( today => new Date(today.setDate(today.getDate() - 1)) )(new Date(date)).toDateString();
-
-    this.props.getYesterday(base,symbols,yesterday,today);
-    this.props.getBaseList(base);
+    const { base, symbols } = this.state;
+    
+    this.props.getBaseList(base, symbols);
     this.props.getBaseRates(base, symbols);
   };
 
@@ -44,9 +39,6 @@ class LiveCurrency extends Component {
     }
     if (nextProps.newRate) {
       this.setState({ newRate: nextProps.newRate })
-    }
-    if (nextProps.date) {
-      this.setState({ date: nextProps.date })
     }
   };
 
@@ -64,13 +56,12 @@ class LiveCurrency extends Component {
     this.props.getNewRates(base, valRate);
   };
 
-
   
   render() {
-    // const { date } = this.props.baseList;
-    const { date } = this.state;
-    const today = new Date(date).toDateString();
-    const yesterday = ( today => new Date(today.setDate(today.getDate() - 1)) )(new Date(date)).toDateString();
+    const { date } = this.props.baseList;
+    const today = new Date(date).toDateString().substr(4);
+    const yesterday = ( today => new Date(today.setDate(today.getDate() - 1)) )(new Date(date)).toDateString().substr(4);
+
 
     //i dont like how it is(might not be accurate in future [364/365 days per year]) to fix
     const lastYear = ( today => new Date(today.setDate(today.getDate() - 365)) )(new Date(date)).toDateString();
@@ -86,7 +77,6 @@ class LiveCurrency extends Component {
     if (!isEmpty(newRate)) {
       newRateList = Object.keys(newRate).map(i => <Currency key={i} name={i} data={newRate[i]} />)
     }
-    
     
     return (
       <div className='liveCurrency'>
@@ -136,8 +126,7 @@ const mapStateToProps = state => ({
   baseList: state.baseList,
   baseRates: state.baseRates,
   newRate: state.newRate,
-  date: state.baseList.date,
   yesterdayRate: state.yesterdayRate
 });
 
-export default connect(mapStateToProps, { getBaseList, getBaseRates, getNewRates, getYesterday })(LiveCurrency);
+export default connect(mapStateToProps, { getBaseList, getBaseRates, getNewRates})(LiveCurrency);
