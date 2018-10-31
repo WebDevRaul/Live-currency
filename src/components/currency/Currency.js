@@ -10,7 +10,7 @@ export default class Currency extends Component {
         <tr>
           <td>{this.props.name} : {this.props.data}</td>
           <td>!</td>
-          <td>yesteday</td>
+          <td>{this.props.yesterday}</td>
           <td>last year</td>
         </tr>
       </tbody>

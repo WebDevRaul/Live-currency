@@ -58,25 +58,39 @@ class LiveCurrency extends Component {
 
   
   render() {
+
+    //Date
     const { date } = this.props.baseList;
     const today = new Date(date).toDateString().substr(4);
     const yesterday = ( today => new Date(today.setDate(today.getDate() - 1)) )(new Date(date)).toDateString().substr(4);
-
-
     //i dont like how it is(might not be accurate in future [364/365 days per year]) to fix
     const lastYear = ( today => new Date(today.setDate(today.getDate() - 365)) )(new Date(date)).toDateString();
 
+    //Props
     const { baseList } = this.props.baseList;
     const { baseRates } = this.props.baseRates;
     const { newRate } = this.state.newRate;
-    
-    const baseListOption = Object.keys(baseList).map(i => <option value={i} key={i}>{i}</option>)
-    const baseRatesList = Object.keys(baseRates).map(i => <Currency key={i} name={i} data={baseRates[i]} />)
+    const { yesterdayRate } = this.props.yesterdayRate;
 
+    //Checking for not empty
     let newRateList;
     if (!isEmpty(newRate)) {
       newRateList = Object.keys(newRate).map(i => <Currency key={i} name={i} data={newRate[i]} />)
     }
+    //--------------------
+    let xx;
+
+    if (!isEmpty(yesterdayRate)) {
+      xx = Object.keys(yesterdayRate).map(i => yesterdayRate[i])
+      console.log(xx[0]);
+      console.log(xx[0].USD)
+      let x = Object.keys(xx[0]).map(i => xx[0][i])
+      console.log(x);
+    }
+    
+    //Maping Obj
+    const baseListOption = Object.keys(baseList).map(i => <option value={i} key={i}>{i}</option>)
+    const baseRatesList = Object.keys(baseRates).map(i => <Currency key={i} name={i} data={baseRates[i]} id={i} />)
     
     return (
       <div className='liveCurrency'>
