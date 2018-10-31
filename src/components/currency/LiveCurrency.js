@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Currency from './Currency';
 import SearchCurrency from './SearchCurrency';
+import YesterdayCurrency from './YesterdayCurrency';
 
 //Redux
 import { connect } from 'react-redux';
@@ -78,14 +79,10 @@ class LiveCurrency extends Component {
       newRateList = Object.keys(newRate).map(i => <Currency key={i} name={i} data={newRate[i]} />)
     }
     //--------------------
-    let xx;
-
+    let dayBefore;
     if (!isEmpty(yesterdayRate)) {
-      xx = Object.keys(yesterdayRate).map(i => yesterdayRate[i])
-      console.log(xx[0]);
-      console.log(xx[0].USD)
-      let x = Object.keys(xx[0]).map(i => xx[0][i])
-      console.log(x);
+      const  data = Object.keys(yesterdayRate).map(i => yesterdayRate[i])
+      dayBefore = Object.keys(data[0]).map(i => <YesterdayCurrency key={data[0][i]} yesterday={data[0][i]} />)
     }
     
     //Maping Obj
@@ -128,7 +125,14 @@ class LiveCurrency extends Component {
               <th>{lastYear}</th>
             </tr>
           </thead>
-          {baseRatesList}
+          <tbody>
+            <tr>
+              {baseRatesList}
+              <td>!</td>
+              {dayBefore}
+              <td>last year</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     )
