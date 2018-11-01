@@ -5,7 +5,7 @@ import { GET_BASE_LIST, GET_ERRORS, GET_YESTERDAY_RATE } from './types';
 import { setLoading } from './commonAction';
 
 //Make request to exchangeratesapi.io for list base
-export const getBaseList = (base, newRates) => dispatch => {
+export const getBaseRate = (base, newRates) => dispatch => {
   dispatch(setLoading());
   axios
     .get(`https://api.exchangeratesapi.io/latest?base=${base}`)

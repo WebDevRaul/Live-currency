@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 import errorReducer from './errorReducer';
-import getBaseListReducer from './getBaseListReducer';
+import getBaseRate from './getBaseRate';
 import getBaseRatesReducer from './getBaseRatesReducer';
 import getNewRatesReducer from './getNewRatesReducer';
 import getYesterdayReducer from './getYesterdayReducer';
 
 export default combineReducers({
   errors: errorReducer,
-  baseList: getBaseListReducer,
+  baseList: getBaseRate,
   baseRates: getBaseRatesReducer,
   newRate: getNewRatesReducer,
   yesterdayRate: getYesterdayReducer,
