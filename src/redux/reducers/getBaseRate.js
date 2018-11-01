@@ -1,9 +1,8 @@
-import { GET_BASE_LIST, GET_LOADING } from '../actions/types';
+import { GET_BASE_RATE, GET_LOADING } from '../actions/types';
 
 const initialState = {
   loading: false,
-  baseList: {},
-  date: ''
+  baseRate: {},
 };
 
 export default function(state = initialState, action) {
@@ -14,12 +13,11 @@ export default function(state = initialState, action) {
         loading: true
       }
 
-    case GET_BASE_LIST:
+    case GET_BASE_RATE:
       return {
         ...state,
         loading: false,
-        baseList: action.payload.rates,
-        date: action.payload.date
+        baseRate: action.payload.rates,
       }
 
     default:

@@ -7,7 +7,7 @@ import getYesterdayReducer from './getYesterdayReducer';
 
 export default combineReducers({
   errors: errorReducer,
-  baseList: getBaseRate,
+  baseRate: getBaseRate,
   baseRates: getBaseRatesReducer,
   newRate: getNewRatesReducer,
   yesterdayRate: getYesterdayReducer,

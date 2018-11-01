@@ -30,7 +30,7 @@ class LiveCurrency extends Component {
   componentDidMount() {
     const { base, symbols } = this.state;
     
-    this.props.getBaseRate(base, symbols);
+    this.props.getBaseRate();
     this.props.getBaseRates(base, symbols);
   };
 
@@ -61,14 +61,14 @@ class LiveCurrency extends Component {
   render() {
 
     //Date
-    const { date } = this.props.baseList;
-    const today = new Date(date).toDateString().substr(4);
-    const yesterday = ( today => new Date(today.setDate(today.getDate() - 1)) )(new Date(date)).toDateString().substr(4);
-    //i dont like how it is(might not be accurate in future [364/365 days per year]) to fix
-    const lastYear = ( today => new Date(today.setDate(today.getDate() - 365)) )(new Date(date)).toDateString();
+    // const { date } = this.props.baseRate;
+    // const today = new Date(date).toDateString().substr(4);
+    // const yesterday = ( today => new Date(today.setDate(today.getDate() - 1)) )(new Date(date)).toDateString().substr(4);
+    // //i dont like how it is(might not be accurate in future [364/365 days per year]) to fix
+    // const lastYear = ( today => new Date(today.setDate(today.getDate() - 365)) )(new Date(date)).toDateString();
 
     //Props
-    const { baseList } = this.props.baseList;
+    const { baseRate } = this.props.baseRate;
     const { baseRates } = this.props.baseRates;
     const { newRate } = this.state.newRate;
     const { yesterdayRate } = this.props.yesterdayRate;
@@ -86,7 +86,7 @@ class LiveCurrency extends Component {
     }
     
     //Maping Obj
-    const baseListOption = Object.keys(baseList).map(i => <option value={i} key={i}>{i}</option>)
+    const baseRateOption = Object.keys(baseRate).map(i => <option value={i} key={i}>{i}</option>)
     const baseRatesList = Object.keys(baseRates).map(i => <Currency key={i} name={i} data={baseRates[i]} id={i} />)
     
     return (
@@ -101,7 +101,7 @@ class LiveCurrency extends Component {
                   onChange={this.onChange}
                 >
                   <option defaultValue='GBP'>GBP</option>
-                  {baseListOption}
+                  {baseRateOption}
                 </select>
               </label>
               <button
@@ -119,10 +119,10 @@ class LiveCurrency extends Component {
         <table>
           <thead>
             <tr>
-              <th>{today}</th>
+              {/* <th>{today}</th>
               <th>Up or Down</th>
               <th>{yesterday}</th>
-              <th>{lastYear}</th>
+              <th>{lastYear}</th> */}
             </tr>
           </thead>
           <tbody>
@@ -141,7 +141,7 @@ class LiveCurrency extends Component {
 
 const mapStateToProps = state => ({
   errors: state.errors,
-  baseList: state.baseList,
+  baseRate: state.baseRate,
   baseRates: state.baseRates,
   newRate: state.newRate,
   yesterdayRate: state.yesterdayRate
