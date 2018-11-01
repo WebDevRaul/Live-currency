@@ -50,7 +50,7 @@ class LiveCurrency extends Component {
   onSubmit(e) {
     e.preventDefault();
     const { base, symbols, newRate } = this.state;
-    this.props.getBaseRates(base, symbols);
+    this.props.getbasicRates(base, symbols);
 
     const NewRate = Object.keys(newRate).map(i => newRate[i]);
     const valRate = Object.keys(NewRate[1]).map(i => i);
@@ -69,7 +69,7 @@ class LiveCurrency extends Component {
 
     //Props
     const { baseRate } = this.props.baseRate;
-    const { baseRates } = this.props.baseRates;
+    const { basicRates } = this.props.basicRates;
     const { newRate } = this.state.newRate;
     const { yesterdayRate } = this.props.yesterdayRate;
 
@@ -87,7 +87,7 @@ class LiveCurrency extends Component {
     
     //Maping Obj
     const baseRateOption = Object.keys(baseRate).map(i => <option value={i} key={i}>{i}</option>)
-    const baseRatesList = Object.keys(baseRates).map(i => <Currency key={i} name={i} data={baseRates[i]} id={i} />)
+    const baseRatesList = Object.keys(basicRates).map(i => <Currency key={i} name={i} data={basicRates[i]} id={i} />)
     
     return (
       <div className='liveCurrency'>
@@ -142,7 +142,7 @@ class LiveCurrency extends Component {
 const mapStateToProps = state => ({
   errors: state.errors,
   baseRate: state.baseRate,
-  baseRates: state.baseRates,
+  basicRates: state.basicRates,
   newRate: state.newRate,
   yesterdayRate: state.yesterdayRate
 });

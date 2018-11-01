@@ -8,7 +8,7 @@ import getYesterdayReducer from './getYesterdayReducer';
 export default combineReducers({
   errors: errorReducer,
   baseRate: getBaseRate,
-  baseRates: getBasicRates,
+  basicRates: getBasicRates,
   newRate: getNewRatesReducer,
   yesterdayRate: getYesterdayReducer,
 });
