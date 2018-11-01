@@ -1,4 +1,4 @@
-import { GET_BASE_RATES, GET_LOADING } from '../actions/types';
+import { GET_BASIC_RATES, GET_LOADING } from '../actions/types';
 
 const initialState = {
   loading: false,
@@ -13,7 +13,7 @@ export default function(state = initialState, action) {
         loading: true
       }
 
-    case GET_BASE_RATES:
+    case GET_BASIC_RATES:
       return {
         ...state,
         loading: false,

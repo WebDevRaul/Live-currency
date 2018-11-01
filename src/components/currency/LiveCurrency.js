@@ -6,7 +6,7 @@ import YesterdayCurrency from './YesterdayCurrency';
 //Redux
 import { connect } from 'react-redux';
 import { getBaseRate } from '../../redux/actions/getBaseRate';
-import { getBaseRates } from '../../redux/actions/getBaseRatesAction';
+import { getBasicRates } from '../../redux/actions/getBaseRatesAction';
 import { getNewRates } from '../../redux/actions/getNewRatesAction';
 
 //Css
@@ -31,7 +31,7 @@ class LiveCurrency extends Component {
     const { base, symbols } = this.state;
     
     this.props.getBaseRate();
-    this.props.getBaseRates(base, symbols);
+    this.props.getBasicRates(base, symbols);
   };
 
   componentWillReceiveProps(nextProps) {
@@ -50,7 +50,7 @@ class LiveCurrency extends Component {
   onSubmit(e) {
     e.preventDefault();
     const { base, symbols, newRate } = this.state;
-    this.props.getBaseRates(base, symbols);
+    this.props.getBasicRates(base, symbols);
 
     const NewRate = Object.keys(newRate).map(i => newRate[i]);
     const valRate = Object.keys(NewRate[1]).map(i => i);
@@ -100,7 +100,7 @@ class LiveCurrency extends Component {
                   value= {this.state.base}
                   onChange={this.onChange}
                 >
-                  <option defaultValue='GBP'>GBP</option>
+                  <option defaultValue={this.state.base}>{this.state.base}</option>
                   {baseRateOption}
                 </select>
               </label>
@@ -147,4 +147,4 @@ const mapStateToProps = state => ({
   yesterdayRate: state.yesterdayRate
 });
 
-export default connect(mapStateToProps, { getBaseRate, getBaseRates, getNewRates})(LiveCurrency);
+export default connect(mapStateToProps, { getBaseRate, getBasicRates, getNewRates})(LiveCurrency);
