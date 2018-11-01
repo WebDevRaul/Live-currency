@@ -6,7 +6,7 @@ import YesterdayCurrency from './YesterdayCurrency';
 //Redux
 import { connect } from 'react-redux';
 import { getBaseRate } from '../../redux/actions/getBaseRate';
-import { getBasicRates } from '../../redux/actions/getBaseRatesAction';
+import { getBasicRates } from '../../redux/actions/getBasicRates';
 import { getNewRates } from '../../redux/actions/getNewRatesAction';
 
 //Css
@@ -50,7 +50,7 @@ class LiveCurrency extends Component {
   onSubmit(e) {
     e.preventDefault();
     const { base, symbols, newRate } = this.state;
-    this.props.getBasicRates(base, symbols);
+    this.props.getBaseRates(base, symbols);
 
     const NewRate = Object.keys(newRate).map(i => newRate[i]);
     const valRate = Object.keys(NewRate[1]).map(i => i);
