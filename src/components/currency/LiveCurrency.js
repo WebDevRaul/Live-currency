@@ -60,34 +60,45 @@ class LiveCurrency extends Component {
   
   render() {
 
-    //Date
+    //Show Date
     const { date } = this.props.basicRates;
     const today = new Date(date).toDateString().substr(4);
     const yesterday = ( today => new Date(today.setDate(today.getDate() - 1)) )(new Date(date)).toDateString().substr(4);
     //i dont like how it is(might not be accurate in future [364/365 days per year]) to fix
     const lastYear = ( today => new Date(today.setDate(today.getDate() - 365)) )(new Date(date)).toDateString();
 
-    //Props
+    //-------//-------//
+
+    //Select Base-Rate
     const { selectRate } = this.props.selectRate;
+    const baseRateOption = Object.keys(selectRate).map(i => <option value={i} key={i}>{i}</option>);
+
+    //-------//-------//
+
+    //Map Obj and display in Currency component
     const { basicRates } = this.props.basicRates;
+    const baseRatesList = Object.keys(basicRates).map(i => <Currency key={i} name={i} data={basicRates[i]} id={i} />);
+
+    //-------//-------//
+
+    //Show yesterday rates in yesterdayCurrency Component
+    const { yesterdayRate } = this.props.yesterdayRate; 
+    let dayBefore;
+    if (!isEmpty(yesterdayRate)) {
+      const  data = Object.keys(yesterdayRate).map(i => yesterdayRate[i])
+      dayBefore = Object.keys(data[0]).map(i => <YesterdayCurrency key={data[0][i]} yesterday={data[0][i]} />)
+    };
+
+    //-------//-------//
+
+    //Show new Rate
     const { newRate } = this.state.newRate;
-    const { yesterdayRate } = this.props.yesterdayRate;
 
     //Checking for not empty
     let newRateList;
     if (!isEmpty(newRate)) {
       newRateList = Object.keys(newRate).map(i => <Currency key={i} name={i} data={newRate[i]} />)
-    }
-    //--------------------
-    let dayBefore;
-    if (!isEmpty(yesterdayRate)) {
-      const  data = Object.keys(yesterdayRate).map(i => yesterdayRate[i])
-      dayBefore = Object.keys(data[0]).map(i => <YesterdayCurrency key={data[0][i]} yesterday={data[0][i]} />)
-    }
-    
-    //Maping Obj
-    const baseRateOption = Object.keys(selectRate).map(i => <option value={i} key={i}>{i}</option>)
-    const baseRatesList = Object.keys(basicRates).map(i => <Currency key={i} name={i} data={basicRates[i]} id={i} />)
+    };
     
     return (
       <div className='liveCurrency'>
