@@ -5,7 +5,7 @@ import YesterdayCurrency from './YesterdayCurrency';
 
 //Redux
 import { connect } from 'react-redux';
-import { getBaseRate } from '../../redux/actions/getBaseRate';
+import { getSelectRate } from '../../redux/actions/getBaseRate';
 import { getBasicRates } from '../../redux/actions/getBasicRates';
 import { getNewRates } from '../../redux/actions/getNewRatesAction';
 
@@ -30,7 +30,7 @@ class LiveCurrency extends Component {
   componentDidMount() {
     const { base, symbols } = this.state;
     
-    this.props.getBaseRate();
+    this.props.getSelectRate();
     this.props.getBasicRates(base, symbols);
   };
 
@@ -147,4 +147,4 @@ const mapStateToProps = state => ({
   yesterdayRate: state.yesterdayRate
 });
 
-export default connect(mapStateToProps, { getBaseRate, getBasicRates, getNewRates})(LiveCurrency);
+export default connect(mapStateToProps, { getSelectRate, getBasicRates, getNewRates})(LiveCurrency);
