@@ -2,7 +2,7 @@ import { GET_SELECT_RATE, GET_LOADING } from '../actions/types';
 
 const initialState = {
   loading: false,
-  baseRate: {},
+  selectRate: {},
 };
 
 export default function(state = initialState, action) {
@@ -17,7 +17,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        baseRate: action.payload.rates,
+        selectRate: action.payload.rates,
       }
 
     default:

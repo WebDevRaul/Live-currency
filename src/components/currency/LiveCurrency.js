@@ -5,7 +5,7 @@ import YesterdayCurrency from './YesterdayCurrency';
 
 //Redux
 import { connect } from 'react-redux';
-import { getSelectRate } from '../../redux/actions/getBaseRate';
+import { getSelectRate } from '../../redux/actions/getSelectRate';
 import { getBasicRates } from '../../redux/actions/getBasicRates';
 import { getNewRates } from '../../redux/actions/getNewRatesAction';
 
@@ -68,7 +68,7 @@ class LiveCurrency extends Component {
     // const lastYear = ( today => new Date(today.setDate(today.getDate() - 365)) )(new Date(date)).toDateString();
 
     //Props
-    const { baseRate } = this.props.baseRate;
+    const { selectRate } = this.props.selectRate;
     const { basicRates } = this.props.basicRates;
     const { newRate } = this.state.newRate;
     const { yesterdayRate } = this.props.yesterdayRate;
@@ -86,7 +86,7 @@ class LiveCurrency extends Component {
     }
     
     //Maping Obj
-    const baseRateOption = Object.keys(baseRate).map(i => <option value={i} key={i}>{i}</option>)
+    const baseRateOption = Object.keys(selectRate).map(i => <option value={i} key={i}>{i}</option>)
     const baseRatesList = Object.keys(basicRates).map(i => <Currency key={i} name={i} data={basicRates[i]} id={i} />)
     
     return (
@@ -141,7 +141,7 @@ class LiveCurrency extends Component {
 
 const mapStateToProps = state => ({
   errors: state.errors,
-  baseRate: state.baseRate,
+  selectRate: state.selectRate,
   basicRates: state.basicRates,
   newRate: state.newRate,
   yesterdayRate: state.yesterdayRate
