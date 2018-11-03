@@ -33,7 +33,7 @@ class SearchCurrency extends Component {
     this.setState({ text: [] });
   }
 
-  onChange(e) {
+  onChange(e){
     this.setState({ text: e.target.value })
   }
 

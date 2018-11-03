@@ -49,12 +49,13 @@ class LiveCurrency extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const { base, symbols, newRate } = this.state;
-    this.props.getbasicRates(base, symbols);
 
-    const NewRate = Object.keys(newRate).map(i => newRate[i]);
-    const valRate = Object.keys(NewRate[1]).map(i => i);
-    this.props.getNewRates(base, valRate);
+    const { base, symbols, newRate } = this.state;
+    this.props.getBasicRates(base, symbols);
+
+    // const NewRate = Object.keys(newRate).map(i => newRate[i]);
+    // const valRate = Object.keys(NewRate[1]).map(i => i);
+    // this.props.getNewRates(base, valRate);
   };
 
   
