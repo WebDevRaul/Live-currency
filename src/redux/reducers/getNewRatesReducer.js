@@ -1,8 +1,9 @@
-import { GET_NEW_RATE, GET_LOADING } from '../actions/types';
+import { GET_NEW_RATE, GET_YESTERDAY_NEW_RATE, GET_LOADING } from '../actions/types';
 
 const initialState = {
   loading: false,
-  newRate: {}
+  newRate: {},
+  yesterdayNewRate: {}
 }
 
 export default function(state = initialState, action) {
@@ -17,8 +18,15 @@ export default function(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        newRate: action.payload
+        newRate: action.payload.rates
       }
+    
+    case GET_YESTERDAY_NEW_RATE:
+    return {
+      ...state,
+      loading: false,
+      yesterdayNewRate: action.payload
+    }
 
     default:
       return state;

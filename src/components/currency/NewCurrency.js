@@ -6,9 +6,9 @@ import '../css/NewCurrency.css'
 class NewCurrency extends Component {
   render() {
     return (
-      <div className='newCurrency'>
-        <p>{this.props.name} : {this.props.data}</p>
-      </div>
+      <tr>
+        <td>{this.props.yesterday}</td>
+      </tr>
     )
   }
 }

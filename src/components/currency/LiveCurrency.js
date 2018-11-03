@@ -12,6 +12,7 @@ import { getNewRates } from '../../redux/actions/getNewRatesAction';
 //Css
 import '../css/LiveCurrency.css';
 import isEmpty from '../common/isEmpty';
+import NewCurrency from './NewCurrency';
 
 class LiveCurrency extends Component {
   constructor(props) {
@@ -52,10 +53,6 @@ class LiveCurrency extends Component {
 
     const { base, symbols, newRate } = this.state;
     this.props.getBasicRates(base, symbols);
-
-    // const NewRate = Object.keys(newRate).map(i => newRate[i]);
-    // const valRate = Object.keys(NewRate[1]).map(i => i);
-    // this.props.getNewRates(base, valRate);
   };
 
   
@@ -100,6 +97,17 @@ class LiveCurrency extends Component {
     if (!isEmpty(newRate)) {
       newRateList = Object.keys(newRate).map(i => <Currency key={i} name={i} data={newRate[i]} />)
     };
+
+    //-------//-------//
+
+    //Show yesterday new Rate
+    const { yesterdayNewRate } = this.props.newRate;
+    let newRatedayBefore;
+    if (!isEmpty(yesterdayNewRate)) {
+      const  dataNewRate = Object.keys(yesterdayNewRate).map(i => yesterdayNewRate[i]);
+      newRatedayBefore = Object.keys(dataNewRate[0]).map(i => <NewCurrency key={dataNewRate[0][i]} yesterday={dataNewRate[0][i]} />)
+    };
+    
     
     return (
       <div className='liveCurrency'>
@@ -127,7 +135,6 @@ class LiveCurrency extends Component {
             <SearchCurrency base={this.state.base} />
           </div>
         </div>
-        {newRateList}
         <table>
           <thead>
             <tr>
@@ -139,9 +146,11 @@ class LiveCurrency extends Component {
           </thead>
           <tbody>
             <tr>
-              {baseRatesList}
+            {baseRatesList}
+            {newRateList}
               <td>!</td>
               {dayBefore}
+              {newRatedayBefore}
               <td>last year</td>
             </tr>
           </tbody>
