@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 //Redux
 import { connect } from 'react-redux';
 import { setError } from '../../redux/actions/commonAction';
-import { getNewRates } from '../../redux/actions/getNewRatesAction';
+import { getNewRates } from '../../redux/actions/getNewRates';
 
 //common
 // import isEmpty from '../common/isEmpty';

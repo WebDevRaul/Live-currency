@@ -7,7 +7,7 @@ import YesterdayCurrency from './YesterdayCurrency';
 import { connect } from 'react-redux';
 import { getSelectRate } from '../../redux/actions/getSelectRate';
 import { getBasicRates } from '../../redux/actions/getBasicRates';
-import { getNewRates } from '../../redux/actions/getNewRatesAction';
+import { getNewRates } from '../../redux/actions/getNewRates';
 
 //Css
 import '../css/LiveCurrency.css';
@@ -103,9 +103,11 @@ class LiveCurrency extends Component {
     //Show yesterday new Rate
     const { yesterdayNewRate } = this.props.newRate;
     let newRatedayBefore;
+
+    //Checking for not empty
     if (!isEmpty(yesterdayNewRate)) {
       const  dataNewRate = Object.keys(yesterdayNewRate).map(i => yesterdayNewRate[i]);
-      newRatedayBefore = Object.keys(dataNewRate[0]).map(i => <NewCurrency key={dataNewRate[0][i]} yesterday={dataNewRate[0][i]} />)
+      newRatedayBefore = Object.keys(dataNewRate[0]).map(i => <NewCurrency key={dataNewRate[0][i]} yesterday={dataNewRate[0][i]} />);
     };
     
     
@@ -146,8 +148,8 @@ class LiveCurrency extends Component {
           </thead>
           <tbody>
             <tr>
-            {baseRatesList}
-            {newRateList}
+              {baseRatesList}
+              {newRateList}
               <td>!</td>
               {dayBefore}
               {newRatedayBefore}
