@@ -3,7 +3,7 @@ import errorReducer from './errorReducer';
 import getSelectRate from './getSelectRate';
 import getBasicRates from './getBasicRates';
 import getNewRatesReducer from './getNewRates';
-import getYesterdayReducer from './getYesterdayReducer';
+import getYesterdayReducer from './getYesterday';
 
 export default combineReducers({
   errors: errorReducer,
