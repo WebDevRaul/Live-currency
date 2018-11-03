@@ -26,7 +26,7 @@ class SearchCurrency extends Component {
   onSubmit(e) {
     e.preventDefault();
     const { text } = this.state;
-    this.props.getNewRates(this.props.base, text)
+    this.props.getNewRates(this.props.base, text);
     this.setState({ text: [] });
   }
 

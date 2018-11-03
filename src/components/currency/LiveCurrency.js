@@ -53,6 +53,10 @@ class LiveCurrency extends Component {
 
     const { base, symbols, newRate } = this.state;
     this.props.getBasicRates(base, symbols);
+    const NewRate = Object.keys(newRate).map(i => newRate[i]);
+    const valRate = Object.keys(NewRate[1]).map(i => i);
+    console.log(valRate);
+    this.props.getNewRates(base, valRate);
   };
 
   
