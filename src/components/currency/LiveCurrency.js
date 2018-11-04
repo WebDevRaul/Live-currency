@@ -66,8 +66,9 @@ class LiveCurrency extends Component {
     const { date } = this.props.basicRates;
     const today = new Date(date).toDateString().substr(4);
     const yesterday = ( today => new Date(today.setDate(today.getDate() - 1)) )(new Date(date)).toDateString().substr(4);
-    //i dont like how it is(might not be accurate in future [364/365 days per year]) to fix
-    const lastYear = ( today => new Date(today.setDate(today.getDate() - 365)) )(new Date(date)).toDateString();
+    //change year
+    const LastYear = new Date(date).getFullYear() - 1;
+    const lastYear = ( today => new Date(today.setFullYear(LastYear)) )(new Date(date)).toDateString().substr(4);
 
     //-------//-------//
 
@@ -87,8 +88,8 @@ class LiveCurrency extends Component {
     const { yesterdayRate } = this.props.yesterdayRate; 
     let dayBefore;
     if (!isEmpty(yesterdayRate)) {
-      const  data = Object.keys(yesterdayRate).map(i => yesterdayRate[i])
-      dayBefore = Object.keys(data[0]).map(i => <YesterdayCurrency key={data[0][i]} yesterday={data[0][i]} />)
+      const  dataRate = Object.keys(yesterdayRate).map(i => yesterdayRate[i])
+      dayBefore = Object.keys(dataRate[0]).map(i => <YesterdayCurrency key={dataRate[0][i]} yesterday={dataRate[0][i]} />)
     };
 
     //-------//-------//
