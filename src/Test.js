@@ -114,3 +114,19 @@ export default class Test extends Component {
     //       payload: err.response.data
     //     }))
     // })
+
+    // .then(res => {
+    //   const date = res.payload.date;
+    //   const LastYear = new Date(date).getFullYear() - 1;
+    //   const lastYear = ( today => new Date(today.setFullYear(LastYear)) )(new Date(date)).toISOString().slice(0, 10)
+    //   axios
+    //     .get(`https://api.exchangeratesapi.io/history?start_at=${lastYear}&end_at=${lastYear}&symbols=${newRates}&base=${base}`)
+    //     .then(res => dispatch({
+    //       type: GET_LAST_YEAR,
+    //       payload: res.data.rates
+    //     }))
+    //     .catch(err => dispatch({
+    //       type: GET_ERRORS,
+    //       payload: err.response.data
+    //     }))
+    // })

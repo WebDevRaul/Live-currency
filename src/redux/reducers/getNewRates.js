@@ -3,7 +3,7 @@ import { GET_NEW_RATE, GET_YESTERDAY_NEW_RATE, GET_LOADING } from '../actions/ty
 const initialState = {
   loading: false,
   newRate: {},
-  yesterdayNewRate: {}
+  yesterdayNewRate: {},
 }
 
 export default function(state = initialState, action) {
@@ -22,11 +22,11 @@ export default function(state = initialState, action) {
       }
     
     case GET_YESTERDAY_NEW_RATE:
-    return {
-      ...state,
-      loading: false,
-      yesterdayNewRate: action.payload
-    }
+      return {
+        ...state,
+        loading: false,
+        yesterdayNewRate: action.payload
+      }
 
     default:
       return state;

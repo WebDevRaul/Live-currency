@@ -175,4 +175,4 @@ const mapStateToProps = state => ({
   yesterdayRate: state.yesterdayRate
 });
 
-export default connect(mapStateToProps, { getSelectRate, getBasicRates, getNewRates})(LiveCurrency);
+export default connect(mapStateToProps, { getSelectRate, getBasicRates, getNewRates })(LiveCurrency);
