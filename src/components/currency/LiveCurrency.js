@@ -87,10 +87,10 @@ class LiveCurrency extends Component {
 
     //Show yesterday rates in yesterdayCurrency Component
     const { yesterdayRate } = this.props.yesterdayRate; 
-    let yesterdayRates;
+    let baseRatesYesterday;
     if (!isEmpty(yesterdayRate)) {
       const  dataRate = Object.keys(yesterdayRate).map(i => yesterdayRate[i]);
-      yesterdayRates = Object.keys(dataRate[0]).map(i => <YesterdayCurrency key={dataRate[0][i]} yesterday={dataRate[0][i]} />)
+      baseRatesYesterday = Object.keys(dataRate[0]).map(i => <YesterdayCurrency key={dataRate[0][i]} yesterday={dataRate[0][i]} />)
     };
 
     //-------//-------//
@@ -120,12 +120,12 @@ class LiveCurrency extends Component {
 
     //Show last year Rate
     const { lastYearRate } = this.props.lastYearRate;
-    let lastYearRates;
+    let baseRatesLastYear;
 
     //Checking for not empty
     if (!isEmpty(lastYearRate)) {
       const  dataRate = Object.keys(lastYearRate).map(i => lastYearRate[i]);
-      lastYearRates = Object.keys(dataRate[0]).map(i => <LastYearRate key={dataRate[0][i]} lastYear={dataRate[0][i]} />)
+      baseRatesLastYear = Object.keys(dataRate[0]).map(i => <LastYearRate key={dataRate[0][i]} lastYear={dataRate[0][i]} />)
     };
 
     return (
@@ -168,9 +168,9 @@ class LiveCurrency extends Component {
               {baseRatesList}
               {newRateList}
               <td>!</td>
-              {yesterdayRates}
+              {baseRatesYesterday}
               {newRatedayBefore}
-              <td>{lastYearRates}</td>
+              <td>{baseRatesLastYear}</td>
             </tr>
           </tbody>
         </table>
