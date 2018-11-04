@@ -66,10 +66,10 @@ class LiveCurrency extends Component {
     //Show Date
     const { date } = this.props.basicRates;
     const today = new Date(date).toDateString().substr(4);
-    const yesterday = ( today => new Date(today.setDate(today.getDate() - 1)) )(new Date(date)).toDateString().substr(4);
+    const yesterdayDate = ( today => new Date(today.setDate(today.getDate() - 1)) )(new Date(date)).toDateString().substr(4);
     //change year
     const LastYear = new Date(date).getFullYear() - 1;
-    const lastYear = ( today => new Date(today.setFullYear(LastYear)) )(new Date(date)).toDateString().substr(4);
+    const lastYearDate = ( today => new Date(today.setFullYear(LastYear)) )(new Date(date)).toDateString().substr(4);
 
     //-------//-------//
 
@@ -87,10 +87,10 @@ class LiveCurrency extends Component {
 
     //Show yesterday rates in yesterdayCurrency Component
     const { yesterdayRate } = this.props.yesterdayRate; 
-    let dayBefore;
+    let yesterdayRates;
     if (!isEmpty(yesterdayRate)) {
-      const  dataRate = Object.keys(yesterdayRate).map(i => yesterdayRate[i])
-      dayBefore = Object.keys(dataRate[0]).map(i => <YesterdayCurrency key={dataRate[0][i]} yesterday={dataRate[0][i]} />)
+      const  dataRate = Object.keys(yesterdayRate).map(i => yesterdayRate[i]);
+      yesterdayRates = Object.keys(dataRate[0]).map(i => <YesterdayCurrency key={dataRate[0][i]} yesterday={dataRate[0][i]} />)
     };
 
     //-------//-------//
@@ -119,12 +119,15 @@ class LiveCurrency extends Component {
     //-------//-------//
 
     //Show last year Rate
-    const { lastYearRate } = this.props;
-    let yearBefore;
+    const { lastYearRate } = this.props.lastYearRate;
+    let lastYearRates;
+
+    //Checking for not empty
     if (!isEmpty(lastYearRate)) {
-      console.log(lastYearRate)
+      const  dataRate = Object.keys(lastYearRate).map(i => lastYearRate[i]);
+      lastYearRates = Object.keys(dataRate[0]).map(i => <LastYearRate key={dataRate[0][i]} lastYear={dataRate[0][i]} />)
     };
-    
+
     return (
       <div className='liveCurrency'>
         <div className='row'>
@@ -156,8 +159,8 @@ class LiveCurrency extends Component {
             <tr>
               <th>{today}</th>
               <th>Up or Down</th>
-              <th>{yesterday}</th>
-              <th>{lastYear}</th>
+              <th>{yesterdayDate}</th>
+              <th>{lastYearDate}</th>
             </tr>
           </thead>
           <tbody>
@@ -165,9 +168,9 @@ class LiveCurrency extends Component {
               {baseRatesList}
               {newRateList}
               <td>!</td>
-              {dayBefore}
+              {yesterdayRates}
               {newRatedayBefore}
-              <td>{}</td>
+              <td>{lastYearRates}</td>
             </tr>
           </tbody>
         </table>
