@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { getSelectRate } from '../../redux/actions/getSelectRate';
 import { getBasicRates } from '../../redux/actions/getBasicRates';
 import { getNewRates } from '../../redux/actions/getNewRates';
+import LastYearRate from './LastYearRate';
 
 //Css
 import '../css/LiveCurrency.css';
@@ -114,7 +115,15 @@ class LiveCurrency extends Component {
       const  dataNewRate = Object.keys(yesterdayNewRate).map(i => yesterdayNewRate[i]);
       newRatedayBefore = Object.keys(dataNewRate[0]).map(i => <NewCurrency key={dataNewRate[0][i]} yesterday={dataNewRate[0][i]} />);
     };
-    
+
+    //-------//-------//
+
+    //Show last year Rate
+    const { lastYearRate } = this.props;
+    let yearBefore;
+    if (!isEmpty(lastYearRate)) {
+      console.log(lastYearRate)
+    };
     
     return (
       <div className='liveCurrency'>
@@ -158,7 +167,7 @@ class LiveCurrency extends Component {
               <td>!</td>
               {dayBefore}
               {newRatedayBefore}
-              <td>last year</td>
+              <td>{}</td>
             </tr>
           </tbody>
         </table>
@@ -171,6 +180,7 @@ const mapStateToProps = state => ({
   errors: state.errors,
   selectRate: state.selectRate,
   basicRates: state.basicRates,
+  lastYearRate: state.lastYearRate,
   newRate: state.newRate,
   yesterdayRate: state.yesterdayRate
 });
