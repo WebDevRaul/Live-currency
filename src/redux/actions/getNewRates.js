@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_NEW_RATE, GET_YESTERDAY_NEW_RATE, GET_LAST_YEAR, GET_ERRORS } from './types';
+import { GET_NEW_RATE, GET_YESTERDAY_NEW_RATE, GET_NEW_LAST_YEAR, GET_ERRORS } from './types';
 
 //import Loading action
 import { setLoading } from './commonAction';
@@ -41,7 +41,7 @@ export const getNewRates = (base, newRates) => dispatch => {
           axios
             .get(`https://api.exchangeratesapi.io/history?start_at=${lastYear}&end_at=${lastYear}&symbols=${newRates}&base=${base}`)
             .then(res => dispatch({
-              type: GET_LAST_YEAR,
+              type: GET_NEW_LAST_YEAR,
               payload: res.data.rates
             }))
             .catch(err => dispatch({
