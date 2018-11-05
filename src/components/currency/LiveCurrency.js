@@ -95,29 +95,6 @@ class LiveCurrency extends Component {
 
     //-------//-------//
 
-    //Show new Rate
-    const { newRate } = this.state.newRate;
-
-    //Checking for not empty
-    let newRateList;
-    if (!isEmpty(newRate)) {
-      newRateList = Object.keys(newRate).map(i => <Currency key={i} name={i} data={newRate[i]} />)
-    };
-
-    //-------//-------//
-
-    //Show yesterday new Rate
-    const { yesterdayNewRate } = this.props.newRate;
-    let newRatedayBefore;
-
-    //Checking for not empty
-    if (!isEmpty(yesterdayNewRate)) {
-      const  dataNewRate = Object.keys(yesterdayNewRate).map(i => yesterdayNewRate[i]);
-      newRatedayBefore = Object.keys(dataNewRate[0]).map(i => <NewCurrency key={dataNewRate[0][i]} yesterday={dataNewRate[0][i]} />);
-    };
-
-    //-------//-------//
-
     //Show last year Rate
     const { lastYearRate } = this.props.lastYearRate;
     let baseRatesLastYear;
@@ -126,6 +103,41 @@ class LiveCurrency extends Component {
     if (!isEmpty(lastYearRate)) {
       const  dataRate = Object.keys(lastYearRate).map(i => lastYearRate[i]);
       baseRatesLastYear = Object.keys(dataRate[0]).map(i => <LastYearRate key={dataRate[0][i]} lastYear={dataRate[0][i]} />)
+    };
+
+    //-------//-------//
+
+    //Show new Rate
+    const { newRate } = this.state.newRate;
+
+    //Checking for not empty
+    let newRateToday;
+    if (!isEmpty(newRate)) {
+      newRateToday = Object.keys(newRate).map(i => <Currency key={i} name={i} data={newRate[i]} />)
+    };
+
+    //-------//-------//
+
+    //Show yesterday new Rate
+    const { yesterdayNewRate } = this.props.newRate;
+    let newRateYesterday;
+
+    //Checking for not empty
+    if (!isEmpty(yesterdayNewRate)) {
+      const  dataNewRate = Object.keys(yesterdayNewRate).map(i => yesterdayNewRate[i]);
+      newRateYesterday = Object.keys(dataNewRate[0]).map(i => <NewCurrency key={dataNewRate[0][i]} yesterday={dataNewRate[0][i]} />);
+    };
+
+    //-------//-------//
+
+    //Show last year new RAte
+    const { lastYearNewRate } = this.props.newRate;
+    let newRateLastYear;
+
+    //Checking for not empty
+    if (!isEmpty(lastYearNewRate)) {
+      const  dataRate = Object.keys(lastYearNewRate).map(i => lastYearNewRate[i]);
+      newRateLastYear = Object.keys(dataRate[0]).map(i => <LastYearRate key={dataRate[0][i]} lastYear={dataRate[0][i]} />)
     };
 
     return (
@@ -166,11 +178,14 @@ class LiveCurrency extends Component {
           <tbody>
             <tr>
               {baseRatesList}
-              {newRateList}
+              {newRateToday}
               <td>!</td>
               {baseRatesYesterday}
-              {newRatedayBefore}
-              <td>{baseRatesLastYear}</td>
+              {newRateYesterday}
+              <td>
+                {baseRatesLastYear}
+                {newRateLastYear}
+              </td>
             </tr>
           </tbody>
         </table>
