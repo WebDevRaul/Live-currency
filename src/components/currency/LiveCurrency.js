@@ -204,3 +204,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { getSelectRate, getBasicRates, getNewRates })(LiveCurrency);
+
+
+//To fix change rate at basic rates gives all rates
