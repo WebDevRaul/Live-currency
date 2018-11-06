@@ -8,12 +8,18 @@ class SelectRate extends Component {
   constructor() {
     super();
     this.state = {
-      base: 'GBP'
+      base: 'GBP',
+
     }
+    this.onChange = this.onChange.bind(this);
   }
 
   componentDidMount() {
     this.props.getSelect_Rate();
+  };
+
+  onChange(e) {
+    this.setState({ base: e.target.value })
   }
 
   render() {
@@ -23,7 +29,7 @@ class SelectRate extends Component {
     //Option Dropdown List
     const { selectRate } = this.props.selectRate;
     //typeof(selectRate) Obj
-    const option = Object.keys(selectRate).map(i => <option key={i}>{i}</option>)
+    const option = Object.keys(selectRate).map(i => <option key={i}>{i}</option>);
 
 
     return (
@@ -33,8 +39,7 @@ class SelectRate extends Component {
             Change base Rate: 
             <select
               value= {this.state.base}
-              // onChange={this.onChange}
-              >
+              onChange={this.onChange}>
               <option 
                 defaultValue={base}>
                 {base}

@@ -14,11 +14,11 @@ class TableRate extends Component {
         </thead>
         <tbody>
           <tr>
-            baseRatesList
-            newRateToday
+            <td>baseRatesList
+            newRateToday</td>
             <td>!</td>
-            baseRatesYesterday
-            newRateYesterday
+            <td>baseRatesYesterday
+            newRateYesterday</td>
             <td>
               baseRatesLastYear
               newRateLastYear
