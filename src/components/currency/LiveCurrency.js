@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Currency from './Currency';
 import SearchCurrency from './SearchCurrency';
 import YesterdayCurrency from './YesterdayCurrency';
-import axios from 'axios'
+import NewCurrency from './NewCurrency';
+
 //Redux
 import { connect } from 'react-redux';
 import { getSelectRate } from '../../redux/actions/getSelectRate';
@@ -12,16 +13,17 @@ import LastYearRate from './LastYearRate';
 
 //Css
 import '../css/LiveCurrency.css';
+
+//Common
 import isEmpty from '../common/isEmpty';
-import NewCurrency from './NewCurrency';
 
 class LiveCurrency extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      base: '',
+      base: 'GBP',
       symbols:['USD','EUR','CAD','CHF','JPY'],
-      newRate: [],
+      newRate: '',
       errors: {},
     }
 
@@ -55,9 +57,12 @@ class LiveCurrency extends Component {
     const { base, symbols, newRate } = this.state;
     this.props.getBasicRates(base, symbols);
 
-    // const NewRate = Object.keys(newRate).map(i => newRate[i]);
-    // const valRate = Object.keys(NewRate[1]).map(i => i);
-    // this.props.getNewRates(base, valRate);
+    const NewRate = Object.keys(newRate).map(i => newRate[i]);
+    const valRate = Object.keys(NewRate[1]).map(i => i);
+
+    if (!isEmpty(valRate)) {
+      this.props.getNewRates(base, valRate);
+    }
   };
 
   

@@ -15,7 +15,7 @@ export const getNewRates = (base, newRates) => dispatch => {
     .then(res => {
       const date = res.payload.date;
       const today = new Date(date).toISOString().slice(0, 10);
-      const yesterday = ( today => new Date(today.setDate(today.getDate() - 1)) )(new Date(date)).toISOString().slice(0, 10);
+      const yesterday = ( today => new Date(today.setDate(today.getDate() - 3)) )(new Date(date)).toISOString().slice(0, 10);
       axios
         .get(`https://api.exchangeratesapi.io/history?start_at=${yesterday}&end_at=${yesterday}&symbols=${newRates}&base=${base}`)
         .then(res => dispatch({
@@ -36,7 +36,7 @@ export const getNewRates = (base, newRates) => dispatch => {
         }))
         .then(res => {
           const date = res.payload.date;
-          const LastYear = new Date(date).getFullYear() - 1;
+          const LastYear = new Date(date).getFullYear() - 3;
           const lastYear = ( today => new Date(today.setFullYear(LastYear)) )(new Date(date)).toISOString().slice(0, 10);
           axios
             .get(`https://api.exchangeratesapi.io/history?start_at=${lastYear}&end_at=${lastYear}&symbols=${newRates}&base=${base}`)
