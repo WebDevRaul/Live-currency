@@ -16,7 +16,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        selectRate: Object.keys(action.payload).map(i => i)
+        selectRate: action.payload
       }
     default:
       return state;

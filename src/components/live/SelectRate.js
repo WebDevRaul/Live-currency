@@ -17,6 +17,15 @@ class SelectRate extends Component {
   }
 
   render() {
+
+    const { base } = this.state;
+    
+    //Option Dropdown List
+    const { selectRate } = this.props.selectRate;
+    //typeof(selectRate) Obj
+    const option = Object.keys(selectRate).map(i => <option key={i}>{i}</option>)
+
+
     return (
       <div>
         <form onSubmit={this.onSubmit}>
@@ -24,12 +33,13 @@ class SelectRate extends Component {
             Change base Rate: 
             <select
               value= {this.state.base}
-              onChange={this.onChange}>
+              // onChange={this.onChange}
+              >
               <option 
-                defaultValue='GBP'>
-                GBP
+                defaultValue={base}>
+                {base}
               </option>
-              .....
+              {option}
             </select>
           </label>
           <button 
@@ -44,5 +54,9 @@ class SelectRate extends Component {
   }
 }
 
-export default connect(null, { getSelect_Rate })(SelectRate)
+const mapStateToProps = state => ({
+  selectRate: state.selectRate
+})
+
+export default connect(mapStateToProps, { getSelect_Rate })(SelectRate)
 
