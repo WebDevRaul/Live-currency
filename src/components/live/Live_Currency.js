@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
 //Components
-import Select_Rate from './Select_Rate';
+import SelectRate from './SelectRate';
+import TableRate from './TableRate';
 
 //Redux
 import { connect } from 'react-redux';
 
 //Css
 import '../css/LiveCurrency.css'
-import Table_Rate from './Table_Rate';
 
 class Live_Currency extends Component {
   constructor(props){
@@ -27,7 +27,7 @@ class Live_Currency extends Component {
       <div className='liveCurrency'>
       <div className='row'>
         <div className='col'>
-          <Select_Rate />
+          <SelectRate />
         </div>
         <div className='col'>
           searchBar
@@ -35,7 +35,7 @@ class Live_Currency extends Component {
       </div>
       <div className='row'>
         <div className='col'>
-          <Table_Rate />
+          <TableRate />
         </div>
       </div>
     </div>

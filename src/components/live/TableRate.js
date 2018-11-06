@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Table_Rate extends Component {
+class TableRate extends Component {
   render() {
     return (
       <table>
@@ -30,4 +30,4 @@ class Table_Rate extends Component {
   }
 }
 
-export default Table_Rate;
+export default TableRate;

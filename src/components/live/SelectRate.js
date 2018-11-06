@@ -1,6 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-class Select_Rate extends Component {
+//Redux
+import { connect } from 'react-redux';
+import { getSelect_Rate } from '../../redux/actions/getSelect_Rate';
+
+class SelectRate extends Component {
   constructor() {
     super();
     this.state = {
@@ -9,7 +13,7 @@ class Select_Rate extends Component {
   }
 
   componentDidMount() {
-    // this.props.getSelect_Rate();
+    this.props.getSelect_Rate();
   }
 
   render() {
@@ -40,5 +44,5 @@ class Select_Rate extends Component {
   }
 }
 
-export default Select_Rate;
+export default connect(null, { getSelect_Rate })(SelectRate)
 

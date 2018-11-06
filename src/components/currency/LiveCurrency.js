@@ -32,10 +32,10 @@ class LiveCurrency extends Component {
   };
 
   componentDidMount() {
-    const { base, symbols } = this.state;
+    // const { base, symbols } = this.state;
     
-    this.props.getSelectRate();
-    this.props.getBasicRates('GBP', ['USD','EUR','CAD','CHF','JPY']);
+    // this.props.getSelectRate();
+    // this.props.getBasicRates('GBP', ['USD','EUR','CAD','CHF','JPY']);
   };
 
   componentWillReceiveProps(nextProps) {
@@ -54,15 +54,15 @@ class LiveCurrency extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const { base, symbols, newRate } = this.state;
-    this.props.getBasicRates(base, symbols);
+    // const { base, symbols, newRate } = this.state;
+    // this.props.getBasicRates(base, symbols);
 
-    const NewRate = Object.keys(newRate).map(i => newRate[i]);
-    const valRate = Object.keys(NewRate[1]).map(i => i);
+    // const NewRate = Object.keys(newRate).map(i => newRate[i]);
+    // const valRate = Object.keys(NewRate[1]).map(i => i);
 
-    if (!isEmpty(valRate)) {
-      this.props.getNewRates(base, valRate);
-    }
+    // if (!isEmpty(valRate)) {
+    //   this.props.getNewRates(base, valRate);
+    // }
   };
 
   
