@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 
+//Components
+import Select_Rate from './Select_Rate';
+
 //Redux
 import { connect } from 'react-redux';
 
 //Css
 import '../css/LiveCurrency.css'
+import Table_Rate from './Table_Rate';
 
 class Live_Currency extends Component {
   constructor(props){
@@ -15,7 +19,7 @@ class Live_Currency extends Component {
   }
 
   componentDidMount() {
-    this.props.getSelect_Rate();
+
   }
 
   render() {
@@ -23,51 +27,17 @@ class Live_Currency extends Component {
       <div className='liveCurrency'>
       <div className='row'>
         <div className='col'>
-          <form onSubmit={this.onSubmit}>
-            <label>
-              Change base Rate: 
-              <select
-                value= {this.state.base}
-                onChange={this.onChange}
-              >
-                <option defaultValue='GBP'>GBP</option>
-                .....
-              </select>
-            </label>
-            <button
-              className='live'
-              type='submit'
-              value='Submit'
-            >submit</button>
-          </form>
+          <Select_Rate />
         </div>
         <div className='col'>
           searchBar
         </div>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>today</th>
-            <th>Up or Down</th>
-            <th>yesterdayDate</th>
-            <th>lastYearDate</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            baseRatesList
-            newRateToday
-            <td>!</td>
-            baseRatesYesterday
-            newRateYesterday
-            <td>
-              baseRatesLastYear
-              newRateLastYear
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div className='row'>
+        <div className='col'>
+          <Table_Rate />
+        </div>
+      </div>
     </div>
     )
   }
