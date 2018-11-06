@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Currency from './Currency';
 import SearchCurrency from './SearchCurrency';
 import YesterdayCurrency from './YesterdayCurrency';
-
+import axios from 'axios'
 //Redux
 import { connect } from 'react-redux';
 import { getSelectRate } from '../../redux/actions/getSelectRate';
@@ -19,7 +19,7 @@ class LiveCurrency extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      base: 'GBP',
+      base: '',
       symbols:['USD','EUR','CAD','CHF','JPY'],
       newRate: [],
       errors: {},
@@ -33,7 +33,7 @@ class LiveCurrency extends Component {
     const { base, symbols } = this.state;
     
     this.props.getSelectRate();
-    this.props.getBasicRates(base, symbols);
+    this.props.getBasicRates('GBP', ['USD','EUR','CAD','CHF','JPY']);
   };
 
   componentWillReceiveProps(nextProps) {
@@ -55,9 +55,9 @@ class LiveCurrency extends Component {
     const { base, symbols, newRate } = this.state;
     this.props.getBasicRates(base, symbols);
 
-    const NewRate = Object.keys(newRate).map(i => newRate[i]);
-    const valRate = Object.keys(NewRate[1]).map(i => i);
-    this.props.getNewRates(base, valRate);
+    // const NewRate = Object.keys(newRate).map(i => newRate[i]);
+    // const valRate = Object.keys(NewRate[1]).map(i => i);
+    // this.props.getNewRates(base, valRate);
   };
 
   
@@ -151,7 +151,7 @@ class LiveCurrency extends Component {
                   value= {this.state.base}
                   onChange={this.onChange}
                 >
-                  <option defaultValue={this.state.base}>{this.state.base}</option>
+                  <option defaultValue='GBP'>GBP</option>
                   {baseRateOption}
                 </select>
               </label>
@@ -207,3 +207,4 @@ export default connect(mapStateToProps, { getSelectRate, getBasicRates, getNewRa
 
 
 //To fix change rate at basic rates gives all rates
+//to fix if sat,sun rates return empty obj,do -2 days maybe?
