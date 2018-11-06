@@ -25,7 +25,7 @@ class SelectRate extends Component {
   }
 
   onSubmit(e) {
-    e.pregentDefault();
+    e.preventDefault();
     const { base } = this.state;
     this.props.getBase(base);
   }
