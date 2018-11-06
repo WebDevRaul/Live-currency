@@ -9,3 +9,4 @@ export const GET_NEW_LAST_YEAR = 'GET_NEW_LAST_YEAR';
 export const GET_ERRORS = 'GET_ERRORS';
 export const GET_LOADING = 'GET_LOADING';
 export const GET_SELECT_RATE = 'GET_SELECT_RATE';
+export const GET_BASE = 'GET_BASE';

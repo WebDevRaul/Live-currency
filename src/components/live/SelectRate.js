@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 //Redux
 import { connect } from 'react-redux';
 import { getSelect_Rate } from '../../redux/actions/getSelect_Rate';
+import { getBase } from '../../redux/actions/getBase';
 
 class SelectRate extends Component {
   constructor() {
@@ -12,6 +13,7 @@ class SelectRate extends Component {
 
     }
     this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -19,7 +21,13 @@ class SelectRate extends Component {
   };
 
   onChange(e) {
-    this.setState({ base: e.target.value })
+    this.setState({ base: e.target.value });
+  }
+
+  onSubmit(e) {
+    e.pregentDefault();
+    const { base } = this.state;
+    this.props.getBase(base);
   }
 
   render() {
@@ -61,7 +69,7 @@ class SelectRate extends Component {
 
 const mapStateToProps = state => ({
   selectRate: state.selectRate
-})
+});
 
-export default connect(mapStateToProps, { getSelect_Rate })(SelectRate)
+export default connect(mapStateToProps, { getSelect_Rate, getBase })(SelectRate);
 
