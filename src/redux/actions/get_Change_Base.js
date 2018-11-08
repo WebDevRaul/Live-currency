@@ -1,6 +1,6 @@
 import { GET_CHANGE_BASE } from './types';
 
-export const getChange_Base = base => dispatch => {
+export const get_Change_Base = base => dispatch => {
   dispatch({
     type: GET_CHANGE_BASE,
     payload: base

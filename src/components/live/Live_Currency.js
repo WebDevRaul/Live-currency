@@ -7,7 +7,7 @@ import TableRate from './TableRate';
 
 //Redux
 import { connect } from 'react-redux';
-import { collectData } from '../../redux/actions/collectData';
+import { get_Collect_Data } from '../../redux/actions/get_Collect_Data';
 
 //Css
 import '../css/LiveCurrency.css'
@@ -21,7 +21,7 @@ class Live_Currency extends Component {
   }
 
   componentDidMount() {
-    this.props.collectData();
+    this.props.get_Collect_Data();
   }
 
   render() {
@@ -45,4 +45,4 @@ class Live_Currency extends Component {
   }
 }
 
-export default connect(null, { collectData })(Live_Currency);
+export default connect(null, { get_Collect_Data })(Live_Currency);
