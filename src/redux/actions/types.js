@@ -13,3 +13,4 @@ export const GET_CHANGE_BASE = 'GET_CHANGE_BASE';
 export const GET_DATE = 'GET_DATE';
 export const GET_COLLECT_DATA = 'GET_COLLECT_DATA'
 export const GET_BASE = 'GET_BASE';
+export const GET_TODAY_RATES = 'GET_TODAY_RATES';

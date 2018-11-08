@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 import { get_Change_Base } from '../../redux/actions/get_Change_Base';
 
 class SelectRate extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       base: 'GBP',
 

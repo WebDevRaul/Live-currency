@@ -8,6 +8,10 @@ import TableRate from './TableRate';
 //Redux
 import { connect } from 'react-redux';
 import { get_Collect_Data } from '../../redux/actions/get_Collect_Data';
+import { get_Basic_Rates } from '../../redux/actions/get_Basic_Rates';
+
+//Common
+import isEmpty from '../common/isEmpty';
 
 //Css
 import '../css/LiveCurrency.css'
@@ -22,9 +26,12 @@ class Live_Currency extends Component {
 
   componentDidMount() {
     this.props.get_Collect_Data();
+    this.props.get_Basic_Rates()
   }
 
   render() {
+    // const { date } = this.props.date;
+    // const { changeBase } = this.props.changeBase;
     return (
       <div className='liveCurrency'>
       <div className='row'>
@@ -45,4 +52,10 @@ class Live_Currency extends Component {
   }
 }
 
-export default connect(null, { get_Collect_Data })(Live_Currency);
+const mapStateToProps = state => ({
+  base: state.base,
+  date: state.date,
+  changeBase: state.changeBase
+})
+
+export default connect( mapStateToProps, { get_Collect_Data, get_Basic_Rates })(Live_Currency);
