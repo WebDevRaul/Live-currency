@@ -11,7 +11,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        date: action.payload
+        date: action.payload.date
       }
     
     default:

@@ -14,11 +14,11 @@ export const collectData = () => dispatch => {
     }))
     .then(res => dispatch({
       type: GET_BASE,
-      payload: res.data
+      payload: res.payload
     }))
     .then(res => dispatch({
       type: GET_DATE,
-      payload: res.data
+      payload: res.payload
     }))
     .catch(err => dispatch({
       type: GET_ERRORS,
