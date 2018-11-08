@@ -1,4 +1,4 @@
-import { GET_BASE, GET_ERRORS } from '../actions/types';
+import { GET_BASE } from '../actions/types';
 
 const initialState = {
   base: []

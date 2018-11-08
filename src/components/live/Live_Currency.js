@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 
 //Components
 import SelectRate from './SelectRate';
@@ -19,7 +20,7 @@ class Live_Currency extends Component {
   }
 
   componentDidMount() {
-
+    this.props.collectData();
   }
 
   render() {
@@ -30,7 +31,7 @@ class Live_Currency extends Component {
           <SelectRate />
         </div>
         <div className='col'>
-          searchBar
+          searchBar 
         </div>
       </div>
       <div className='row'>

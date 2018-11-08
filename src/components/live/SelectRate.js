@@ -37,8 +37,7 @@ class SelectRate extends Component {
     //Option Dropdown List
     const { selectRate } = this.props.selectRate;
     //typeof(selectRate) Obj
-    const option = Object.keys(selectRate).map(i => <option key={i}>{i}</option>);
-
+    const option = Object.keys(selectRate).map(i => <option key={i}>{selectRate[i]}</option>)
 
     return (
       <div>

@@ -16,5 +16,5 @@ export default combineReducers({
   // yesterdayRate: getYesterday,
   // lastYearRate: getLastYear,
   selectRate: getSelect_Rate,
-  base: getBase
+  base: getBase,
 });
