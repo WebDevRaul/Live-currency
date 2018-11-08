@@ -7,7 +7,21 @@ import { setLoading } from './commonAction';
 export const collectData = () => dispatch => {
   dispatch(setLoading());
   axios
-    .get()
-    .then()
-    .catch()
+    .get('https://api.exchangeratesapi.io/latest?&base=GBP')
+    .then(res => dispatch({
+      type: GET_COLLECT_DATA,
+      payload: res.data
+    }))
+    .then(res => dispatch({
+      type: GET_BASE,
+      payload: res.data
+    }))
+    .then(res => dispatch({
+      type: GET_DATE,
+      payload: res.data
+    }))
+    .catch(err => dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data
+    }))
 };

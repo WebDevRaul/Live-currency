@@ -1,4 +1,4 @@
-import { GET_BASE } from '../actions/types';
+import { GET_CHANGE_BASE } from '../actions/types';
 
 const initialState = {
   base: []
@@ -6,7 +6,7 @@ const initialState = {
 
 export default function(state= initialState, actions) {
   switch(actions.type) {
-    case GET_BASE: 
+    case GET_CHANGE_BASE: 
       return {
         ...state,
         base: actions.payload
