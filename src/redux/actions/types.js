@@ -11,3 +11,4 @@ export const GET_LOADING = 'GET_LOADING';
 export const GET_SELECT_RATE = 'GET_SELECT_RATE';
 export const GET_BASE = 'GET_BASE';
 export const GET_DATE = 'GET_DATE';
+export const GET_COLLECT_DATA = 'GET_COLLECT_DATA'
