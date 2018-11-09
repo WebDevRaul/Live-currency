@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 //Redux
 import { connect } from 'react-redux';
 import { get_Change_Base } from '../../redux/actions/get_Change_Base';
+import isEmpty from '../common/isEmpty';
 
 class SelectRate extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      base: 'GBP',
+      base: '',
 
     }
     this.onChange = this.onChange.bind(this);
@@ -26,8 +27,10 @@ class SelectRate extends Component {
   }
 
   render() {
-
-    const { base } = this.state;
+    let base;
+    if (!isEmpty(this.props.base.base)) {
+      base = this.props.base.base
+    }
     
     //Option Dropdown List
     const { selectRate } = this.props.selectRate;
@@ -40,7 +43,7 @@ class SelectRate extends Component {
           <label>
             Change base Rate: 
             <select
-              value= {this.state.base}
+              value= {base}
               onChange={this.onChange}>
               <option 
                 defaultValue={base}>
@@ -62,6 +65,7 @@ class SelectRate extends Component {
 }
 
 const mapStateToProps = state => ({
+  base: state.base,
   selectRate: state.selectRate
 });
 

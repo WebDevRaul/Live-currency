@@ -24,9 +24,12 @@ class Live_Currency extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.get_Collect_Data();
-    this.props.get_Basic_Rates()
+  }
+  
+  componentDidMount() {
+    this.props.get_Basic_Rates();
   }
 
   render() {
