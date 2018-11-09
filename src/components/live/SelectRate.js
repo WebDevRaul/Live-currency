@@ -43,7 +43,7 @@ class SelectRate extends Component {
           <label>
             Change base Rate: 
             <select
-              value= {base}
+              value= {this.state.base}
               onChange={this.onChange}>
               <option 
                 defaultValue={base}>
