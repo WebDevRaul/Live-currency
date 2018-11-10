@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios'
 
 //Components
-import SelectRate from './SelectRate';
-import TableRate from './TableRate';
+import SelectRate from './Select_Rate';
+import TableRate from './Table_Rate';
 
 //Redux
 import { connect } from 'react-redux';
@@ -21,22 +20,20 @@ class Live_Currency extends Component {
     super(props);
     this.state = {
       errors: {},
-      state: {}
     }
   }
   
   componentDidMount() {
     this.props.get_Collect_Data();
   }
-  
-  componentDidUpdate() {
-    const { base } = this.props.base
-    this.props.get_Basic_Rates(base);
-  }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.base.base !== this.props.base.base) {
+      this.props.get_Basic_Rates(nextProps.base.base, this.props.symbols.today);
+    }
+  }
+  
   render() {
-    // const { date } = this.props.date;
-    // const { changeBase } = this.props.changeBase;
     return (
       <div className='liveCurrency'>
       <div className='row'>
@@ -58,9 +55,9 @@ class Live_Currency extends Component {
 }
 
 const mapStateToProps = state => ({
+  errors: state.errors,
   base: state.base,
-  date: state.date,
-  changeBase: state.changeBase
+  symbols: state.symbols
 })
 
-export default connect( mapStateToProps, { get_Collect_Data, get_Basic_Rates })(Live_Currency);
+export default connect( mapStateToProps , { get_Collect_Data, get_Basic_Rates } )(Live_Currency);

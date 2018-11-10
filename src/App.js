@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 //Components
-import LiveCurrency from './components/currency/LiveCurrency';
 import Live_Currency from './components/live/Live_Currency';
 
 //Layout
@@ -27,7 +26,6 @@ class App extends Component {
           <div className='container'>
             <Navbar />
               <Route  exact path='/' component={Landing} />
-              <Route  exact path='/live-currency' component={LiveCurrency} />
               <Route  exact path='/live_currency' component={Live_Currency} />
             <Footer />
           </div>
