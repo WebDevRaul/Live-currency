@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
 
+//Redux
+import { connect } from 'react-redux';
+
+//Common
+import isEmpty from '../common/isEmpty';
+
 class TableRate extends Component {
   render() {
+    const { today } = this.props.today;
+    let baseRateList;
+    if (!isEmpty(today)) {
+      baseRateList = Object.keys(today).map(i => <p key={i}>{i} : {today[i]}</p>)
+    }
     return (
       <table>
         <thead>
@@ -14,7 +25,7 @@ class TableRate extends Component {
         </thead>
         <tbody>
           <tr>
-            <td>baseRatesList
+            <td>{baseRateList}
             newRateToday</td>
             <td>!</td>
             <td>baseRatesYesterday
@@ -30,4 +41,8 @@ class TableRate extends Component {
   }
 }
 
-export default TableRate;
+const mapStateToProps = state => ({
+  today: state.today
+})
+
+export default connect(mapStateToProps, {})(TableRate)

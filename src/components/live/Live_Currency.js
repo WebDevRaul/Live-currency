@@ -9,9 +9,6 @@ import { connect } from 'react-redux';
 import { get_Collect_Data } from '../../redux/actions/get_Collect_Data';
 import { get_Basic_Rates } from '../../redux/actions/get_Basic_Rates';
 
-//Common
-import isEmpty from '../common/isEmpty';
-
 //Css
 import '../css/LiveCurrency.css'
 
