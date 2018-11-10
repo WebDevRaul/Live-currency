@@ -5,7 +5,8 @@ import get_Base from './get_Base';
 import get_Date from './get_Date';
 import get_Symbols from './get_Symbols';
 import get_Today from './get_Today';
-import get_Yesterday_Rates from './get_Yesterday_Rates';
+import get_Yesterday from './get_Yesterday';
+import get_Last_year from './get_Last_Year';
 
 export default combineReducers({
   errors: get_Errors,
@@ -14,5 +15,6 @@ export default combineReducers({
   date: get_Date,
   base: get_Base,
   today: get_Today,
-  yesterday: get_Yesterday_Rates
+  yesterday: get_Yesterday,
+  lastYear: get_Last_year
 });
