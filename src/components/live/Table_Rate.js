@@ -8,27 +8,40 @@ import isEmpty from '../common/isEmpty';
 
 class TableRate extends Component {
   render() {
+
+    //Today Rates
     const { today } = this.props.today;
-    let baseRateList;
+    let baseRateToday;
     if (!isEmpty(today)) {
-      baseRateList = Object.keys(today).map(i => <p key={i}>{i} : {today[i]}</p>)
+      baseRateToday = Object.keys(today).map(i => <p key={i}>{i} : {today[i]}</p>)
+    };
+
+    //--------------//--------------//
+
+    //Yesterday Rates
+    const { yesterday } = this.props.yesterday;
+    let baseRateYesterday;
+    if (!isEmpty(yesterday)) {
+      const data = Object.keys(yesterday).map(i => yesterday[i]);
+      baseRateYesterday = Object.keys(data[0]).map(i => <p key={i}>{data[0][i]}</p>)
     }
+
     return (
       <table>
         <thead>
           <tr>
             <th>today</th>
             <th>Up or Down</th>
-            <th>yesterdayDate</th>
+            <th>yesterday</th>
             <th>lastYearDate</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>{baseRateList}
+            <td>{baseRateToday}
             newRateToday</td>
             <td>!</td>
-            <td>baseRatesYesterday
+            <td>{baseRateYesterday}
             newRateYesterday</td>
             <td>
               baseRatesLastYear
@@ -42,7 +55,8 @@ class TableRate extends Component {
 }
 
 const mapStateToProps = state => ({
-  today: state.today
+  today: state.today,
+  yesterday: state.yesterday
 })
 
 export default connect(mapStateToProps, {})(TableRate)

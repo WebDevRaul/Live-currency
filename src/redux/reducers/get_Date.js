@@ -1,4 +1,4 @@
-import { GET_DATE, GET_LOADING } from '../actions/types';
+import { GET_DATE } from '../actions/types';
 
 const initialState = {
   loading: false,

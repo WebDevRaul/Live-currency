@@ -1,4 +1,4 @@
-import { GET_SELECT_RATE, GET_LOADING } from '../actions/types';
+import { GET_SELECT_RATE } from '../actions/types';
 
 const initialState = {
   loading: false,

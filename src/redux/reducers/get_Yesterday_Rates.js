@@ -1,15 +1,16 @@
-import { GET_SYMBOLS } from '../actions/types';
+import { GET_YESTERDAY_RATES } from '../actions/types';
 
 const initialState = {
   loading: false,
-  symbols: {}
+  yesterday: {}
 };
+
 export default function(state=initialState, action) {
   switch(action.type) {
-    case GET_SYMBOLS:
+    case GET_YESTERDAY_RATES:
       return {
         loading: false,
-        today: Object.keys(action.payload).map(i => i)
+        yesterday: action.payload
       }
     default:
       return state;

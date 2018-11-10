@@ -1,4 +1,4 @@
-import { GET_TODAY, GET_LOADING } from '../actions/types';
+import { GET_TODAY } from '../actions/types';
 
 const initialState = {
   loading: false,

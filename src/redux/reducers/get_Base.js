@@ -1,4 +1,4 @@
-import { GET_BASE, GET_LOADING } from '../actions/types';
+import { GET_BASE } from '../actions/types';
 
 const initialState = {
   loading: false,
