@@ -24,7 +24,17 @@ class TableRate extends Component {
     if (!isEmpty(yesterday)) {
       const data = Object.keys(yesterday).map(i => yesterday[i]);
       baseRateYesterday = Object.keys(data[0]).map(i => <p key={i}>{data[0][i]}</p>)
-    }
+    };
+
+    //--------------//--------------//
+
+    //LastYear Rates
+    const { lastYear } = this.props.lastYear;
+    let baseRateLastYear;
+    if (!isEmpty(lastYear)) {
+      const data = Object.keys(lastYear).map(i => lastYear[i]);
+      baseRateLastYear = Object.keys(data[0]).map(i => <p key={i}>{data[0][i]}</p>)
+    };
 
     return (
       <table>
@@ -44,7 +54,7 @@ class TableRate extends Component {
             <td>{baseRateYesterday}
             newRateYesterday</td>
             <td>
-              baseRatesLastYear
+              {baseRateLastYear}
               newRateLastYear
             </td>
           </tr>
@@ -56,7 +66,8 @@ class TableRate extends Component {
 
 const mapStateToProps = state => ({
   today: state.today,
-  yesterday: state.yesterday
+  yesterday: state.yesterday,
+  lastYear: state.lastYear
 })
 
 export default connect(mapStateToProps, {})(TableRate)
