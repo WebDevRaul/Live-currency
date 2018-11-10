@@ -7,7 +7,8 @@ import TableRate from './Table_Rate';
 //Redux
 import { connect } from 'react-redux';
 import { get_Collect_Data } from '../../redux/actions/get_Collect_Data';
-import { get_Basic_Rates } from '../../redux/actions/get_Basic_Rates';
+import { get_Today_Rates } from '../../redux/actions/get_Today_Rates';
+import { get_Yesterday_Rates } from '../../redux/actions/get_Yesterday_Rates' 
 
 //Css
 import '../css/LiveCurrency.css'
@@ -26,7 +27,7 @@ class Live_Currency extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.base.base !== this.props.base.base) {
-      this.props.get_Basic_Rates(nextProps.base.base, this.props.symbols.today);
+      this.props.get_Today_Rates(nextProps.base.base, this.props.symbols.today);
     }
   }
   
@@ -54,7 +55,8 @@ class Live_Currency extends Component {
 const mapStateToProps = state => ({
   errors: state.errors,
   base: state.base,
-  symbols: state.symbols
+  symbols: state.symbols,
+  date: state.date,
 })
 
-export default connect( mapStateToProps , { get_Collect_Data, get_Basic_Rates } )(Live_Currency);
+export default connect( mapStateToProps , { get_Collect_Data, get_Today_Rates, get_Yesterday_Rates } )(Live_Currency);

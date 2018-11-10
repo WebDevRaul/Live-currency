@@ -19,8 +19,8 @@ export const get_Collect_Data = symbols => dispatch => {
   axios
     .get('https://api.exchangeratesapi.io/latest?base=GBP')
     .then(res => dispatch({
-      type: GET_BASE,
-      payload: res.data.base
+      type: GET_DATE,
+      payload: res.data.date
     }))
     .catch(err => dispatch({
       type: GET_ERRORS,
@@ -29,8 +29,8 @@ export const get_Collect_Data = symbols => dispatch => {
   axios
     .get('https://api.exchangeratesapi.io/latest?base=GBP')
     .then(res => dispatch({
-      type: GET_DATE,
-      payload: res.data.date
+      type: GET_BASE,
+      payload: res.data.base
     }))
     .catch(err => dispatch({
       type: GET_ERRORS,

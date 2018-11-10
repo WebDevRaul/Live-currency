@@ -4,7 +4,7 @@ import { GET_TODAY, GET_ERRORS } from './types';
 //import Loading action
 import { setLoading } from './commonAction';
 
-export const get_Basic_Rates = (base, symbols) => dispatch => {
+export const get_Today_Rates = (base, symbols) => dispatch => {
   dispatch(setLoading());
   axios
     .get(`https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbols}`)
