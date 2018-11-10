@@ -1,26 +1,26 @@
-import { GET_SELECT_RATE, GET_LOADING } from '../actions/types';
+// import { GET_SELECT_RATE, GET_LOADING } from '../actions/types';
 
-const initialState = {
-  loading: false,
-  selectRate: {},
-};
+// const initialState = {
+//   loading: false,
+//   selectRate: {},
+// };
 
-export default function(state = initialState, action) {
-  switch(action.type) {
-    case GET_LOADING:
-      return {
-        ...state,
-        loading: true
-      }
+// export default function(state = initialState, action) {
+//   switch(action.type) {
+//     case GET_LOADING:
+//       return {
+//         ...state,
+//         loading: true
+//       }
 
-    case GET_SELECT_RATE:
-      return {
-        ...state,
-        loading: false,
-        selectRate: action.payload.rates,
-      }
+//     case GET_SELECT_RATE:
+//       return {
+//         ...state,
+//         loading: false,
+//         selectRate: action.payload.rates,
+//       }
 
-    default:
-      return state;
-  } 
-}
+//     default:
+//       return state;
+//   } 
+// }

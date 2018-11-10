@@ -13,10 +13,6 @@ export const get_Collect_Data = () => dispatch => {
       payload: res.data
     }))
     .then(res => dispatch({
-      type: GET_BASE,
-      payload: res.payload
-    }))
-    .then(res => dispatch({
       type: GET_DATE,
       payload: res.payload
     }))
@@ -24,6 +20,18 @@ export const get_Collect_Data = () => dispatch => {
       type: GET_SELECT_RATE,
       payload: res.payload.rates
     }))
+    .then(
+      axios
+        .get('https://api.exchangeratesapi.io/latest?&base=GBP')
+        .then(res => dispatch({
+          type: GET_BASE,
+          payload: res.data.base
+        }))
+        .catch(err => dispatch({
+          type: GET_ERRORS,
+          payload: err.response.data
+        }))
+    )
     .catch(err => dispatch({
       type: GET_ERRORS,
       payload: err.response.data

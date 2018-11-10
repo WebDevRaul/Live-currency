@@ -1,4 +1,4 @@
-import { GET_BASE } from '../actions/types';
+import { GET_BASE, GET_LOADING } from '../actions/types';
 
 const initialState= {
   loading: false,
@@ -7,11 +7,16 @@ const initialState= {
 
 export default function(state=initialState, action) {
   switch(action.type) {
+    case GET_LOADING: 
+    return {
+      ...state,
+      loading: true
+    }
     case GET_BASE:
-      return {
+    return {
         ...state,
         loading: false,
-        base: action.payload.base
+        base: action.payload
       }
     default:
       return state;

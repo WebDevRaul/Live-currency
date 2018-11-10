@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux';
-import getSelect_Rate from './getSelect_Rate';
-import get_Change_Base from './get_Change_Base';
-import getBase from './getBase';
-import getDate from './getDate';
+import get_Select_Rate from './get_Select_Rate';
+import get_Base from './get_Base';
+import get_Date from './get_Date';
 import get_Today_Rates from './get_Today_Rates';
-// import errorReducer from './errorReducer';
+import errorReducer from './errorReducer';
 // import getSelectRate from './getSelectRate';
 // import getBasicRates from './getBasicRates';
 // import getNewRates from './getNewRates';
@@ -18,9 +17,9 @@ export default combineReducers({
   // newRate: getNewRates,
   // yesterdayRate: getYesterday,
   // lastYearRate: getLastYear,
-  base: getBase,
-  date: getDate,
-  selectRate: getSelect_Rate,
-  changeBase: get_Change_Base,
+  errors: errorReducer,
+  selectRate: get_Select_Rate,
+  base: get_Base,
+  date: get_Date,
   todayRates: get_Today_Rates
 });

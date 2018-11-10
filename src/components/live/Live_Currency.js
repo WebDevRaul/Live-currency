@@ -20,13 +20,18 @@ class Live_Currency extends Component {
   constructor(props){
     super(props);
     this.state = {
-      errors: {}
+      errors: {},
+      state: {}
     }
   }
   
   componentDidMount() {
     this.props.get_Collect_Data();
-    this.props.get_Basic_Rates();
+  }
+  
+  componentDidUpdate() {
+    const { base } = this.props.base
+    this.props.get_Basic_Rates(base);
   }
 
   render() {
