@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 //Components
 import SelectRate from './Select_Rate';
 import TableRate from './Table_Rate';
+import SearchBar from './Search_Bar';
 
 //Redux
 import { connect } from 'react-redux';
@@ -38,7 +39,7 @@ class Live_Currency extends Component {
           <SelectRate />
         </div>
         <div className='col'>
-          searchBar 
+          <SearchBar />
         </div>
       </div>
       <div className='row'>
