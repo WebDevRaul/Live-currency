@@ -7,3 +7,4 @@ export const GET_TODAY = 'GET_TODAY';
 export const GET_SYMBOLS = 'GET_SYMBOLS';
 export const GET_YESTERDAY = 'GET_YESTERDAY';
 export const GET_LAST_YEAR = 'GET_LAST_YEAR';
+export const GET_NEW_SYMBOLS = 'GET_NEW_SYMBOLS';

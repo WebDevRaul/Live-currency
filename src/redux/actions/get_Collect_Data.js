@@ -4,7 +4,7 @@ import { GET_SELECT_RATE, GET_DATE, GET_BASE, GET_SYMBOLS, GET_ERRORS } from './
 //import Loading action
 import { setLoading } from './commonAction';
 
-export const get_Collect_Data = symbols => dispatch => {
+export const get_Collect_Data = () => dispatch => {
   dispatch(setLoading());
   axios
     .get('https://api.exchangeratesapi.io/latest?base=GBP')

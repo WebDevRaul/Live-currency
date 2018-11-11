@@ -4,8 +4,20 @@ import { GET_TODAY, GET_YESTERDAY, GET_LAST_YEAR, GET_ERRORS } from './types';
 //import Loading action
 import { setLoading } from './commonAction';
 
-export const get_Rates = (base, symbols, date) => dispatch => {
+//IsEmpty from common
+import isEmpty from '../../components/common/isEmpty';
+
+export const get_Rates = (base, dateN, oldSymbols, newSymbols) => dispatch => {
   dispatch(setLoading());
+  let symbols;
+  if (!isEmpty(newSymbols)) {
+    symbols = oldSymbols;
+    symbols.push(newSymbols);
+  } else {
+    symbols = oldSymbols
+  }
+  console.log(symbols);
+  const date = '2018-10-10';
   const today = new Date(date).toISOString().slice(0,10);
   const yesterday = ( today => new Date(today.setDate(today.getDate() - 1)) )(new Date(date)).toISOString().slice(0, 10);
   const LastYear = new Date(date).getFullYear() - 1

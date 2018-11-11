@@ -1,15 +1,17 @@
-import { GET_SYMBOLS } from '../actions/types';
+import { GET_NEW_SYMBOLS } from '../actions/types';
 
 const initialState = {
   loading: false,
-  symbols: {}
+  newSymbols: {}
 };
+
 export default function(state=initialState, action) {
   switch(action.type) {
-    case GET_SYMBOLS:
+    case GET_NEW_SYMBOLS:
       return {
+        ...state,
         loading: false,
-        symbols: Object.keys(action.payload).map(i => i)
+        newSymbols: action.payload
       }
     default:
       return state;

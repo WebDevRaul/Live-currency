@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 //Redux
 import { connect } from 'react-redux';
 import { get_Change_Base } from '../../redux/actions/get_Change_Base';
+
+//IsEmpty from common
 import isEmpty from '../common/isEmpty';
 
 class SelectRate extends Component {

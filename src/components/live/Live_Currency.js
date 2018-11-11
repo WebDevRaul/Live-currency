@@ -27,7 +27,18 @@ class Live_Currency extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.base.base !== this.props.base.base) {
-      this.props.get_Rates(nextProps.base.base, this.props.symbols.today, this.props.date.date);
+      const { base } = nextProps.base;
+      const { symbols } = this.props.symbols;
+      const { date } = this.props.date;
+      this.props.get_Rates(base, date, symbols);
+    }
+
+    if (nextProps.newSymbols.newSymbols !== this.props.newSymbols.newSymbols) {
+      const { base } = this.props.base;
+      const { date } = this.props.date;
+      const { symbols } = this.props.symbols;
+      const { newSymbols } = nextProps.newSymbols;
+      this.props.get_Rates(base, date, symbols, newSymbols);
     }
   }
   
@@ -57,6 +68,7 @@ const mapStateToProps = state => ({
   base: state.base,
   symbols: state.symbols,
   date: state.date,
+  newSymbols: state.newSymbols
 })
 
 export default connect( mapStateToProps , { get_Collect_Data, get_Rates } )(Live_Currency);

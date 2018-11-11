@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 //Redux
 import { connect } from 'react-redux';
+import { get_New_Symbols } from '../../redux/actions/get_New_Symbols';
 
 //Css
 import '../css/SearchCurrency.css';
@@ -26,6 +27,11 @@ class SearchBar extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+    const { text } = this.state;
+    this.props.get_New_Symbols(text);
+    this.setState({
+      text: ''
+    })
   }
 
   render() {
@@ -46,7 +52,7 @@ class SearchBar extends Component {
 }
 
 const mapStateToProps = state => ({
-
+  symbols: state.symbols
 });
 
-export default connect(mapStateToProps, {})(SearchBar);
+export default connect(mapStateToProps, { get_New_Symbols })(SearchBar);
