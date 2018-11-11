@@ -17,6 +17,17 @@ class SearchBar extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
+
+  onChange(e) {
+    this.setState({
+      text: e.target.value
+    });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+  }
+
   render() {
     return (
       <form onSubmit={this.onSubmit}>
