@@ -7,15 +7,8 @@ import { setLoading } from './commonAction';
 //IsEmpty from common
 import isEmpty from '../../components/common/isEmpty';
 
-export const get_Rates = (base, date, oldSymbols, newSymbols) => dispatch => {
+export const get_Rates = (base, date, symbols) => dispatch => {
   dispatch(setLoading());
-  let symbols;
-  if (!isEmpty(newSymbols)) {
-    symbols = oldSymbols;
-    symbols.push(newSymbols);
-  } else {
-    symbols = oldSymbols;
-  }
   axios
     .get(`https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbols}`)
     .then(res => dispatch({

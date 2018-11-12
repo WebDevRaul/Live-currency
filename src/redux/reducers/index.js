@@ -8,6 +8,7 @@ import get_Today from './get_Today';
 import get_Yesterday from './get_Yesterday';
 import get_Last_year from './get_Last_Year';
 import get_New_Symbols from './get_New_Symbols';
+import get_New_Rate from './get_New_Rate';
 
 export default combineReducers({
   errors: get_Errors,
@@ -18,5 +19,6 @@ export default combineReducers({
   today: get_Today,
   yesterday: get_Yesterday,
   lastYear: get_Last_year,
-  newSymbols: get_New_Symbols
+  newSymbols: get_New_Symbols,
+  newRate: get_New_Rate,
 });
