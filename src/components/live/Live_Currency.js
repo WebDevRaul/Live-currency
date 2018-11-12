@@ -29,13 +29,13 @@ class Live_Currency extends Component {
     if (nextProps.base.base !== this.props.base.base) {
       const { base } = nextProps.base;
       const { symbols } = this.props.symbols;
-      const { date } = this.props.date;
+      const { date } = this.props;
       this.props.get_Rates(base, date, symbols);
     }
 
     if (nextProps.newSymbols.newSymbols !== this.props.newSymbols.newSymbols) {
       const { base } = this.props.base;
-      const { date } = this.props.date;
+      const { date } = this.props;
       const { symbols } = this.props.symbols;
       const { newSymbols } = nextProps.newSymbols;
       this.props.get_Rates(base, date, symbols, newSymbols);

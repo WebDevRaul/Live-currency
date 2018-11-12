@@ -2,16 +2,24 @@ import { GET_DATE } from '../actions/types';
 
 const initialState = {
   loading: false,
-  date: {}
+  today: {},
+  yesterday: {},
+  lastYear: {}
 };
 
 export default function(state = initialState, action) {
   switch(action.type) {
     case GET_DATE:
+      const today = new Date(action.payload).toISOString().slice(0,10);
+      const yesterday = ( today => new Date(today.setDate(today.getDate() - 1)) )(new Date(action.payload)).toISOString().slice(0, 10);
+      const LastYear = new Date(action.payload).getFullYear() - 1;
+      const lastYear = ( today => new Date(today.setFullYear(LastYear)) )(new Date(action.payload)).toISOString().slice(0, 10);
       return {
         ...state,
         loading: false,
-        date: action.payload
+        today: today,
+        yesterday: yesterday,
+        lastYear: lastYear
       }
     default:
       return state;

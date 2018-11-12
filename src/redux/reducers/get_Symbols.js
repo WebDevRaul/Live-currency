@@ -9,7 +9,7 @@ export default function(state=initialState, action) {
     case GET_SYMBOLS:
       return {
         loading: false,
-        symbols: Object.keys(action.payload).map(i => i)
+        symbols: action.payload
       }
     default:
       return state;

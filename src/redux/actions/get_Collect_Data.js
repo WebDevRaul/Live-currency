@@ -20,7 +20,7 @@ export const get_Collect_Data = () => dispatch => {
     .get('https://api.exchangeratesapi.io/latest?base=GBP')
     .then(res => dispatch({
       type: GET_DATE,
-      payload: res.data.date
+      payload: '2018-10-20'
     }))
     .catch(err => dispatch({
       type: GET_ERRORS,
@@ -37,10 +37,10 @@ export const get_Collect_Data = () => dispatch => {
       payload: err.response.data
     }))
   axios
-    .get(`https://api.exchangeratesapi.io/latest?base=GBP&symbols=EUR,USD,CAD,CHF,AUD`)
+    .get(`https://api.exchangeratesapi.io/latest?base=GBP&symbols=AUD,CAD,CHF,EUR,USD`)
     .then(res => dispatch({
       type: GET_SYMBOLS,
-      payload: res.data.rates
+      payload: Object.keys(res.data.rates).map(i => i)
     }))
     .catch(err => dispatch({
       type: GET_ERRORS,

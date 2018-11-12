@@ -8,12 +8,19 @@ import isEmpty from '../common/isEmpty';
 
 class TableRate extends Component {
   render() {
+    let sort;
 
     //Today Rates
     const { today } = this.props.today;
     let baseRateToday;
     if (!isEmpty(today)) {
-      baseRateToday = Object.keys(today).map(i => <p key={i}>{i} : {today[i]}</p>)
+      //Sort Rates
+      sort = Object.keys(today)
+        .sort()
+        .reduce((sortObj, key) => ({
+          ...sortObj, [key]: today[key]
+        }), {})
+      baseRateToday = Object.keys(sort).map(i => <p key={i}>{i} : {sort[i]}</p>)
     };
 
     //--------------//--------------//
@@ -22,8 +29,13 @@ class TableRate extends Component {
     const { yesterday } = this.props.yesterday;
     let baseRateYesterday;
     if (!isEmpty(yesterday)) {
-      const data = Object.keys(yesterday).map(i => yesterday[i]);
-      baseRateYesterday = Object.keys(data[0]).map(i => <p key={i}>{data[0][i]}</p>)
+      //Sort Rates
+      sort = Object.keys(yesterday)
+      .sort()
+      .reduce((sortObj, key) => ({
+        ...sortObj, [key]: yesterday[key]
+      }), {})
+      baseRateYesterday = Object.keys(sort).map(i => <p key={i}>{sort[i]}</p>)
     };
 
     //--------------//--------------//
@@ -32,8 +44,13 @@ class TableRate extends Component {
     const { lastYear } = this.props.lastYear;
     let baseRateLastYear;
     if (!isEmpty(lastYear)) {
-      const data = Object.keys(lastYear).map(i => lastYear[i]);
-      baseRateLastYear = Object.keys(data[0]).map(i => <p key={i}>{data[0][i]}</p>)
+      //Sort Rates
+      sort = Object.keys(lastYear)
+      .sort()
+      .reduce((sortObj, key) => ({
+        ...sortObj, [key]: lastYear[key]
+      }), {})
+      baseRateLastYear = Object.keys(sort).map(i => <p key={i}>{sort[i]}</p>)
     };
 
     return (
