@@ -11,7 +11,7 @@ export default function(state=initialState, action) {
       return {
         ...state,
         loading: false,
-        newSymbols: action.payload
+        newSymbols: [...state.newSymbols, action.payload]
       }
     default:
       return state;
