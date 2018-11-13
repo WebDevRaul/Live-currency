@@ -12,7 +12,6 @@ class SearchBar extends Component {
     super(props);
     this.state = {
       text: '',
-      error: {}
     }
 
     this.onChange = this.onChange.bind(this);
@@ -35,6 +34,9 @@ class SearchBar extends Component {
   }
 
   render() {
+
+    const { errors } = this.props.errors
+
     return (
       <form onSubmit={this.onSubmit}>
         <input 
@@ -43,6 +45,7 @@ class SearchBar extends Component {
           type='text'
           name='text'
           onChange={this.onChange}
+          error = {errors}
         />
         <span className='searchInfo'>i</span>
         <button className='searchButton' type='submit'>Search</button>
@@ -52,7 +55,8 @@ class SearchBar extends Component {
 }
 
 const mapStateToProps = state => ({
-  symbols: state.symbols
+  symbols: state.symbols,
+  errors: state.errors
 });
 
 export default connect(mapStateToProps, { get_New_Symbols })(SearchBar);
