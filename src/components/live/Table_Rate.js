@@ -11,7 +11,7 @@ class TableRate extends Component {
     let sort;
 
     //Today Rates
-    const { today } = this.props.today;
+    const { today } = this.props.rate;
     let baseRateToday;
     if (!isEmpty(today)) {
       //Sort Rates
@@ -26,7 +26,7 @@ class TableRate extends Component {
     //--------------//--------------//
 
     //Yesterday Rates
-    const { yesterday } = this.props.yesterday;
+    const { yesterday } = this.props.rate;
     let baseRateYesterday;
     if (!isEmpty(yesterday)) {
       //Sort Rates
@@ -41,7 +41,7 @@ class TableRate extends Component {
     //--------------//--------------//
 
     //LastYear Rates
-    const { lastYear } = this.props.lastYear;
+    const { lastYear } = this.props.rate;
     let baseRateLastYear;
     if (!isEmpty(lastYear)) {
       //Sort Rates
@@ -82,9 +82,8 @@ class TableRate extends Component {
 }
 
 const mapStateToProps = state => ({
-  today: state.today,
-  yesterday: state.yesterday,
-  lastYear: state.lastYear
+  rate: state.rate,
+  newRate: state.newRate
 })
 
 export default connect(mapStateToProps, {})(TableRate)
