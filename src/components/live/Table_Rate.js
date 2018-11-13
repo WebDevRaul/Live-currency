@@ -17,10 +17,10 @@ class TableRate extends Component {
       //Sort Rates
       sort = Object.keys(today)
         .sort()
-        .reduce((sortObj, key) => ({
-          ...sortObj, [key]: today[key]
-        }), {})
-      baseRateToday = Object.keys(sort).map(i => <p key={i}>{i} : {sort[i]}</p>)
+          .reduce((sortObj, key) => ({
+            ...sortObj, [key]: today[key]
+          }), {});
+      baseRateToday = Object.keys(sort).map(i => <p key={i}>{i} : {sort[i]}</p>);
     };
 
     //--------------//--------------//
@@ -31,11 +31,11 @@ class TableRate extends Component {
     if (!isEmpty(yesterday)) {
       //Sort Rates
       sort = Object.keys(yesterday)
-      .sort()
-      .reduce((sortObj, key) => ({
-        ...sortObj, [key]: yesterday[key]
-      }), {})
-      baseRateYesterday = Object.keys(sort).map(i => <p key={i}>{sort[i]}</p>)
+        .sort()
+        .reduce((sortObj, key) => ({
+          ...sortObj, [key]: yesterday[key]
+        }), {});
+      baseRateYesterday = Object.keys(sort).map(i => <p key={i}>{sort[i]}</p>);
     };
 
     //--------------//--------------//
@@ -46,12 +46,51 @@ class TableRate extends Component {
     if (!isEmpty(lastYear)) {
       //Sort Rates
       sort = Object.keys(lastYear)
+        .sort()
+        .reduce((sortObj, key) => ({
+          ...sortObj, [key]: lastYear[key]
+        }), {});
+      baseRateLastYear = Object.keys(sort).map(i => <p key={i}>{sort[i]}</p>);
+    };
+
+    //--------------//--------------//
+
+    //NewRateToday Rate(s)
+    const { newRateToday } = this.props.newRate;
+    let baseNewRateToday;
+    if (!isEmpty(newRateToday)) {
+      //Sort Rates
+      sort = Object.keys(newRateToday)
+        .sort()
+        .reduce((sortObj, key) => ({
+          ...sortObj, [key]: newRateToday[key]
+        }), {});
+      baseNewRateToday = Object.keys(sort).map(i => <p key={i}>{i} : {sort[i]}</p>);
+    }
+
+    //--------------//--------------//
+
+    //NewRateYesterday Rate(s)
+    const { newRateYesterday } = this.props.newRate;
+    let baseNewRateYesterday;
+    sort = Object.keys(newRateYesterday)
       .sort()
       .reduce((sortObj, key) => ({
-        ...sortObj, [key]: lastYear[key]
+        ...sortObj, [key]: newRateYesterday[key]
+      }), {});
+    baseNewRateYesterday = Object.keys(sort).map(i => <p key={i}>{sort[i]}</p>);
+
+    //--------------//--------------//
+
+    //NewRateLastYear
+    const { newRateLastYear } = this.props.newRate;
+    let baseNewRateLastYear;
+    sort = Object.keys(newRateLastYear)
+      .sort()
+      .reduce((sortObj, key) => ({
+        ...sortObj, [key]: newRateLastYear[key]
       }), {})
-      baseRateLastYear = Object.keys(sort).map(i => <p key={i}>{sort[i]}</p>)
-    };
+    baseNewRateLastYear = Object.keys(sort).map(i => <p key={i}>{sort[i]}</p>)
 
     return (
       <table>
@@ -65,15 +104,16 @@ class TableRate extends Component {
         </thead>
         <tbody>
           <tr>
-            <td>{baseRateToday}
-            newRateToday</td>
+            <td>{baseRateToday}</td>
             <td>!</td>
-            <td>{baseRateYesterday}
-            newRateYesterday</td>
-            <td>
-              {baseRateLastYear}
-              newRateLastYear
-            </td>
+            <td>{baseRateYesterday}</td>
+            <td>{baseRateLastYear}</td>
+          </tr>
+          <tr>
+            <td>{baseNewRateToday}</td>
+            <td>!</td>
+            <td>{baseNewRateYesterday}</td>
+            <td>{baseNewRateLastYear}</td>
           </tr>
         </tbody>
       </table>
