@@ -8,6 +8,19 @@ import isEmpty from '../common/isEmpty';
 
 class TableRate extends Component {
   render() {
+    let dateToday, dateYesterday, dateLastYear;
+    //Date(s)
+    const dataToday = this.props.date.today;
+    const dataYesterday = this.props.date.yesterday;
+    const dataLastYear = this.props.date.lastYear;
+    if (!isEmpty(dataToday) || !isEmpty(dataYesterday) || !isEmpty(dataLastYear)) {
+      dateToday = dataToday.toString();
+      dateYesterday = dataYesterday.toString();
+      dateLastYear = dataLastYear.toString(); 
+    }
+
+    //--------------//--------------//
+
     let sort;
 
     //Today Rates
@@ -96,10 +109,10 @@ class TableRate extends Component {
       <table>
         <thead>
           <tr>
-            <th>today</th>
+            <th>{dateToday}</th>
             <th>Up or Down</th>
-            <th>yesterday</th>
-            <th>lastYearDate</th>
+            <th>{dateYesterday}</th>
+            <th>{dateLastYear}</th>
           </tr>
         </thead>
         <tbody>
@@ -122,6 +135,7 @@ class TableRate extends Component {
 }
 
 const mapStateToProps = state => ({
+  date: state.date,
   rate: state.rate,
   newRate: state.newRate
 })
