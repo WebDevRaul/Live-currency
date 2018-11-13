@@ -4,9 +4,6 @@ import { GET_TODAY, GET_YESTERDAY, GET_LAST_YEAR, GET_ERRORS } from './types';
 //import Loading action
 import { setLoading } from './commonAction';
 
-//IsEmpty from common
-import isEmpty from '../../components/common/isEmpty';
-
 export const get_Rates = (base, date, symbols) => dispatch => {
   dispatch(setLoading());
   axios

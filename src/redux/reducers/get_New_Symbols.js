@@ -2,7 +2,7 @@ import { GET_NEW_SYMBOLS } from '../actions/types';
 
 const initialState = {
   loading: false,
-  newSymbols: {}
+  newSymbols: []
 };
 
 export default function(state=initialState, action) {
