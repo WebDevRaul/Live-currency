@@ -130,3 +130,55 @@ export default class Test extends Component {
     //       payload: err.response.data
     //     }))
     // })
+
+  //     //Check Arrow
+  // test(arrowToday, arrorYesterday) {
+  //   console.log(arrowToday)
+  //   for (let i = 0; i < arrowToday.length; i++) {
+  //     const a = arrowToday;
+  //     const b = arrorYesterday;
+  //     // this.check(a, b);
+  //     if (a[i] > b[i]) {
+  //       console.log('up')
+  //       this.props.get_Arrow(1);
+  //     } else if ( a < b) {
+  //       // console.log(a, b, 'down')
+  //     } else {
+  //       // console.log(a, b, 'equal')
+  //     }
+  //   };
+  // }
+
+  // check(a,b) {
+  //   if (a > b) {
+  //     console.log(a, b, 'up');
+  //     a.toString();
+  //     this.props.get_Arrow(a);
+  //   } else if ( a < b) {
+  //     console.log(a, b, 'down')
+  //   } else {
+  //     console.log(a, b, 'equal')
+  //   }
+  // }
+
+
+  // let arrowToday;
+  // let arrorYesterday
+  // let sort;
+  // const { today, yesterday } = nextProps.rate;
+  // if (!isEmpty(today)) {
+  //   sort = Object.keys(today)
+  //     .sort()
+  //     .reduce((sortObj, key) => ({
+  //       ...sortObj, [key]: today[key]
+  //     }), {})
+  //   arrowToday = Object.keys(sort).map(i => sort[i])
+  // }
+  // if (!isEmpty(yesterday)) {
+  //   sort = Object.keys(yesterday)
+  //     .sort()
+  //     .reduce((sortObj, key) => ({
+  //       ...sortObj, [key]: yesterday[key]
+  //     }), {})
+  //   arrorYesterday = Object.keys(sort).map(i => sort[i])
+  // }

@@ -2,12 +2,54 @@ import React, { Component } from 'react';
 
 //Redux
 import { connect } from 'react-redux';
+import { get_Arrow_Today } from '../../redux/actions/commonAction';
+import { get_Arrow_Yesterday } from '../../redux/actions/commonAction';
 
 //Common
 import isEmpty from '../common/isEmpty';
 
 class TableRate extends Component {
+  constructor() {
+    super();
+    this.state = {
+      today: [],
+      yesterday: []
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.rate.today !== this.props.rate.today) {
+      const { today } = nextProps.rate;
+      let sort;
+      let arrowToday;
+      if (!isEmpty(today)) {
+        sort = Object.keys(today)
+          .sort()
+          .reduce((sortObj, key) => ({
+            ...sortObj, [key]: today[key]
+          }), {});
+        arrowToday = Object.keys(sort).map(i => sort[i]);
+      }
+      this.props.get_Arrow_Today(arrowToday);
+    }
+    if (nextProps.rate.yesterday !== this.props.rate.yesterday) {
+      const { yesterday } = nextProps.rate;
+      let sort;
+      let arrowYesterday;
+      if (!isEmpty(yesterday)) {
+        sort = Object.keys(yesterday)
+          .sort()
+          .reduce((sortObj, key) => ({
+            ...sortObj, [key]: yesterday[key]
+          }), {});
+        arrowYesterday = Object.keys(sort).map(i => yesterday[i]);
+      }
+      this.props.get_Arrow_Yesterday(arrowYesterday);
+    }
+  }
+
   render() {
+
     let dateToday, dateYesterday, dateLastYear;
     //Date(s)
     const dataToday = this.props.date.today;
@@ -22,7 +64,7 @@ class TableRate extends Component {
     //--------------//--------------//
 
     let sort;
-
+    
     //Today Rates
     const { today } = this.props.rate;
     let baseRateToday;
@@ -37,7 +79,7 @@ class TableRate extends Component {
     };
 
     //--------------//--------------//
-
+    
     //Yesterday Rates
     const { yesterday } = this.props.rate;
     let baseRateYesterday;
@@ -137,7 +179,8 @@ class TableRate extends Component {
 const mapStateToProps = state => ({
   date: state.date,
   rate: state.rate,
-  newRate: state.newRate
+  newRate: state.newRate,
+  arrow: state.arrow
 })
 
-export default connect(mapStateToProps, {})(TableRate)
+export default connect(mapStateToProps, { get_Arrow_Today, get_Arrow_Yesterday })(TableRate)
