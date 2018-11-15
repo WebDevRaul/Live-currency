@@ -2,51 +2,11 @@ import React, { Component } from 'react';
 
 //Redux
 import { connect } from 'react-redux';
-import { get_Arrow_Today } from '../../redux/actions/commonAction';
-import { get_Arrow_Yesterday } from '../../redux/actions/commonAction';
 
 //Common
 import isEmpty from '../common/isEmpty';
 
 class TableRate extends Component {
-  constructor() {
-    super();
-    this.state = {
-      today: [],
-      yesterday: []
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.rate.today !== this.props.rate.today) {
-      const { today } = nextProps.rate;
-      let sort;
-      let arrowToday;
-      if (!isEmpty(today)) {
-        sort = Object.keys(today)
-          .sort()
-          .reduce((sortObj, key) => ({
-            ...sortObj, [key]: today[key]
-          }), {});
-        arrowToday = Object.keys(sort).map(i => sort[i]);
-      }
-      this.props.get_Arrow_Today(arrowToday);
-    }
-    if (nextProps.rate.yesterday !== this.props.rate.yesterday) {
-      const { yesterday } = nextProps.rate;
-      let sort;
-      let arrowYesterday;
-      if (!isEmpty(yesterday)) {
-        sort = Object.keys(yesterday)
-          .sort()
-          .reduce((sortObj, key) => ({
-            ...sortObj, [key]: yesterday[key]
-          }), {});
-        arrowYesterday = Object.keys(sort).map(i => yesterday[i]);
-      }
-      this.props.get_Arrow_Yesterday(arrowYesterday);
-    }
-  }
 
   render() {
 
@@ -145,7 +105,13 @@ class TableRate extends Component {
       .reduce((sortObj, key) => ({
         ...sortObj, [key]: newRateLastYear[key]
       }), {})
-    baseNewRateLastYear = Object.keys(sort).map(i => <p key={i}>{sort[i]}</p>)
+    baseNewRateLastYear = Object.keys(sort).map(i => 
+      <p 
+        key={i}
+        id={i}
+      >
+        {sort[i]}
+      </p>)
 
     return (
       <table>
@@ -183,4 +149,4 @@ const mapStateToProps = state => ({
   arrow: state.arrow
 })
 
-export default connect(mapStateToProps, { get_Arrow_Today, get_Arrow_Yesterday })(TableRate)
+export default connect(mapStateToProps, { })(TableRate)

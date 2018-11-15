@@ -131,54 +131,52 @@ export default class Test extends Component {
     //     }))
     // })
 
-  //     //Check Arrow
-  // test(arrowToday, arrorYesterday) {
-  //   console.log(arrowToday)
-  //   for (let i = 0; i < arrowToday.length; i++) {
-  //     const a = arrowToday;
-  //     const b = arrorYesterday;
-  //     // this.check(a, b);
-  //     if (a[i] > b[i]) {
-  //       console.log('up')
-  //       this.props.get_Arrow(1);
-  //     } else if ( a < b) {
-  //       // console.log(a, b, 'down')
+  // if (this.state.yesterday.length > 0 && this.state.today.length > 0) {
+  //   for (let i = 0; i < this.state.today.length; i++) {
+  //     const a = this.state.today[i];
+  //     const b = this.state.yesterday[i]
+  //     if (a > b) {
+  //       this.props.get_Arrow_Today('up', i)
+  //     } else if (a < b) {
+  //       this.props.get_Arrow_Today('down', i)
   //     } else {
-  //       // console.log(a, b, 'equal')
+  //       this.props.get_Arrow_Today('equal', i)
   //     }
-  //   };
-  // }
-
-  // check(a,b) {
-  //   if (a > b) {
-  //     console.log(a, b, 'up');
-  //     a.toString();
-  //     this.props.get_Arrow(a);
-  //   } else if ( a < b) {
-  //     console.log(a, b, 'down')
-  //   } else {
-  //     console.log(a, b, 'equal')
   //   }
   // }
 
-
-  // let arrowToday;
-  // let arrorYesterday
-  // let sort;
-  // const { today, yesterday } = nextProps.rate;
-  // if (!isEmpty(today)) {
-  //   sort = Object.keys(today)
-  //     .sort()
-  //     .reduce((sortObj, key) => ({
-  //       ...sortObj, [key]: today[key]
-  //     }), {})
-  //   arrowToday = Object.keys(sort).map(i => sort[i])
-  // }
-  // if (!isEmpty(yesterday)) {
-  //   sort = Object.keys(yesterday)
-  //     .sort()
-  //     .reduce((sortObj, key) => ({
-  //       ...sortObj, [key]: yesterday[key]
-  //     }), {})
-  //   arrorYesterday = Object.keys(sort).map(i => sort[i])
+  // componentWillReceiveProps(nextProps) {
+  //   let arrowYesterday;
+  //   let sort;
+  //   let arrowToday;
+  //   if (nextProps.rate.today !== this.props.rate.today) {
+  //     const { today } = nextProps.rate;
+  //     if (!isEmpty(today)) {
+  //       sort = Object.keys(today)
+  //         .sort()
+  //         .reduce((sortObj, key) => ({
+  //           ...sortObj, [key]: today[key]
+  //         }), {});
+  //       arrowToday = Object.keys(sort).map(i => sort[i]);
+  //       this.setState({
+  //         today: arrowToday
+  //       })
+  //     }
+  //     // this.props.get_Arrow_Today(arrowToday);
+  //     // this.props.get_Arrow_Yesterday(arrowYesterday);
+  //   }
+  //   if (nextProps.rate.yesterday !== this.props.rate.yesterday) {
+  //     const { yesterday } = nextProps.rate;
+  //     if (!isEmpty(yesterday)) {
+  //       sort = Object.keys(yesterday)
+  //         .sort()
+  //         .reduce((sortObj, key) => ({
+  //           ...sortObj, [key]: yesterday[key]
+  //         }), {});
+  //       arrowYesterday = Object.keys(sort).map(i => yesterday[i]);
+  //       this.setState({
+  //         yesterday: arrowYesterday
+  //       })
+  //     }
+  //   }
   // }
