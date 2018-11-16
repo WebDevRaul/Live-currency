@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 //Redux
 import { connect } from 'react-redux';
 import { get_Change_Base } from '../../redux/actions/get_Change_Base';
+import { get_Rates } from '../../redux/actions/get_Rates';
+import { get_New_Rate } from '../../redux/actions/get_New_Rate';
 
 //IsEmpty from common
 import isEmpty from '../common/isEmpty';
@@ -16,6 +18,26 @@ class SelectRate extends Component {
     }
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.base.base !== this.props.base.base) {
+      const { base } = nextProps.base;
+      const { symbols } = this.props.symbols;
+      const { date } = this.props;
+      const { newSymbols } = nextProps.newSymbols;
+      this.props.get_Rates(base, date, symbols);
+      if (!isEmpty(newSymbols)) {
+        this.props.get_New_Rate(base, date, newSymbols)
+      }
+    }
+
+    if (nextProps.newSymbols.newSymbols !== this.props.newSymbols.newSymbols) {
+      const { base } = this.props.base
+      const { date } = this.props;
+      const { newSymbols } = nextProps.newSymbols;
+      this.props.get_New_Rate(base, date, newSymbols)
+    }
   }
 
   onChange(e) {
@@ -69,9 +91,13 @@ class SelectRate extends Component {
 }
 
 const mapStateToProps = state => ({
+  errors: state.errors,
   base: state.base,
-  selectRate: state.selectRate
+  date: state.date,
+  selectRate: state.selectRate,
+  symbols: state.symbols,
+  newSymbols: state.newSymbols
 });
 
-export default connect(mapStateToProps, { get_Change_Base })(SelectRate);
+export default connect(mapStateToProps, { get_Change_Base, get_Rates, get_New_Rate })(SelectRate);
 

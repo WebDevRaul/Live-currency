@@ -19,7 +19,7 @@ export const get_New_Symbols = data => dispatch => {
   } else if (text.length === 3) {
     dispatch({
       type: GET_NEW_SYMBOLS,
-      payload: text
+      payload: text.toUpperCase()
     })
   }
 };

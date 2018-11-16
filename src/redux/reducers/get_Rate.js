@@ -17,19 +17,19 @@ export default function(state=initialState, action) {
       return {
         ...state,
         loading: false,
-        today: action.payload
+        today: Object.keys(action.payload).sort().reduce((obj, key) => ({...obj, [key]:action.payload[key]}),{})
       }
     case GET_YESTERDAY:
       return {
         ...state,
         loading: false,
-        yesterday: action.payload
+        yesterday: Object.keys(action.payload).sort().reduce((obj, key)=>({...obj, [key]:action.payload[key]}),{})
       }
     case GET_LAST_YEAR:
       return {
         ...state,
         loading: false,
-        lastYear: action.payload
+        lastYear: Object.keys(action.payload).sort().reduce((obj, key) => ({...obj, [key]:action.payload[key]}),{})
       }
     default:
       return state;
