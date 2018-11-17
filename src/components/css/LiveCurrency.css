@@ -5,6 +5,6 @@
   margin: 50px 0;
 }
 
-.coll span {
-  font-weight: 900;
+.liveCurrencyTopHalf {
+  min-height: 75px;
 }

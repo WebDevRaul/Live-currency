@@ -27,20 +27,22 @@ class Live_Currency extends Component {
   render() {
     return (
       <div className='liveCurrency'>
-      <div className='row'>
-        <div className='col'>
-          <SelectRate />
+        <div className='liveCurrencyTopHalf'>
+          <div className='row'>
+            <div className='col'>
+              <SelectRate />
+            </div>
+            <div className='col'>
+              <SearchBar />
+            </div>
+          </div>
         </div>
-        <div className='col'>
-          <SearchBar />
+        <div className='row'>
+          <div className='col'>
+            <TableRate />
+          </div>
         </div>
       </div>
-      <div className='row'>
-        <div className='col'>
-          <TableRate />
-        </div>
-      </div>
-    </div>
     )
   }
 }

@@ -1,33 +1,85 @@
+@import './App.css';
+
+
 .searchCurrency {
-  margin: 20px 0;
-  text-align: center;
+  padding: 0 10px 10px 10px;
 }
 
+/* ----- *//* ----- *//* ----- */
+
+/* Input */
 .searchInput {
+  z-index: -1;
   border: none;
   border-bottom: 0.5px solid;
   width: 220px;
   padding: none;
 }
 
-.searchIcon {
+/* Error(s) */
+.searchInputError {
+  border-bottom: 0.5px solid red;
+}
+
+.searchInput::placeholder {
+  color: red;
+  font-size: 12px;
+};
+
+/* ----- *//* ----- *//* ----- */
+
+.searchInfo {
+  z-index: 1;
   position: relative;
-  left: -20px;
-}
-
-.searchInfo {
-  margin: 5px;
-  padding: 10px;
-}
-
-.searchInfo {
+  left: -10px;
+  font-size: 15px;
   font-family: 'Spicy Rice', cursive;
+  transition: 0.5s;
 }
 
+.searchInfo:hover {
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+/* ----- *//* ----- *//* ----- */
+
+/* Button */
 .searchButton {
+  margin: 0 5px;
   background: transparent;
-  border: 1px solid;
-  padding: 5px 10px;
-  border-radius: 10px;
+  border: none;
   outline: unset !important;
+  text-shadow: 2px 2px 2px var(--secondaryCollor);
+  transition: 0.5s;
+}
+
+.onClickSearchButton {
+  text-shadow: 0.1px 0.1px 0.1px var(--secondaryCollor);
+  transition: 0.5s
+};
+
+.searchButton:hover {
+  cursor: pointer;
+}
+
+.searchButton::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: -10;
+  width: 11%;
+  height: 1px;
+  margin-bottom: 7px;
+  background: var(--mainCollor);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .5s;
+}
+
+.searchButton:hover::before {
+  transform: scale(1);
+  transform-origin: left;
 }
