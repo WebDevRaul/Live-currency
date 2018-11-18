@@ -24,13 +24,26 @@ class SearchBar extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
-  }
+  };
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.errors) {
+      this.setState({ errors: newProps.errors.errors });
+    }
+  };
 
   onChange(e) {
     this.setState({
       text: e.target.value
     });
+    
   };
+
+  search(a) {
+    return function(b) {
+      
+    }
+  }
 
   onMouseDown() {
     this.setState({
@@ -47,14 +60,20 @@ class SearchBar extends Component {
     })
   };
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.errors) {
-      this.setState({ errors: newProps.errors.errors });
-    }
-  };
-
   render() {
+    const { selectRate } = this.props.selectRate;
     const { errors, click } = this.state;
+
+    //Filter Rate(s)
+    let arr = [];
+    if (!isEmpty(selectRate)) {
+      for (let i = 0; i < selectRate.length; i++) {
+        const element = selectRate[i];
+        arr.push({ id: i, name: element })
+      }
+    }
+
+    const list = arr.filter(search(this.state.text)).map(i => <option key={i.name}>{i.name}</option>)
 
     return (
       <div>
@@ -62,13 +81,20 @@ class SearchBar extends Component {
           <input
             className={classnames('searchInput', {'searchInputError' : errors.searchBar})}
             placeholder={click ? '' : errors.searchBar}
-            value={this.state.text}
-            type='text'
+            autoComplete='off'
+            type='search'
+            list='list'
             name='text'
+            value={this.state.text}
             onChange={this.onChange}
             error = {errors}
           />
-          <span className='searchInfo'>i</span>
+          <datalist id='list'>
+            {list}
+          </datalist>
+          <span 
+            className='searchInfo'
+          >i</span>
           <button
             onMouseDown={this.onMouseDown} 
             onMouseUp={this.onMouseDown}
@@ -83,7 +109,14 @@ class SearchBar extends Component {
 
 const mapStateToProps = state => ({
   symbols: state.symbols,
-  errors: state.errors
+  errors: state.errors,
+  selectRate: state.selectRate
 });
 
 export default connect(mapStateToProps, { get_New_Symbols, get_Clear_Error })(SearchBar);
+
+function search(a) {
+  return function(b) {
+    return b.name.toUpperCase().includes(a.toUpperCase()) || !a;
+  }
+}
