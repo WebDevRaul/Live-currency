@@ -4,7 +4,6 @@ import classnames from 'classnames';
 //Redux
 import { connect } from 'react-redux';
 import { get_New_Symbols } from '../../redux/actions/get_New_Symbols';
-import { get_Clear_Error } from '../../redux/actions/commonAction';
 
 //Common
 import isEmpty from '../common/isEmpty';
@@ -36,14 +35,7 @@ class SearchBar extends Component {
     this.setState({
       text: e.target.value
     });
-    
   };
-
-  search(a) {
-    return function(b) {
-      
-    }
-  }
 
   onMouseDown() {
     this.setState({
@@ -62,7 +54,7 @@ class SearchBar extends Component {
 
   render() {
     const { selectRate } = this.props.selectRate;
-    const { errors, click } = this.state;
+    const { errors, click, text } = this.state;
 
     //Filter Rate(s)
     let arr = [];
@@ -72,8 +64,8 @@ class SearchBar extends Component {
         arr.push({ id: i, name: element })
       }
     }
-
-    const list = arr.filter(search(this.state.text)).map(i => <option key={i.name}>{i.name}</option>)
+    const search = data => b => b.name.toUpperCase().startsWith(data.toUpperCase()) || !data;
+    const list = arr.filter(search(text)).map(i => <option key={i.name}>{i.name}</option>)
 
     return (
       <div>
@@ -113,10 +105,4 @@ const mapStateToProps = state => ({
   selectRate: state.selectRate
 });
 
-export default connect(mapStateToProps, { get_New_Symbols, get_Clear_Error })(SearchBar);
-
-function search(a) {
-  return function(b) {
-    return b.name.toUpperCase().includes(a.toUpperCase()) || !a;
-  }
-}
+export default connect(mapStateToProps, { get_New_Symbols })(SearchBar);
