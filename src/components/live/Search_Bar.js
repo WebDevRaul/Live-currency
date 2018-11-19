@@ -83,22 +83,11 @@ class SearchBar extends Component {
 
     //Modal
     let firstHalf = [];
-    let secondHalf = [];
-    if (!isEmpty(selectRate)) {
-      for (let i = 0; i < selectRate.length / 2; i++) {
-        const element = selectRate[i];
-        const data = country[i]
-        firstHalf.push({ id: i, name: element, country: data.title, code: data.code, currency: data.currency })
-      }
-    };
-
     if (!isEmpty(selectRate)) {
       for (let i = 0; i < selectRate.length; i++) {
         const element = selectRate[i];
         const data = country[i]
-        if (firstHalf.length <= i) {
-          secondHalf.push({ id: i, name: element, country: data.title, code: data.code, currency: data.currency })
-        }
+        firstHalf.push({ id: i, name: element, country: data.title, code: data.code, currency: data.currency })
       }
     };
 
@@ -132,7 +121,6 @@ class SearchBar extends Component {
         </form>
         {modal ? <InfoModal
           firstHalf={firstHalf}
-          secondHalf={secondHalf}
           onClose={this.onModal}
          /> : null}
       </div>

@@ -7,38 +7,37 @@ import '../css/InfoModal.css';
 class InfoModal extends Component {
 
   render() {
-    const { firstHalf, secondHalf } = this.props;
+    const { firstHalf } = this.props;
+
+    //Sort by country
+    const compare = (a,b) => { 
+      if (a.country < b.country) {return -1;} 
+      if (a.country > b.country) {return 1;} 
+      return 0;}
 
     //firstHalf
-    const firstHalfData = Object.keys(firstHalf).map(i => 
-    <div key={i}> 
-      <p>{firstHalf[i].country}</p> 
-      <span><Flag code={firstHalf[i].code} width={16} /></span>
-    </div>);
-
-    //secondHalf
-    const secondHalfData = Object.keys(secondHalf).map(i => 
-      <div key={i}> 
-        <p>{secondHalf[i].country}</p> 
-        <span><Flag code={secondHalf[i].code} width={16} /></span>
-      </div>);
-
+    const firstHalfData = Object.keys(firstHalf.sort(compare)).map(i => 
+      <tr key={i}> 
+        <td><span className='modal-flag'><Flag code={firstHalf[i].code} width={16} /></span> {firstHalf[i].country}</td>
+        <td>{firstHalf[i].currency}</td>
+        <td>{firstHalf[i].name}</td>
+      </tr>);
     
     return (
       <div className='modal-div'>
         <div className='modal-content'>
-          <div className='row'>
-            <div className='col'>
-              <div>
-                {firstHalfData}
-              </div>
-            </div>
-            <div className='col'>
-              <div>
-                 {secondHalfData}
-              </div>
-            </div>
-          </div>
+          <table>
+            <thead>
+              <tr>
+                <td>Country:</td>
+                <td>Local currency :</td>
+                <td>Code :</td>
+              </tr>
+            </thead>
+            <tbody>
+              {firstHalfData}
+            </tbody>
+          </table>
         <span className='modal-btn' onClick={this.props.onClose}>x</span>
         </div>
       </div>
