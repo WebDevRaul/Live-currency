@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
+import InfoModal from './Info_Modal';
 
 //Redux
 import { connect } from 'react-redux';
@@ -10,6 +11,7 @@ import isEmpty from '../common/isEmpty';
 
 //Css
 import '../css/SearchCurrency.css';
+import '../css/infoModal.css';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -17,12 +19,14 @@ class SearchBar extends Component {
     this.state = {
       text: '',
       click: false,
+      modal: false,
       errors: {},
     }
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
+    this.onModal = this.onModal.bind(this);
   };
 
   componentWillReceiveProps(newProps) {
@@ -52,9 +56,15 @@ class SearchBar extends Component {
     })
   };
 
+  onModal() {
+    this.setState({
+      modal: !this.state.modal
+    })
+  }
+
   render() {
     const { selectRate } = this.props.selectRate;
-    const { errors, click, text } = this.state;
+    const { errors, click, text, modal } = this.state;
 
     //Filter Rate(s)
     let arr = [];
@@ -64,7 +74,7 @@ class SearchBar extends Component {
         arr.push({ id: i, name: element })
       }
     }
-    const search = data => b => b.name.toUpperCase().startsWith(data.toUpperCase()) || !data;
+    const search = text => data => data.name.toUpperCase().startsWith(text.toUpperCase()) || !text;
     const list = arr.filter(search(text)).map(i => <option key={i.name}>{i.name}</option>)
 
     return (
@@ -82,10 +92,11 @@ class SearchBar extends Component {
             error = {errors}
           />
           <datalist id='list'>
-            {list}
+            {text.length !== 0 ? list : null }
           </datalist>
           <span 
             className='searchInfo'
+            onClick={this.onModal}
           >i</span>
           <button
             onMouseDown={this.onMouseDown} 
@@ -94,6 +105,7 @@ class SearchBar extends Component {
             type='submit'
             >Search</button>
         </form>
+        {modal ? <InfoModal onClose={this.onModal} /> : null}
       </div>
     )
   }
