@@ -126,8 +126,8 @@ class SearchBar extends Component {
             >Search</button>
         </form>
         {modal ? <InfoModal
-          firstHalf={"firstHalf"}
-          secondHalf={"secondHalf"}
+          firstHalf={firstHalf}
+          secondHalf={secondHalf}
           onClose={this.onModal}
          /> : null}
       </div>
