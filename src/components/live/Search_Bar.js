@@ -11,7 +11,6 @@ import isEmpty from '../common/isEmpty';
 
 //Css
 import '../css/SearchCurrency.css';
-import '../css/infoModal.css';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -73,9 +72,30 @@ class SearchBar extends Component {
         const element = selectRate[i];
         arr.push({ id: i, name: element })
       }
-    }
+    };
     const search = text => data => data.name.toUpperCase().startsWith(text.toUpperCase()) || !text;
-    const list = arr.filter(search(text)).map(i => <option key={i.name}>{i.name}</option>)
+    const list = arr.filter(search(text)).map(i => <option key={i.name}>{i.name}</option>);
+
+    //--------------//--------------//
+
+    //Modal
+    let firstHalf = [];
+    let secondHalf = [];
+    if (!isEmpty(selectRate)) {
+      for (let i = 0; i < selectRate.length / 2; i++) {
+        const element = selectRate[i];
+        firstHalf.push({ id: i, name: element })
+      }
+    };
+
+    if (!isEmpty(selectRate)) {
+      for (let i = 0; i < selectRate.length; i++) {
+        const element = selectRate[i];
+        if (firstHalf.length <= i) {
+          secondHalf.push({ id: i, name: element })
+        }
+      }
+    };
 
     return (
       <div>
@@ -105,7 +125,11 @@ class SearchBar extends Component {
             type='submit'
             >Search</button>
         </form>
-        {modal ? <InfoModal onClose={this.onModal} /> : null}
+        {modal ? <InfoModal
+          firstHalf={"firstHalf"}
+          secondHalf={"secondHalf"}
+          onClose={this.onModal}
+         /> : null}
       </div>
     )
   }
