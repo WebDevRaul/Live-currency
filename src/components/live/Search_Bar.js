@@ -8,6 +8,7 @@ import { get_New_Symbols } from '../../redux/actions/get_New_Symbols';
 
 //Common
 import isEmpty from '../common/isEmpty';
+import { country } from '../common/country';
 
 //Css
 import '../css/SearchCurrency.css';
@@ -78,21 +79,25 @@ class SearchBar extends Component {
 
     //--------------//--------------//
 
+    //Add manual country name(s)
+
     //Modal
     let firstHalf = [];
     let secondHalf = [];
     if (!isEmpty(selectRate)) {
       for (let i = 0; i < selectRate.length / 2; i++) {
         const element = selectRate[i];
-        firstHalf.push({ id: i, name: element })
+        const data = country[i]
+        firstHalf.push({ id: i, name: element, country: data.title, code: data.code, currency: data.currency })
       }
     };
 
     if (!isEmpty(selectRate)) {
       for (let i = 0; i < selectRate.length; i++) {
         const element = selectRate[i];
+        const data = country[i]
         if (firstHalf.length <= i) {
-          secondHalf.push({ id: i, name: element })
+          secondHalf.push({ id: i, name: element, country: data.title, code: data.code, currency: data.currency })
         }
       }
     };

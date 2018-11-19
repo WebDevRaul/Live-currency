@@ -10,7 +10,7 @@
 }
 
 .modal-content {
-  background-color: #fff;
+  background-color: rgb(233, 232, 232);
   border-radius: 10;
   max-height: 100%;
   overflow-y: auto;
