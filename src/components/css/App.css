@@ -10,3 +10,7 @@ hr {
   margin: 0 0 10px 0 !important;
 }
 
+td {
+  text-align: left
+}
+

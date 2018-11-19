@@ -18,7 +18,7 @@ class InfoModal extends Component {
     //firstHalf
     const firstHalfData = Object.keys(firstHalf.sort(compare)).map(i => 
       <tr key={i}> 
-        <td><span className='modal-flag'><Flag code={firstHalf[i].code} width={16} /></span> {firstHalf[i].country}</td>
+        <td className='first-td'><span className='modal-flag'><Flag code={firstHalf[i].code} width={30} /></span> {firstHalf[i].country}</td>
         <td>{firstHalf[i].currency}</td>
         <td>{firstHalf[i].name}</td>
       </tr>);
@@ -28,8 +28,8 @@ class InfoModal extends Component {
         <div className='modal-content'>
           <table>
             <thead>
-              <tr>
-                <td>Country:</td>
+              <tr className='modal-thead'>
+                <td>Country :</td>
                 <td>Local currency :</td>
                 <td>Code :</td>
               </tr>

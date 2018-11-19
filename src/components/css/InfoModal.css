@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.3);
-  padding: 50px 200px;
+  padding: 70px 200px;
 }
 
 .modal-content {
@@ -15,12 +15,23 @@
   max-height: 100%;
   overflow-y: auto;
   margin: 0 auto;
-  padding: 30px;
+  padding: 30px 100px;
   position: relative;
+}
+
+.modal-thead {
+  font-size: 25px;
 }
 
 .modal-btn {
   position: absolute;
   right: 15px;
   top: 5px;
+}
+
+.first-td {
+  padding: 5px;
+}
+.modal-flag {
+  margin: 0 20px 0 0;
 }
