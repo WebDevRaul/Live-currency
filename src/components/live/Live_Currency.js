@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import SelectRate from './Select_Rate';
 import TableRate from './Table_Rate';
 import SearchBar from './Search_Bar';
+import CurrencyConvertor from './Currency_Convertor';
 
 //Redux
 import { connect } from 'react-redux';
@@ -28,6 +29,11 @@ class Live_Currency extends Component {
     return (
       <div className='liveCurrency'>
         <div className='liveCurrencyTopHalf'>
+          <div className='row'>
+            <div className='col'>
+              <CurrencyConvertor />
+            </div>
+          </div>
           <div className='row'>
             <div className='col'>
               <SelectRate />

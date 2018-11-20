@@ -7,7 +7,7 @@ import '../css/InfoModal.css';
 class InfoModal extends Component {
 
   render() {
-    const { firstHalf } = this.props;
+    const { flagObj } = this.props;
 
     //Sort by country
     const compare = (a,b) => { 
@@ -15,12 +15,12 @@ class InfoModal extends Component {
       if (a.country > b.country) {return 1;} 
       return 0;}
 
-    //firstHalf
-    const firstHalfData = Object.keys(firstHalf.sort(compare)).map(i => 
+    //Flag modal
+    const flagModal = Object.keys(flagObj.sort(compare)).map(i => 
       <tr key={i}> 
-        <td className='first-td'><span className='modal-flag'><Flag code={firstHalf[i].code} width={30} /></span> {firstHalf[i].country}</td>
-        <td>{firstHalf[i].currency}</td>
-        <td>{firstHalf[i].name}</td>
+        <td className='first-td'><span className='modal-flag'><Flag code={flagObj[i].code} width={30} /></span> {flagObj[i].country}</td>
+        <td>{flagObj[i].currency}</td>
+        <td>{flagObj[i].name}</td>
       </tr>);
     
     return (
@@ -35,7 +35,7 @@ class InfoModal extends Component {
               </tr>
             </thead>
             <tbody>
-              {firstHalfData}
+              {flagModal}
             </tbody>
           </table>
         <span className='modal-btn' onClick={this.props.onClose}>x</span>

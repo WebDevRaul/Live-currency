@@ -82,12 +82,12 @@ class SearchBar extends Component {
     //Add manual country name(s)
 
     //Modal
-    let firstHalf = [];
+    let flagObj = [];
     if (!isEmpty(selectRate)) {
       for (let i = 0; i < selectRate.length; i++) {
         const element = selectRate[i];
         const data = country[i]
-        firstHalf.push({ id: i, name: element, country: data.title, code: data.code, currency: data.currency })
+        flagObj.push({ id: i, name: element, country: data.title, code: data.code, currency: data.currency })
       }
     };
 
@@ -120,7 +120,7 @@ class SearchBar extends Component {
             >Search</button>
         </form>
         {modal ? <InfoModal
-          firstHalf={firstHalf}
+          flagObj={flagObj}
           onClose={this.onModal}
          /> : null}
       </div>

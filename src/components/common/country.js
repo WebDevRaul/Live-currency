@@ -1,13 +1,13 @@
 export const country  = [
   {
     id: 1,
-    title: 'Australia',
+    title: 'AUSTRALIA',
     currency: 'Australian Dollar',
     code: 'AUS',
   },
   {
     id: 2,
-    title: 'Bulgaria',
+    title: 'BULGARIA',
     currency: 'Bulgarian Lev',
     code: 'BGR',
   },
