@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 //Redux
 import { connect } from 'react-redux';
+import { get_Currency } from '../../redux/actions/get_Currency';
 
 //IsEmpty from common
 import isEmpty from '../common/isEmpty';
@@ -17,15 +18,14 @@ class CurrencyConvertor extends Component {
       basicVal: ''
     }
     this.onChange = this.onChange.bind(this);
-    this.onKeyUp = this.onKeyUp.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.get_Currency(this.state.from, this.state.to)
   }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
-  }
-
-  onKeyUp(from, to) {
-    
   }
 
   render() {
@@ -35,6 +35,13 @@ class CurrencyConvertor extends Component {
     let date;
     if (!isEmpty(today)) {
       date = today.toString()
+    }
+
+
+    const { currency } = this.props.currency;
+    let currencyVal;
+    if (!isEmpty(currency)) {
+      currencyVal =   Object.keys(currency).map(i => currency[i])
     }
 
     const { from, to, fromVal, toVal } = this.state;
@@ -50,7 +57,7 @@ class CurrencyConvertor extends Component {
       <div>
         <div>
           <p>1 {from} equals</p>
-          <p>{}... {to}</p>
+          <p>{currencyVal} : {to}</p>
           <p>{date}</p>
         </div>
         <form>
@@ -63,7 +70,7 @@ class CurrencyConvertor extends Component {
                 name='from'
                 value={this.state.from}
                 onChange={this.onChange}
-                onKeyUp={this.onKeyUp}
+                onMouseUp={(e) => this.props.get_Currency(from, to)}
               >
                 <option defaultValue={from} />
                 {option}
@@ -77,7 +84,7 @@ class CurrencyConvertor extends Component {
                 name='to'
                 value={this.state.to}
                 onChange={this.onChange}
-                onKeyUp={this.onKeyUp(from, to)}
+                onMouseUp={(e) => this.props.get_Currency(from, to)}
               >
                 <option defaultValue={to} />
                 {option}
@@ -93,6 +100,7 @@ class CurrencyConvertor extends Component {
 const mapStateToProps = state => ({
   selectRate: state.selectRate,
   date: state.date,
+  currency: state.currency
 })
 
-export default connect(mapStateToProps, {})(CurrencyConvertor)
+export default connect(mapStateToProps, { get_Currency })(CurrencyConvertor)
