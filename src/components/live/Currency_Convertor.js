@@ -10,32 +10,27 @@ class CurrencyConvertor extends Component {
   constructor() {
     super();
     this.state = {
-      from: '',
-      to: '',
+      from: 'GBP',
+      to: 'AUD',
       fromVal: '',
       toVal: '',
-      base: ''
     }
     this.onChange = this.onChange.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.base.base !== this.props.base.base) {
-      const { base } = nextProps.base;
-      this.setState({ base })
-    }
-  }
-
   onChange(e) {
-    this.setState({
-      
-    })
+    this.setState({ [e.target.name]: e.target.value });
   }
   render() {
-    let base;
-    if (!isEmpty(this.props.base.base)) {
-      base = this.props.base.base
+
+    //Date
+    const { today } = this.props.date;
+    let date;
+    if (!isEmpty(today)) {
+      date = today.toString()
     }
+
+    const { from, to, fromVal, toVal } = this.state;
 
     //Option Dropdown List
     const { selectRate } = this.props.selectRate;
@@ -47,9 +42,9 @@ class CurrencyConvertor extends Component {
     return (
       <div>
         <div>
-          <p>1 {} equals</p>
-          <p>{} {}</p>
-          <p>{}</p>
+          <p>1 {from} equals</p>
+          <p>{}... {to}</p>
+          <p>{date}</p>
         </div>
         <form>
           <div className='row'>
@@ -58,12 +53,11 @@ class CurrencyConvertor extends Component {
                 type='text'
               />
               <select
+                name='from'
                 value={this.state.from}
                 onChange={this.onChange}
               >
-                <option defaultValue={base}>
-                  {base}
-                </option>
+                <option defaultValue={from} />
                 {option}
               </select>
             </div>
@@ -71,7 +65,12 @@ class CurrencyConvertor extends Component {
           <div className='row'>
             <div className='col'>
               <input />
-              <select>
+              <select
+                name='to'
+                value={this.state.to}
+                onChange={this.onChange}
+              >
+                <option defaultValue={to} />
                 {option}
               </select>
             </div>
@@ -83,8 +82,8 @@ class CurrencyConvertor extends Component {
 };
 
 const mapStateToProps = state => ({
-  base: state.base,
   selectRate: state.selectRate,
+  date: state.date,
 })
 
 export default connect(mapStateToProps, {})(CurrencyConvertor)
