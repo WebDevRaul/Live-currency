@@ -14,13 +14,20 @@ class CurrencyConvertor extends Component {
       to: 'AUD',
       fromVal: '',
       toVal: '',
+      basicVal: ''
     }
     this.onChange = this.onChange.bind(this);
+    this.onKeyUp = this.onKeyUp.bind(this);
   }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
+
+  onKeyUp(from, to) {
+    
+  }
+
   render() {
 
     //Date
@@ -56,6 +63,7 @@ class CurrencyConvertor extends Component {
                 name='from'
                 value={this.state.from}
                 onChange={this.onChange}
+                onKeyUp={this.onKeyUp}
               >
                 <option defaultValue={from} />
                 {option}
@@ -69,6 +77,7 @@ class CurrencyConvertor extends Component {
                 name='to'
                 value={this.state.to}
                 onChange={this.onChange}
+                onKeyUp={this.onKeyUp(from, to)}
               >
                 <option defaultValue={to} />
                 {option}
