@@ -37,12 +37,16 @@ class CurrencyConvertor extends Component {
       date = today.toString()
     }
 
+    //--------------//--------------//
 
+    //Currency val
     const { currency } = this.props.currency;
     let currencyVal;
     if (!isEmpty(currency)) {
-      currencyVal =   Object.keys(currency).map(i => currency[i])
+      currencyVal=Object.keys(currency).map(i => currency[i])
     }
+
+    //--------------//--------------//
 
     const { from, to, fromVal, toVal } = this.state;
 
@@ -55,30 +59,26 @@ class CurrencyConvertor extends Component {
 
     return (
       <div>
-        <div>
-          <p>1 {from} equals</p>
-          <p>{currencyVal} : {to}</p>
-          <p>{date}</p>
-        </div>
         <form>
           <div className='row'>
+            <div className='col'>
+            <div>{date}</div>
+            <div><p>1 {from} equals {currencyVal} {to}</p></div>
+            </div>
             <div className='col'>
               <input
                 type='text'
               />
-              <select
-                name='from'
-                value={this.state.from}
-                onChange={this.onChange}
-                onMouseUp={(e) => this.props.get_Currency(from, to)}
+                <select
+                  name='from'
+                  value={this.state.from}
+                  onChange={this.onChange}
+                  onMouseUp={(e) => this.props.get_Currency(from, to)}
               >
-                <option defaultValue={from} />
-                {option}
-              </select>
-            </div>
-          </div>
-          <div className='row'>
-            <div className='col'>
+                  <option defaultValue={from} />
+                  {option}
+                </select>
+                <br />
               <input />
               <select
                 name='to'
