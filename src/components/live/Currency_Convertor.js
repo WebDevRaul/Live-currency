@@ -7,26 +7,47 @@ import { get_Currency } from '../../redux/actions/get_Currency';
 //IsEmpty from common
 import isEmpty from '../common/isEmpty';
 
+//Css
+import '../css/Currency.css';
+
 class CurrencyConvertor extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       from: 'GBP',
       to: 'AUD',
-      fromVal: '',
+      fromVal: '1',
       toVal: '',
-      basicVal: ''
     }
     this.onChange = this.onChange.bind(this);
   }
 
   componentDidMount() {
-    this.props.get_Currency(this.state.from, this.state.to)
-  }
+    // this.props.get_Currency(this.state.from, this.state.to)
+  };
+
+  // componentWillReceiveProps(nextProps) {
+  //   const { currency } = nextProps.currency
+  //   if (currency !== this.state.toVal) {
+  //     this.setState({ 
+  //       toVal: Object.keys(currency).map(i => currency[i])
+  //      });
+  //   };
+  // };
+
+  // componentDidUpdate(prevState) {
+  //   if (prevState.fromVal !== this.state.fromVal) {
+  //     const { fromVal, toVal } = this.state;
+  //     let a,b;
+  //     a=parseFloat(fromVal);
+  //     b=parseFloat(toVal[0]);
+  //     const onConvertTo = (a, b) => a * b;
+  //   }
+  // }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
-  }
+  };
 
   render() {
 
@@ -58,7 +79,7 @@ class CurrencyConvertor extends Component {
     const option = Object.keys(data).map(i => <option key={i}>{data[i]}</option>);
 
     return (
-      <div>
+      <div className='currency'>
         <form>
           <div className='row'>
             <div className='col'>
@@ -67,24 +88,28 @@ class CurrencyConvertor extends Component {
             </div>
             <div className='col'>
               <input
-                type='text'
-              />
+                name='fromVal'
+                onChange={this.onChange}
+                value={this.state.fromVal}
+               />
                 <select
                   name='from'
                   value={this.state.from}
                   onChange={this.onChange}
-                  onMouseUp={(e) => this.props.get_Currency(from, to)}
               >
                   <option defaultValue={from} />
                   {option}
                 </select>
                 <br />
-              <input />
+              <input
+                name='toVal'
+                onChange={this.onChange}
+                value={this.state.toVal}
+              />
               <select
                 name='to'
                 value={this.state.to}
                 onChange={this.onChange}
-                onMouseUp={(e) => this.props.get_Currency(from, to)}
               >
                 <option defaultValue={to} />
                 {option}
