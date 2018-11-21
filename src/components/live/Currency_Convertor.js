@@ -23,17 +23,17 @@ class CurrencyConvertor extends Component {
   }
 
   componentDidMount() {
-    // this.props.get_Currency(this.state.from, this.state.to)
+    this.props.get_Currency(this.state.from, this.state.to)
   };
 
-  // componentWillReceiveProps(nextProps) {
-  //   const { currency } = nextProps.currency
-  //   if (currency !== this.state.toVal) {
-  //     this.setState({ 
-  //       toVal: Object.keys(currency).map(i => currency[i])
-  //      });
-  //   };
-  // };
+  componentWillReceiveProps(nextProps) {
+    const { currency } = nextProps.currency
+    if (currency !== this.state.toVal) {
+      this.setState({ 
+        toVal: Object.keys(currency).map(i => currency[i])
+       });
+    };
+  };
 
   // componentDidUpdate(prevState) {
   //   if (prevState.fromVal !== this.state.fromVal) {
@@ -84,15 +84,26 @@ class CurrencyConvertor extends Component {
           <div className='row'>
             <div className='col'>
             <div>{date}</div>
-            <div><p>1 {from} equals {currencyVal} {to}</p></div>
+            <div className='currency-base'>
+              <p>
+                <span className='currency-base-number'>1</span>
+                <span className='currency-base-state'>{from}</span>
+                <span className='currency-base-span'>is</span>
+                {currencyVal} 
+                <span className='currency-base-state'>{to}</span>
+                </p>
+              </div>
             </div>
             <div className='col'>
               <input
+                className='currency-val'
                 name='fromVal'
+                type='text'
                 onChange={this.onChange}
                 value={this.state.fromVal}
                />
                 <select
+                  className='currency-select'
                   name='from'
                   value={this.state.from}
                   onChange={this.onChange}
@@ -102,11 +113,14 @@ class CurrencyConvertor extends Component {
                 </select>
                 <br />
               <input
+                className='currency-val'
                 name='toVal'
+                type='text'
                 onChange={this.onChange}
                 value={this.state.toVal}
               />
               <select
+                className='currency-select'
                 name='to'
                 value={this.state.to}
                 onChange={this.onChange}
