@@ -52,6 +52,12 @@ class SelectRate extends Component {
     const { base } = this.state;
     this.props.get_Change_Base(base);
   }
+  if (prevProps.base.base !== prevState.base) {
+    const { base } = this.props.base;
+    const { symbols } = this.props.symbols;
+    const { date } = this.props;
+    this.props.get_Rates(base, date, symbols);
+  }
 }
 
   onChange(e) {
@@ -60,8 +66,6 @@ class SelectRate extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const { base } = this.state;
-    this.props.get_Change_Base(base);
   };
 
   render() {
