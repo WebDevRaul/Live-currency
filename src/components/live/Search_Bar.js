@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+
+//Components
 import InfoModal from './Info_Modal';
 
 //Redux
@@ -30,11 +32,18 @@ class SearchBar extends Component {
     this.onModal = this.onModal.bind(this);
   };
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.errors) {
-      this.setState({ errors: newProps.errors.errors });
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if(nextProps.errors.errors !== prevState.errors){
+      return { errors: nextProps.errors.errors};
     }
-  };
+   else return null;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if(prevProps.errors !== this.props.errors){
+      this.setState({ errors: this.props.errors.errors });
+    }
+  }
 
   onChange(e) {
     this.setState({
