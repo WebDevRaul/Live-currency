@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 //Redux
 import { connect } from 'react-redux';
@@ -14,7 +15,6 @@ class SelectRate extends Component {
     super(props);
     this.state = {
       base: '',
-
     }
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -88,10 +88,20 @@ class SelectRate extends Component {
       </div>
     )
   }
+};
+
+SelectRate.propTypes = {
+  get_Change_Base: PropTypes.func.isRequired,
+  get_Rates: PropTypes.func.isRequired,
+  get_New_Rate: PropTypes.func.isRequired,
+  base: PropTypes.object.isRequired,
+  date: PropTypes.object.isRequired,
+  selectRate: PropTypes.object.isRequired,
+  symbols: PropTypes.object.isRequired,
+  newSymbols: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-  errors: state.errors,
   base: state.base,
   date: state.date,
   selectRate: state.selectRate,
