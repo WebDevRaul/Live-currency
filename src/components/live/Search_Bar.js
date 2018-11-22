@@ -37,13 +37,13 @@ class SearchBar extends Component {
       return { errors: nextProps.errors.errors};
     }
    else return null;
-  }
+  };
 
   componentDidUpdate(prevProps, prevState) {
     if(prevProps.errors !== this.props.errors){
       this.setState({ errors: this.props.errors.errors });
-    }
-  }
+    } 
+  };
 
   onChange(e) {
     this.setState({
@@ -70,7 +70,7 @@ class SearchBar extends Component {
     this.setState({
       modal: !this.state.modal
     })
-  }
+  };
 
   render() {
     const { selectRate } = this.props.selectRate;

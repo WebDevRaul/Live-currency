@@ -20,35 +20,56 @@ class SelectRate extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.base.base !== this.props.base.base) {
-      const { base } = nextProps.base;
-      const { symbols } = this.props.symbols;
-      const { date } = this.props;
-      const { newSymbols } = nextProps.newSymbols;
-      this.props.get_Rates(base, date, symbols);
-      if (!isEmpty(newSymbols)) {
-        this.props.get_New_Rate(base, date, newSymbols)
-      }
-    }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.base.base !== this.props.base.base) {
+  //     const { base } = nextProps.base;
+  //     const { symbols } = this.props.symbols;
+  //     const { date } = this.props;
+  //     const { newSymbols } = nextProps.newSymbols;
+  //     this.props.get_Rates(base, date, symbols);
+  //     if (!isEmpty(newSymbols)) {
+  //       this.props.get_New_Rate(base, date, newSymbols)
+  //     }
+  //   }
 
-    if (nextProps.newSymbols.newSymbols !== this.props.newSymbols.newSymbols) {
-      const { base } = this.props.base
-      const { date } = this.props;
-      const { newSymbols } = nextProps.newSymbols;
-      this.props.get_New_Rate(base, date, newSymbols)
-    }
+  //   if (nextProps.newSymbols.newSymbols !== this.props.newSymbols.newSymbols) {
+  //     const { base } = this.props.base
+  //     const { date } = this.props;
+  //     const { newSymbols } = nextProps.newSymbols;
+  //     this.props.get_New_Rate(base, date, newSymbols)
+  //   }
+  // }
+
+  static getDerivedStateFromProps(nextProps, prevState){
+    if(nextProps.base.base !== prevState.base){
+      return { base: prevState.base };
+   }
+   else return null;
+ }
+ 
+ componentDidUpdate(prevProps, prevState) {
+   console.log(prevProps.base.base, 'prevprops');
+   console.log(prevState.base, 'prevstate');
+   console.log(this.props.base)
+
+  if(prevState.base!==this.state.base){
+    const { base } = this.state;
+    this.props.get_Change_Base(base);
   }
+  if (prevProps.someValue!==this.props.someValue) {
+    
+  }
+}
 
   onChange(e) {
     this.setState({ base: e.target.value });
-  }
+  };
 
   onSubmit(e) {
     e.preventDefault();
     const { base } = this.state;
     this.props.get_Change_Base(base);
-  }
+  };
 
   render() {
     let base;
