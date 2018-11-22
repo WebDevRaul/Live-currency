@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Flag from 'react-world-flags'
+import PropTypes from 'prop-types';
+import Flag from 'react-world-flags';
 
 //Css
 import '../css/InfoModal.css';
@@ -43,6 +44,10 @@ class InfoModal extends Component {
       </div>
     )
   }
+};
+
+InfoModal.propTypes = {
+  flagObj: PropTypes.array.isRequired
 }
 
-export default InfoModal
+export default InfoModal;
