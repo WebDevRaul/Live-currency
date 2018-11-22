@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import DateRate from './Date_Rate';
 import BaseRate from './Base_Rate';
 import NewRate from './New_Rate';
@@ -96,13 +97,18 @@ class TableRate extends Component {
       </div>
     )
   }
+};
+
+TableRate.propTypes = {
+  date: PropTypes.object.isRequired,
+  rate: PropTypes.object.isRequired,
+  newRate: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => ({
   date: state.date,
   rate: state.rate,
   newRate: state.newRate,
-  arrow: state.arrow
-})
+});
 
-export default connect(mapStateToProps, { })(TableRate)
+export default connect(mapStateToProps, { })(TableRate);
