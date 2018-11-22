@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import InfoModal from './Info_Modal';
 
@@ -126,10 +127,15 @@ class SearchBar extends Component {
       </div>
     )
   }
+};
+ 
+SearchBar.propTypes = {
+  get_New_Symbols: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
+  selectRate: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => ({
-  symbols: state.symbols,
   errors: state.errors,
   selectRate: state.selectRate
 });
