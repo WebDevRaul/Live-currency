@@ -48,16 +48,9 @@ class SelectRate extends Component {
  }
  
  componentDidUpdate(prevProps, prevState) {
-   console.log(prevProps.base.base, 'prevprops');
-   console.log(prevState.base, 'prevstate');
-   console.log(this.props.base)
-
   if(prevState.base!==this.state.base){
     const { base } = this.state;
     this.props.get_Change_Base(base);
-  }
-  if (prevProps.someValue!==this.props.someValue) {
-    
   }
 }
 
