@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 //Redux
 import { connect } from 'react-redux';
@@ -69,7 +70,7 @@ class CurrencyConvertor extends Component {
 
     //--------------//--------------//
 
-    const { from, to, fromVal, toVal } = this.state;
+    const { from, to } = this.state;
 
     //Option Dropdown List
     const { selectRate } = this.props.selectRate;
@@ -136,10 +137,17 @@ class CurrencyConvertor extends Component {
   }
 };
 
+CurrencyConvertor.proptypes = {
+  get_Currency: PropTypes.func.isRequired,
+  currency: PropTypes.object.isRequired,
+  date: PropTypes.object.isRequired,
+  selectRate: PropTypes.object.isRequired
+}
+
 const mapStateToProps = state => ({
   selectRate: state.selectRate,
   date: state.date,
   currency: state.currency
-})
+});
 
-export default connect(mapStateToProps, { get_Currency })(CurrencyConvertor)
+export default connect(mapStateToProps, { get_Currency })(CurrencyConvertor);
