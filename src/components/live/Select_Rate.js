@@ -17,55 +17,35 @@ class SelectRate extends Component {
       base: '',
     }
     this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.base.base !== this.props.base.base) {
-  //     const { base } = nextProps.base;
-  //     const { symbols } = this.props.symbols;
-  //     const { date } = this.props;
-  //     const { newSymbols } = nextProps.newSymbols;
-  //     this.props.get_Rates(base, date, symbols);
-  //     if (!isEmpty(newSymbols)) {
-  //       this.props.get_New_Rate(base, date, newSymbols)
-  //     }
-  //   }
-
-  //   if (nextProps.newSymbols.newSymbols !== this.props.newSymbols.newSymbols) {
-  //     const { base } = this.props.base
-  //     const { date } = this.props;
-  //     const { newSymbols } = nextProps.newSymbols;
-  //     this.props.get_New_Rate(base, date, newSymbols)
-  //   }
-  // }
-
   static getDerivedStateFromProps(nextProps, prevState){
-    if(nextProps.base.base !== prevState.base){
+    console.log(nextProps.base.base, 'nextprops first');
+    console.log(prevState.base, 'prevtate first')
+    if(nextProps.base !== prevState.base){
       return { base: prevState.base };
    }
    else return null;
  }
  
  componentDidUpdate(prevProps, prevState) {
+  const { base } = this.props.base;
+  const { symbols } = this.props.symbols;
+  const { date } = this.props;
+
   if(prevState.base!==this.state.base){
     const { base } = this.state;
     this.props.get_Change_Base(base);
   }
   if (prevProps.base.base !== prevState.base) {
-    const { base } = this.props.base;
-    const { symbols } = this.props.symbols;
-    const { date } = this.props;
-    this.props.get_Rates(base, date, symbols);
+    if (!isEmpty(base) && !isEmpty(symbols) && !isEmpty(date)) {
+      this.props.get_Rates(base, date, symbols);
+    }
   }
 }
 
   onChange(e) {
     this.setState({ base: e.target.value });
-  };
-
-  onSubmit(e) {
-    e.preventDefault();
   };
 
   render() {
@@ -83,7 +63,7 @@ class SelectRate extends Component {
 
     return (
       <div>
-        <form onSubmit={this.onSubmit}>
+        <form>
           <label>
             Change base Rate: 
             <select
@@ -96,12 +76,6 @@ class SelectRate extends Component {
               {option}
             </select>
           </label>
-          <button 
-            className='live' 
-            type='submit' 
-            value='Submit'>
-            submit
-          </button>
         </form>
       </div>
     )
@@ -116,7 +90,6 @@ SelectRate.propTypes = {
   date: PropTypes.object.isRequired,
   selectRate: PropTypes.object.isRequired,
   symbols: PropTypes.object.isRequired,
-  newSymbols: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
@@ -124,7 +97,6 @@ const mapStateToProps = state => ({
   date: state.date,
   selectRate: state.selectRate,
   symbols: state.symbols,
-  newSymbols: state.newSymbols
 });
 
 export default connect(mapStateToProps, { get_Change_Base, get_Rates, get_New_Rate })(SelectRate);
