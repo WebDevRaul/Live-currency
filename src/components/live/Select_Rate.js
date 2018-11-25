@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { get_Change_Base } from '../../redux/actions/get_Change_Base';
 import { get_Rates } from '../../redux/actions/get_Rates';
-import { get_New_Rate } from '../../redux/actions/get_New_Rate';
 
 //IsEmpty from common
 import isEmpty from '../common/isEmpty';
@@ -13,39 +12,29 @@ import isEmpty from '../common/isEmpty';
 class SelectRate extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      base: '',
-    }
+    this.state = {}
+    
     this.onChange = this.onChange.bind(this);
   }
 
   static getDerivedStateFromProps(nextProps, prevState){
-    console.log(nextProps.base.base, 'nextprops first');
-    console.log(prevState.base, 'prevtate first')
     if(nextProps.base !== prevState.base){
-      return { base: prevState.base };
+      return { base: nextProps.base.base };
    }
    else return null;
  }
  
- componentDidUpdate(prevProps, prevState) {
-  const { base } = this.props.base;
-  const { symbols } = this.props.symbols;
-  const { date } = this.props;
-
-  if(prevState.base!==this.state.base){
-    const { base } = this.state;
-    this.props.get_Change_Base(base);
-  }
-  if (prevProps.base.base !== prevState.base) {
-    if (!isEmpty(base) && !isEmpty(symbols) && !isEmpty(date)) {
+  componentDidUpdate(prevProps, prevState) {
+    const { base } = this.props.base;
+    const { symbols } = this.props.symbols;
+    const { date } = this.props;
+    if ( base !== prevProps.base.base) {
       this.props.get_Rates(base, date, symbols);
     }
   }
-}
 
   onChange(e) {
-    this.setState({ base: e.target.value });
+    this.props.get_Change_Base(e.target.value);
   };
 
   render() {
@@ -59,7 +48,7 @@ class SelectRate extends Component {
     //typeof(selectRate) Obj
     let data = Object.keys(selectRate).map(i => selectRate[i]);
     data.sort();
-    const option = Object.keys(data).map(i => <option key={i}>{data[i]}</option>);
+    const option = Object.keys(data).map(i => <option key={i} value={data[i]}>{data[i]}</option>);
 
     return (
       <div>
@@ -67,7 +56,6 @@ class SelectRate extends Component {
           <label>
             Change base Rate: 
             <select
-              value= {this.state.base}
               onChange={this.onChange}>
               <option 
                 defaultValue={base}>
@@ -85,7 +73,6 @@ class SelectRate extends Component {
 SelectRate.propTypes = {
   get_Change_Base: PropTypes.func.isRequired,
   get_Rates: PropTypes.func.isRequired,
-  get_New_Rate: PropTypes.func.isRequired,
   base: PropTypes.object.isRequired,
   date: PropTypes.object.isRequired,
   selectRate: PropTypes.object.isRequired,
@@ -99,5 +86,5 @@ const mapStateToProps = state => ({
   symbols: state.symbols,
 });
 
-export default connect(mapStateToProps, { get_Change_Base, get_Rates, get_New_Rate })(SelectRate);
+export default connect(mapStateToProps, { get_Change_Base, get_Rates })(SelectRate);
 
