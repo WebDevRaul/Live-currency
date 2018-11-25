@@ -8,7 +8,6 @@ import InfoModal from './Info_Modal';
 //Redux
 import { connect } from 'react-redux';
 import { get_New_Symbols } from '../../redux/actions/get_New_Symbols';
-import { get_New_Rate } from '../../redux/actions/get_New_Rate';
 
 //Common
 import isEmpty from '../common/isEmpty';
@@ -138,7 +137,6 @@ class SearchBar extends Component {
  
 SearchBar.propTypes = {
   get_New_Symbols: PropTypes.func.isRequired,
-  get_New_Rate: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   selectRate: PropTypes.object.isRequired,
   newSymbols: PropTypes.object.isRequired,
@@ -154,4 +152,4 @@ const mapStateToProps = state => ({
   newSymbols: state.newSymbols
 });
 
-export default connect(mapStateToProps, { get_New_Symbols, get_New_Rate })(SearchBar);
+export default connect(mapStateToProps, { get_New_Symbols })(SearchBar);

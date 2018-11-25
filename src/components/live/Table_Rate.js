@@ -111,4 +111,4 @@ const mapStateToProps = state => ({
   newRate: state.newRate,
 });
 
-export default connect(mapStateToProps, { })(TableRate);
+export default connect(mapStateToProps, {  })(TableRate);
