@@ -24,7 +24,6 @@ class SearchBar extends Component {
       text: '',
       click: false,
       modal: false,
-      errors: {},
     }
 
     this.onChange = this.onChange.bind(this);
@@ -35,29 +34,12 @@ class SearchBar extends Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     const { errors } = nextProps.errors
-    const { newSymbols } = nextProps.newSymbols;
-    // console.log(newSymbols, 'g nextProps')
-    // console.log(prevState.newSymbols, 'g nextState')
-    if( errors !== prevState.errors || newSymbols !== prevState.newSymbols) {
+    if( errors !== prevState.errors ) {
       return { 
         errors: nextProps.errors.errors,
-        newSymbols
       };
     }
    else return null;
-  };
-
-  componentDidUpdate(prevProps, prevState) {
-    // console.log(prevProps.newSymbols.newSymbols, 'c prevProps')
-    // console.log(prevState.newSymbols, 'c prevState')
-    if(prevProps.errors !== this.props.errors){
-      this.setState({ errors: this.props.errors.errors });
-    };
-
-    if (!isEmpty(prevState.newSymbols)) {
-      console.log('test')
-      // this.props.get_New_Rate('USD', '2018-10-10', 'CAD')
-    }
   };
 
   onChange(e) {
@@ -88,6 +70,7 @@ class SearchBar extends Component {
   };
 
   render() {
+
     const { selectRate } = this.props.selectRate;
     const { errors, click, text, modal } = this.state;
 

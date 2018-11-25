@@ -12,11 +12,18 @@ export const get_New_Symbols = data => dispatch => {
       type: GET_ERRORS,
       payload: { searchBar:'Enter a value here!' }
     })
-  } else if (text.length > 3) {
+  } else if (text.length > 3 ) {
     dispatch({
       type: GET_ERRORS,
       payload: {searchBar:'Enter a valid value!'}
     })
+    
+  } else if (text.length < 3 && text.length !== 0 ) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: {searchBar:'Enter a valid value!'}
+    })
+    
   } else if (text.length === 3) {
     dispatch(get_Clear_Error())
     dispatch({
