@@ -16,7 +16,10 @@ import '../css/Currency.css';
 class CurrencyConvertor extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      from: '',
+      to:''
+    }
 
     this.onChange = this.onChange.bind(this);
   }
@@ -24,6 +27,7 @@ class CurrencyConvertor extends Component {
   static getDerivedStateFromProps(nextProps, prevState){
     const { from } = nextProps.from;
     const { to } = nextProps.to;
+    console.log('g')
 
     if( from !== prevState.from || to !== prevState.to){
       return { 
@@ -36,8 +40,15 @@ class CurrencyConvertor extends Component {
   componentDidMount(prevState, prevProps) {
     const { from, to } = this.state;
     this.props.get_Set_Currency(from, to);
-    // this.props.get_Set_Currency({from:'GBP', to:'AUD', fromVal: '1'})
   };
+  
+  componentDidUpdate(prevProps, prevState) {
+    const { from } = this.state;
+    const { to } = this.state;
+    if (from !== prevProps.from.from || to !== prevProps.to.to) {
+      this.props.get_Set_Currency(from, to)
+    }
+  }
 
   onChange(e) {
     // this.setState({ [e.target.name]: e.target.value })
