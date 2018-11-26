@@ -56,11 +56,11 @@ class CurrencyConvertor extends Component {
     //--------------//--------------//
 
     //Currency val
-    // const { currency } = this.props.currency;
-    // let currencyVal;
-    // if (!isEmpty(currency)) {
-    //   currencyVal=Object.keys(currency).map(i => currency[i])
-    // }
+    const { setCurrency } = this.props.setCurrency;
+    let defaultCurrency;
+    if (!isEmpty(setCurrency)) {
+      defaultCurrency=Object.keys(setCurrency).map(i => setCurrency[i])
+    }
 
     //--------------//--------------//
 
@@ -84,7 +84,7 @@ class CurrencyConvertor extends Component {
                 <span className='currency-base-number'>1</span>
                 <span className='currency-base-state'>{from}</span>
                 <span className='currency-base-span'>is</span>
-                {/* {currencyVal}  */}
+                {defaultCurrency}
                 <span className='currency-base-state'>{to}</span>
                 </p>
               </div>

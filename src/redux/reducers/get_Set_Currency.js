@@ -2,7 +2,7 @@ import { GET_SET_CURRENCY } from '../actions/types';
 
 const initialState = {
   loading: false,
-  currency: {}
+  setCurrency: {}
 };
 
 export default function(state=initialState, action) {
@@ -11,7 +11,7 @@ export default function(state=initialState, action) {
       return {
         ...state,
         loading: false,
-        currency: action.payload
+        setCurrency: action.payload
       }
 
     default:
