@@ -8,6 +8,8 @@ import get_New_Symbols from './get_New_Symbols';
 import get_New_Rate from './get_New_Rate';
 import get_Rate from './get_Rate';
 import get_Set_From from './get_Set_From';
+import get_Set_To from './get_Set_To';
+import get_Set_Currency from './get_Set_Currency';
 
 export default combineReducers({
   errors: get_Errors,
@@ -18,5 +20,7 @@ export default combineReducers({
   newSymbols: get_New_Symbols,
   rate: get_Rate,
   newRate: get_New_Rate,
-  from: get_Set_From
+  from: get_Set_From,
+  to: get_Set_To,
+  setCurrency: get_Set_Currency,
 });

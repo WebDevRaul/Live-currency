@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 
 //Redux
 import { connect } from 'react-redux';
-import { get_Currency } from '../../redux/actions/get_Currency';
+import { get_Set_Currency } from '../../redux/actions/get_Set_Currency';
 import { get_Set_From } from '../../redux/actions/get_Set_From';
+import { get_Set_To } from '../../redux/actions/get_Set_To';
 
 //IsEmpty from common
 import isEmpty from '../common/isEmpty';
@@ -22,18 +23,19 @@ class CurrencyConvertor extends Component {
 
   static getDerivedStateFromProps(nextProps, prevState){
     const { from } = nextProps.from;
+    const { to } = nextProps.to;
 
-    if( from !== prevState.from ){
+    if( from !== prevState.from || to !== prevState.to){
       return { 
-        from,
+        from, to
       };
    }
    else return null;
  }
 
   componentDidMount(prevState, prevProps) {
-    // const { from, to } = this.state;
-    // this.props.get_Currency(from, to);
+    const { from, to } = this.state;
+    this.props.get_Set_Currency(from, to);
     // this.props.get_Set_Currency({from:'GBP', to:'AUD', fromVal: '1'})
   };
 
@@ -115,8 +117,8 @@ class CurrencyConvertor extends Component {
               <select
                 className='currency-select'
                 name='to'
-                // value={this.state.to}
-                onChange={this.onChange}
+                value={this.state.to}
+                onChange={(e) => this.props.get_Set_To(e.target.value)}
               >
                 <option defaultValue={to} />
                 {option}
@@ -130,7 +132,7 @@ class CurrencyConvertor extends Component {
 };
 
 CurrencyConvertor.proptypes = {
-  get_Currency: PropTypes.func.isRequired,
+  get_Set_Currency: PropTypes.func.isRequired,
   currency: PropTypes.object.isRequired,
   date: PropTypes.object.isRequired,
   selectRate: PropTypes.object.isRequired
@@ -139,8 +141,9 @@ CurrencyConvertor.proptypes = {
 const mapStateToProps = state => ({
   selectRate: state.selectRate,
   date: state.date,
-  currency: state.currency,
-  from: state.from
+  setCurrency: state.setCurrency,
+  from: state.from,
+  to: state.to
 });
 
-export default connect(mapStateToProps, { get_Currency, get_Set_From })(CurrencyConvertor);
+export default connect(mapStateToProps, { get_Set_Currency, get_Set_From, get_Set_To })(CurrencyConvertor);

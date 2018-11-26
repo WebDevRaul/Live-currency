@@ -1,20 +1,21 @@
-import { GET_CURRENCY } from '../actions/types';
+import { GET_SET_TO } from '../actions/types';
 
 const initialState = {
   loading: false,
-  currency: {}
+  to: 'EUR'
 };
 
-export default function(state=initialState, action) {
+export default function(state=initialState, action ) {
   switch(action.type) {
-    case GET_CURRENCY:
+    case GET_SET_TO:
       return {
         ...state,
         loading: false,
-        currency: action.payload
+        to: action.payload
       }
 
     default:
       return state;
   }
 }
+
