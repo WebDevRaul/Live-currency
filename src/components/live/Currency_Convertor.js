@@ -27,7 +27,6 @@ class CurrencyConvertor extends Component {
   static getDerivedStateFromProps(nextProps, prevState){
     const { from } = nextProps.from;
     const { to } = nextProps.to;
-    console.log('g')
 
     if( from !== prevState.from || to !== prevState.to){
       return { 
@@ -154,7 +153,9 @@ const mapStateToProps = state => ({
   date: state.date,
   setCurrency: state.setCurrency,
   from: state.from,
-  to: state.to
+  to: state.to,
+  fromVal: state.fromVal,
+  toVal: state.toVal
 });
 
 export default connect(mapStateToProps, { get_Set_Currency, get_Set_From, get_Set_To })(CurrencyConvertor);

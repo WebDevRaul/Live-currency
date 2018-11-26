@@ -10,6 +10,8 @@ import get_Rate from './get_Rate';
 import get_Set_From from './get_Set_From';
 import get_Set_To from './get_Set_To';
 import get_Set_Currency from './get_Set_Currency';
+import get_Set_From_Val from './get_Set_From_Val';
+import get_Set_To_Val from './get_Set_To_Val';
 
 export default combineReducers({
   errors: get_Errors,
@@ -22,5 +24,7 @@ export default combineReducers({
   newRate: get_New_Rate,
   from: get_Set_From,
   to: get_Set_To,
+  fromVal: get_Set_From_Val,
+  toVal: get_Set_To_Val,
   setCurrency: get_Set_Currency,
 });

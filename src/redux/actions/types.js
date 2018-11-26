@@ -15,3 +15,5 @@ export const GET_NEW_RATE_LAST_YEAR = 'GET_NEW_RATE_LAST_YEAR';
 export const GET_SET_CURRENCY = 'GET_SET_CURRENCY';
 export const GET_SET_FROM = 'GET_SET_FROM';
 export const GET_SET_TO = 'GET_SET_TO';
+export const GET_SET_FROM_VAL = 'GET_SET_FROM_VAL';
+export const GET_SET_TO_VAL = 'GET_SET_TO_VAL';
