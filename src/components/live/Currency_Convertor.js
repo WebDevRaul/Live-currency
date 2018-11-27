@@ -114,7 +114,7 @@ class CurrencyConvertor extends Component {
                 name='toVal'
                 type='text'
                 value={updateCurrency === '[object Object]' ? placeholder : updateCurrency}
-                onChange={null}
+                onChange={(e) => console.log()}
               />
               <select
                 className='currency-select'
@@ -134,10 +134,18 @@ class CurrencyConvertor extends Component {
 };
 
 CurrencyConvertor.proptypes = {
-  get_Set_Currency: PropTypes.func.isRequired,
-  currency: PropTypes.object.isRequired,
+  selectRate: PropTypes.object.isRequired,
   date: PropTypes.object.isRequired,
-  selectRate: PropTypes.object.isRequired
+  get_Set_Currency: PropTypes.func.isRequired,
+  get_Update_Currency: PropTypes.func.isRequired,
+  get_Set_From: PropTypes.func.isRequired,
+  get_Set_To: PropTypes.func.isRequired,
+  get_Set_From_Val: PropTypes.func.isRequired,
+  currency: PropTypes.object.isRequired,
+  updateCurrency: PropTypes.object.isRequired,
+  from: PropTypes.object.isRequired,
+  to: PropTypes.object.isRequired,
+  fromVal: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => ({
@@ -148,7 +156,6 @@ const mapStateToProps = state => ({
   from: state.from,
   to: state.to,
   fromVal: state.fromVal,
-  toVal: state.toVal
 });
 
 export default connect(mapStateToProps, { get_Set_Currency, get_Update_Currency, get_Set_From, get_Set_To, get_Set_From_Val })(CurrencyConvertor);
