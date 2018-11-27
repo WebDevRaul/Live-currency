@@ -8,6 +8,7 @@ import { get_Update_Currency } from '../../redux/actions/get_Update_Currency';
 import { get_Set_From } from '../../redux/actions/get_Set_From';
 import { get_Set_To } from '../../redux/actions/get_Set_To';
 import { get_Set_From_Val } from '../../redux/actions/get_Set_FromVal';
+import { get_Clear_Error } from '../../redux/actions/commonAction';
 
 //IsEmpty from common
 import isEmpty from '../common/isEmpty';
@@ -27,9 +28,10 @@ class CurrencyConvertor extends Component {
     const { fromVal } = nextProps.fromVal;
     const { setCurrency } = nextProps.setCurrency;
     const { updateCurrency } = nextProps.updateCurrency;
+    const { errors } = nextProps.errors
 
-    if( from !== prevState.from || to !== prevState.to || fromVal !== prevState.fromVal || setCurrency !== prevState.setCurrency || updateCurrency !== prevState.updateCurrency ) {
-      return { from, to, fromVal, setCurrency, updateCurrency };
+    if( from !== prevState.from || to !== prevState.to || fromVal !== prevState.fromVal || setCurrency !== prevState.setCurrency || updateCurrency !== prevState.updateCurrency || errors !== prevState.errors ) {
+      return { from, to, fromVal, setCurrency, updateCurrency, errors: nextProps.errors.errors };
    }
    else return null;
  }
@@ -50,6 +52,9 @@ class CurrencyConvertor extends Component {
   }
   
   render() {
+
+    //Error
+    const error = this.state.errors.number;
 
     //Date
     const { today } = this.props.date;
@@ -113,7 +118,8 @@ class CurrencyConvertor extends Component {
                 className='currency-val'
                 name='toVal'
                 type='text'
-                value={updateCurrency === '[object Object]' ? placeholder : updateCurrency}
+                // value={ updateCurrency === '[object Object]' ? placeholder : updateCurrency }
+                value={ (!isEmpty(error) ? error : (updateCurrency === '[object Object]') ? placeholder : updateCurrency) }
                 onChange={(e) => console.log()}
               />
               <select
@@ -146,6 +152,7 @@ CurrencyConvertor.proptypes = {
   from: PropTypes.object.isRequired,
   to: PropTypes.object.isRequired,
   fromVal: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
@@ -156,6 +163,7 @@ const mapStateToProps = state => ({
   from: state.from,
   to: state.to,
   fromVal: state.fromVal,
+  errors: state.errors
 });
 
-export default connect(mapStateToProps, { get_Set_Currency, get_Update_Currency, get_Set_From, get_Set_To, get_Set_From_Val })(CurrencyConvertor);
+export default connect(mapStateToProps, { get_Set_Currency, get_Clear_Error, get_Update_Currency, get_Set_From, get_Set_To, get_Set_From_Val })(CurrencyConvertor);

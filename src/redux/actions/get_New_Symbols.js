@@ -1,6 +1,7 @@
 import { GET_NEW_SYMBOLS, GET_ERRORS } from './types';
-import { get_Clear_Error } from './commonAction';
 
+//Clear Error
+import { get_Clear_Error } from './commonAction';
 
 export const get_New_Symbols = data => dispatch => {
   
