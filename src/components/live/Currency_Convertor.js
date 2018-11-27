@@ -28,7 +28,7 @@ class CurrencyConvertor extends Component {
     const { fromVal } = nextProps.fromVal;
     const { setCurrency } = nextProps.setCurrency;
     const { updateCurrency } = nextProps.updateCurrency;
-    const { errors } = nextProps.errors
+    const { errors } = nextProps.errors;
 
     if( from !== prevState.from || to !== prevState.to || fromVal !== prevState.fromVal || setCurrency !== prevState.setCurrency || updateCurrency !== prevState.updateCurrency || errors !== prevState.errors ) {
       return { from, to, fromVal, setCurrency, updateCurrency, errors: nextProps.errors.errors };
@@ -118,7 +118,6 @@ class CurrencyConvertor extends Component {
                 className='currency-val'
                 name='toVal'
                 type='text'
-                // value={ updateCurrency === '[object Object]' ? placeholder : updateCurrency }
                 value={ (!isEmpty(error) ? error : (updateCurrency === '[object Object]') ? placeholder : updateCurrency) }
                 onChange={(e) => console.log()}
               />
