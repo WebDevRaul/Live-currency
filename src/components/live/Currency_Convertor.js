@@ -65,7 +65,7 @@ class CurrencyConvertor extends Component {
 
     //--------------//--------------//
 
-    const { from, to } = this.state;
+    const { from, to, setCurrency } = this.state;
 
     //Option Dropdown List
     const { selectRate } = this.props.selectRate;
@@ -77,8 +77,8 @@ class CurrencyConvertor extends Component {
     //--------------//--------------//
 
     //setCurrency data back to string
-    const placeholder = String(Object.values(this.state.setCurrency)[0]);
-    const updateCurrency = String(this.state.updateCurrency);
+    let placeholder = String(setCurrency);
+    let updateCurrency = String(this.state.updateCurrency);
 
     return (
       <div className='currency'>

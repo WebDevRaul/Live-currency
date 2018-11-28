@@ -10,7 +10,7 @@ export const get_Set_Currency = (base, symbol) => dispatch => {
     .get(`https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbol}`)
     .then(res => dispatch({
       type: GET_SET_CURRENCY,
-      payload: res.data.rates
+      payload: Object.values(res.data.rates)[0].toFixed(4)
     }))
     .catch(err => dispatch({
       type: GET_ERRORS,

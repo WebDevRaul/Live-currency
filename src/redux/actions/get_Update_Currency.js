@@ -11,7 +11,7 @@ export const get_Update_Currency = (base, symbol, val) => dispatch => {
     .get(`https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbol}`)
     .then(res => dispatch({
       type: GET_UPDATE_CURRENCY,
-      payload: Object.values(res.data.rates)[0] * parseInt(val)
+      payload: Object.values(res.data.rates)[0].toFixed(4) * parseInt(val)
     }))
     .catch(err => dispatch({
       type: GET_ERRORS,
