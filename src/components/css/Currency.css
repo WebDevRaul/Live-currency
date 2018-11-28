@@ -28,8 +28,18 @@
 }
 
 .currency-select {
-
+  border: none !important;
+  margin: 0 20px;
+  background-color: rgba(245, 245, 245, 0.5);
 }
+
+.currency-select select::-ms-expand {
+  -webkit-appearance: none;
+}
+
+/* .currency-select__control {
+  height: 50pcx
+} */
 
 .currency-val {
   margin: 5px;

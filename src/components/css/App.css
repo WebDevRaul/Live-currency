@@ -3,8 +3,11 @@
   --secondaryCollor: rgb(5, 21, 252);
 }
 
-textarea:focus, input:focus{
+textarea:focus, input:focus, select:focus{
   outline: none;
+}
+select {
+  -webkit-appearance: none;
 }
 hr {
   margin: 0 0 10px 0 !important;
