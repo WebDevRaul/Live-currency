@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import isEmpty from '../common/isEmpty';
 
 //Css
-import '../css/TableRate.css'
+import '../css/TableRate.css';
 
 class TableRate extends Component {
   render() {
@@ -72,7 +72,7 @@ class TableRate extends Component {
       <div>
         <div className='row'>
           <div className='col'>
-            <table>
+            <table className='tableRate'>
               <thead>
                 <DateRate 
                   dateToday={dateToday} 

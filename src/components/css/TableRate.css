@@ -1,0 +1,11 @@
+.tableRate {
+  margin: 30px auto 0 auto;
+}
+
+.tableRate p {
+  padding: 0 30px;
+}
+
+.tableRate td {
+  text-align: center;
+}
