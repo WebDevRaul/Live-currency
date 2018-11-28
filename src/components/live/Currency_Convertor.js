@@ -80,6 +80,25 @@ class CurrencyConvertor extends Component {
     let placeholder = String(setCurrency);
     let updateCurrency = String(this.state.updateCurrency);
 
+    //--------------//--------------//
+
+    //setCurrency to max 5 decimal
+    let maxDecimalNumber = updateCurrency.indexOf('.') + 5;
+    let split, decimal, number, finalNumber;
+    if (updateCurrency.length > maxDecimalNumber) {
+      if (!isEmpty(updateCurrency)) {
+        split = updateCurrency.split('.');
+      }
+      if (!isEmpty(split)) {
+        decimal = split.splice(1,1);
+        number = split.splice(0,1)
+      }
+      if (!isEmpty(decimal)) {
+        finalNumber = number + '.' + decimal[0].slice(0,5);
+        updateCurrency = finalNumber
+      }
+    }
+
     return (
       <div className='currency'>
         <form>
