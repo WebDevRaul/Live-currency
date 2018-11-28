@@ -7,7 +7,6 @@
 }
 
 .currency-base {
-  text-align: left;
   padding-left: 30px;
 }
 .currency-base p {
@@ -31,10 +30,6 @@
   border: none !important;
   margin: 0 5px 0 20px;
   background-color: rgba(245, 245, 245, 0.5);
-}
-
-.currency-select select::-ms-expand {
-  -webkit-appearance: none;
 }
 
 /* .currency-select__control {

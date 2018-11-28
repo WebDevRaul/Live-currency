@@ -10,6 +10,9 @@ import { connect } from 'react-redux';
 //Common
 import isEmpty from '../common/isEmpty';
 
+//Css
+import '../css/TableRate.css'
+
 class TableRate extends Component {
   render() {
     

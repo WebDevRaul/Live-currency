@@ -10,6 +10,9 @@ import { get_New_Rate } from '../../redux/actions/get_New_Rate';
 //IsEmpty from common
 import isEmpty from '../common/isEmpty';
 
+//Css
+import '../css/SelectRate.css';
+
 class SelectRate extends Component {
   constructor(props) {
     super(props);
@@ -66,13 +69,14 @@ class SelectRate extends Component {
           <label>
             Change base Rate: 
             <select
+              className='selectRateBase'
               onChange={this.onChange}>
               <option 
                 defaultValue={base}>
                 {base}
               </option>
               {option}
-            </select>
+            </select><span>^</span>
           </label>
         </form>
       </div>
