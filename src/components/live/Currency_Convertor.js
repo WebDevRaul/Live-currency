@@ -131,7 +131,7 @@ class CurrencyConvertor extends Component {
               >
                   <option defaultValue={from} />
                   {option}
-                </select>
+                </select><span>^</span>
                 <br />
               <input
                 className='currency-val'
@@ -148,7 +148,7 @@ class CurrencyConvertor extends Component {
               >
                 <option defaultValue={to} />
                 {option}
-              </select>
+              </select><span>^</span>
             </div>
           </div>
         </form>
