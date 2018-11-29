@@ -8,7 +8,11 @@ class Landing extends Component {
   render() {
     return (
       <div className='landing'>
-        <Link to='/live_currency'>Live_Currency</Link>
+        <Link className='landingLink' to='/live_currency'>
+          <div className='divArrow'>
+            <span className='arrow'></span>
+          </div>
+        </Link>
       </div>
     )
   }
