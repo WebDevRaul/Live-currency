@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 //Components
@@ -23,11 +23,17 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div className='container'>
-            <Route  exact path='/' component={Landing} />
-            <Navbar />
-              <Route  exact path='/live_currency' component={Live_Currency} />
-            <Footer />
+          <div>
+            <Switch>
+              <Route  exact path='/' component={Landing} />
+              <Router>
+                <div className='container'>
+                  <Navbar />
+                  <Route  exact path='/live_currency' component={Live_Currency} />
+                  <Footer />
+                </div>
+              </Router>
+            </Switch>
           </div>
         </Router>
     </Provider>
