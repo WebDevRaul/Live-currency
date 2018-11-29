@@ -26,7 +26,7 @@ export const get_New_Symbols = data => dispatch => {
     })
     
   } else if (text.length === 3) {
-    dispatch(get_Clear_Error())
+    dispatch(get_Clear_Error('searchBar'))
     dispatch({
       type: GET_NEW_SYMBOLS,
       payload: text.toUpperCase()

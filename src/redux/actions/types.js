@@ -17,3 +17,4 @@ export const GET_SET_FROM = 'GET_SET_FROM';
 export const GET_SET_TO = 'GET_SET_TO';
 export const GET_SET_FROM_VAL = 'GET_SET_FROM_VAL';
 export const GET_UPDATE_CURRENCY = 'GET_UPDATE_CURRENCY';
+export const GET_CLEAR_SEARCH_BAR = 'GET_CLEAR_SEARCH_BAR';
