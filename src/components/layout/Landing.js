@@ -5,7 +5,6 @@ class Landing extends Component {
   render() {
     return (
       <div>
-        <Link to='/live-currency'>Live Currency</Link>
         <Link to='/live_currency'>Live_Currency</Link>
       </div>
     )
