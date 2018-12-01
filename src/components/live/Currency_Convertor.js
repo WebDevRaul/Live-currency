@@ -42,9 +42,12 @@ class CurrencyConvertor extends Component {
   };
   
   componentDidUpdate(prevProps, prevState) {
-    const { from, to, fromVal } = this.state;
+    const { from, to, fromVal, errors } = this.state;
     if ( from !== prevProps.from.from || to !== prevProps.to.to || fromVal !== prevProps.fromVal.fromVal ) { 
       this.props.get_Update_Currency(from, to, fromVal);
+    }
+    if (!isEmpty(errors)) {
+      setTimeout(() => { this.props.get_Clear_Error() }, 2000);
     }
     if (from !== prevProps.from.from || to !== prevProps.to.to) {
       this.props.get_Set_Currency(from, to);
