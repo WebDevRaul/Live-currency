@@ -25,13 +25,38 @@
 
 .modal-btn {
   position: absolute;
-  right: 15px;
-  top: 5px;
+  right: 25px;
+  top: 15px;
+  font-size: 18px;
+  text-shadow: 2px 2px 2px grey;
 }
-
 .first-td {
   padding: 5px;
 }
 .modal-flag {
   margin: 0 20px 0 0;
 }
+.modal-btn:hover{
+  cursor: pointer;
+}
+.modal-btn::before {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  right: 0xp;
+  width: 100%;
+  height: 1px;
+  margin-bottom: 7px;
+  background-color: black;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .5s;
+}
+.modal-btn:hover::before {
+  transform: scale(1);
+  transform-origin: left;
+}
+.onClickCloseButton {
+  text-shadow: 0.1px 0.1px 0.1px grey;
+  transition: 0.5s
+};

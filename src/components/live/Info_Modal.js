@@ -39,7 +39,7 @@ class InfoModal extends Component {
               {flagModal}
             </tbody>
           </table>
-        <span className='modal-btn' onClick={this.props.onClose}>x</span>
+        <span className='modal-btn' onClick={this.props.onClose}>close</span>
         </div>
       </div>
     )
