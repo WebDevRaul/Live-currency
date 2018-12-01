@@ -1,4 +1,4 @@
-import { GET_LOADING, GET_ERRORS, GET_CLEAR_ERROR, GET_CLEAR_SEARCH_BAR } from './types';
+import { GET_LOADING, GET_ERRORS, GET_CLEAR_ERROR } from './types';
 
 
 //Set loading state
@@ -17,14 +17,8 @@ export const setError = data => {
 };
 
 //Clear error(s)
-export const get_Clear_Error = data => dispatch => {
-  if (data === 'searchBar') {
-    dispatch({
-      type: GET_CLEAR_SEARCH_BAR
-    })
-  } else {
-    dispatch({
-      type: GET_CLEAR_ERROR
-    })
-  }
-}
+export const get_Clear_Error = () => {
+  return {
+    type: GET_CLEAR_ERROR
+  };
+};

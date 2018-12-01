@@ -1,10 +1,7 @@
-import { GET_ERRORS, GET_CLEAR_ERROR, GET_CLEAR_SEARCH_BAR } from '../actions/types';
+import { GET_ERRORS, GET_CLEAR_ERROR } from '../actions/types';
 
 const initialState = {
-  errors: {
-    number: {},
-    searchBar: {}
-  }
+  errors: {}
 };
 
 export default function(state = initialState, action) {
@@ -13,10 +10,6 @@ export default function(state = initialState, action) {
       return {
         ...state,
         errors: action.payload
-      }
-    case GET_CLEAR_SEARCH_BAR:
-      return {
-        searchBar: {}
       }
     case GET_CLEAR_ERROR:
       return {
