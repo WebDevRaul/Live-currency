@@ -101,8 +101,19 @@ class TableRate extends Component {
     if (!isEmpty(newTodayObj)) {
       baseNewRateToday = Object.keys(newTodayObj).map(i => <p key={i}>{newTodayObj[i].name} : {newTodayObj[i].values}</p>);
     }
+
+    //New RateYesterday Obj .fixed(4)
+    let newYesterdayObj = [];
     if (!isEmpty(newRateYesterday)) {
-      baseNewRateYesterday = Object.keys(newRateYesterday).map(i => <p key={i}>{newRateYesterday[i]}</p>);
+      for (let i = 0; i < Object.keys(newRateYesterday).length; i++) {
+        const name = Object.keys(newRateYesterday)[i];
+        const values = Object.values(newRateYesterday)[i].toFixed(4);
+        newYesterdayObj.push({ name, values })
+      }
+    }
+
+    if (!isEmpty(newYesterdayObj)) {
+      baseNewRateYesterday = Object.keys(newYesterdayObj).map(i => <p key={i}>{newYesterdayObj[i].values}</p>);
     }
     if (!isEmpty(newRateLastYear)) {
       baseNewRateLastYear = Object.keys(newRateLastYear).map(i => <p  key={i} id={i}>{newRateLastYear[i]}</p>);
