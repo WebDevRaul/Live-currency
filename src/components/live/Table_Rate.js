@@ -60,16 +60,12 @@ class TableRate extends Component {
     //New yesterday Obj .fixed(4)
     let yesterdayObj = [];
     this.toFixed(yesterdayObj, yesterday);
-    if (!isEmpty(yesterdayObj)) {
-      baseRateYesterday = Object.keys(yesterdayObj).map(i => <p key={i}>{yesterdayObj[i].values}</p>);
-    };
+    baseRateYesterday = Object.keys(yesterdayObj).map(i => <p key={i}>{yesterdayObj[i].values}</p>);
 
     //New lastYear Obj .fixed(4)
     let lastYearObj = [];
     this.toFixed(lastYearObj, lastYear);
-    if (!isEmpty(lastYearObj)) {
-      baseRateLastYear = Object.keys(lastYearObj).map(i => <p key={i}>{lastYearObj[i].values}</p> );
-    };
+    baseRateLastYear = Object.keys(lastYearObj).map(i => <p key={i}>{lastYearObj[i].values}</p> );
 
     //--------------//--------------//
 
@@ -83,23 +79,18 @@ class TableRate extends Component {
     //New RateToday Obj .fixed(4)
     let newTodayObj = [];
     this.toFixed(newTodayObj, newRateToday);
-    if (!isEmpty(newTodayObj)) {
-      baseNewRateToday = Object.keys(newTodayObj).map(i => <p key={i}>{newTodayObj[i].name} : {newTodayObj[i].values}</p>);
-    }
+    baseNewRateToday = Object.keys(newTodayObj).map(i => <p key={i}>{newTodayObj[i].name} : {newTodayObj[i].values}</p>);
 
     //New RateYesterday Obj .fixed(4)
     let newYesterdayObj = [];
     this.toFixed(newYesterdayObj, newRateYesterday);
-    if (!isEmpty(newYesterdayObj)) {
-      baseNewRateYesterday = Object.keys(newYesterdayObj).map(i => <p key={i}>{newYesterdayObj[i].values}</p>);
-    }
+    baseNewRateYesterday = Object.keys(newYesterdayObj).map(i => <p key={i}>{newYesterdayObj[i].values}</p>);
 
     //New RateYesterday Obj .fixed(4)
     let newLastYearObj = [];
     this.toFixed(newLastYearObj, newRateLastYear);
-    if (!isEmpty(newLastYearObj)) {
-      baseNewRateLastYear = Object.keys(newLastYearObj).map(i => <p  key={i} id={i}>{newLastYearObj[i].values}</p>);
-    }
+    baseNewRateLastYear = Object.keys(newLastYearObj).map(i => <p  key={i} id={i}>{newLastYearObj[i].values}</p>);
+
 
     return (
       <div>

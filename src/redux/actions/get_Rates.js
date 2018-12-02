@@ -16,16 +16,6 @@ export const get_Rates = (base, date, symbols) => dispatch => {
       type: GET_ERRORS,
       payload: err.response.data
     }))
-    axios
-    .get(`https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbols}`)
-    .then(res => dispatch({
-      type: GET_TODAY,
-      payload: res.data.rates
-    }))
-    .catch(err => dispatch({
-      type: GET_ERRORS,
-      payload: err.response.data
-    }))
   axios
     .get(`https://api.exchangeratesapi.io/history?start_at=${date.yesterday}&end_at=${date.yesterday}&symbols=${symbols}&base=${base}`)
     .then(res => dispatch({
