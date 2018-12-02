@@ -14,6 +14,19 @@ import isEmpty from '../common/isEmpty';
 import '../css/TableRate.css';
 
 class TableRate extends Component {
+  constructor() {
+    super();
+    this.toFixed = this.toFixed.bind(this);
+  }
+
+  toFixed(result, data) {
+    for (let i = 0; i < Object.keys(data).length; i++) {
+      const name = Object.keys(data)[i];
+      const values = Object.values(data)[i].toFixed(4);
+      result.push({ name, values })
+    }
+  }
+
   render() {
     
     //Date(s)
@@ -39,42 +52,21 @@ class TableRate extends Component {
 
     //New today Obj .fixed(4)
     let todayObj = [];
-    if (!isEmpty(today)) {
-      for (let i = 0; i < Object.keys(today).length; i++) {
-        const name = Object.keys(today)[i];
-        const values = Object.values(today)[i].toFixed(4);
-        todayObj.push({ name, values })
-      }
-    }
-
-    //New yesterday Obj .fixed(4)
-    let yesterdayObj = [];
-    if (!isEmpty(yesterday)) {
-      for (let i = 0; i < Object.keys(yesterday).length; i++) {
-        const name = Object.keys(yesterday)[i];
-        const values = Object.values(yesterday)[i].toFixed(4);
-        yesterdayObj.push({ name, values })
-      }
-    }
-
-    //New lastYear Obj .fixed(4)
-    let lastYearObj = [];
-    if (!isEmpty(lastYear)) {
-      for (let i = 0; i < Object.keys(lastYear).length; i++) {
-        const name = Object.keys(lastYear)[i];
-        const values = Object.values(lastYear)[i].toFixed(4);
-        lastYearObj.push({ name, values })
-      }
-    }
-    
+    this.toFixed(todayObj, today);
     if (!isEmpty(todayObj)) {
       baseRateToday = Object.keys(todayObj).map(i => <p key={i}>{todayObj[i].name} : {todayObj[i].values}</p>)
     };
-    
+
+    //New yesterday Obj .fixed(4)
+    let yesterdayObj = [];
+    this.toFixed(yesterdayObj, yesterday);
     if (!isEmpty(yesterdayObj)) {
       baseRateYesterday = Object.keys(yesterdayObj).map(i => <p key={i}>{yesterdayObj[i].values}</p>);
     };
 
+    //New lastYear Obj .fixed(4)
+    let lastYearObj = [];
+    this.toFixed(lastYearObj, lastYear);
     if (!isEmpty(lastYearObj)) {
       baseRateLastYear = Object.keys(lastYearObj).map(i => <p key={i}>{lastYearObj[i].values}</p> );
     };
@@ -90,42 +82,21 @@ class TableRate extends Component {
 
     //New RateToday Obj .fixed(4)
     let newTodayObj = [];
-    if (!isEmpty(newRateToday)) {
-      for (let i = 0; i < Object.keys(newRateToday).length; i++) {
-        const name = Object.keys(newRateToday)[i];
-        const values = Object.values(newRateToday)[i].toFixed(4);
-        newTodayObj.push({ name, values })
-      }
-    }
-
+    this.toFixed(newTodayObj, newRateToday);
     if (!isEmpty(newTodayObj)) {
       baseNewRateToday = Object.keys(newTodayObj).map(i => <p key={i}>{newTodayObj[i].name} : {newTodayObj[i].values}</p>);
     }
 
     //New RateYesterday Obj .fixed(4)
     let newYesterdayObj = [];
-    if (!isEmpty(newRateYesterday)) {
-      for (let i = 0; i < Object.keys(newRateYesterday).length; i++) {
-        const name = Object.keys(newRateYesterday)[i];
-        const values = Object.values(newRateYesterday)[i].toFixed(4);
-        newYesterdayObj.push({ name, values })
-      }
-    }
-
+    this.toFixed(newYesterdayObj, newRateYesterday);
     if (!isEmpty(newYesterdayObj)) {
       baseNewRateYesterday = Object.keys(newYesterdayObj).map(i => <p key={i}>{newYesterdayObj[i].values}</p>);
     }
 
     //New RateYesterday Obj .fixed(4)
     let newLastYearObj = [];
-    if (!isEmpty(newRateLastYear)) {
-      for (let i = 0; i < Object.keys(newRateLastYear).length; i++) {
-        const name = Object.keys(newRateLastYear)[i];
-        const values = Object.values(newRateLastYear)[i].toFixed(4);
-        newLastYearObj.push({ name, values })
-      }
-    }
-
+    this.toFixed(newLastYearObj, newRateLastYear);
     if (!isEmpty(newLastYearObj)) {
       baseNewRateLastYear = Object.keys(newLastYearObj).map(i => <p  key={i} id={i}>{newLastYearObj[i].values}</p>);
     }
