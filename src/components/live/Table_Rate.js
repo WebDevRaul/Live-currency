@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 
 //Common
 import isEmpty from '../common/isEmpty';
+import Spinner from '../common/Spinner';
 
 //Css
 import '../css/TableRate.css';
@@ -18,8 +19,18 @@ import '../css/TableRate.css';
 class TableRate extends Component {
   constructor() {
     super();
+    this.state={}
     this.toFixed = this.toFixed.bind(this);
   }
+
+  static getDerivedStateFromProps(nextProps, prevState){
+    const { loading } = nextProps.rate;
+
+    if( loading !== prevState.loading ) {
+      return { loading };
+   }
+   else return null;
+ }
 
   toFixed(result, data) {
     for (let i = 0; i < Object.keys(data).length; i++) {
@@ -93,34 +104,45 @@ class TableRate extends Component {
     this.toFixed(newLastYearObj, newRateLastYear);
     baseNewRateLastYear = Object.keys(newLastYearObj).map(i => <p  key={i} id={i}>{newLastYearObj[i].values}</p>);
 
+    //--------------//--------------//
+
+    //Loading Gif
+    let rateContent;
+    if (this.state.loading === true ) {
+      rateContent = <Spinner />
+    } else {
+      rateContent = 
+        <table className='tableRate'>
+          <thead>
+            <DateRate 
+              dateToday={dateToday} 
+              dateYesterday={dateYesterday}
+              dateLastYear={dateLastYear}
+            />
+          </thead>
+          <tbody>
+            <BaseRate
+              loading={this.props.rate.loading}
+              baseRateToday={baseRateToday}
+              baseRateYesterday={baseRateYesterday}
+              baseRateLastYear={baseRateLastYear}
+            />
+          </tbody>
+          <tbody>
+            <NewRate
+              baseNewRateToday={baseNewRateToday}
+              baseNewRateYesterday={baseNewRateYesterday}
+              baseNewRateLastYear={baseNewRateLastYear}
+            />
+          </tbody>
+        </table>
+    }
+
     return (
       <div>
         <div className='row'>
           <div className='col'>
-            <table className='tableRate'>
-              <thead>
-                <DateRate 
-                  dateToday={dateToday} 
-                  dateYesterday={dateYesterday}
-                  dateLastYear={dateLastYear}
-                />
-              </thead>
-              <tbody>
-                <BaseRate
-                  loading={this.props.rate.loading}
-                  baseRateToday={baseRateToday}
-                  baseRateYesterday={baseRateYesterday}
-                  baseRateLastYear={baseRateLastYear}
-                />
-              </tbody>
-              <tbody>
-                <NewRate
-                  baseNewRateToday={baseNewRateToday}
-                  baseNewRateYesterday={baseNewRateYesterday}
-                  baseNewRateLastYear={baseNewRateLastYear}
-                />
-              </tbody>
-            </table>
+            {rateContent}
           </div>
         </div>
       </div>
