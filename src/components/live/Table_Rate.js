@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
+//Components
 import DateRate from './Date_Rate';
 import BaseRate from './Base_Rate';
 import NewRate from './New_Rate';
@@ -91,7 +93,6 @@ class TableRate extends Component {
     this.toFixed(newLastYearObj, newRateLastYear);
     baseNewRateLastYear = Object.keys(newLastYearObj).map(i => <p  key={i} id={i}>{newLastYearObj[i].values}</p>);
 
-
     return (
       <div>
         <div className='row'>
@@ -106,6 +107,7 @@ class TableRate extends Component {
               </thead>
               <tbody>
                 <BaseRate
+                  loading={this.props.rate.loading}
                   baseRateToday={baseRateToday}
                   baseRateYesterday={baseRateYesterday}
                   baseRateLastYear={baseRateLastYear}
