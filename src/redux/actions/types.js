@@ -2,6 +2,7 @@ export const GET_ERRORS = 'GET_ERRORS';
 export const GET_CLEAR_ERROR = 'GET_CLEAR_ERROR';
 export const GET_LOADING = 'GET_LOADING';
 export const GET_RATE_LOADING = 'GET_RATE_LOADING';
+export const GET_NEW_RATE_LOADING = 'GET_NEW_RATE_LOADING';
 export const GET_SELECT_RATE = 'GET_SELECT_RATE';
 export const GET_DATE = 'GET_DATE';
 export const GET_BASE = 'GET_BASE';

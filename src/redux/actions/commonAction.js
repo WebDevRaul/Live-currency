@@ -1,4 +1,4 @@
-import { GET_LOADING, GET_ERRORS, GET_CLEAR_ERROR, GET_RATE_LOADING } from './types';
+import { GET_LOADING, GET_ERRORS, GET_CLEAR_ERROR, GET_RATE_LOADING, GET_NEW_RATE_LOADING } from './types';
 
 
 //Set loading state
@@ -11,6 +11,12 @@ export const setLoading = () => {
 export const setRateLoading = () => {
   return {
     type: GET_RATE_LOADING
+  };
+};
+
+export const setNewRateLoading = () => {
+  return {
+    type: GET_NEW_RATE_LOADING
   };
 };
 

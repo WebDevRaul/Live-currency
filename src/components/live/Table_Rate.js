@@ -25,12 +25,14 @@ class TableRate extends Component {
 
   static getDerivedStateFromProps(nextProps, prevState){
     const rateLoading = nextProps.rate.loading;
+    const newRateLoading = nextProps.newRate.loading;
+    const { base } = nextProps.base;
 
-    if( rateLoading !== prevState.loading ) {
-      return { rateLoading, };
+    if(rateLoading !== prevState.loading || newRateLoading !== prevState.newRateLoading || base !== prevState.base) {
+      return { rateLoading, newRateLoading, base };
    }
    else return null;
- }
+ };
 
   toFixed(result, data) {
     for (let i = 0; i < Object.keys(data).length; i++) {
@@ -108,15 +110,36 @@ class TableRate extends Component {
 
     //Loading Gif
     let content;
-    if (this.state.loading === true ) {
-      content = <Spinner />
+    let rateContent;
+    let newRateContent;
+    if (this.state.rateLoading === true ) {
+      rateContent = <tr><td><Spinner /></td></tr>
     } else {
-      content = <BaseRate
+      rateContent = <BaseRate
                   loading={this.props.rate.loading}
                   baseRateToday={baseRateToday}
                   baseRateYesterday={baseRateYesterday}
                   baseRateLastYear={baseRateLastYear}
                 />
+    }
+
+    if (this.state.newRateLoading === true) {
+      newRateContent = <tr><td><Spinner /></td></tr>
+    } else {
+      newRateContent = <NewRate
+                          baseNewRateToday={baseNewRateToday}
+                          baseNewRateYesterday={baseNewRateYesterday}
+                          baseNewRateLastYear={baseNewRateLastYear}
+                        />
+    }
+
+    if (this.state.rateLoading === true && this.state.newRateLoading === true) {
+      content = <tbody><tr><td><Spinner /></td></tr></tbody>
+    } else {
+      content = <tbody>
+                  {rateContent}
+                  {newRateContent}
+                </tbody>
     }
 
     return (
@@ -131,16 +154,7 @@ class TableRate extends Component {
                   dateLastYear={dateLastYear}
                 />
               </thead>
-              <tbody>
                 {content}
-              </tbody>
-              <tbody>
-                <NewRate
-                  baseNewRateToday={baseNewRateToday}
-                  baseNewRateYesterday={baseNewRateYesterday}
-                  baseNewRateLastYear={baseNewRateLastYear}
-                />
-              </tbody>
             </table>
           </div>
         </div>
@@ -159,6 +173,7 @@ const mapStateToProps = state => ({
   date: state.date,
   rate: state.rate,
   newRate: state.newRate,
+  base: state.base
 });
 
 export default connect(mapStateToProps, {  })(TableRate);

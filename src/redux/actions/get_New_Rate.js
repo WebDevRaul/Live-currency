@@ -2,10 +2,10 @@ import axios from 'axios';
 import { GET_NEW_RATE_TODAY, GET_ERRORS, GET_NEW_RATE_YESTERDAY, GET_NEW_RATE_LAST_YEAR } from './types';
 
 //import Loading action
-import { setLoading } from './commonAction';
+import { setNewRateLoading } from './commonAction';
 
 export const get_New_Rate = (base, date, newSymbols) => dispatch => {
-  // dispatch(setLoading());
+  dispatch(setNewRateLoading());
     axios
       .get(`https://api.exchangeratesapi.io/latest?base=${base}&symbols=${newSymbols}`)
       .then(res => dispatch({

@@ -2,6 +2,7 @@ import {
   GET_NEW_RATE_TODAY, 
   GET_NEW_RATE_YESTERDAY, 
   GET_NEW_RATE_LAST_YEAR,
+  GET_NEW_RATE_LOADING
  } from '../actions/types';
 
 const initialState = {
@@ -13,6 +14,11 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch(action.type) {
+    case GET_NEW_RATE_LOADING:
+      return {
+        ...state,
+        loading: true
+      }
     case GET_NEW_RATE_TODAY:
       return {
         ...state,
