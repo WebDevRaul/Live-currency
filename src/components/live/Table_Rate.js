@@ -20,16 +20,16 @@ class TableRate extends Component {
   constructor() {
     super();
     this.state={}
+
     this.toFixed = this.toFixed.bind(this);
   }
 
   static getDerivedStateFromProps(nextProps, prevState){
     const rateLoading = nextProps.rate.loading;
     const newRateLoading = nextProps.newRate.loading;
-    const { base } = nextProps.base;
 
-    if(rateLoading !== prevState.loading || newRateLoading !== prevState.newRateLoading || base !== prevState.base) {
-      return { rateLoading, newRateLoading, base };
+    if(rateLoading !== prevState.loading || newRateLoading !== prevState.newRateLoading) {
+      return { rateLoading, newRateLoading };
    }
    else return null;
  };
@@ -113,7 +113,7 @@ class TableRate extends Component {
     let rateContent;
     let newRateContent;
     if (this.state.rateLoading === true ) {
-      rateContent = <tr><td><Spinner /></td></tr>
+      rateContent = <tr><td colSpan={3}><Spinner /></td></tr>
     } else {
       rateContent = <BaseRate
                   loading={this.props.rate.loading}
@@ -124,7 +124,7 @@ class TableRate extends Component {
     }
 
     if (this.state.newRateLoading === true) {
-      newRateContent = <tr><td><Spinner /></td></tr>
+      newRateContent = <tr><td colSpan={3}><Spinner /></td></tr>
     } else {
       newRateContent = <NewRate
                           baseNewRateToday={baseNewRateToday}
@@ -134,7 +134,7 @@ class TableRate extends Component {
     }
 
     if (this.state.rateLoading === true && this.state.newRateLoading === true) {
-      content = <tbody><tr><td><Spinner /></td></tr></tbody>
+      content = <tbody><tr><td colSpan={3}><Spinner /></td></tr></tbody>
     } else {
       content = <tbody>
                   {rateContent}
@@ -173,7 +173,6 @@ const mapStateToProps = state => ({
   date: state.date,
   rate: state.rate,
   newRate: state.newRate,
-  base: state.base
 });
 
 export default connect(mapStateToProps, {  })(TableRate);
