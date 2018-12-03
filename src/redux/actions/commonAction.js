@@ -1,10 +1,16 @@
-import { GET_LOADING, GET_ERRORS, GET_CLEAR_ERROR } from './types';
+import { GET_LOADING, GET_ERRORS, GET_CLEAR_ERROR, GET_RATE_LOADING } from './types';
 
 
 //Set loading state
 export const setLoading = () => {
   return {
     type: GET_LOADING
+  };
+};
+
+export const setRateLoading = () => {
+  return {
+    type: GET_RATE_LOADING
   };
 };
 

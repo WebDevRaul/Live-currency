@@ -24,11 +24,10 @@ class TableRate extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState){
-    const { loading } = nextProps.rate;
-    const newLoading = nextProps.newRate.loading;
+    const rateLoading = nextProps.rate.loading;
 
-    if( loading !== prevState.loading ) {
-      return { loading, };
+    if( rateLoading !== prevState.loading ) {
+      return { rateLoading, };
    }
    else return null;
  }
@@ -108,42 +107,41 @@ class TableRate extends Component {
     //--------------//--------------//
 
     //Loading Gif
-    let rateContent;
+    let content;
     if (this.state.loading === true ) {
-      rateContent = <Spinner />
+      content = <Spinner />
     } else {
-      rateContent = 
-        <table className='tableRate'>
-          <thead>
-            <DateRate 
-              dateToday={dateToday} 
-              dateYesterday={dateYesterday}
-              dateLastYear={dateLastYear}
-            />
-          </thead>
-          <tbody>
-            <BaseRate
-              loading={this.props.rate.loading}
-              baseRateToday={baseRateToday}
-              baseRateYesterday={baseRateYesterday}
-              baseRateLastYear={baseRateLastYear}
-            />
-          </tbody>
-          <tbody>
-            <NewRate
-              baseNewRateToday={baseNewRateToday}
-              baseNewRateYesterday={baseNewRateYesterday}
-              baseNewRateLastYear={baseNewRateLastYear}
-            />
-          </tbody>
-        </table>
+      content = <BaseRate
+                  loading={this.props.rate.loading}
+                  baseRateToday={baseRateToday}
+                  baseRateYesterday={baseRateYesterday}
+                  baseRateLastYear={baseRateLastYear}
+                />
     }
 
     return (
       <div>
         <div className='row'>
           <div className='col'>
-            {rateContent}
+            <table className='tableRate'>
+              <thead>
+                <DateRate 
+                  dateToday={dateToday} 
+                  dateYesterday={dateYesterday}
+                  dateLastYear={dateLastYear}
+                />
+              </thead>
+              <tbody>
+                {content}
+              </tbody>
+              <tbody>
+                <NewRate
+                  baseNewRateToday={baseNewRateToday}
+                  baseNewRateYesterday={baseNewRateYesterday}
+                  baseNewRateLastYear={baseNewRateLastYear}
+                />
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

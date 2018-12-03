@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 //Components
 import SelectRate from './Select_Rate';
@@ -9,9 +10,6 @@ import CurrencyConvertor from './Currency_Convertor';
 //Redux
 import { connect } from 'react-redux';
 import { get_Collect_Data } from '../../redux/actions/get_Collect_Data';
-
-//Common
-import Spinner from '../common/Spinner';
 
 //Css
 import '../css/LiveCurrency.css'
@@ -34,7 +32,7 @@ class Live_Currency extends Component {
    else return null;
  }
   
-  componentDidMount() {
+  componentDidMount(prevProps, prevState) {
     this.props.get_Collect_Data();
   }
   
@@ -44,7 +42,7 @@ class Live_Currency extends Component {
     let content;
     const { loadingSelectRate, loadingDate, loadingBase, loadingSymbols } = this.state;
     if (loadingSelectRate === true || loadingDate === true || loadingBase === true || loadingSymbols === true) {
-      content = <div className='row'><div className='col'><Spinner /></div></div>
+      content = <div className='liveCurrencyEmpty'></div>
     } else {
       content = 
         <div className='liveCurrency'>
@@ -71,18 +69,25 @@ class Live_Currency extends Component {
         </div>
     }
 
-    return (
-      content
-    )
+    return content
   }
 };
 
+Live_Currency.proptypes = {
+  get_Collect_Data: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
+  date: PropTypes.object.isRequired,
+  base: PropTypes.object.isRequired,
+  symbols: PropTypes.object.isRequired,
+  selectRate: PropTypes.object.isRequired
+}
+
 const mapStateToProps = state => ({
   errors: state.errors,
-  selectRate: state.selectRate,
   date: state.date,
   base: state.base,
-  symbols: state.symbols
+  symbols: state.symbols,
+  selectRate: state.selectRate,
 });
 
 export default connect( mapStateToProps , { get_Collect_Data } )(Live_Currency);

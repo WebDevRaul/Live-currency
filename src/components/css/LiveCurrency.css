@@ -8,3 +8,7 @@
 .liveCurrencyTopHalf {
   min-height: 75px;
 }
+
+.liveCurrencyEmpty {
+  min-height: 100vh;
+}

@@ -29,6 +29,15 @@ class SelectRate extends Component {
    }
    else return null;
  }
+
+  componentDidMount() {
+    const { base } = this.state;
+    const { date } = this.props;
+    const { symbols } = this.props.symbols;
+    if (!isEmpty(base) && !isEmpty(date) && !isEmpty(symbols)) {
+      this.props.get_Rates(base,date,symbols)
+    }
+  }
  
   componentDidUpdate(prevProps, prevState) {
     const { base } = this.state;
