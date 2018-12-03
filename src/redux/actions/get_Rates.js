@@ -5,7 +5,7 @@ import { GET_TODAY, GET_YESTERDAY, GET_LAST_YEAR, GET_ERRORS } from './types';
 import { setLoading } from './commonAction';
 
 export const get_Rates = (base, date, symbols) => dispatch => {
-  dispatch(setLoading());
+  // dispatch(setLoading());
   axios
     .get(`https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbols}`)
     .then(res => dispatch({

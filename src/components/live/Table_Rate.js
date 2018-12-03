@@ -25,9 +25,10 @@ class TableRate extends Component {
 
   static getDerivedStateFromProps(nextProps, prevState){
     const { loading } = nextProps.rate;
+    const newLoading = nextProps.newRate.loading;
 
     if( loading !== prevState.loading ) {
-      return { loading };
+      return { loading, };
    }
    else return null;
  }

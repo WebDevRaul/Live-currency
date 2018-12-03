@@ -6,7 +6,7 @@ import { setLoading } from './commonAction';
 
 
 export const get_Update_Currency = (base, symbol, val) => dispatch => {
-  dispatch(setLoading());
+  // dispatch(setLoading());
   axios
     .get(`https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbol}`)
     .then(res => dispatch({

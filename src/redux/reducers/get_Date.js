@@ -1,4 +1,4 @@
-import { GET_DATE } from '../actions/types';
+import { GET_DATE, GET_LOADING } from '../actions/types';
 
 const initialState = {
   loading: false,
@@ -9,6 +9,11 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch(action.type) {
+    case GET_LOADING:
+      return {
+        ...state,
+        loading: true
+      }
     case GET_DATE:
       const today = new Date(action.payload).toISOString().slice(0,10);
       const yesterday = ( today => new Date(today.setDate(today.getDate() - 1)) )(new Date(action.payload)).toISOString().slice(0, 10);

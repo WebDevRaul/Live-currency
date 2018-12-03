@@ -1,7 +1,7 @@
 import { 
   GET_NEW_RATE_TODAY, 
   GET_NEW_RATE_YESTERDAY, 
-  GET_NEW_RATE_LAST_YEAR
+  GET_NEW_RATE_LAST_YEAR,
  } from '../actions/types';
 
 const initialState = {

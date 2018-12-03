@@ -1,4 +1,4 @@
-import { GET_SELECT_RATE } from '../actions/types';
+import { GET_SELECT_RATE, GET_LOADING } from '../actions/types';
 
 const initialState = {
   loading: false,
@@ -7,6 +7,11 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch(action.type) {
+    case GET_LOADING:
+      return {
+        ...state,
+        loading: true
+      }
     case GET_SELECT_RATE:
       return {
         ...state,

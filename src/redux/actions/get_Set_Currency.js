@@ -5,7 +5,7 @@ import { GET_SET_CURRENCY, GET_ERRORS } from './types';
 import { setLoading } from './commonAction';
 
 export const get_Set_Currency = (base, symbol) => dispatch => {
-  dispatch(setLoading());
+  // dispatch(setLoading());
   axios
     .get(`https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbol}`)
     .then(res => dispatch({
