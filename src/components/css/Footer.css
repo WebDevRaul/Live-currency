@@ -1,4 +1,54 @@
+@import './App.css';
+
 .footer {
   text-align: center;
   margin-bottom: 10px;
+}
+
+.footerDiv {
+  margin: 10px 0;
+  background-color: rgba(145, 121, 40, 0.7);
+}
+.footerLogo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerLogo  span{
+  color: white;
+}
+
+.footer-links {
+  padding-bottom: 15px;
+}
+
+.footer-links p {
+  color: white;
+  margin: 10px 0;
+  font-size: 14px;
+  padding: 0 0 0 130px;
+  text-align: left;
+}
+
+.footer-links span{
+  padding: 0px 15px;
+  font-size: 15px;
+}
+
+.footer-links i {
+  color: white;
+  transition: 0.5s;
+}
+
+.footer-links i:hover {
+  color: var(--blue);
+  transition: 0.5s;
+}
+
+.footer-links span a {
+  padding: 5px 15px; 
+  margin: 5px 0;
+  border-radius: 10px;
+  font-size: 25px;
 }
