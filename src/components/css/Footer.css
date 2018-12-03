@@ -1,6 +1,4 @@
 .footer {
-  min-height: 75px;
   text-align: center;
-  line-height: 75px;
-  background-color: rgb(255, 253, 161);
+  margin-bottom: 10px;
 }
