@@ -118,7 +118,7 @@ class TableRate extends Component {
     //Loading Gif
     let newRateContent;
 
-    if (this.state.newRateLoading === true) {
+    if (this.state.newRateLoading === true && this.state.rateLoading !== true) {
       newRateContent = <tr><td colSpan={4}><Spinner /></td></tr>
     } else {
       newRateContent = <NewRate

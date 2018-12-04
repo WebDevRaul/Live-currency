@@ -56,7 +56,22 @@ class SearchBar extends Component {
   onSubmit(e) {
     e.preventDefault();
     const { text } = this.state;
-    this.props.get_New_Symbols(text);
+    const { selectRate } = this.props.selectRate;
+
+    let arr = [];
+    if (!isEmpty(selectRate)) {
+      for (let i = 0; i < selectRate.length; i++) {
+        const element = selectRate[i];
+        arr.push({ id: i, name: element })
+      }
+    };
+    const search = text => data => data.name.toUpperCase().startsWith(text.toUpperCase()) || !text;
+    const list = arr.filter(search(text)).map(i => i);
+    if (!isEmpty(list)) {
+      this.props.get_New_Symbols(text);
+    } else {
+      console.log('make error')
+    }
     this.setState({
       text: '',
     })
