@@ -7,7 +7,7 @@ import { setLoading } from './commonAction';
 export const get_Collect_Data = () => dispatch => {
   dispatch(setLoading());
   axios
-    .get('https://api.exchangeratesapi.io/latest?base=GBP')
+    .get('https://api.exchangeratesapi.io/latest?')
     .then(res => dispatch({
       type: GET_SELECT_RATE,
       payload: res.data.rates
@@ -17,7 +17,7 @@ export const get_Collect_Data = () => dispatch => {
       payload: err.response.data
     }))
   axios
-    .get('https://api.exchangeratesapi.io/latest?base=GBP')
+    .get('https://api.exchangeratesapi.io/latest?')
     .then(res => dispatch({
       type: GET_DATE,
       payload: '2018-10-10'
@@ -27,7 +27,7 @@ export const get_Collect_Data = () => dispatch => {
       payload: err.response.data
     }))
   axios
-    .get('https://api.exchangeratesapi.io/latest?base=GBP')
+    .get('https://api.exchangeratesapi.io/latest?')
     .then(res => dispatch({
       type: GET_BASE,
       payload: res.data.base
@@ -37,7 +37,7 @@ export const get_Collect_Data = () => dispatch => {
       payload: err.response.data
     }))
   axios
-    .get(`https://api.exchangeratesapi.io/latest?base=GBP&symbols=AUD,CAD,CHF,EUR,USD`)
+    .get(`https://api.exchangeratesapi.io/latest?&symbols=AUD,CAD,CHF,GBP,USD`)
     .then(res => dispatch({
       type: GET_SYMBOLS,
       payload: Object.keys(res.data.rates).map(i => i)

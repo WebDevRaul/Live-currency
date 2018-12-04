@@ -109,19 +109,7 @@ class TableRate extends Component {
     //--------------//--------------//
 
     //Loading Gif
-    let content;
-    let rateContent;
     let newRateContent;
-    if (this.state.rateLoading === true ) {
-      rateContent = <tr><td colSpan={3}><Spinner /></td></tr>
-    } else {
-      rateContent = <BaseRate
-                  loading={this.props.rate.loading}
-                  baseRateToday={baseRateToday}
-                  baseRateYesterday={baseRateYesterday}
-                  baseRateLastYear={baseRateLastYear}
-                />
-    }
 
     if (this.state.newRateLoading === true) {
       newRateContent = <tr><td colSpan={3}><Spinner /></td></tr>
@@ -131,15 +119,6 @@ class TableRate extends Component {
                           baseNewRateYesterday={baseNewRateYesterday}
                           baseNewRateLastYear={baseNewRateLastYear}
                         />
-    }
-
-    if (this.state.rateLoading === true && this.state.newRateLoading === true) {
-      content = <tbody><tr><td colSpan={3}><Spinner /></td></tr></tbody>
-    } else {
-      content = <tbody>
-                  {rateContent}
-                  {newRateContent}
-                </tbody>
     }
 
     return (
@@ -154,7 +133,15 @@ class TableRate extends Component {
                   dateLastYear={dateLastYear}
                 />
               </thead>
-                {content}
+              <tbody>
+                <BaseRate
+                  loading={this.props.rate.loading}
+                  baseRateToday={baseRateToday}
+                  baseRateYesterday={baseRateYesterday}
+                  baseRateLastYear={baseRateLastYear}
+                />
+                {newRateContent}
+                </tbody>
             </table>
           </div>
         </div>

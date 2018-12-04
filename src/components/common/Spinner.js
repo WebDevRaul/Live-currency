@@ -5,7 +5,7 @@ export default () => {
   return (
       <img
         src={spiner}
-        style={{width: '200px', margin:'auto', display: 'block'}}
+        style={{width: '75px', margin:'auto', display: 'block'}}
         alt='Loading...'
       />
   );
