@@ -3,7 +3,7 @@
 }
 
 .tableRate td {
-  padding: 0 35px;
+  padding: 0 60px;
 }
 
 .tableRate td {
@@ -12,4 +12,14 @@
 
 .tableRate tbody tr td:first-child {
   padding: 0 !important;
+}
+
+.tableRateDate td {
+  padding: 0 0 30px 0;
+}
+.tableRateDate td:nth-child(2) {
+  text-align: left;
+}
+.tableRateBaseRate td:nth-child(2) {
+  padding-left: 20px;
 }

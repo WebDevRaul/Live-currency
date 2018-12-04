@@ -138,7 +138,7 @@ class TableRate extends Component {
         <div className='row'>
           <div className='col'>
             <table className='tableRate'>
-              <thead>
+              <thead className='tableRateHead'>
                 <DateRate 
                   dateToday={dateToday} 
                   dateYesterday={dateYesterday}
