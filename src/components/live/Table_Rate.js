@@ -121,6 +121,14 @@ class TableRate extends Component {
                         />
     }
 
+    if (this.state.rateLoading === true && this.state.newRateLoading === true) {
+      newRateContent = <NewRate
+                          baseNewRateToday={baseNewRateToday}
+                          baseNewRateYesterday={baseNewRateYesterday}
+                          baseNewRateLastYear={baseNewRateLastYear}
+                        /> 
+    }
+
     return (
       <div>
         <div className='row'>
