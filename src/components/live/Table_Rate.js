@@ -61,6 +61,7 @@ class TableRate extends Component {
     
     //Basic Rate(s)
     const { today, yesterday, lastYear } = this.props.rate;
+    let baseRateName;
     let baseRateToday;
     let baseRateYesterday;
     let baseRateLastYear;
@@ -69,8 +70,11 @@ class TableRate extends Component {
     let todayObj = [];
     this.toFixed(todayObj, today);
     if (!isEmpty(todayObj)) {
-      baseRateToday = Object.keys(todayObj).map(i => <p key={i}>{todayObj[i].name} : {todayObj[i].values}</p>)
+      baseRateToday = Object.keys(todayObj).map(i => <p key={i}>{todayObj[i].values}</p>)
     };
+    if (!isEmpty(todayObj)) {
+      baseRateName = Object.keys(todayObj).map(i => <p key={i}>{todayObj[i].name}</p>)
+    }
 
     //New yesterday Obj .fixed(4)
     let yesterdayObj = [];
@@ -112,7 +116,7 @@ class TableRate extends Component {
     let newRateContent;
 
     if (this.state.newRateLoading === true) {
-      newRateContent = <tr><td colSpan={3}><Spinner /></td></tr>
+      newRateContent = <tr><td colSpan={4}><Spinner /></td></tr>
     } else {
       newRateContent = <NewRate
                           baseNewRateToday={baseNewRateToday}
@@ -143,7 +147,7 @@ class TableRate extends Component {
               </thead>
               <tbody>
                 <BaseRate
-                  loading={this.props.rate.loading}
+                  baseRateName={baseRateName}
                   baseRateToday={baseRateToday}
                   baseRateYesterday={baseRateYesterday}
                   baseRateLastYear={baseRateLastYear}

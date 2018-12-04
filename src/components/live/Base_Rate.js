@@ -4,6 +4,7 @@ class BaseRate extends Component {
   render() {
     return (
       <tr>
+        <td>{this.props.baseRateName}</td>
         <td>{this.props.baseRateToday}</td>
         <td>{this.props.baseRateYesterday}</td>
         <td>{this.props.baseRateLastYear}</td>

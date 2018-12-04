@@ -2,10 +2,14 @@
   margin: 30px auto 0 auto;
 }
 
-.tableRate p {
-  padding: 0 30px;
+.tableRate td {
+  padding: 0 35px;
 }
 
 .tableRate td {
   text-align: center;
+}
+
+.tableRate tbody tr td:first-child {
+  padding: 0 !important;
 }
