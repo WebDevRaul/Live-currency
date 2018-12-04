@@ -8,6 +8,7 @@ import InfoModal from './Info_Modal';
 //Redux
 import { connect } from 'react-redux';
 import { get_New_Symbols } from '../../redux/actions/get_New_Symbols';
+import { setError } from '../../redux/actions/commonAction';
 
 //Common
 import isEmpty from '../common/isEmpty';
@@ -58,6 +59,7 @@ class SearchBar extends Component {
     const { text } = this.state;
     const { selectRate } = this.props.selectRate;
 
+    //Check for invalid Val
     let arr = [];
     if (!isEmpty(selectRate)) {
       for (let i = 0; i < selectRate.length; i++) {
@@ -70,8 +72,10 @@ class SearchBar extends Component {
     if (!isEmpty(list)) {
       this.props.get_New_Symbols(text);
     } else {
-      console.log('make error')
+      this.props.setError({ searchBar: 'Enter a valid value!' })
     }
+
+    //Clear text Val
     this.setState({
       text: '',
     })
@@ -167,4 +171,4 @@ const mapStateToProps = state => ({
   newSymbols: state.newSymbols
 });
 
-export default connect(mapStateToProps, { get_New_Symbols })(SearchBar);
+export default connect(mapStateToProps, { get_New_Symbols, setError })(SearchBar);
