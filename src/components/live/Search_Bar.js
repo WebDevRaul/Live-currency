@@ -156,6 +156,7 @@ class SearchBar extends Component {
  
 SearchBar.propTypes = {
   get_New_Symbols: PropTypes.func.isRequired,
+  setError: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   selectRate: PropTypes.object.isRequired,
   newSymbols: PropTypes.object.isRequired,
