@@ -63,7 +63,6 @@ class CurrencyConvertor extends Component {
   }
   
   render() {
-    console.log(this.state.arrow)
 
     //Error
     const error = this.state.errors.number;
@@ -140,10 +139,11 @@ class CurrencyConvertor extends Component {
                   name='from'
                   value={this.state.from}
                   onChange={(e) => this.props.get_Set_From(e.target.value)}
+                  onClick={this.onClick}
               >
                   <option defaultValue={from} />
                   {option}
-                </select><span>^</span>
+                </select><span>{this.state.arrow ? '˅' : '^'}</span>
                 <br />
               <input
                 className='currency-val'
@@ -161,7 +161,7 @@ class CurrencyConvertor extends Component {
               >
                 <option defaultValue={to} />
                 {option}
-              </select><span>^</span>
+              </select><span>{this.state.arrow ? '˅' : '^'}</span>
             </div>
           </div>
         </form>
