@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+//Components
+import Logo from './Logo';
+
 //Css
 import '../css/Footer.css';
 
@@ -10,7 +13,7 @@ class Footer extends Component {
       <hr />
         <div className='row footerDiv'>
           <div className='col footerLogo'>
-            <span >Copyright &copy; {new Date().getFullYear()} Live-Currency</span>
+            <span >Copyright &copy; {new Date().getFullYear()} <Logo /></span>
           </div>
           <div className='col'>
             <div className='footer-links'>
