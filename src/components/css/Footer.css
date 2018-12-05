@@ -7,7 +7,7 @@
 
 .footerDiv {
   margin: 10px 0;
-  background-color: rgba(145, 121, 40, 0.7);
+  background-color: var(--mainCollor);
 }
 .footerLogo{
   display: flex;
