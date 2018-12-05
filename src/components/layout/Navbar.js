@@ -23,9 +23,6 @@ class Navbar extends Component {
             <li className="nav-item active mr-3">
               <Link to='/about' className='nav-link'><span>About</span></Link>
             </li>
-            <li className="nav-item active mr-3">
-              <Link to='/Source' className='nav-link'><span>Source</span></Link>
-            </li>
           </ul>
         </div>
       </nav>

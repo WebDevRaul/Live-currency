@@ -10,7 +10,7 @@ class Footer extends Component {
   render() {
     return (
       <div className='footer'>
-      <hr />
+        <hr />
         <div className='row footerDiv'>
           <div className='col footerLogo'>
             <span >Copyright &copy; {new Date().getFullYear()} <Logo /></span>

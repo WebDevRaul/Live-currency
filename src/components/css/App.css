@@ -3,6 +3,11 @@
   --secondaryCollor: rgb(5, 21, 252);
 }
 
+html,body {
+  width: 100%;
+  height: 100%;
+}
+
 textarea:focus, input:focus, select:focus{
   outline: none;
 }
