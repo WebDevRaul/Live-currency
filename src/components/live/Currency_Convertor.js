@@ -19,7 +19,11 @@ import '../css/Currency.css';
 class CurrencyConvertor extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      arrow: false
+    };
+    
+    this.onClick = this.onClick.bind(this);
   }
 
   static getDerivedStateFromProps(nextProps, prevState){
@@ -53,8 +57,13 @@ class CurrencyConvertor extends Component {
       this.props.get_Set_Currency(from, to);
     }
   }
+
+  onClick(e) {
+    this.setState({ arrow: !this.state.arrow })
+  }
   
   render() {
+    console.log(this.state.arrow)
 
     //Error
     const error = this.state.errors.number;
@@ -141,13 +150,14 @@ class CurrencyConvertor extends Component {
                 name='toVal'
                 type='text'
                 value={ (!isEmpty(error) ? error : (updateCurrency === '[object Object]') ? placeholder : updateCurrency) }
-                onChange={(e) => console.log()}
+                onChange={(e) => {}}
               />
               <select
                 className='currency-select'
                 name='to'
                 value={this.state.to}
                 onChange={(e) => this.props.get_Set_To(e.target.value)}
+                onClick={this.onClick}
               >
                 <option defaultValue={to} />
                 {option}
