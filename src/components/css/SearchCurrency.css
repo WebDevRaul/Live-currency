@@ -26,14 +26,15 @@
 .searchInfo {
   z-index: 1;
   position: relative;
-  left: -8px;
-  font-size: 15px;
-  font-family: 'Spicy Rice', cursive;
+  left: -12px;
+  /* font-size: 15px; */
+  /* font-family: 'Spicy Rice', cursive; */
+  height: 20px;
   transition: 0.5s;
 }
 
 .searchInfo:hover {
-  font-size: 20px;
+  /* font-size: 20px; */
   cursor: pointer;
   transition: 0.5s;
 }
