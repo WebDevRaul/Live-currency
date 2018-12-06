@@ -12,13 +12,17 @@ import isEmpty from '../common/isEmpty';
 
 //Css
 import '../css/SelectRate.css';
+import '../css/Currency.css';
 
 class SelectRate extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      arrow: false
+    }
     
     this.onChange = this.onChange.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   static getDerivedStateFromProps(nextProps, prevState){
@@ -58,6 +62,10 @@ class SelectRate extends Component {
   onChange(e) {
     this.props.get_Change_Base(e.target.value);
   };
+  
+  onClick() {
+    this.setState({ arrow: !this.state.arrow })
+  }
 
   render() {
     let base;
@@ -72,6 +80,12 @@ class SelectRate extends Component {
     data.sort();
     const option = Object.keys(data).map(i => <option key={i} value={data[i]}>{data[i]}</option>);
 
+    //--------------//--------------//
+
+    //Animation btn
+    const up = <span className='currencyArrow'><span className='spanFirstUp'></span><span className='spanLastUp'></span></span>;
+    const down = <span className='currencyArrow'><span className='spanFirstDown'></span><span className='spanLastDown'></span></span>
+
     return (
       <div>
         <form>
@@ -79,13 +93,15 @@ class SelectRate extends Component {
             Change base Rate: 
             <select
               className='selectRateBase'
-              onChange={this.onChange}>
+              onChange={this.onChange}
+              onClick={this.onClick}
+            >
               <option 
                 defaultValue={base}>
                 {base}
               </option>
               {option}
-            </select><span>^</span>
+            </select>{this.state.arrow ? up : down}
           </label>
         </form>
       </div>
