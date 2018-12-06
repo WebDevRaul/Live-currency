@@ -1,3 +1,5 @@
+@import './App.css';
+
 .currency {
   padding: 20px;
   background-color: rgba(245, 245, 245, 0.5);
@@ -53,19 +55,27 @@
   position: relative;
 }
 .currencyArrow span {
-  top: .5rem;
+  top: 10px;
   position: absolute;
   width: .75rem;
-  height: .1rem;
-  background-color: red;
+  height: 2px;
+  background-color: var(--mainCollor);
   display: inline-block;
   transition: all .2s ease;
 }
-.currencyArrow span:first-of-type {
+.spanFirstUp {
   left: 0;
   transform: rotate(45deg);
 }
-.currencyArrow span:last-of-type {
+.spanLastUp {
   right: 0;
   transform: rotate(-45deg);
+}
+.spanFirstDown {
+  left: 0;
+  transform: rotate(-45deg);
+}
+.spanLastDown {
+  right: 0;
+  transform: rotate(45deg);
 }

@@ -113,8 +113,8 @@ class CurrencyConvertor extends Component {
     //--------------//--------------//
 
     //Animation btn
-    const up = <span className='currencyArrow'><span></span><span></span></span>;
-    const down = <span className='currencyArrow'><span></span><span></span></span>;
+    const up = <span className='currencyArrow'><span className='spanFirstUp'></span><span className='spanLastUp'></span></span>;
+    const down = <span className='currencyArrow'><span className='spanFirstDown'></span><span className='spanLastDown'></span></span>
 
     return (
       <div className='currency'>
@@ -149,7 +149,7 @@ class CurrencyConvertor extends Component {
               >
                   <option defaultValue={from} />
                   {option}
-                </select><span className='currencyArrow'><span></span><span></span></span>
+                </select>{this.state.arrow ? up : down}
                 <br />
               <input
                 className='currency-val'
