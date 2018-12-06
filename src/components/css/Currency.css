@@ -44,3 +44,28 @@
   border-radius: 10px;
   color: rgb(141, 141, 141)
 }
+
+/* Animation btn */
+.currencyArrow {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-block;
+  position: relative;
+}
+.currencyArrow span {
+  top: .5rem;
+  position: absolute;
+  width: .75rem;
+  height: .1rem;
+  background-color: red;
+  display: inline-block;
+  transition: all .2s ease;
+}
+.currencyArrow span:first-of-type {
+  left: 0;
+  transform: rotate(45deg);
+}
+.currencyArrow span:last-of-type {
+  right: 0;
+  transform: rotate(-45deg);
+}
