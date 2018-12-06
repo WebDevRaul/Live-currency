@@ -21,7 +21,7 @@ class CurrencyConvertor extends Component {
     super(props);
     this.state = {
       fromArrow: false,
-      toArrow: false
+      toArrow: false,
     };
     
     this.onClick = this.onClick.bind(this);
@@ -60,7 +60,7 @@ class CurrencyConvertor extends Component {
   }
 
   onClick(e) {
-    this.setState({ [e.target.name+'Arrow']: !this.state.fromArrow})
+    this.setState({ [e.target.name+'Arrow']: !this.state[(`${e.target.name+'Arrow'}`)] })
   }
   
   render() {
