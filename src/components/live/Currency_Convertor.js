@@ -20,7 +20,8 @@ class CurrencyConvertor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      arrow: false
+      fromArrow: false,
+      toArrow: false
     };
     
     this.onClick = this.onClick.bind(this);
@@ -59,7 +60,7 @@ class CurrencyConvertor extends Component {
   }
 
   onClick(e) {
-    this.setState({ arrow: !this.state.arrow })
+    this.setState({ [e.target.name+'Arrow']: !this.state.fromArrow})
   }
   
   render() {
@@ -149,7 +150,7 @@ class CurrencyConvertor extends Component {
               >
                   <option defaultValue={from} />
                   {option}
-                </select>{this.state.arrow ? up : down}
+                </select>{this.state.fromArrow ? up : down}
                 <br />
               <input
                 className='currency-val'
