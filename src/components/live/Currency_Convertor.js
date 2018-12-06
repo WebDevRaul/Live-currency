@@ -168,7 +168,7 @@ class CurrencyConvertor extends Component {
               >
                 <option defaultValue={to} />
                 {option}
-              </select><span>{this.state.arrow ? '˅' : '^'}</span>
+              </select>{this.state.toArrow ? up : down}
             </div>
           </div>
         </form>
