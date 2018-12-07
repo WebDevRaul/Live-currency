@@ -17,9 +17,6 @@ import { country } from '../common/country';
 //Css
 import '../css/SearchCurrency.css';
 
-//Info
-import Info from '../../img/info.png'
-
 class SearchBar extends Component {
   constructor(props) {
     super(props);
@@ -140,7 +137,7 @@ class SearchBar extends Component {
           <span 
             className='searchInfo'
             onClick={this.onModal}
-          ><img src={Info} alt='Info' /></span>
+          ><i className="fas fa-info"></i></span>
           <button
             onMouseDown={this.onMouseDown} 
             onMouseUp={this.onMouseDown}
