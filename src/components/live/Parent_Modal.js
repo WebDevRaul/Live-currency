@@ -1,4 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types'
+
+//Components
 import InfoModal from './Info_Modal';
 
 class ParentModal extends Component {
@@ -22,6 +25,10 @@ class ParentModal extends Component {
       </div>
     )
   }
+}
+
+ParentModal.propTypes = {
+  toClose: PropTypes.func.isRequired,
 }
 
 export default ParentModal;

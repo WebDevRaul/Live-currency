@@ -9,6 +9,10 @@
   padding: 70px 200px;
 }
 
+.modal-center {
+  height: 80vh;
+}
+
 .modal-content {
   background-color: rgb(233, 232, 232);
   border-radius: 10;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 //Components
-import InfoModal from './Info_Modal';
+import ParentModal from './Parent_Modal';
 
 //Redux
 import { connect } from 'react-redux';
@@ -16,7 +16,6 @@ import { country } from '../common/country';
 
 //Css
 import '../css/SearchCurrency.css';
-import ParentModal from './Parent_Modal';
 
 class SearchBar extends Component {
   constructor(props) {

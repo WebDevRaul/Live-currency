@@ -71,7 +71,8 @@ class InfoModal extends Component {
 };
 
 InfoModal.propTypes = {
-  flagObj: PropTypes.array.isRequired
+  flagObj: PropTypes.array.isRequired,
+  toClose: PropTypes.func.isRequired,
 }
 
 export default InfoModal;
