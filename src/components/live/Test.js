@@ -20,6 +20,7 @@ class SampleComponent extends Component {
   handleClickOutside = e => {
     if (!this.myRef.current.contains(e.target)) {
       this.setState({ clickedOutside: true });
+      this.props.data()
     }
   };
 

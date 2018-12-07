@@ -4,8 +4,17 @@ import Flag from 'react-world-flags';
 
 //Css
 import '../css/InfoModal.css';
+import SampleComponent from './Test';
 
 class InfoModal extends Component {
+  constructor(props) {
+    super(props);
+    this.onModal = this.onModal.bind(this);
+  }
+
+  onModal() {
+    this.props.data()
+  }
 
   render() {
     const { flagObj } = this.props;
@@ -26,7 +35,10 @@ class InfoModal extends Component {
     
     return (
       <div className='modal-div'>
-        <div className='modal-content'>
+        <SampleComponent
+          data={this.onModal}
+        />
+        {/* <div className='modal-content'>
           <table>
             <thead>
               <tr className='modal-thead'>
@@ -40,7 +52,7 @@ class InfoModal extends Component {
             </tbody>
           </table>
         <span className='modal-btn' onClick={this.props.onClose}>close</span>
-        </div>
+        </div> */}
       </div>
     )
   }

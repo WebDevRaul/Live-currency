@@ -147,7 +147,7 @@ class SearchBar extends Component {
         </form>
         {modal ? <InfoModal
           flagObj={flagObj}
-          onClose={this.onModal}
+          data={this.onModal}
          /> : null}
       </div>
     )
