@@ -16,6 +16,7 @@ import { country } from '../common/country';
 
 //Css
 import '../css/SearchCurrency.css';
+import ParentModal from './Parent_Modal';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -145,10 +146,7 @@ class SearchBar extends Component {
             type='submit'
             >Search</button>
         </form>
-        {modal ? <InfoModal
-          flagObj={flagObj}
-          data={this.onModal}
-         /> : null}
+        {modal ? <ParentModal flagObj={flagObj} toClose={this.onModal}/> : null}
       </div>
     )
   }
