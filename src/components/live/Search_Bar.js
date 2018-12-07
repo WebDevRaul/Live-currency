@@ -84,7 +84,7 @@ class SearchBar extends Component {
   onModal() {
     this.setState({
       modal: !this.state.modal
-    })
+    });
   };
 
   render() {
