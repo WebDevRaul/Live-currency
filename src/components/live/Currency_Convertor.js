@@ -67,7 +67,7 @@ class CurrencyConvertor extends Component {
 
   handleClickOutside = e => {
     if (!this.myRef.current.contains(e.target)) {
-      this.setState({ fromArrow: false })
+      this.setState({ fromArrow: false, toArrow: false });
     }
   };
 
@@ -173,6 +173,7 @@ class CurrencyConvertor extends Component {
                 onChange={(e) => {}}
               />
               <select
+                ref={this.myRef}
                 className='currency-select'
                 name='to'
                 value={this.state.to}
