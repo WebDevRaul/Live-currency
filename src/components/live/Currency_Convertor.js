@@ -44,6 +44,7 @@ class CurrencyConvertor extends Component {
   componentDidMount(prevState, prevProps) {
     const { from, to } = this.state;
     this.props.get_Set_Currency(from, to);
+    document.addEventListener("mousedown", this.handleClickOutside);
   };
   
   componentDidUpdate(prevProps, prevState) {
@@ -58,6 +59,17 @@ class CurrencyConvertor extends Component {
       this.props.get_Set_Currency(from, to);
     }
   }
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleClickOutside);
+  }
+
+  myRef = React.createRef();
+
+  handleClickOutside = e => {
+    if (!this.myRef.current.contains(e.target)) {
+      this.setState({ fromArrow: false })
+    }
+  };
 
   onClick(e) {
     this.setState({ [e.target.name+'Arrow']: !this.state[(`${e.target.name+'Arrow'}`)] })
@@ -142,6 +154,7 @@ class CurrencyConvertor extends Component {
                 value={this.state.fromVal}
                />
                 <select
+                  ref={this.myRef}
                   className='currency-select'
                   name='from'
                   value={this.state.from}
