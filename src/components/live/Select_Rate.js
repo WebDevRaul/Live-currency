@@ -68,7 +68,7 @@ class SelectRate extends Component {
 
   handleClickOutside = e => {
     if (!this.myRef.current.contains(e.target)) {
-      this.setState({ arrow: !this.state.arrow })
+      this.setState({ arrow: false })
     }
   };
 
