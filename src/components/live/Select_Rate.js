@@ -41,6 +41,7 @@ class SelectRate extends Component {
     if (!isEmpty(base) && !isEmpty(date) && !isEmpty(symbols)) {
       this.props.get_Rates(base,date,symbols)
     }
+    document.addEventListener("mousedown", this.handleClickOutside);
   }
  
   componentDidUpdate(prevProps, prevState) {
@@ -59,10 +60,22 @@ class SelectRate extends Component {
     }
   }
 
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleClickOutside);
+  }
+
+  myRef = React.createRef();
+
+  handleClickOutside = e => {
+    if (!this.myRef.current.contains(e.target)) {
+      this.setState({ arrow: !this.state.arrow })
+    }
+  };
+
   onChange(e) {
     this.props.get_Change_Base(e.target.value);
   };
-
+  
   onClick() {
     this.setState({ arrow: !this.state.arrow })
   }
@@ -88,9 +101,10 @@ class SelectRate extends Component {
 
     return (
       <div>
-        <form>
+        <form >
           Change base Rate: 
           <select
+            ref={this.myRef}
             className='selectRateBase'
             onChange={this.onChange}
             onClick={this.onClick}

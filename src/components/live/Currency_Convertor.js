@@ -205,5 +205,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { get_Set_Currency, get_Clear_Error, get_Update_Currency, get_Set_From, get_Set_To, get_Set_From_Val })(CurrencyConvertor);
-
-//To fix click outside modal close modal
