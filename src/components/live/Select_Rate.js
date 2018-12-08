@@ -62,7 +62,7 @@ class SelectRate extends Component {
   onChange(e) {
     this.props.get_Change_Base(e.target.value);
   };
-  
+
   onClick() {
     this.setState({ arrow: !this.state.arrow })
   }
@@ -89,20 +89,18 @@ class SelectRate extends Component {
     return (
       <div>
         <form>
-          <label>
-            Change base Rate: 
-            <select
-              className='selectRateBase'
-              onChange={this.onChange}
-              onClick={this.onClick}
-            >
-              <option 
-                defaultValue={base}>
-                {base}
-              </option>
-              {option}
-            </select>{this.state.arrow ? up : down}
-          </label>
+          Change base Rate: 
+          <select
+            className='selectRateBase'
+            onChange={this.onChange}
+            onClick={this.onClick}
+          >
+            <option 
+              defaultValue={base}>
+              {base}
+            </option>
+            {option}
+          </select>{this.state.arrow ? up : down}
         </form>
       </div>
     )
