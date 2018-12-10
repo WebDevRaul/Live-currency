@@ -9,7 +9,7 @@ class Landing extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoad: false
+      isLoad: true,
     }
   }
 
@@ -18,14 +18,29 @@ class Landing extends Component {
   }
 
   onLoad = () => {
-    setTimeout(() => {this.setState({ isLoad: true })}, 2000)
+    const { isLoad } = this.state;
+    if (isLoad !== true) {
+      setTimeout(() => { this.setState({ isLoad: !this.state.isLoad }) }, 10000)
+    }
+    if (isLoad === true) {
+      setTimeout(() => { this.setState({ isLoad: !this.state.isLoad }) },10000)
+    }
+    console.log(isLoad);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { isLoad } = this.state;
+    if (isLoad !== prevState.isLoad) {
+      this.onLoad();
+    }
   }
 
   render() {
+    const { isLoad }=this.state;
     return (
       <div className='landing'>
-        <div>
-          <p className={classnames('test', {'test2' : this.state.isLoad})}>Text here</p>
+        <div className='landingInfo' >
+          <p className={isLoad ? 'slideFirst' : 'slideSecond'}>This site is an exercise. The data displayed here is not to be considered a model of reference.</p>
         </div>
         <Link className='landingLink' to='/live_currency'>
           <div className='divArrow'>

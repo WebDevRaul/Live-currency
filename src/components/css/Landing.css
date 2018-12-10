@@ -7,12 +7,31 @@
   height:100vh;
 }
 
-.test {
-  color:red;
+.landingInfo {
+  height: 40px;
+  background-color: #EDE053;
+  line-height: 40px;
+  text-align: center;
+  width:100%;
+  overflow:hidden;
 }
-.test2 {
-  color: green;
+
+.slideFirst {
+  animation-timing-function: linear;
+  animation: 30s slide-First;
+  margin:0;
 }
+
+.slideSecond {
+  animation-timing-function: linear;
+  animation: 30s slide-Second;
+  margin:0;
+}
+@-webkit-keyframes slide-First { from { margin-left: 80%;width: 100%; }
+  to {margin-left: -100%;width: 100%;} }
+@-webkit-keyframes slide-Second { from { margin-left: 80%;width: 100%; }
+  to {margin-left: -100%;width: 100%;} }
+
 .landingLink {
   position: fixed;
   right: 100px;
