@@ -8,6 +8,9 @@ import '../css/InfoModal.css';
 class InfoModal extends Component {
   constructor(props) {
     super(props);
+    this.state={
+      intervalId: 0
+    }
     this.onModal = this.onModal.bind(this);
   }
 
@@ -30,6 +33,18 @@ class InfoModal extends Component {
       this.props.toClose();
     }
   };
+
+  scrollStep() {
+    if (window.pageYOffset === 0) {
+        clearInterval(this.state.intervalId);
+    }
+    window.scroll(0, window.pageYOffset - this.props.scrollStepInPx);
+  }
+
+  onScroll=(e) => {
+    let intervalId = setInterval(this.scrollStep.bind(this), this.props.delayInMs);
+    this.setState({ intervalId: intervalId });
+  }
 
   render() {
     const { flagObj } = this.props;
@@ -64,6 +79,9 @@ class InfoModal extends Component {
             </tbody>
           </table>
         <span className='modal-btn' onClick={this.props.toClose}>close</span>
+        <p
+          onClick={this.onScroll}
+        >up</p>
         </div>
       </div>
     )
