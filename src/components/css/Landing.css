@@ -17,20 +17,18 @@
 }
 
 .slideFirst {
-  animation-timing-function: linear;
-  animation: 30s slide-First;
+  animation: 20s linear slide-First;
   margin:0;
 }
 
 .slideSecond {
-  animation-timing-function: linear;
-  animation: 30s slide-Second;
+  animation: 20s linear slide-Second;
   margin:0;
 }
-@-webkit-keyframes slide-First { from { margin-left: 80%;width: 100%; }
-  to {margin-left: -100%;width: 100%;} }
-@-webkit-keyframes slide-Second { from { margin-left: 80%;width: 100%; }
-  to {margin-left: -100%;width: 100%;} }
+@-webkit-keyframes slide-First { from { margin-left: 85%;width: 80%; }
+  to {margin-left: -80%;width: 80%;} }
+@-webkit-keyframes slide-Second { from { margin-left: 85%;width: 80%; }
+  to {margin-left: -80%;width: 80%;} }
 
 .landingLink {
   position: fixed;
