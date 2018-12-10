@@ -45,6 +45,18 @@ class Landing extends Component {
             <span className='arrow'></span>
           </div>
         </Link>
+        <Link className='landingBtn' to='/live_currency'>
+          <p>
+            <span>c</span>
+            <span>o</span>
+            <span>n</span>
+            <span>t</span>
+            <span>i</span>
+            <span>n</span>
+            <span>u</span>
+            <span>e</span>
+          </p>
+        </Link>
       </div>
     )
   }

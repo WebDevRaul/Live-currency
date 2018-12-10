@@ -1,3 +1,5 @@
+@import './App.css';
+
 .landing {
   background: url('../../img/Landing.jpg');
   background-position: center;
@@ -29,6 +31,29 @@
   to {margin-left: -80%;width: 80%;} }
 @-webkit-keyframes slide-Second { from { margin-left: 85%;width: 80%; }
   to {margin-left: -80%;width: 80%;} }
+
+/* =================================== */
+
+.landingBtn {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 0 150px 150px 0;
+  font-size: 30px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.landingBtn span {
+  margin-left: 5px;
+}
+
+.landingBtn:hover {
+  /* color: #000; */
+}
+
+
 
 .landingLink {
   position: fixed;
