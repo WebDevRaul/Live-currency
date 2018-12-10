@@ -8,18 +8,24 @@ import '../css/Landing.css'
 class Landing extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      isLoad: false
+    }
   }
 
   componentDidMount() {
+    this.onLoad();
+  }
 
+  onLoad = () => {
+    setTimeout(() => {this.setState({ isLoad: true })}, 2000)
   }
 
   render() {
     return (
       <div className='landing'>
         <div>
-          <p>Text here</p>
+          <p className={classnames('test', {'test2' : this.state.isLoad})}>Text here</p>
         </div>
         <Link className='landingLink' to='/live_currency'>
           <div className='divArrow'>
