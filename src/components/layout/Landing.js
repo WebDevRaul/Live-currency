@@ -40,11 +40,6 @@ class Landing extends Component {
         <div className='landingInfo' >
           <p className={isLoad ? 'slideFirst' : 'slideSecond'}>This site is an exercise. The data displayed here is not to be considered a model of reference.</p>
         </div>
-        <Link className='landingLink' to='/live_currency'>
-          <div className='divArrow'>
-            <span className='arrow'></span>
-          </div>
-        </Link>
         <Link className='landingBtn' to='/live_currency'>
           <p>
             <span>c</span>
@@ -55,7 +50,7 @@ class Landing extends Component {
             <span>n</span>
             <span>u</span>
             <span>e</span>
-          </p>
+          </p><span className='landingBtnArrow'></span>
         </Link>
       </div>
     )
