@@ -11,22 +11,18 @@ class Landing extends Component {
       isLoad: true,
     }
   }
-  _isMounted = false;
 
   componentDidMount() {
-    this._isMounted = true;
     this.onLoad();
   }
 
   onLoad = () => {
     const { isLoad } = this.state;
-    if (this._isMounted === true) {
-      if (isLoad !== true) {
-        setTimeout(() => { this.setState({ isLoad: !this.state.isLoad }) }, 5000)
-      }
-      if (isLoad === true) {
-        setTimeout(() => { this.setState({ isLoad: !this.state.isLoad }) },5000)
-      }
+    if (isLoad !== true) {
+      this.timeFalse = setTimeout(() => { this.setState({ isLoad: !this.state.isLoad }) }, 5000)
+    }
+    if (isLoad === true) {
+      this.timeTrue = setTimeout(() => { this.setState({ isLoad: !this.state.isLoad }) },5000)
     }
   }
 
@@ -38,7 +34,8 @@ class Landing extends Component {
   }
 
   componentWillUnmount() {
-    this._isMounted = false;
+    clearInterval(this.timeTrue);
+    clearInterval(this.timeFalse);
   }
 
   render() {
