@@ -12,3 +12,9 @@
 .liveCurrencyEmpty {
   min-height: 100vh;
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .liveCurrency {
+    font-size: 15px;
+  }
+}
