@@ -54,7 +54,7 @@
 
 /* ==================================== */
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 576px) {
   .footer-Logo{
     padding: 10px 0 0 0;
   }
@@ -68,9 +68,23 @@
 }
 
 @media (min-width: 481px) and (max-width: 576px) {
-
+  .footer {
+    font-size: 18px;
+  }
+  .footer-Links span a {
+    font-size: 22px;
+  }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
-
+  .footer-Info {
+    text-align: left;
+  }
+  .footer-Info p {
+    padding-left: 10px;
+  }
+  .footer-Links span a {
+    padding: 0px 14px;
+    font-size: 20px;
+  }
 }

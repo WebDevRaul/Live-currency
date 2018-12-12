@@ -13,7 +13,7 @@ class Footer extends Component {
         <hr />
         <div className='footer-Div'>
           <div className='row'>
-            <div className='col-12 col-sm-6 footer-Logo'>
+            <div className='col-12 col-sm-7 col-md-6 footer-Logo'>
               <div className='row'>
                 <div className='col'>
                   <div className=''>
@@ -22,7 +22,7 @@ class Footer extends Component {
                 </div>
               </div>
             </div>
-            <div className='col-12 col-sm-6 footer-Info'>
+            <div className='col-12 col-sm-5 col-md-6 footer-Info'>
               <div className='row'>
                 <div className='col'>
                   <p>FIND US ON</p>

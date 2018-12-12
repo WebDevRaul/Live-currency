@@ -31,3 +31,9 @@
     padding: 0px;
   }
 }
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .tableRate td {
+    padding: 0px;
+  }
+}
