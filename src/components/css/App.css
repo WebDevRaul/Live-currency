@@ -15,6 +15,10 @@ html,body {
   padding: 0;
 }
 
+.wrapper {
+  background-color: rgba(222, 226, 3, 0.404);
+}
+
 a:hover {
   text-decoration: none;
   color: unset;
