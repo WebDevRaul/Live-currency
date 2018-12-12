@@ -131,9 +131,8 @@ class CurrencyConvertor extends Component {
 
     return (
       <div className='currency'>
-        <form>
           <div className='row'>
-            <div className='col'>
+            <div className='col col-md-5'>
             <div>{date}</div>
             <div className='currency-base'>
               <p>
@@ -145,47 +144,55 @@ class CurrencyConvertor extends Component {
                 </p>
               </div>
             </div>
-            <div className='col'>
-              <input
-                className='currency-val'
-                name='fromVal'
-                type='text'
-                onChange={(e) => this.props.get_Set_From_Val(e.target.value)}
-                value={this.state.fromVal}
-               />
-                <select
-                  ref={this.myRef}
-                  className='currency-select'
-                  name='from'
-                  value={this.state.from}
-                  onChange={(e) => this.props.get_Set_From(e.target.value)}
-                  onClick={this.onClick}
-              >
-                  <option defaultValue={from} />
-                  {option}
-                </select>{this.state.fromArrow ? up : down}
-                <br />
-              <input
-                className='currency-val'
-                name='toVal'
-                type='text'
-                value={ (!isEmpty(error) ? error : (updateCurrency === '[object Object]') ? placeholder : updateCurrency) }
-                onChange={(e) => {}}
-              />
-              <select
-                ref={this.myRef}
-                className='currency-select'
-                name='to'
-                value={this.state.to}
-                onChange={(e) => this.props.get_Set_To(e.target.value)}
-                onClick={this.onClick}
-              >
-                <option defaultValue={to} />
-                {option}
-              </select>{this.state.toArrow ? up : down}
+            <div className='col col-md-7'>
+              <form>
+                <div className='row'>
+                  <div className='col'>
+                    <input
+                    className='currency-val'
+                    name='fromVal'
+                    type='text'
+                    onChange={(e) => this.props.get_Set_From_Val(e.target.value)}
+                    value={this.state.fromVal}
+                  />
+                    <select
+                      ref={this.myRef}
+                      className='currency-select'
+                      name='from'
+                      value={this.state.from}
+                      onChange={(e) => this.props.get_Set_From(e.target.value)}
+                      onClick={this.onClick}
+                  >
+                      <option defaultValue={from} />
+                      {option}
+                    </select>{this.state.fromArrow ? up : down}
+                  </div>
+                </div>
+                <div className='row'>
+                  <div className='col'>
+                    <input
+                      className='currency-val'
+                      name='toVal'
+                      type='text'
+                      value={ (!isEmpty(error) ? error : (updateCurrency === '[object Object]') ? placeholder : updateCurrency) }
+                      onChange={(e) => {}}
+                    />
+                    <select
+                      ref={this.myRef}
+                      className='currency-select'
+                      name='to'
+                      value={this.state.to}
+                      onChange={(e) => this.props.get_Set_To(e.target.value)}
+                      onClick={this.onClick}
+                    >
+                      <option defaultValue={to} />
+                      {option}
+                    </select>{this.state.toArrow ? up : down}
+                  </div>
+                </div>
+              </form> 
             </div>
-          </div>
-        </form>
+          </div> 
       </div>
     )
   }

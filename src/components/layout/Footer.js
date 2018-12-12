@@ -64,3 +64,5 @@ class Footer extends Component {
 }
 
 export default Footer;
+
+//To fix later Anchor margin / padding on click
