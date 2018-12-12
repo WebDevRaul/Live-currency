@@ -88,3 +88,12 @@
     font-size: 20px;
   }
 }
+@media (min-width: 768px) and (max-width: 1024px) {
+  .footer-Info p {
+    padding-left: 14px;
+  }
+  .footer-Links span a {
+    padding: 0px 17px;
+    font-size: 22px;
+  }
+}

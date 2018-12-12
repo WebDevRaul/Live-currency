@@ -22,7 +22,7 @@ class Footer extends Component {
                 </div>
               </div>
             </div>
-            <div className='col-12 col-sm-5 col-md-6 footer-Info'>
+            <div className='col-12 col-sm-5 col-md-4 offset-md-1 footer-Info'>
               <div className='row'>
                 <div className='col'>
                   <p>FIND US ON</p>
