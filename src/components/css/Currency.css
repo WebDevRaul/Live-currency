@@ -75,3 +75,35 @@
   right: 0;
   transform: rotate(45deg);
 }
+
+/* ==================================== */
+@media (min-width: 320px) and (max-width: 420px) {
+  .container{
+    max-width: 300px;
+  }
+  .currency-select {
+    margin: 0 2px 0 5px;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 480px) {
+  .container{
+    max-width: 360px;
+  }
+  .currency-select {
+    margin: 0 5px 0 15px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .col {
+    padding: 0 10px !important;
+  }
+}
+
+
+@media (min-width: 481px) and (max-width: 576px) {
+  .container{
+    max-width: 420px;
+  }
+}
