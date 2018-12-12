@@ -12,10 +12,10 @@ class Footer extends Component {
       <div className='footer'>
         <hr />
         <div className='row footerDiv'>
-          <div className='col-sm-12 footerLogo'>
+          <div className='col-md-6 col-sm-12 col footerLogo'>
             <span >Copyright &copy; {new Date().getFullYear()} <Logo /></span>
           </div>
-          <div className='col-sm-12'>
+          <div className='col-md-6 col-sm-12'>
             <div className='footer-links'>
               <p>FIND US ON</p>
               <span>

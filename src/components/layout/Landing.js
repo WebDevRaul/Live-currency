@@ -19,10 +19,10 @@ class Landing extends Component {
   onLoad = () => {
     const { isLoad } = this.state;
     if (isLoad !== true) {
-      this.timeFalse = setTimeout(() => { this.setState({ isLoad: !this.state.isLoad }) }, 5000)
+      this.timeFalse = setTimeout(() => { this.setState({ isLoad: !this.state.isLoad }) }, 18000)
     }
     if (isLoad === true) {
-      this.timeTrue = setTimeout(() => { this.setState({ isLoad: !this.state.isLoad }) },5000)
+      this.timeTrue = setTimeout(() => { this.setState({ isLoad: !this.state.isLoad }) },18000)
     }
   }
 
