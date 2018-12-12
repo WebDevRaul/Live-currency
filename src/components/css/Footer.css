@@ -5,90 +5,62 @@
   margin-bottom: 10px;
 }
 
-.footerDiv {
+.footer-Div {
   margin: 10px 0;
   background-color: var(--mainCollor);
 }
-.footerLogo{
+.footer-Logo{
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.footerLogo  span{
+.footer-Logo  span{
   margin: 10px 0;
   color: white;
 }
 
-.footer-links {
+.footer-Links {
   padding-bottom: 15px;
 }
 
-.footer-links p {
+.footer-Info {
   color: white;
-  margin: 10px 0;
-  padding: 0 0 0 130px;
   text-align: left;
 }
 
-.footer-links span{
-  padding: 0px 15px;
-  font-size: 15px;
+.footer-Info p {
+  margin-bottom: 0px;
+  margin: 10px 0 5px 0;
 }
 
-.footer-links i {
+
+.footer-Links i {
   color: white;
   transition: 0.5s;
 }
 
-.footer-links i:hover {
+.footer-Links i:hover {
   color: var(--blue);
   transition: 0.5s;
 }
 
-.footer-links span a {
-  padding: 5px 15px; 
+.footer-Links span a {
+  padding: 5px 40px 5px 0; 
   margin: 5px 0;
   border-radius: 10px;
-  font-size: 25px;
+  font-size: 24px;
 }
 
 /* ==================================== */
 
 @media (min-width: 320px) and (max-width: 480px) {
-  .footer {
-    font-size: 14px;
-  }
-  .footer p {
-    font-size: 12px;
-  }
-  .footer-links p {
-    padding: 0 0 0 40px;
-    margin-bottom: 0px;
-  }
-  .footer-links span a{
-    padding: 0px 5px;
-  }
-  .footer-links i {
-    font-size: 18px;
-  }
 }
 
 @media (min-width: 481px) and (max-width: 576px) {
-  .footer {
-    font-size: 17px;
-  }
-  .footer p {
-    font-size: 15px;
-  }
-  .footer-links p {
-    padding: 0 0 0 80px;
-    margin-bottom: 0px;
-  }
-  .footer-links span a{
-    padding: 0px 16px;
-  }
-  .footer-links i {
-    font-size: 22px;
-  }
+
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+
 }
