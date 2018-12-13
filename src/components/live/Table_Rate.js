@@ -144,11 +144,11 @@ class TableRate extends Component {
           <div className='col'>
             <table className='tableRate'>
               <thead className='tableRateHead'>
-                <DateRate 
+                {/* <DateRate 
                   dateToday={dateToday} 
                   dateYesterday={dateYesterday}
                   dateLastYear={dateLastYear}
-                />
+                /> */}
               </thead>
               <tbody>
                 <BaseRate
