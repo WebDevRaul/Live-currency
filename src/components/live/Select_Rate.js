@@ -100,7 +100,7 @@ class SelectRate extends Component {
     const down = <span className='currencyArrow'><span className='spanFirstDown'></span><span className='spanLastDown'></span></span>
 
     return (
-      <div>
+      <div className='selectRate'>
         <form >
           Change base Rate: 
           <select

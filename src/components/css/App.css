@@ -1,6 +1,7 @@
 :root {
   --mainCollor: rgb(145, 121, 40);
   --secondaryCollor: rgb(5, 21, 252);
+  --backgroundCollor: rgb(201, 248, 201);
 }
 
 * {
@@ -16,7 +17,7 @@ html,body {
 }
 
 .wrapper {
-  background-color: rgba(222, 226, 3, 0.404);
+  background-color: var(--backgroundCollor);
 }
 
 a:hover {

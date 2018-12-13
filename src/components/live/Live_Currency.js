@@ -53,19 +53,19 @@ class Live_Currency extends Component {
               </div>
             </div>
             <div className='row'>
-              <div className='col'>
+              <div className='col col-12 col-sm-12 col-md-6 order-2'>
                 <SelectRate />
               </div>
-              <div className='col'>
+              <div className='col col-12 col-sm-12 col-md-6 order-1'>
                 <SearchBar />
               </div>
             </div>
           </div>
-          <div className='row'>
+          {/* <div className='row'>
             <div className='col'>
               <TableRate />
             </div>
-          </div>
+          </div> */}
         </div>
     }
 
