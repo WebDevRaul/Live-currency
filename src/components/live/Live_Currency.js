@@ -61,11 +61,11 @@ class Live_Currency extends Component {
               </div>
             </div>
           </div>
-          {/* <div className='row'>
+          <div className='row'>
             <div className='col'>
               <TableRate />
             </div>
-          </div> */}
+          </div>
         </div>
     }
 
@@ -91,3 +91,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect( mapStateToProps , { get_Collect_Data } )(Live_Currency);
+
+//To fix :
+// transition for open/close menu links
