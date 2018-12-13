@@ -5,6 +5,12 @@
   padding: 0 10px 10px 10px;
 }
 
+.selectRateBase {
+  border: none !important;
+  padding: 0 5px 0 5px;
+  background-color: var(--backgroundCollor);
+}
+
 /* ----- *//* ----- *//* ----- */
 
 /* Input */
@@ -80,11 +86,24 @@
   transform-origin: left;
 }
 
-input::-webkit-calendar-picker-indicator {
-	display: none;
+@media (min-width: 481px) and (max-width: 767px) {
+  .search-Div {
+    text-align: right;
+  }
+  .searchCurrency {
+    padding-right: 0px !important;
+  }
 }
-
-.searchInput::placeholder {
-  color: red;
-  font-size: 12px;
-};
+@media (min-width: 421px) and (max-width: 480px) {
+  .search-Div {
+    font-size: 20px;
+  }
+}
+@media (min-width: 320px) and (max-width: 420px) {
+  .search-Div {
+    font-size: 20px;
+  }
+  .search-Div input {
+    width: 175px;
+  }
+}

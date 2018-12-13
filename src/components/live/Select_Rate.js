@@ -12,7 +12,6 @@ import isEmpty from '../common/isEmpty';
 
 //Css
 import '../css/SelectRate.css';
-import '../css/Currency.css';
 
 class SelectRate extends Component {
   constructor(props) {

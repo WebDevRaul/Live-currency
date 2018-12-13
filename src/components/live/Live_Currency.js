@@ -52,11 +52,11 @@ class Live_Currency extends Component {
                 <CurrencyConvertor />
               </div>
             </div>
-            <div className='row'>
-              <div className='col col-12 col-sm-12 col-md-6 order-2'>
+            <div className='row flex-column-reverse flex-md-row'>
+              <div className='col col-12 col-sm-12 col-md-6'>
                 <SelectRate />
               </div>
-              <div className='col col-12 col-sm-12 col-md-6 order-1'>
+              <div className='col col-12 col-sm-12 col-md-6'>
                 <SearchBar />
               </div>
             </div>

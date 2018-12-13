@@ -2,12 +2,27 @@
 
 .selectRateBase {
   border: none !important;
-  padding: 0 5px 0 20px;
+  padding: 0 5px 0 5px;
   background-color: var(--backgroundCollor);
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
   .selectRate {
+    text-align: left;
+    margin: 20px 0;
+  }
+}
+@media (min-width: 421px) and (max-width: 480px) {
+  .selectRate {
+    text-align: left;
+    font-size: 20px;
+    margin: 20px 0;
+  }
+}
+@media (min-width: 320px) and (max-width: 420px) {
+  .selectRate {
+    text-align: left;
+    font-size: 20px;
     margin: 20px 0;
   }
 }

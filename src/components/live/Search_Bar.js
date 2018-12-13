@@ -118,7 +118,7 @@ class SearchBar extends Component {
     };
 
     return (
-      <div>
+      <div className='search-Div'>
         <form className='searchCurrency' onSubmit={this.onSubmit}>
           <input
             className={classnames('searchInput', {'searchInputError' : errors.searchBar})}

@@ -31,6 +31,9 @@ textarea:focus, input:focus, select:focus{
 select {
   -webkit-appearance: none;
 }
+select option {
+  background: rgba(255, 255, 255);
+}
 hr {
   margin: 0 0 10px 0 !important;
 }
@@ -43,4 +46,13 @@ hr {
   border-top: 1px solid rgba(0,0,0);
   margin: 0px !important;
 }
+
+input::-webkit-calendar-picker-indicator {
+	display: none;
+}
+
+.searchInput::placeholder {
+  color: red;
+  font-size: 12px;
+};
 
