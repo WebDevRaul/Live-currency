@@ -94,3 +94,4 @@ export default connect( mapStateToProps , { get_Collect_Data } )(Live_Currency);
 
 //To fix :
 // transition for open/close menu links
+//bug on search button hover 
