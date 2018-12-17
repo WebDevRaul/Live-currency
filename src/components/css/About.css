@@ -4,3 +4,25 @@
   align-items: center;
   justify-content: center;
 }
+
+/* ==================================== */
+
+@media (min-width: 320px) and (max-width: 419px) {
+  .about {
+    height: 100vh;
+    margin: 0 0 20px 0;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 480px) {
+  .about {
+    height: 80vh;
+    margin: 0 0 20px 0;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 576px) {
+  .about {
+    margin: 0 0 20px 0;
+  }
+}
