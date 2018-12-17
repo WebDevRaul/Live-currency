@@ -16,9 +16,9 @@ html,body {
   padding: 0;
 }
 
-.wrapper {
+/* .wrapper {
   background-color: var(--backgroundCollor);
-}
+} */
 
 a:hover {
   text-decoration: none;
