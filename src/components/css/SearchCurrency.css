@@ -8,7 +8,7 @@
 .selectRateBase {
   border: none !important;
   padding: 0 5px 0 5px;
-  background-color: var(--backgroundCollor);
+  background-color: unset;
 }
 
 /* ----- *//* ----- *//* ----- */
@@ -20,7 +20,7 @@
   border-bottom: 0.5px solid;
   width: 220px;
   padding: none;
-  background: var(--backgroundCollor);
+  /* background: var(--backgroundCollor); */
 }
 
 /* Error(s) */
