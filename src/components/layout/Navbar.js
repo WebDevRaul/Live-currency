@@ -18,25 +18,23 @@ class Navbar extends Component {
 
   componentDidMount() {
     document.addEventListener("mousedown", this.handleClickOutside);
-  }
+  };
+
    componentWillUnmount() {
     document.removeEventListener("mousedown", this.handleClickOutside);
-  }
+  };
+
    myRef = React.createRef();
 
    handleClickOutside = e => {
     if (!this.myRef.current.contains(e.target)) {
       this.setState({ show: false });
-    }
+    };
   };
 
-  onClickDelay = () => {
-    setTimeout(() =>{ this.setState({ show: false }) }, 2000)
-  }
+  onClickDelay = () => { setTimeout(() =>{ this.setState({ show: false }) }, 2000); };
 
-  onClick = () => {
-    this.setState({ show: !this.state.show })
-  }
+  onClick = () => { this.setState({ show: !this.state.show }); };
 
   render() {
     const { show } = this.state;
