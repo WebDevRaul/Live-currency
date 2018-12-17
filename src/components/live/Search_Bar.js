@@ -23,13 +23,11 @@ class SearchBar extends Component {
     this.state = {
       text: '',
       click: false,
-      hover: false,
       modal: false,
     }
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.onMouseDown = this.onMouseDown.bind(this);
     this.onModal = this.onModal.bind(this);
   };
 
@@ -43,24 +41,12 @@ class SearchBar extends Component {
    else return null;
   };
 
-  onChange(e) {
-    this.setState({
-      text: e.target.value
-    });
-  };
+  onChange(e) { this.setState({ text: e.target.value }); };
 
-  onMouseDown() {
-    this.setState({
-      click: !this.state.click
-    });
-  };
-
-  onHoverIn = () => {
-    this.setState({ hover: true });
-  }
-  onHoverOut = () => {
-    this.setState({ hover: false });
-  }
+  onSearchButton = () => { 
+    this.setState({ click: true });
+    this.timer = setTimeout(()=> { this.setState({ click: false }) }, 400);
+   }
 
   onSubmit(e) {
     e.preventDefault();
@@ -95,6 +81,7 @@ class SearchBar extends Component {
     });
   };
 
+  
   render() {
 
     const { selectRate } = this.props.selectRate;
@@ -147,12 +134,8 @@ class SearchBar extends Component {
             onClick={this.onModal}
           ><i className="fas fa-info"></i></span>
           <button
-            // onMouseDown={this.onMouseDown} 
-            // onMouseUp={this.onMouseDown}
-            // className={classnames('searchButton', { 'onClickSearchButton' : click })}
-            onMouseOver={this.onHoverIn}
-            onMouseOut={this.onHoverOut}
-            className={this.state.hover ? 'searchButton searchButtonM' : 'searchButton'}
+            onClick={this.onSearchButton}
+            className={classnames('searchButton', { 'searchButtonM onClickSearchButton' : click })}
             type='submit'
             >Search</button>
         </form>

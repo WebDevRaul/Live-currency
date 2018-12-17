@@ -54,13 +54,30 @@
   border: none;
   outline: unset !important;
   text-shadow: 5px 5px 5px grey;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
-.onClickSearchButton {
-  text-shadow: 0.1px 0.1px 0.1px grey;
-  transition: 0.5s
-};
+@media (min-width: 481px) and (max-width: 767px) {
+  .search-Div {
+    text-align: right;
+  }
+  .searchCurrency {
+    padding-right: 0px !important;
+  }
+}
+@media (min-width: 421px) and (max-width: 480px) {
+  .search-Div {
+    font-size: 20px;
+  }
+}
+@media (min-width: 320px) and (max-width: 420px) {
+  .search-Div {
+    font-size: 20px;
+  }
+  .search-Div input {
+    width: 175px;
+  }
+}
 
 .searchButton:hover {
   cursor: pointer;
@@ -86,24 +103,7 @@
   transform-origin: left;
 }
 
-@media (min-width: 481px) and (max-width: 767px) {
-  .search-Div {
-    text-align: right;
-  }
-  .searchCurrency {
-    padding-right: 0px !important;
-  }
-}
-@media (min-width: 421px) and (max-width: 480px) {
-  .search-Div {
-    font-size: 20px;
-  }
-}
-@media (min-width: 320px) and (max-width: 420px) {
-  .search-Div {
-    font-size: 20px;
-  }
-  .search-Div input {
-    width: 175px;
-  }
-}
+.onClickSearchButton {
+  text-shadow: 0.1px 0.1px 0.1px grey;
+  transition: 0.3s;
+};
