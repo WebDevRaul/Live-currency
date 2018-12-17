@@ -23,6 +23,7 @@ class SearchBar extends Component {
     this.state = {
       text: '',
       click: false,
+      hover: false,
       modal: false,
     }
 
@@ -53,6 +54,13 @@ class SearchBar extends Component {
       click: !this.state.click
     });
   };
+
+  onHoverIn = () => {
+    this.setState({ hover: true });
+  }
+  onHoverOut = () => {
+    this.setState({ hover: false });
+  }
 
   onSubmit(e) {
     e.preventDefault();
@@ -139,9 +147,12 @@ class SearchBar extends Component {
             onClick={this.onModal}
           ><i className="fas fa-info"></i></span>
           <button
-            onMouseDown={this.onMouseDown} 
-            onMouseUp={this.onMouseDown}
-            className={classnames('searchButton', { 'onClickSearchButton' : click })}
+            // onMouseDown={this.onMouseDown} 
+            // onMouseUp={this.onMouseDown}
+            // className={classnames('searchButton', { 'onClickSearchButton' : click })}
+            onMouseOver={this.onHoverIn}
+            onMouseOut={this.onHoverOut}
+            className={this.state.hover ? 'searchButton searchButtonM' : 'searchButton'}
             type='submit'
             >Search</button>
         </form>

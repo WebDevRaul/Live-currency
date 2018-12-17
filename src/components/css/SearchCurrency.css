@@ -81,7 +81,7 @@
   transition: transform .5s;
 }
 
-.searchButton:hover::before {
+.searchButtonM::before {
   transform: scale(1);
   transform-origin: left;
 }
