@@ -1,8 +1,11 @@
 import axios from 'axios';
-import { GET_NEW_RATE_TODAY, GET_ERRORS, GET_NEW_RATE_YESTERDAY, GET_NEW_RATE_LAST_YEAR } from './types';
+import { GET_NEW_RATE_TODAY, GET_ERRORS, GET_NEW_RATE_YESTERDAY, GET_NEW_RATE_LAST_YEAR, GET_EXCHANGE_NEW_TODAY } from './types';
 
 //import Loading action
 import { setNewRateLoading } from './commonAction';
+
+//import isEmpty from common
+import isEmpty from '../../components/common/isEmpty';
 
 export const get_New_Rate = (base, date, newSymbols) => dispatch => {
   dispatch(setNewRateLoading());
@@ -18,10 +21,23 @@ export const get_New_Rate = (base, date, newSymbols) => dispatch => {
       }))
     axios
       .get(`https://api.exchangeratesapi.io/history?start_at=${date.yesterday}&end_at=${date.yesterday}&symbols=${newSymbols}&base=${base}`)
-      .then(res => dispatch({
-        type: GET_NEW_RATE_YESTERDAY,
-        payload: Object.keys(res.data.rates).map(i => res.data.rates[i])[0]
-      }))
+      .then(res => {
+        if (!isEmpty(res.data.rates)) {
+          dispatch({
+            type: GET_NEW_RATE_YESTERDAY,
+            payload: Object.keys(res.data.rates).map(i => res.data.rates[i])[0]
+          })
+        } else {
+          dispatch({
+            type: GET_EXCHANGE_NEW_TODAY,
+            payload:'Exchange Rate Closed'
+          })
+        }
+      })
+      // .then(res => dispatch({
+      //   type: GET_NEW_RATE_YESTERDAY,
+      //   payload: Object.keys(res.data.rates).map(i => res.data.rates[i])[0]
+      // }))
       .catch(err => dispatch({
         type: GET_ERRORS,
         payload: err.response.data
