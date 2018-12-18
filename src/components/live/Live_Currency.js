@@ -38,7 +38,7 @@ class Live_Currency extends Component {
   
   render() {
 
-    //Loading Gif
+    //Loading white page(instead of spinner)
     let content;
     const { loadingSelectRate, loadingDate, loadingBase, loadingSymbols } = this.state;
     if (loadingSelectRate === true || loadingDate === true || loadingBase === true || loadingSymbols === true) {
