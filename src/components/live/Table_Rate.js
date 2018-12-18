@@ -77,7 +77,7 @@ class TableRate extends Component {
         baseRateName = Object.keys(todayObj).map(i => <p key={i}>{todayObj[i].name}</p>)
       }
     } else {
-      baseRateToday = <p>Exchange rate closed</p>;
+      baseRateToday = <p>{this.props.exchange.today}</p>;
     }
 
     //New yesterday Obj .fixed(4)
@@ -87,7 +87,7 @@ class TableRate extends Component {
       this.toFixed(yesterdayObj, yesterday);
       baseRateYesterday = Object.keys(yesterdayObj).map(i => <p key={i}>{yesterdayObj[i].values}</p>);
     } else {
-      baseRateYesterday=<p>Exchange rate closed</p>;
+      baseRateYesterday=<p>{this.props.exchange.yesterday}</p>;
     }
 
     //New lastYear Obj .fixed(4)
@@ -96,7 +96,7 @@ class TableRate extends Component {
       this.toFixed(lastYearObj, lastYear);
       baseRateLastYear = Object.keys(lastYearObj).map(i => <p key={i}>{lastYearObj[i].values}</p> );
     } else {
-      baseRateLastYear = <p>Exchange rate closed</p>;
+      baseRateLastYear = <p>{this.props.exchange.lastYear}</p>;
     }
 
     //--------------//--------------//
@@ -190,6 +190,7 @@ const mapStateToProps = state => ({
   date: state.date,
   rate: state.rate,
   newRate: state.newRate,
+  exchange: state.exchange
 });
 
 export default connect(mapStateToProps, {  })(TableRate);

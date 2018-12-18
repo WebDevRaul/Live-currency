@@ -1,4 +1,4 @@
-import { GET_EXCHANGE_TODAY, GET_EXCHANGE_NEW_TODAY} from '../actions/types';
+import { GET_EXCHANGE_TODAY, GET_EXCHANGE_NEW_TODAY, GET_EXCHANGE_YESTERDAY, GET_EXCHANGE_LAST_YEAR} from '../actions/types';
 
 const initialState = {
   today: '',
@@ -16,7 +16,17 @@ export default function(state=initialState, action) {
         ...state,
         today: action.payload
       }
-      case GET_EXCHANGE_NEW_TODAY:
+    case GET_EXCHANGE_YESTERDAY:
+      return {
+        ...state,
+        yesterday: action.payload
+      }
+    case GET_EXCHANGE_LAST_YEAR:
+      return {
+        ...state,
+        lastYear: action.payload
+      }
+    case GET_EXCHANGE_NEW_TODAY:
       return {
         ...state,
         newToday: action.payload

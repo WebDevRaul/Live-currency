@@ -12,6 +12,7 @@ import get_Set_To from './get_Set_To';
 import get_Set_Currency from './get_Set_Currency';
 import get_Set_From_Val from './get_Set_From_Val';
 import get_Update_Currency from './get_Update_Currency';
+import get_Exchange_Rate from './get_Exchange_Rate';
 
 export default combineReducers({
   errors: get_Errors,
@@ -26,5 +27,6 @@ export default combineReducers({
   to: get_Set_To,
   fromVal: get_Set_From_Val,
   setCurrency: get_Set_Currency,
-  updateCurrency: get_Update_Currency
+  updateCurrency: get_Update_Currency,
+  exchange: get_Exchange_Rate
 });
