@@ -37,6 +37,7 @@ export const get_New_Rate = (base, date, newSymbols) => dispatch => {
             payload:'Exchange Rate Closed'
           })
         } else {
+          console.log(res.data)
           dispatch({
             type: GET_NEW_RATE_YESTERDAY,
             payload: Object.keys(res.data.rates).map(i => res.data.rates[i])[0]
