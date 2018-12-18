@@ -68,12 +68,16 @@ class TableRate extends Component {
 
     //New today Obj .fixed(4)
     let todayObj = [];
-    this.toFixed(todayObj, today);
-    if (!isEmpty(todayObj)) {
-      baseRateToday = Object.keys(todayObj).map(i => <p key={i}>{todayObj[i].values}</p>)
-    };
-    if (!isEmpty(todayObj)) {
-      baseRateName = Object.keys(todayObj).map(i => <p key={i}>{todayObj[i].name}</p>)
+    if (!isEmpty(today)) {
+      this.toFixed(todayObj, today);
+      if (!isEmpty(todayObj)) {
+        baseRateToday = Object.keys(todayObj).map(i => <p key={i}>{todayObj[i].values}</p>)
+      };
+      if (!isEmpty(todayObj)) {
+        baseRateName = Object.keys(todayObj).map(i => <p key={i}>{todayObj[i].name}</p>)
+      }
+    } else {
+      baseRateToday = <p>Exchange rate closed</p>;
     }
 
     //New yesterday Obj .fixed(4)
