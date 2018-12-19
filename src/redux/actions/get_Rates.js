@@ -24,12 +24,44 @@ export const get_Rates = (base, date, symbols) => dispatch => {
             type: GET_ERRORS,
             payload: err.response.data
           }))
-          //Today
+          //GET Today if Empty
         axios
           .get(`https://api.exchangeratesapi.io/history?start_at=${date.yesterday}&end_at=${date.yesterday}&symbols=${symbols}&base=${base}`)
           .then(res => {
             if (isEmpty(res.data.rates)) {
-              console.log('test')
+              //Change Date
+              axios
+                .get(`https://api.exchangeratesapi.io/history?start_at=${date.oneDayBeforeYesterday}&end_at=${date.oneDayBeforeYesterday}&symbols=GBP&base=EUR`)
+                .then(res => dispatch({
+                  type: GET_DATE,
+                  payload: res.data.start_at
+                }))
+                .catch(err => dispatch({
+                  type: GET_ERRORS,
+                  payload: err.response.data
+                }))
+              //Get Today if first Today is Empty
+              axios
+                .get(`https://api.exchangeratesapi.io/history?start_at=${date.oneDayBeforeYesterday}&end_at=${date.oneDayBeforeYesterday}&symbols=${symbols}&base=${base}`)
+                .then(res => dispatch({
+                  type: GET_TODAY,
+                  payload: Object.values(res.data.rates)[0]
+                }))
+                .catch(err => dispatch({
+                  type: GET_ERRORS,
+                  payload: err.response.data
+                }))
+              //Get Yesterday for Today is first Today is Empty
+              axios
+                .get(`https://api.exchangeratesapi.io/history?start_at=${date.twoDaysBeforeYesterday}&end_at=${date.twoDaysBeforeYesterday}&symbols=${symbols}&base=${base}`)
+                .then(res => dispatch({
+                  type: GET_YESTERDAY,
+                  payload: Object.values(res.data.rates)[0]
+                }))
+                .catch(err => dispatch({
+                  type: GET_ERRORS,
+                  payload: err.response.data
+                }))
             } else {
               dispatch({
                 type: GET_TODAY,
