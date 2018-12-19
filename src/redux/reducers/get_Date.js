@@ -24,8 +24,7 @@ export default function(state = initialState, action) {
       const LastYear = new Date(action.payload).getFullYear() - 1;
       const lastYear = ( today => new Date(today.setFullYear(LastYear)) )(new Date(action.payload)).toISOString().slice(0, 10);
       const oneDayBeforeLastYear = ( today => new Date(today.setFullYear(LastYear)) )(new Date(action.payload)).toISOString().slice(0, 10);
-      console.log(oneDayBeforeLastYear, 'test');
-      console.log(yesterday);
+      console.log(oneDayBeforeLastYear)
       return {
         ...state,
         loading: false,

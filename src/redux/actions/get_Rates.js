@@ -84,14 +84,33 @@ export const get_Rates = (base, date, symbols) => dispatch => {
             type: GET_ERRORS,
             payload: err.response.data
           }))
-        //Last Year
+        //LastYear for Today
+        axios
+          .get(`https://api.exchangeratesapi.io/history?start_at=${date.oneDayBeforeLastYear}&end_at=${date.oneDayBeforeLastYear}&symbols=${symbols}&base=${base}`)
+          .then(res => {
+            if (isEmpty(res.data.rates)) {
+              dispatch({
+                type: GET_EXCHANGE_LAST_YEAR,
+                payload: 'Exchange Rate Closed'
+              })
+            } else {
+              dispatch({
+                type: GET_LAST_YEAR,
+                payload: Object.keys(res.data.rates).map(i => res.data.rates[i])[0]
+              })
+            }
+          })
+          .catch(err => dispatch({
+            type: GET_ERRORS,
+            payload: err.response.data
+          }))
       } else {
         dispatch({
           type: GET_TODAY,
           // payload: res.data.rates
           payload: Object.values(res.data.rates)[0]
         })
-      axios
+        axios
         .get(`https://api.exchangeratesapi.io/history?start_at=${date.yesterday}&end_at=${date.yesterday}&symbols=${symbols}&base=${base}`)
         .then(res => {
           if (isEmpty(res.data.rates)) {
