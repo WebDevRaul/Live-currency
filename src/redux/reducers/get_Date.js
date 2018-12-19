@@ -23,6 +23,9 @@ export default function(state = initialState, action) {
       const twoDaysBeforeYesterday = ( today => new Date(today.setDate(today.getDate() - 3)) )(new Date(action.payload)).toISOString().slice(0, 10);
       const LastYear = new Date(action.payload).getFullYear() - 1;
       const lastYear = ( today => new Date(today.setFullYear(LastYear)) )(new Date(action.payload)).toISOString().slice(0, 10);
+      const oneDayBeforeLastYear = ( today => new Date(today.setFullYear(LastYear)) )(new Date(action.payload)).toISOString().slice(0, 10);
+      console.log(oneDayBeforeLastYear, 'test');
+      console.log(yesterday);
       return {
         ...state,
         loading: false,
@@ -30,7 +33,8 @@ export default function(state = initialState, action) {
         yesterday: yesterday,
         lastYear: lastYear,
         oneDayBeforeYesterday: oneDayBeforeYesterday,
-        twoDaysBeforeYesterday: twoDaysBeforeYesterday
+        twoDaysBeforeYesterday: twoDaysBeforeYesterday,
+        oneDayBeforeLastYear: oneDayBeforeLastYear
       }
     default:
       return state;

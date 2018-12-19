@@ -84,15 +84,15 @@ export const get_Rates = (base, date, symbols) => dispatch => {
             type: GET_ERRORS,
             payload: err.response.data
           }))
+        //Last Year
       } else {
         dispatch({
           type: GET_TODAY,
           // payload: res.data.rates
           payload: Object.values(res.data.rates)[0]
         })
-        console.log('not Empty', res.data)
-        axios
-          .get(`https://api.exchangeratesapi.io/history?start_at=${date.yesterday}&end_at=${date.yesterday}&symbols=${symbols}&base=${base}`)
+      axios
+        .get(`https://api.exchangeratesapi.io/history?start_at=${date.yesterday}&end_at=${date.yesterday}&symbols=${symbols}&base=${base}`)
         .then(res => {
           if (isEmpty(res.data.rates)) {
             dispatch({
@@ -110,26 +110,25 @@ export const get_Rates = (base, date, symbols) => dispatch => {
           type: GET_ERRORS,
           payload: err.response.data
         }))
-      }
-    })
-    .catch(err => dispatch({
-      type: GET_ERRORS,
-      payload: err.response.data
-    }))
-
-  axios
-    .get(`https://api.exchangeratesapi.io/history?start_at=${date.lastYear}&end_at=${date.lastYear}&symbols=${symbols}&base=${base}`)
-    .then(res => {
-      if (isEmpty(res.data.rates)) {
-        dispatch({
-          type: GET_EXCHANGE_LAST_YEAR,
-          payload: 'Exchange Rate Closed'
+      axios
+        .get(`https://api.exchangeratesapi.io/history?start_at=${date.lastYear}&end_at=${date.lastYear}&symbols=${symbols}&base=${base}`)
+        .then(res => {
+          if (isEmpty(res.data.rates)) {
+            dispatch({
+              type: GET_EXCHANGE_LAST_YEAR,
+              payload: 'Exchange Rate Closed'
+            })
+          } else {
+            dispatch({
+              type: GET_LAST_YEAR,
+              payload: Object.keys(res.data.rates).map(i => res.data.rates[i])[0]
+            })
+          }
         })
-      } else {
-        dispatch({
-          type: GET_LAST_YEAR,
-          payload: Object.keys(res.data.rates).map(i => res.data.rates[i])[0]
-        })
+        .catch(err => dispatch({
+          type: GET_ERRORS,
+          payload: err.response.data
+        }))
       }
     })
     .catch(err => dispatch({
