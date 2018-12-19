@@ -4,7 +4,9 @@ const initialState = {
   loading: false,
   today: {},
   yesterday: {},
-  lastYear: {}
+  lastYear: {},
+  oneDayBeforeYesterday: {},
+  twoDaysBeforeYesterday: {}
 };
 
 export default function(state = initialState, action) {
@@ -17,6 +19,8 @@ export default function(state = initialState, action) {
     case GET_DATE:
       const today = new Date(action.payload).toISOString().slice(0,10);
       const yesterday = ( today => new Date(today.setDate(today.getDate() - 1)) )(new Date(action.payload)).toISOString().slice(0, 10);
+      const oneDayBeforeYesterday = ( today => new Date(today.setDate(today.getDate() - 2)) )(new Date(action.payload)).toISOString().slice(0, 10);
+      const twoDaysBeforeYesterday = ( today => new Date(today.setDate(today.getDate() - 3)) )(new Date(action.payload)).toISOString().slice(0, 10);
       const LastYear = new Date(action.payload).getFullYear() - 1;
       const lastYear = ( today => new Date(today.setFullYear(LastYear)) )(new Date(action.payload)).toISOString().slice(0, 10);
       return {
@@ -24,7 +28,9 @@ export default function(state = initialState, action) {
         loading: false,
         today: today,
         yesterday: yesterday,
-        lastYear: lastYear
+        lastYear: lastYear,
+        oneDayBeforeYesterday: oneDayBeforeYesterday,
+        twoDaysBeforeYesterday: twoDaysBeforeYesterday
       }
     default:
       return state;

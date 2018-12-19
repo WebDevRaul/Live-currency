@@ -20,7 +20,7 @@ export const get_Collect_Data = () => dispatch => {
     .get('https://api.exchangeratesapi.io/latest?')
     .then(res => dispatch({
       type: GET_DATE,
-      payload: res.data.date
+      payload: '2018-12-12'
     }))
     .catch(err => dispatch({
       type: GET_ERRORS,
