@@ -9,10 +9,10 @@ export const get_Rates = (base, date, symbols) => dispatch => {
   dispatch(setRateLoading());
   axios
     // .get(`https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbols}`)
-    .get(`https://api.exchangeratesapi.io/history?start_at=2018-12-12&end_at=2018-12-12&symbols=${symbols}&base=${base}`)
+    .get(`https://api.exchangeratesapi.io/history?start_at=2018-12-16&end_at=2018-12-16&symbols=${symbols}&base=${base}`)
     .then(res => {
       if (isEmpty(res.data.rates)) {
-        console.log('is Empty')
+        console.log('is Empty' )
         //Change Date
         axios
           .get(`https://api.exchangeratesapi.io/history?start_at=${date.yesterday}&end_at=${date.yesterday}&symbols=GBP&base=EUR`)
@@ -27,10 +27,16 @@ export const get_Rates = (base, date, symbols) => dispatch => {
           //Today
         axios
           .get(`https://api.exchangeratesapi.io/history?start_at=${date.yesterday}&end_at=${date.yesterday}&symbols=${symbols}&base=${base}`)
-          .then(res => dispatch({
-            type: GET_TODAY,
-            payload: Object.values(res.data.rates)[0]
-          }))
+          .then(res => {
+            if (isEmpty(res.data.rates)) {
+              console.log('test')
+            } else {
+              dispatch({
+                type: GET_TODAY,
+                payload: Object.values(res.data.rates)[0]
+              })
+            }
+          })
           .catch(err => dispatch({
             type: GET_ERRORS,
             payload: err.response.data
