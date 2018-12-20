@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_TODAY, GET_DATE, GET_YESTERDAY, GET_LAST_YEAR, GET_ERRORS, GET_EXCHANGE_TODAY, GET_EXCHANGE_YESTERDAY, GET_EXCHANGE_LAST_YEAR } from './types';
+import { GET_TODAY, GET_DATE, GET_YESTERDAY, GET_LAST_YEAR, GET_ERRORS, GET_EXCHANGE_YESTERDAY, GET_EXCHANGE_LAST_YEAR } from './types';
 
 //import Loading action
 import { setRateLoading } from './commonAction';
@@ -12,7 +12,6 @@ export const get_Rates = (base, date, symbols) => dispatch => {
     .get(`https://api.exchangeratesapi.io/history?start_at=2018-12-18&end_at=2018-12-18&symbols=${symbols}&base=${base}`)
     .then(res => {
       if (isEmpty(res.data.rates)) {
-        console.log('is Empty' )
         //Change Date
         axios
           .get(`https://api.exchangeratesapi.io/history?start_at=${date.yesterday}&end_at=${date.yesterday}&symbols=GBP&base=EUR`)
