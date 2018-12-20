@@ -8,10 +8,11 @@ import isEmpty from '../../components/common/isEmpty';
 export const get_Rates = (base, date, symbols) => dispatch => {
   dispatch(setRateLoading());
   axios
-    // .get(`https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbols}`)
-    .get(`https://api.exchangeratesapi.io/history?start_at=2018-12-18&end_at=2018-12-18&symbols=${symbols}&base=${base}`)
+    .get(`https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbols}`)
+    // .get(`https://api.exchangeratesapi.io/history?start_at=2018-12-16&end_at=2018-12-16&symbols=${symbols}&base=${base}`)
     .then(res => {
       if (isEmpty(res.data.rates)) {
+        console.log('is Empty' )
         //Change Date
         axios
           .get(`https://api.exchangeratesapi.io/history?start_at=${date.yesterday}&end_at=${date.yesterday}&symbols=GBP&base=EUR`)
@@ -24,6 +25,8 @@ export const get_Rates = (base, date, symbols) => dispatch => {
             payload: err.response.data
           }))
           //GET Today if Empty
+          axios.get(`https://api.exchangeratesapi.io/history?start_at=2018-12-14&end_at=2018-12-14&symbols=${symbols}&base=${base}`)
+          .then(res => console.log(res.data, '13'))
         axios
           .get(`https://api.exchangeratesapi.io/history?start_at=${date.yesterday}&end_at=${date.yesterday}&symbols=${symbols}&base=${base}`)
           .then(res => {
@@ -106,8 +109,8 @@ export const get_Rates = (base, date, symbols) => dispatch => {
       } else {
         dispatch({
           type: GET_TODAY,
-          // payload: res.data.rates
-          payload: Object.values(res.data.rates)[0]
+          payload: res.data.rates
+          // payload: Object.values(res.data.rates)[0]
         })
         axios
         .get(`https://api.exchangeratesapi.io/history?start_at=${date.yesterday}&end_at=${date.yesterday}&symbols=${symbols}&base=${base}`)

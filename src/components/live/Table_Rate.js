@@ -117,7 +117,6 @@ class TableRate extends Component {
 
 
     //New RateYesterday Obj .fixed(4)
-    // console.log(newRateYesterday);
     let newYesterdayObj = [];
     if (!isEmpty(newRateYesterday)) {
       this.toFixed(newYesterdayObj, newRateYesterday);
