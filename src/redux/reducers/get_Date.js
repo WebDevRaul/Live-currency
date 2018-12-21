@@ -5,8 +5,6 @@ const initialState = {
   today: {},
   yesterday: {},
   lastYear: {},
-  oneDayBeforeYesterday: {},
-  twoDaysBeforeYesterday: {}
 };
 
 export default function(state = initialState, action) {
