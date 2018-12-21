@@ -66,7 +66,7 @@ class InfoModal extends Component {
     return (
       <div ref={this.myRef} className='modal-center'>
         <div className='modal-content'>
-          <table>
+          <table className='modal-table'>
             <thead>
               <tr className='modal-thead'>
                 <td>Country :</td>

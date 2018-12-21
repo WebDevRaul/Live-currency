@@ -25,8 +25,6 @@ export const get_Rates = (base, date, symbols) => dispatch => {
             payload: err.response.data
           }))
           //GET Today if Empty
-          axios.get(`https://api.exchangeratesapi.io/history?start_at=2018-12-14&end_at=2018-12-14&symbols=${symbols}&base=${base}`)
-          .then(res => console.log(res.data, '13'))
         axios
           .get(`https://api.exchangeratesapi.io/history?start_at=${date.yesterday}&end_at=${date.yesterday}&symbols=${symbols}&base=${base}`)
           .then(res => {
