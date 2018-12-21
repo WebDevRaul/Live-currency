@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_TODAY, GET_YESTERDAY, GET_LAST_YEAR, GET_ERRORS, GET_EXCHANGE_YESTERDAY, GET_EXCHANGE_LAST_YEAR } from './types';
+import { GET_TODAY, GET_YESTERDAY, GET_LAST_YEAR, GET_ERRORS, GET_EXCHANGE_YESTERDAY, GET_EXCHANGE_LAST_YEAR, GET_EXCHANGE_TODAY } from './types';
 
 //import Loading action
 import { setRateLoading } from './commonAction';
@@ -10,10 +10,20 @@ export const get_Rates = (base, date, symbols) => dispatch => {
   //GET_TODAY Rates
   axios
     .get(`https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbols}`)
-    .then(res => dispatch({
-      type: GET_TODAY,
-      payload: res.data.rates
-    }))
+    .then(res => {
+      //To FIX Later
+      if (isEmpty(res.data.rates)) {
+        dispatch({
+          GET_EXCHANGE_TODAY,
+          payload: 'Exchange Rate Closed'
+        })
+      } else {
+        dispatch({
+          type: GET_TODAY,
+          payload: res.data.rates
+        })
+      }
+    })
     .catch(err => dispatch({
       type: GET_ERRORS,
       payload: err.response.data
