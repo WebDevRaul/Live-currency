@@ -62,9 +62,25 @@ export const get_Rates = (base, date, symbols, fakeDate) => dispatch => {
                 }))
               //GET FAKE_YESTERDAY Rates (2)
               axios
-                .get()
-                .then()
-                .catch()
+                .get(`https://api.exchangeratesapi.io/history?start_at=${date.secondDayBeforeYesterday}&end_at=${date.secondDayBeforeYesterday}&symbols=${symbols}&base=${base}`)
+                .then(res => {
+                  //If_Empty YESTERDAY Rates
+                  if (isEmpty(res.data.rates)) {
+                    dispatch({
+                      type: GET_EXCHANGE_YESTERDAY,
+                      payload: 'Exchange Rate Closed'
+                    })
+                  } else {
+                    dispatch({
+                      type: GET_YESTERDAY,
+                      payload: Object.keys(res.data.rates).map(i => res.data.rates[i])[0]
+                    })
+                  }
+                })
+                .catch(err => dispatch({
+                  type: GET_ERRORS,
+                  payload: err.response.data
+                }))
               //GET FAKE_LAST_YEAR Rates (1)
               axios
                 .get()
