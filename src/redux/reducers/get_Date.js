@@ -5,6 +5,7 @@ const initialState = {
   today: {},
   yesterday: {},
   lastYear: {},
+  dayBeforeYesterday: {}
 };
 
 export default function(state = initialState, action) {
@@ -19,12 +20,16 @@ export default function(state = initialState, action) {
       const yesterday = ( today => new Date(today.setDate(today.getDate() - 1)) )(new Date(action.payload)).toISOString().slice(0, 10);
       const LastYear = new Date(action.payload).getFullYear() - 1;
       const lastYear = ( today => new Date(today.setFullYear(LastYear)) )(new Date(action.payload)).toISOString().slice(0, 10);
+
+      const dayBeforeYesterday = ( today => new Date(today.setDate(today.getDate() - 2)) )(new Date(action.payload)).toISOString().slice(0, 10);
+
       return {
         ...state,
         loading: false,
         today: today,
         yesterday: yesterday,
         lastYear: lastYear,
+        dayBeforeYesterday: dayBeforeYesterday
       }
     default:
       return state;
