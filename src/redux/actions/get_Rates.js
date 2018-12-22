@@ -5,12 +5,12 @@ import { GET_TODAY, GET_YESTERDAY, GET_LAST_YEAR, GET_ERRORS, GET_EXCHANGE_YESTE
 import { setRateLoading } from './commonAction';
 import isEmpty from '../../components/common/isEmpty';
 
-export const get_Rates = (base, date, symbols) => dispatch => {
+export const get_Rates = (base, date, symbols, fakeDate) => dispatch => {
   dispatch(setRateLoading());
   //GET_TODAY Rates
   axios
     // .get(`https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbols}`)
-    .get(`https://api.exchangeratesapi.io/history?start_at=2018-12-16&end_at=2018-12-16&symbols=${symbols}&base=${base}`)
+    .get(`https://api.exchangeratesapi.io/history?start_at=2018-12-15&end_at=2018-12-15&symbols=${symbols}&base=${base}`)
     .then(res => {
       //If_EMPTY First_Time Today
       if (isEmpty(res.data.rates)) {
@@ -21,9 +21,21 @@ export const get_Rates = (base, date, symbols) => dispatch => {
         //GET FAKE_DATE
         axios
           .get(`https://api.exchangeratesapi.io/history?start_at=${date.yesterday}&end_at=${date.yesterday}&symbols=GBP&base=CAD`)
+          .then(res =>
+            dispatch({
+              type: GET_FAKE_DATE,
+              payload: res.data.start_at
+            }))
+          .catch(err => dispatch({
+            type: GET_ERRORS,
+            payload: err.response.data
+          }))
+        //GET FAKE_TODAY
+        axios
+          .get(`https://api.exchangeratesapi.io/history?start_at=${date.yesterday}&end_at=${date.yesterday}&symbols=${symbols}&base=${base}`)
           .then(res => dispatch({
-            type: GET_FAKE_DATE,
-            payload: res.data.start_at
+            type: GET_TODAY,
+            payload: Object.values(res.data.rates)[0]
           }))
           .catch(err => dispatch({
             type: GET_ERRORS,

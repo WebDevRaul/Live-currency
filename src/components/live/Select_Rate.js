@@ -46,10 +46,10 @@ class SelectRate extends Component {
   componentDidUpdate(prevProps, prevState) {
     const { base } = this.state;
     const { symbols } = this.props.symbols;
-    const { date } = this.props;
+    const { date, fakeDate } = this.props;
     const { newSymbols } = this.state;
     if ( base !== prevProps.base.base) {
-      this.props.get_Rates(base, date, symbols);
+      this.props.get_Rates(base, date, symbols, fakeDate);
       if (!isEmpty(newSymbols)) {
         this.props.get_New_Rate(base, date, newSymbols)
       }
@@ -134,6 +134,7 @@ SelectRate.propTypes = {
 const mapStateToProps = state => ({
   base: state.base,
   date: state.date,
+  fakeDate: state.fakeDate,
   selectRate: state.selectRate,
   newSymbols: state.newSymbols,
   symbols: state.symbols,
