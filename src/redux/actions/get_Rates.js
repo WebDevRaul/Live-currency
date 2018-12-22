@@ -16,8 +16,8 @@ export const get_Rates = (base, date, symbols, fakeDate) => dispatch => {
       if (isEmpty(res.data.rates)) {
       
       //If
-
-        console.log('First Today Empty')
+      console.log('First Today Empty')
+      
         //GET FAKE_DATE
         axios
           .get(`https://api.exchangeratesapi.io/history?start_at=${date.yesterday}&end_at=${date.yesterday}&symbols=GBP&base=CAD`)
@@ -30,7 +30,7 @@ export const get_Rates = (base, date, symbols, fakeDate) => dispatch => {
             type: GET_ERRORS,
             payload: err.response.data
           }))
-        //GET FAKE_TODAY
+        //GET FAKE_TODAY Rates
         axios
           .get(`https://api.exchangeratesapi.io/history?start_at=${date.yesterday}&end_at=${date.yesterday}&symbols=${symbols}&base=${base}`)
           .then(res => dispatch({
@@ -41,6 +41,16 @@ export const get_Rates = (base, date, symbols, fakeDate) => dispatch => {
             type: GET_ERRORS,
             payload: err.response.data
           }))
+        //GET FAKE_YESTERDAY Rates
+        axios
+          .get()
+          .then()
+          .catch()
+        //GET FAKE_LAST_YEAR Rates
+        axios
+          .get()
+          .then()
+          .catch()
 
       //Else
 

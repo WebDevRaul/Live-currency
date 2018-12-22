@@ -43,13 +43,19 @@ class TableRate extends Component {
   }
 
   render() {
+    let fakeToday,fakeYesterday,fakeLastYear;
+    if (!isEmpty(this.props.fakeDate.firstToday)) {
+      fakeToday = this.props.fakeDate.firstToday;
+      fakeYesterday = this.props.fakeDate.firstYesterday;
+      fakeLastYear = this.props.fakeDate.firstLastYear;
+    }
     
     //Date(s)
     let dateToday, dateYesterday, dateLastYear;
 
-    const dataToday = this.props.date.today;
-    const dataYesterday = this.props.date.yesterday;
-    const dataLastYear = this.props.date.lastYear;
+    const dataToday = (fakeToday ? fakeToday : this.props.date.today);
+    const dataYesterday = (fakeYesterday ? fakeYesterday : this.props.date.yesterday);
+    const dataLastYear = (fakeLastYear ? fakeLastYear : this.props.date.lastYear);
 
     if (!isEmpty(dataToday) || !isEmpty(dataYesterday) || !isEmpty(dataLastYear)) {
       dateToday = dataToday.toString();
@@ -192,6 +198,7 @@ TableRate.propTypes = {
 
 const mapStateToProps = state => ({
   date: state.date,
+  fakeDate: state.fakeDate,
   rate: state.rate,
   newRate: state.newRate,
   exchange: state.exchange
