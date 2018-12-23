@@ -85,7 +85,7 @@ class TableRate extends Component {
     } else {
       baseRateToday = <p>{this.props.exchange.today}</p>;
     }
-
+    
     //New yesterday Obj .fixed(4)
     let yesterdayObj = [];
     

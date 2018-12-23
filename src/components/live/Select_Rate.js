@@ -46,22 +46,17 @@ class SelectRate extends Component {
   componentDidUpdate(prevProps, prevState) {
     const { base } = this.state;
     const { symbols } = this.props.symbols;
-    const { date, fakeDate } = this.props;
+    const { date } = this.props;
     const { newSymbols } = this.state;
-    let newDate;
-    if (!isEmpty(fakeDate.firstToday)) {
-      newDate = fakeDate
-    } else {
-      newDate = date
-    }
+
     if ( base !== prevProps.base.base) {
       this.props.get_Rates(base, date, symbols);
       if (!isEmpty(newSymbols)) {
-        this.props.get_New_Rate(base, newDate, newSymbols)
+        this.props.get_New_Rate(base, date, newSymbols)
       }
     }
     if (prevProps.newSymbols.newSymbols !== newSymbols) {
-      this.props.get_New_Rate(base, newDate, newSymbols)
+      this.props.get_New_Rate(base, date, newSymbols)
     }
   }
 
