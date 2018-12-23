@@ -47,6 +47,26 @@ export const get_New_Rate = (base, date, newSymbols) => dispatch => {
               type: GET_ERRORS,
               payload: err.response.data
             }))
+            //Get NerRateLastYear (2)
+          axios
+            .get(`https://api.exchangeratesapi.io/history?start_at=${date.dayBeforeLastYear}&end_at=${date.dayBeforeLastYear}&symbols=${newSymbols}&base=${base}`)
+            .then(res => {
+              if (isEmpty(res.data.rates)) {
+                dispatch({
+                  type: GET_EXCHANGE_NEW_LAST_YEAR,
+                  payload: 'Exchange Rate Closed'
+                })
+              } else {
+                dispatch({
+                  type: GET_NEW_RATE_LAST_YEAR,
+                  payload: Object.keys(res.data.rates).map(i => res.data.rates[i])[0]
+                })
+              }
+            })
+            .catch(err => dispatch({
+              type: GET_ERRORS,
+              payload: err.response.data
+            }))
 
         //Else (1)
 
