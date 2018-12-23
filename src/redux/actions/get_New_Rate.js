@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_NEW_RATE_TODAY, GET_ERRORS, GET_NEW_RATE_YESTERDAY, GET_NEW_RATE_LAST_YEAR, GET_EXCHANGE_NEW_TODAY, GET_EXCHANGE_NEW_YESTERDAY, GET_EXCHANGE_NEW_LAST_YEAR } from './types';
+import { GET_NEW_RATE_TODAY, GET_ERRORS, GET_NEW_RATE_YESTERDAY, GET_NEW_RATE_LAST_YEAR, GET_EXCHANGE_NEW_YESTERDAY, GET_EXCHANGE_NEW_LAST_YEAR } from './types';
 
 //import Loading action
 import { setNewRateLoading } from './commonAction';
@@ -22,7 +22,50 @@ export const get_New_Rate = (base, date, newSymbols) => dispatch => {
           //Get new NewRateToday (2)
           axios
             .get(`https://api.exchangeratesapi.io/history?start_at=${date.yesterday}&end_at=${date.yesterday}&symbols=${newSymbols}&base=${base}`)
-            .then(res => console.log(res.data))
+            .then(res => {
+              
+              //If (2)
+
+              if (isEmpty(res.data.rates)) {
+                //Get NewRateToday (3)
+                axios
+                  .get()
+                  .then()
+                  .catch(err => dispatch({
+                    type: GET_ERRORS,
+                    payload: err.response.data
+                  }))
+                //Get NewRateYesterday (3)
+                axios
+                  .get(`https://api.exchangeratesapi.io/history?start_at=${date.secondDayBeforeYesterday}&end_at=${date.secondDayBeforeYesterday}&symbols=${newSymbols}&base=${base}`)
+                  .then(res => {
+                    if (isEmpty(res.data.rates)) {
+                      dispatch({
+                        type: GET_EXCHANGE_NEW_YESTERDAY,
+                        payload:'Exchange Rate Closed'
+                      })
+                    } else {
+                      dispatch({
+                        type: GET_NEW_RATE_YESTERDAY,
+                        payload: Object.keys(res.data.rates).map(i => res.data.rates[i])[0]
+                      })
+                    }
+                  })
+                  .catch(err => dispatch({
+                    type: GET_ERRORS,
+                    payload: err.response.data
+                  }))
+
+              //Else (2)
+
+              } else {
+                dispatch({
+                  type: GET_NEW_RATE_TODAY,
+                  payload: Object.keys(res.data.rates).map(i => res.data.rates[i])[0]
+                })
+              }
+
+            })
             .catch(err => dispatch({
               type: GET_ERRORS,
               payload: err.response.data
