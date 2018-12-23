@@ -29,9 +29,24 @@ export const get_New_Rate = (base, date, newSymbols) => dispatch => {
             }))
           //Get NewRateYesterday (2)
           axios
-            .get()
-            .then()
-            .catch()
+            .get(`https://api.exchangeratesapi.io/history?start_at=${date.dayBeforeYesterday}&end_at=${date.dayBeforeYesterday}&symbols=${newSymbols}&base=${base}`)
+            .then(res => {
+              if (isEmpty(res.data.rates)) {
+                dispatch({
+                  type: GET_EXCHANGE_NEW_YESTERDAY,
+                  payload:'Exchange Rate Closed'
+                })
+              } else {
+                dispatch({
+                  type: GET_NEW_RATE_YESTERDAY,
+                  payload: Object.keys(res.data.rates).map(i => res.data.rates[i])[0]
+                })
+              }
+            })
+            .catch(err => dispatch({
+              type: GET_ERRORS,
+              payload: err.response.data
+            }))
 
         //Else (1)
 
