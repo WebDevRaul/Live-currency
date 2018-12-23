@@ -9,11 +9,10 @@ import isEmpty from '../../components/common/isEmpty';
 
 export const get_New_Rate = (base, date, newSymbols) => dispatch => {
   dispatch(setNewRateLoading());
-  console.log(date)
     //Get NewRateToday (1)
     axios
-      // .get(`https://api.exchangeratesapi.io/latest?base=${base}&symbols=${newSymbols}`)
-      .get(`https://api.exchangeratesapi.io/history?start_at=2018-12-15&end_at=2018-12-15&symbols=${newSymbols}&base=${base}`)
+      .get(`https://api.exchangeratesapi.io/latest?base=${base}&symbols=${newSymbols}`)
+      // .get(`https://api.exchangeratesapi.io/history?start_at=2018-12-17&end_at=2018-12-17&symbols=${newSymbols}&base=${base}`)
       .then(res => {
         
         //If (1)

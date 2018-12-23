@@ -73,17 +73,24 @@ class TableRate extends Component {
     let baseRateLastYear;
 
     //New today Obj .fixed(4)
+    const fakeDate = this.props.fakeDate.firstToday;
     let todayObj = [];
-    if (!isEmpty(today)) {
-      this.toFixed(todayObj, today);
+    let todayData;
+
+    if (isEmpty(fakeDate)) {
+      todayData = Object.values(today)[0];
+    } else {
+      todayData = today
+    }
+    
+    if (!isEmpty(todayData)) {
+      this.toFixed(todayObj, todayData);
       if (!isEmpty(todayObj)) {
         baseRateToday = Object.keys(todayObj).map(i => <p key={i}>{todayObj[i].values}</p>)
       };
       if (!isEmpty(todayObj)) {
         baseRateName = Object.keys(todayObj).map(i => <p key={i}>{todayObj[i].name}</p>)
       }
-    } else {
-      baseRateToday = <p>{this.props.exchange.today}</p>;
     }
     
     //New yesterday Obj .fixed(4)

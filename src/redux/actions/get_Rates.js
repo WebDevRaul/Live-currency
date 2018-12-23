@@ -9,8 +9,8 @@ export const get_Rates = (base, date, symbols) => dispatch => {
   dispatch(setRateLoading());
   //GET_TODAY Rates
   axios
-    // .get(`https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbols}`)
-    .get(`https://api.exchangeratesapi.io/history?start_at=2018-12-15&end_at=2018-12-15&symbols=${symbols}&base=${base}`)
+    .get(`https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbols}`)
+    // .get(`https://api.exchangeratesapi.io/history?start_at=2018-12-17&end_at=2018-12-17&symbols=${symbols}&base=${base}`)
     .then(res => {
       //If (1)
       if (isEmpty(res.data.rates)) {
