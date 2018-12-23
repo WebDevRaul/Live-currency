@@ -50,9 +50,9 @@ class SelectRate extends Component {
     const { newSymbols } = this.state;
     let newDate;
     if (!isEmpty(fakeDate.firstToday)) {
-      newDate = fakeDate.firstToday
+      newDate = fakeDate
     } else {
-      newDate = date.today
+      newDate = date
     }
     if ( base !== prevProps.base.base) {
       this.props.get_Rates(base, date, symbols);
