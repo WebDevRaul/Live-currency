@@ -5,7 +5,7 @@ import { GET_TODAY, GET_YESTERDAY, GET_LAST_YEAR, GET_ERRORS, GET_EXCHANGE_YESTE
 import { setRateLoading } from './commonAction';
 import isEmpty from '../../components/common/isEmpty';
 
-export const get_Rates = (base, date, symbols, fakeDate) => dispatch => {
+export const get_Rates = (base, date, symbols) => dispatch => {
   dispatch(setRateLoading());
   //GET_TODAY Rates
   axios
