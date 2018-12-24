@@ -135,7 +135,6 @@ SelectRate.propTypes = {
 const mapStateToProps = state => ({
   base: state.base,
   date: state.date,
-  fakeDate: state.fakeDate,
   selectRate: state.selectRate,
   newSymbols: state.newSymbols,
   symbols: state.symbols,
