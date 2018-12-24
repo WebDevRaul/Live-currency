@@ -13,6 +13,10 @@
   height: 80vh;
 }
 
+.modal-flag-country {
+  display: inline;
+}
+
 .modal-content {
   background-color: rgb(233, 232, 232);
   border-radius: 10;
@@ -63,4 +67,140 @@
 .onClickCloseButton {
   text-shadow: 0.1px 0.1px 0.1px grey;
   transition: 0.5s
-};
+}
+
+/* ==================================== */
+
+@media (min-width: 320px) and (max-width: 420px) {
+  .modal-div {
+    padding: 50px;
+    font-size: 10px;
+  }
+  .modal-content {
+    padding: 30px 10px 10px 10px;
+  }
+  .modal-flag-country {
+    font-size: 7px;
+    display: block;
+    margin-bottom: 0px !important;
+  }
+  .modal-thead {
+    font-size: 10px;
+  }
+  .modal-currency {
+    padding: 0 10px;
+  }
+  .modal-btn {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 421px) and (max-width: 481px) {
+  .modal-div {
+    padding: 50px;
+    font-size: 13px;
+  }
+  .modal-content {
+    padding: 30px 10px 10px 10px;
+  }
+  .modal-flag-country {
+    font-size: 9px;
+    display: block;
+    margin-bottom: 0px !important;
+  }
+  .modal-thead {
+    font-size: 13px;
+  }
+  .modal-currency {
+    padding: 0 10px;
+  }
+  .modal-btn {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 576px) {
+  .modal-div {
+    padding: 50px;
+    font-size: 16px;
+  }
+  .modal-content {
+    padding: 30px 10px 10px 10px;
+  }
+  .modal-flag-country {
+    font-size: 11px;
+    display: block;
+    margin-bottom: 0px !important;
+  }
+  .modal-thead {
+    font-size: 16px;
+  }
+  .modal-currency {
+    padding: 0 10px;
+  }
+  .modal-btn {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 767px) {
+  .modal-div {
+    padding: 50px;
+    font-size: 20px;
+  }
+  .modal-content {
+    padding: 40px 20px 10px 20px;
+  }
+  .modal-flag-country {
+    font-size: 15px;
+    display: block;
+    margin-bottom: 0px !important;
+  }
+  .modal-thead {
+    font-size: 20px;
+  }
+  .modal-currency {
+    padding: 0 10px;
+  }
+  .modal-btn {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 14px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1224px) {
+  .modal-div {
+    padding: 50px;
+    font-size: 25px;
+  }
+  .modal-content {
+    padding: 40px 20px 10px 20px;
+  }
+  .modal-flag-country {
+    font-size: 18px;
+    margin-bottom: 0px !important;
+  }
+  .modal-thead {
+    font-size: 25px;
+  }
+  .modal-currency {
+    padding: 0 10px;
+  }
+  .modal-btn {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 14px;
+  }
+}
+

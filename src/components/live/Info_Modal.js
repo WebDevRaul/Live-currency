@@ -58,8 +58,8 @@ class InfoModal extends Component {
     //Flag modal
     const flagModal = Object.keys(flagObj.sort(compare)).map(i => 
       <tr key={i}> 
-        <td className='first-td'><span className='modal-flag'><Flag code={flagObj[i].code} width={30} /></span> {flagObj[i].country}</td>
-        <td>{flagObj[i].currency}</td>
+        <td className='first-td'><span className='modal-flag'><Flag code={flagObj[i].code} width={30} /></span> <p className='modal-flag-country'>{flagObj[i].country}</p></td>
+        <td className='modal-currency'>{flagObj[i].currency}</td>
         <td>{flagObj[i].name}</td>
       </tr>);
     
@@ -69,9 +69,9 @@ class InfoModal extends Component {
           <table className='modal-table'>
             <thead>
               <tr className='modal-thead'>
-                <td>Country :</td>
-                <td>Local currency :</td>
-                <td>Code :</td>
+                <td>Country</td>
+                <td>Local currency</td>
+                <td>Code</td>
               </tr>
             </thead>
             <tbody>
@@ -81,7 +81,7 @@ class InfoModal extends Component {
         <span className='modal-btn' onClick={this.props.toClose}>close</span>
         <p
           onClick={this.onScroll}
-        >up</p>
+        ></p>
         </div>
       </div>
     )
