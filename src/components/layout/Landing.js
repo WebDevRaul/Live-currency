@@ -46,7 +46,7 @@ class Landing extends Component {
           <p className={isLoad ? 'slideFirst' : 'slideSecond'}>This site is an exercise. The data displayed here is not to be considered a model of reference.</p>
         </div>
         <Link className='landingBtn' to='/live_currency'>
-          <p>
+          <p className='landing-Btn-Letters'>
             <span>c</span>
             <span>o</span>
             <span>n</span>
