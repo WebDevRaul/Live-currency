@@ -8,7 +8,7 @@ export default class DateRate extends Component {
     return (
       <tr className='tableRateDate'>
         <td></td>
-        <td>{this.props.dateToday}</td>
+        <td colSpan={2}>{this.props.dateToday}</td>
         <td>{this.props.dateYesterday}</td>
         <td>{this.props.dateLastYear}</td>
       </tr>
