@@ -51,6 +51,10 @@
   transition: 0.5s;
 }
 
+  .footer-Logo-Div :nth-child(2) .logo{
+    padding: 0 5px !important;
+  }
+
 .footer-Links span a {
   padding: 5px 40px 5px 0; 
   margin: 5px 0;
