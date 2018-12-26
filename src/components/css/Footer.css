@@ -64,6 +64,9 @@
   .footer-Logo{
     padding: 10px 0 0 0;
   }
+  .footer-Logo-Div {
+    font-size: 14px;
+  }
   .footer-Info {
     text-align: center;
   }
