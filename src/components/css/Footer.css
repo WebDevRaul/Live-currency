@@ -15,6 +15,12 @@
   justify-content: center;
 }
 
+.footer-Logo-Div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .footer-Logo  span{
   margin: 10px 0;
   color: white;

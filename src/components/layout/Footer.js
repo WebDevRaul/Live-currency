@@ -16,8 +16,8 @@ class Footer extends Component {
             <div className='col-12 col-sm-7 col-md-6 footer-Logo'>
               <div className='row'>
                 <div className='col'>
-                  <div className=''>
-                    <span >Copyright &copy; {new Date().getFullYear()} <Logo /></span>
+                  <div className='footer-Logo-Div'>
+                    <span className='mr-2' >Copyright &copy; {new Date().getFullYear()}</span><span><Logo /></span>
                   </div>
                 </div>
               </div>
