@@ -31,9 +31,9 @@
   .tableRate tbody tr td:first-child {
     padding: 0 0 0 5px !important;
   }
-  .tableRateDate td{
-    font-size: 12px;
-  }
+  /* .tableRateDate td{
+    font-size: px;
+  } */
 }
 
 @media (min-width: 481px) and (max-width: 576px) {
