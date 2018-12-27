@@ -27,13 +27,14 @@
 @media (min-width: 320px) and (max-width: 480px) {
   .tableRate td {
     padding: 0 5px;
+    font-size: 13px;
   }
   .tableRate tbody tr td:first-child {
     padding: 0 0 0 5px !important;
   }
-  /* .tableRateDate td{
-    font-size: px;
-  } */
+  .tableRateDate td{
+    font-size: 12px;
+  }
 }
 
 @media (min-width: 481px) and (max-width: 576px) {
