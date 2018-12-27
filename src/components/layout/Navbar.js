@@ -57,7 +57,7 @@ class Navbar extends Component {
                 onClick={this.onClickDelay}
               ><span>Home</span></Link>
             </li>
-            <li className="nav-item active mr-3">
+            <li className="nav-item active mr-3 mt-3">
               <Link 
                 to='/about' 
                 className='nav-link'

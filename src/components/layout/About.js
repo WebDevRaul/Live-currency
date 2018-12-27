@@ -6,8 +6,26 @@ import '../css/About.css';
 export default class About extends Component {
   render() {
     return (
-      <div className='about'>
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+      <div className='about-Div'>
+        <div className='row'>
+          <div className='col'>
+            <div className='about'>
+              <p>This site provides information about the latest exchange rates of the most important currencies of the world <br /> All the data used here are from <a href='https://exchangeratesapi.io/' target='_blank' rel="noopener noreferrer">https://exchangeratesapi.io/</a></p>
+            </div>
+          </div>
+        </div>
+        <div className='about-Info'>
+          <div className='row'>
+            <div className='col'>
+              <p>This Project was made with:</p>
+              <ul>
+                <li>React 16.6.3</li>
+                <li>React-redux</li>
+                <li>Axios</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

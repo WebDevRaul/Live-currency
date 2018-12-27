@@ -1,6 +1,6 @@
 :root {
   --mainCollor: rgb(145, 121, 40);
-  --secondaryCollor: rgb(5, 21, 252);
+  --secondaryCollor: rgb(252, 5, 5);
   --backgroundCollor: rgb(201, 248, 201);
 }
 
@@ -17,7 +17,7 @@ html,body {
 }
 
 /* .wrapper {
-  background-color: var(--backgroundCollor);
+  background-color: #F0F1F4;
 } */
 
 a:hover {
@@ -45,6 +45,10 @@ td {
 hr {
   border-top: 1px solid rgba(0,0,0);
   margin: 0px !important;
+}
+
+ul li{
+  list-style: none;
 }
 
 input::-webkit-calendar-picker-indicator {

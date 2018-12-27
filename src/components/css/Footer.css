@@ -47,7 +47,7 @@
 }
 
 .footer-Links i:hover {
-  color: var(--blue);
+  color: var(--secondaryCollor);
   transition: 0.5s;
 }
 
