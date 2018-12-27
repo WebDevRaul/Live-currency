@@ -50,7 +50,7 @@ class Navbar extends Component {
         </button>
         <div ref={this.myRef} className={classnames('collapse navbar-collapse', { 'show' : show })}>
           <ul className="navbar-nav ml-auto mr-5">
-            <li className="nav-item active mr-3">
+            <li className="nav-item active mr-3 mt-3">
               <Link 
                 to='/live_currency' 
                 className='nav-link'
