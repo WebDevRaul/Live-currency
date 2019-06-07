@@ -37,17 +37,17 @@ class Footer extends Component {
                       </a>
                     </span>
                     <span>
-                      <a href='https://twitter.com/' target='_blank' rel="noopener noreferrer">
+                      <a href='https://twitter.com/texterror2' target='_blank' rel="noopener noreferrer">
                         <i className='fab fa-twitter'></i>
                       </a>
                     </span>
                     <span>
-                      <a href='https://www.instagram.com/' target='_blank' rel="noopener noreferrer">
+                      <a href='https://www.instagram.com/_texterror_/' target='_blank' rel="noopener noreferrer">
                         <i className='fab fa-instagram'></i>
                       </a>
                     </span>
                     <span>
-                      <a href='https://www.linkedin.com/' target='_blank' rel="noopener noreferrer">
+                      <a href='https://www.linkedin.com/in/raul-savin-660010188/' target='_blank' rel="noopener noreferrer">
                         <i className='fab fa-linkedin-in'></i>
                       </a>
                     </span>
