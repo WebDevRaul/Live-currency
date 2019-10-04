@@ -198,7 +198,7 @@ class CurrencyConvertor extends Component {
   }
 };
 
-CurrencyConvertor.proptypes = {
+CurrencyConvertor.propTypes = {
   selectRate: PropTypes.object.isRequired,
   date: PropTypes.object.isRequired,
   get_Set_Currency: PropTypes.func.isRequired,

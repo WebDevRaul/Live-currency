@@ -73,7 +73,7 @@ class Live_Currency extends Component {
   }
 };
 
-Live_Currency.proptypes = {
+Live_Currency.propTypes = {
   get_Collect_Data: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   date: PropTypes.object.isRequired,

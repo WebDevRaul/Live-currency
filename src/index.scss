@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css?family=Lato|Poppins");
+
+$primaryColor: rgb(145, 121, 40);
+$secondaryColor: rgb(252, 5, 5);
+$backgroundColor: rgb(201, 248, 201);
+$mainWhite: #fff;
+$mainBlack: #222;
+$mainSpacing: 4px;
+
+:export {
+  primaryColor: $primaryColor;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  color: $mainBlack;
+  background: $mainWhite;
+  line-height: 1.4;
+  font-size: 1rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 1.25rem;
+  letter-spacing: $mainSpacing;
+}
