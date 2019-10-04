@@ -20,11 +20,11 @@ class Navbar extends Component {
     const { isOpen } = this.state;
     return (
       <StyledNavbar>
-        <nav className='navbar'>
+        <nav className='navbar navbar-light'>
           <div className='nav-wrapper'>
             <div className='nav-header'>
               <div><Logo /></div>
-              <button type='button' className='logo-btn' onClick={this.onToggle}>
+              <button type='button' className='navbar-toggler' onClick={this.onToggle}>
                 <span className="navbar-toggler-icon"></span>
               </button>
             </div>

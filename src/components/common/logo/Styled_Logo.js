@@ -3,7 +3,7 @@ import { primaryColor, secondaryColor, mainBorderRadius, mainSpacing, mainWhite 
 
 const StyledLogo = styled.div`
   .logo {
-    margin: 0 15px;
+    margin-right: 15px;
     padding: 8px;
     border: 2px solid ${primaryColor};
     border-radius: ${mainBorderRadius};
