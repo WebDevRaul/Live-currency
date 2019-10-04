@@ -1,4 +1,4 @@
-@import './App.css';
+/* @import './App.css';
 
 .navbar {
   padding: 20px 0 !important;
@@ -62,11 +62,11 @@
 .navbar-nav a:hover::after{
   transform: scale(1);
   transform-origin: left;
-}
+} */
 
 
 /* ==================================== */
-@media (min-width: 320px) and (max-width: 419px) {
+/* @media (min-width: 320px) and (max-width: 419px) {
 
   .navbar-nav a::after{
     width: 39%;
@@ -123,4 +123,4 @@
     right: 0;
     width: 13%;
   }
-}
+} */

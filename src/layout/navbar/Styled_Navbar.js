@@ -32,26 +32,66 @@ const StyledNavbar = styled.div`
 
         li {
         display: block;
+        position: relative;
         padding: 1rem 1.25rem;
+        margin: 5px 0;
         text-transform: capitalize;
         transition: ${mainTransition};
         font-weight: bold;
         letter-spacing: ${mainSpacing};
         text-align: center;
+        width: 100px;
         
         a {
           color: ${primaryColor};
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background: ${primaryColor};
+            z-index: -10;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform .5s;
+          }
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: ${primaryColor};
+            z-index: -10;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .5s;
+          }
 
           &:hover {
             color: ${secondaryColor};
             cursor: pointer;
           }
+
+          &:hover::after {
+            transform: scale(1);
+            transform-origin: left;
+          }
+          &:hover::before {
+            transform: scale(1);
+            transform-origin: right;
+          }
         }
 
       }
     }  
+
     .show-nav {
-      height: 110px;
+      height: 150px;
     }
   }
 
