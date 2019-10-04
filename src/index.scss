@@ -5,10 +5,15 @@ $secondaryColor: rgb(252, 5, 5);
 $backgroundColor: rgb(201, 248, 201);
 $mainWhite: #fff;
 $mainBlack: #222;
-$mainSpacing: 4px;
+$mainSpacing: 2px;
+$mainBorderRadius: 4px;
 
 :export {
   primaryColor: $primaryColor;
+  secondaryColor: $secondaryColor;
+  mainBorderRadius: $mainBorderRadius;
+  mainSpacing: $mainSpacing;
+  mainWhite: $mainWhite;
 }
 
 * {
