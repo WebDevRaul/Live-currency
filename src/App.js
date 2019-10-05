@@ -1,38 +1,29 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-
-//Components
-import Live_Currency from './components/live/Live_Currency';
+import Navbar from './layout/navbar/Navbar';
+import Landing from './pages/landing/Landing';
 import About from './pages/about/About';
 import Live from './pages/live/Live';
-
-//Layout
-import Landing from './components/layout/Landing';
-import Navbar from './layout/navbar/Navbar';
 import Footer from './layout/footer/Footer';
 
-//Css
-import './components/css/App.css';
+import './app.scss';
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div className='wrapper'>
-          <Switch>
-            <Route  exact path='/' component={Landing} />
-            <Router>
-              <div className='container'>
-                <Navbar />
-                <Route  exact path='/live_currency' component={Live_Currency} />
-                <Route  exact path='/about' component={About} />
-                <Route  exact path='/live' component={Live} />
-                <Footer />
-              </div>
-            </Router>
-          </Switch>
-        </div>
+        <Switch>
+          <div className='app'>
+            <div className='container'>
+              <Navbar />
+              <Route  exact path='/' component={Landing} />
+              <Route  exact path='/about' component={About} />
+              <Route  exact path='/live' component={Live} />
+              <Footer />
+            </div>
+          </div>
+        </Switch>
       </Router>
     );
   }

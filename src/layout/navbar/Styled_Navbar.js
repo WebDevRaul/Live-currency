@@ -8,7 +8,7 @@ const mixin = () => `
   width: 100%;
   height: 2px;
   background: ${primaryColor};
-  z-index: -1;
+  z-index: 20;
   transform: scaleX(0);
   transition: transform .5s;
 `
