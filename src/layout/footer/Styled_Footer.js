@@ -11,6 +11,7 @@ const StyledFooter = styled.footer`
       display: flex;
       justify-content: space-around;
       align-content: center;
+      padding: 10px 0;
 
       .date {
         margin: auto;
@@ -19,6 +20,7 @@ const StyledFooter = styled.footer`
     }
     .social {
       text-align: center;
+      padding: 10px 0;
       p {
         margin-bottom: 0px;
         letter-spacing: ${mainSpacing};
