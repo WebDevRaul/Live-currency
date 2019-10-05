@@ -10,7 +10,7 @@ import Live from './pages/live/Live';
 //Layout
 import Landing from './components/layout/Landing';
 import Navbar from './layout/navbar/Navbar';
-import Footer from './components/layout/Footer';
+import Footer from './layout/footer/Footer';
 
 //Css
 import './components/css/App.css';

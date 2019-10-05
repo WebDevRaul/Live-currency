@@ -1,12 +1,13 @@
 import styled from 'styled-components';
-import { primaryColor, secondaryColor, mainBorderRadius, mainSpacing, mainWhite } from '../../../index.scss';
+import { secondaryColor, mainBorderRadius, mainSpacing, mainWhite } from '../../../index.scss';
 
 const StyledLogo = styled.div`
   .logo {
     margin-right: 15px;
     padding: 8px;
-    border: 2px solid ${primaryColor};
+    border: 2px solid ${secondaryColor};
     border-radius: ${mainBorderRadius};
+    background-color: ${mainWhite};
 
     .inner-logo {
       display: flex;
