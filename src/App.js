@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 //Components
 import Live_Currency from './components/live/Live_Currency';
-import About from './components/layout/About';
+import About from './pages/about/About';
 import Live from './pages/live/Live';
 
 //Layout
