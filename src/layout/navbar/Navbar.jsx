@@ -7,14 +7,16 @@ import StyledNavbar from './Styled_Navbar';
 
 class Navbar extends Component {
   state = { isOpen: false };
-
+  
   onToggle = () => {
-    this.setState({ isOpen: !this.state.isOpen })
-  } 
-
+    this.setState({ isOpen: !this.state.isOpen });
+  };
+  
   onClick = () => {
-    this.setState({ isOpen: false })
-  }
+    const { isOpen } = this.state;
+    if(isOpen) return setTimeout(() => this.setState({ isOpen: false }), 500);
+    this.setState({ isOpen: false });
+  };
 
   render() {
     const { isOpen } = this.state;
