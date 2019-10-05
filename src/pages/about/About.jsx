@@ -11,11 +11,11 @@ const About = () => (
       <div className='row no-gutters'>
         <div className='col'>
           <div className='info'>
-            <p>This site provides information about the latest exchange rates of the most important currencies of the world. <br /> All the data used here are from <a href='https://exchangeratesapi.io' target='_blank' rel="noopener noreferrer">https://exchangeratesapi.io</a>.</p>
+            <p>This site provides information about the latest exchange rates of the most important currencies of the world. <br /><br /> All the data used here are from <a href='https://exchangeratesapi.io' target='_blank' rel="noopener noreferrer">https://exchangeratesapi.io</a>.</p>
           </div>
         </div>
       </div>
-      <div className='row no-gutters'>
+      <div className='row no-gutters w-100'>
         <div className='col-12 col-sm-6'>
           <Project isClass='old' project={oldProject} title='This Project was made with:'/>
         </div>

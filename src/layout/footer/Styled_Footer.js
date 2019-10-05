@@ -16,6 +16,7 @@ const StyledFooter = styled.footer`
       .date {
         margin: auto;
         font-size: 1.1rem;
+        text-align: center;
       }
     }
     .social {

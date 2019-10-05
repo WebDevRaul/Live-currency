@@ -1,1 +1,3 @@
-fix pseudo on mobile view (navbar)
+fix pseudo on mobile view (navbar);
+a css background on about;
+maybe difrent google-font
