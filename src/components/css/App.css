@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --mainCollor: rgb(145, 121, 40);
   --secondaryCollor: rgb(252, 5, 5);
   --backgroundCollor: rgb(201, 248, 201);
@@ -14,13 +14,13 @@ html,body {
   height: 100%;
   margin: 0;
   padding: 0;
-}
+} */
 
 /* .wrapper {
   background-color: #F0F1F4;
 } */
 
-a:hover {
+/* a:hover {
   text-decoration: none;
   color: unset;
 }
@@ -58,4 +58,4 @@ input::-webkit-calendar-picker-indicator {
 .searchInput::placeholder {
   color: red;
   font-size: 12px;
-};
+}; */

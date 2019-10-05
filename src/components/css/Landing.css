@@ -1,4 +1,4 @@
-@import './App.css';
+/* @import './App.css';
 
 .landing {
   background: url('../../img/Landing.jpg');
@@ -32,11 +32,11 @@
 @-webkit-keyframes slide-First { from { margin-left: 85%;width: 80%; }
   to {margin-left: -80%;width: 80%;} }
 @-webkit-keyframes slide-Second { from { margin-left: 85%;width: 80%; }
-  to {margin-left: -80%;width: 80%;} }
+  to {margin-left: -80%;width: 80%;} } */
 
 /* =================================== */
 
-.landingBtn p {
+/* .landingBtn p {
   margin: 0px !important;
 }
 
@@ -145,4 +145,4 @@
     right: 100px;
     bottom: 28vh;
   }
- }
+ } */

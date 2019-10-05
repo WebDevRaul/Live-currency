@@ -1,4 +1,4 @@
-@import './App.css';
+/* @import './App.css';
 
 
 .searchCurrency {
@@ -9,28 +9,28 @@
   border: none !important;
   padding: 0 5px 0 5px;
   background-color: unset;
-}
+} */
 
 /* ----- *//* ----- *//* ----- */
 
 /* Input */
-.searchInput {
+/* .searchInput {
   z-index: -1;
   border: none;
   border-bottom: 0.5px solid;
   width: 220px;
-  padding: none;
+  padding: none; */
   /* background: var(--backgroundCollor); */
-}
+/* } */
 
 /* Error(s) */
-.searchInputError {
+/* .searchInputError {
   border-bottom: 0.5px solid red;
-}
+} */
 
 /* ----- *//* ----- *//* ----- */
 
-.searchInfo {
+/* .searchInfo {
   z-index: 1;
   position: relative;
   left: -15px;
@@ -43,12 +43,12 @@
   cursor: pointer;
   transition: 0.5s;
   font-size: 18px;
-}
+} */
 
 /* ----- *//* ----- *//* ----- */
 
 /* Button */
-.searchButton {
+/* .searchButton {
   margin: 0 5px;
   background: transparent;
   border: none;
@@ -127,4 +127,4 @@
 .onClickSearchButton {
   text-shadow: 0.1px 0.1px 0.1px grey;
   transition: 0.3s;
-};
+}; */

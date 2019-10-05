@@ -1,4 +1,4 @@
-@import './App.css';
+/* @import './App.css';
 
 .footer {
   text-align: center;
@@ -60,11 +60,11 @@
   margin: 5px 0;
   border-radius: 10px;
   font-size: 24px;
-}
+} */
 
 /* ==================================== */
 
-@media (min-width: 320px) and (max-width: 576px) {
+/* @media (min-width: 320px) and (max-width: 576px) {
   .footer-Logo{
     padding: 10px 0 0 0;
   }
@@ -109,4 +109,4 @@
     padding: 0px 17px;
     font-size: 22px;
   }
-}
+} */

@@ -1,4 +1,4 @@
-.modal-div {
+/* .modal-div {
   z-index: 2;
   position: fixed;
   top: 0;
@@ -67,11 +67,11 @@
 .onClickCloseButton {
   text-shadow: 0.1px 0.1px 0.1px grey;
   transition: 0.5s
-}
+} */
 
 /* ==================================== */
 
-@media (min-width: 320px) and (max-width: 420px) {
+/* @media (min-width: 320px) and (max-width: 420px) {
   .modal-div {
     padding: 50px;
     font-size: 10px;
@@ -202,5 +202,5 @@
     top: 10px;
     font-size: 14px;
   }
-}
+} */
 
