@@ -7,21 +7,18 @@ import About from './pages/about/About';
 import Live from './pages/live/Live';
 import Footer from './layout/footer/Footer';
 
-import './app.scss';
 
 class App extends Component {
   render() {
     return (
       <Router>
         <Switch>
-          <div className='app'>
-            <div className='container'>
-              <Navbar />
-              <Route  exact path='/' component={Landing} />
-              <Route  exact path='/about' component={About} />
-              <Route  exact path='/live' component={Live} />
-              <Footer />
-            </div>
+          <div className='container'>
+            <Navbar />
+            <Route  exact path='/' component={Landing} />
+            <Route  exact path='/about' component={About} />
+            <Route  exact path='/live' component={Live} />
+            <Footer />
           </div>
         </Switch>
       </Router>
