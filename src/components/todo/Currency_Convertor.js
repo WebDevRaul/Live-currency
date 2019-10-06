@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 //Redux
 import { connect } from 'react-redux';
-import { get_Set_Currency } from '../../redux/actions/get_Set_Currency';
-import { get_Update_Currency } from '../../redux/actions/get_Update_Currency';
+import { get_Set_Currency } from '../../redux/a/get_Set_Currency';
+import { get_Update_Currency } from '../../redux/a/get_Update_Currency';
 import { get_Set_From } from '../../redux/actions/get_Set_From';
-import { get_Set_To } from '../../redux/actions/get_Set_To';
-import { get_Set_From_Val } from '../../redux/actions/get_Set_FromVal';
+import { get_Set_To } from '../../redux/a/get_Set_To';
+import { get_Set_From_Val } from '../../redux/a/get_Set_FromVal';
 import { get_Clear_Error } from '../../redux/actions/commonAction';
 
 //IsEmpty from common

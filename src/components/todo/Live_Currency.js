@@ -9,7 +9,7 @@ import CurrencyConvertor from './Currency_Convertor';
 
 //Redux
 import { connect } from 'react-redux';
-import { get_Collect_Data } from '../../redux/actions/get_Collect_Data';
+import { get_Collect_Data } from '../../redux/a/get_Collect_Data';
 
 //Css
 import '../css/LiveCurrency.css'
