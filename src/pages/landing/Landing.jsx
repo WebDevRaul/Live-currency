@@ -1,34 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 import CustomButton from '../../components/common/button/CustomButton';
+import InfoText from './InfoText';
 
 import StyledLanding from './Styled_Landing';
 
-class Landing extends Component {
+const Landing = ({ history }) => {
 
-  onClick = () => {
-    this.props.history.push('/live');
-  }
+  const onClick = () => {
+    history.push('/live');
+  };
 
-  render() {
-    return (
-      <StyledLanding>
-        <div className='landing'>
-          <div className='background'></div>
-          <div className='info' >
-            {
-
-            }
-          </div>
-          <div className='continue'>
-            <CustomButton value='continue' isClass='' onClick={this.onClick} isLoading={false}/>
-          </div>
+  return (
+    <StyledLanding>
+      <div className='landing'>
+        <div className='background'></div>
+        {console.log('render')}
+        <InfoText />
+        <div className='continue'>
+          <CustomButton value='continue' isClass='' onClick={onClick} isLoading={false}/>
         </div>
-      </StyledLanding>
-    )
-  }
+      </div>
+    </StyledLanding>
+  )
 }
 
 Landing.propTypes = {
