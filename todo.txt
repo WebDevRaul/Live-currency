@@ -3,3 +3,4 @@ a css background on about;
 maybe difrent google-font
 not fount page
 fix blur on mobile (landing page)
+fix mobile view footer exit out of the page
