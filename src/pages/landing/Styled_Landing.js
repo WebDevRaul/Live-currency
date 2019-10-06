@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { primaryColor, mainWhite } from '../../index.scss';
 import photo from '../../assets/landing.jpg';
+import { device } from '../../utils/devices';
 
 const StyledLanding = styled.div`
   .landing {
@@ -20,18 +21,31 @@ const StyledLanding = styled.div`
     }
 
     .info {
-      height: 40px;
-      background-color: ${primaryColor};
-      line-height: 40px;
-      text-align: center;
-      white-space: nowrap;
       width:100%;
-      overflow: hidden;
+      height: 60px;
+      font-size: 1.2rem;
+      text-align: center;
       color: ${mainWhite};
+      background-color: ${primaryColor};
+      white-space: nowrap;
+      overflow: hidden;
+      position: relative
 
-      .data {
-        display: flex;
-        justify-content: flex-end;
+      p {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        line-height: 60px;
+        text-align: center;
+        /* Starting position */
+        -moz-transform:translateX(100%);
+        -webkit-transform:translateX(100%);	
+        transform:translateX(100%);
+        /* Apply animation to this element */	
+        -moz-animation: scroll-left 8s linear infinite;
+        -webkit-animation: scroll-left 8s linear infinite;
+        animation: scroll-left 8s linear infinite;
       }
     }
 
@@ -40,6 +54,40 @@ const StyledLanding = styled.div`
       top: calc(100vh - 340px);
       display: flex;
       justify-content: flex-end;
+    }
+  }
+
+  @media ${device.tablet} {
+    .landing {
+      .info {
+        p {
+          -moz-animation: scroll-left 20s linear infinite;
+          -webkit-animation: scroll-left 20s linear infinite;
+          animation: scroll-left 20s linear infinite;
+        }
+      }
+    }
+  }
+
+  /* Move it (define the animation) */
+  /* @-moz-keyframes scroll-left {
+    0%   { -moz-transform: translateX(100%); }
+    100% { -moz-transform: translateX(-100%); }
+  }
+  @-webkit-keyframes scroll-left {
+    0%   { -webkit-transform: translateX(100%); }
+    100% { -webkit-transform: translateX(-100%); }
+  } */
+  @keyframes scroll-left {
+    0% { 
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%); 		
+    }
+    100% { 
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%); 
     }
   }
 `

@@ -2,4 +2,4 @@ fix pseudo on mobile view (navbar);
 a css background on about;
 maybe difrent google-font
 not fount page
-landing page fix background on full page
+fix blur on mobile (landing page)
