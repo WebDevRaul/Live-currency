@@ -13,13 +13,15 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <div className='container'>
-            <Navbar />
-            <Route  exact path='/' component={Landing} />
-            <Route  exact path='/about' component={About} />
-            <Route  exact path='/live' component={Live} />
-            <Footer />
-          </div>
+          <>
+            <div className='container'>
+              <Navbar />
+              <Route  exact path='/' component={Landing} />
+              <Route  exact path='/about' component={About} />
+              <Route  exact path='/live' component={Live} />
+              <Footer />
+            </div>
+          </>
         </Switch>
       </Router>
     );

@@ -17,6 +17,13 @@ const StyledLanding = styled.div`
       background-repeat: no-repeat;
       background-size: cover;
     }
+
+    .continue {
+      position: relative;
+      top: calc(100vh - 300px);
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 `
 
