@@ -17,7 +17,6 @@ const Landing = ({ history }) => {
     <StyledLanding>
       <div className='landing'>
         <div className='background'></div>
-        {console.log('render')}
         <InfoText />
         <div className='continue'>
           <CustomButton value='continue' isClass='' onClick={onClick} isLoading={false}/>

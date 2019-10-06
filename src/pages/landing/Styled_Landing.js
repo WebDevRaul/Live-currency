@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import photo from '../../assets/landing.jpg'
+import { primaryColor, mainWhite } from '../../index.scss';
+import photo from '../../assets/landing.jpg';
 
 const StyledLanding = styled.div`
   .landing {
@@ -18,9 +19,25 @@ const StyledLanding = styled.div`
       background-size: cover;
     }
 
+    .info {
+      height: 40px;
+      background-color: ${primaryColor};
+      line-height: 40px;
+      text-align: center;
+      white-space: nowrap;
+      width:100%;
+      overflow: hidden;
+      color: ${mainWhite};
+
+      .data {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+
     .continue {
       position: relative;
-      top: calc(100vh - 300px);
+      top: calc(100vh - 340px);
       display: flex;
       justify-content: flex-end;
     }

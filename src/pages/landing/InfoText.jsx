@@ -26,16 +26,16 @@ class InfoText extends Component {
       this.setState({ ...this.state, lastIndex: 1 })
     }
   };
-  
+
   render() {
     const { text, data, index } = this.state;
-    const style = {'transform': `translateX(-${index*(100/text.length)}%)`, 'transition': '0.5s'};
+    const style = {'transform': `translateX(-${index*(100/data.length)}%)`, 'transition': '0.1s'};
 
     return (
       <div className='info' style={style} >
-        {
-          data
-        }
+        <div className='data'>
+          { text }
+        </div>
       </div>
     )
   }
