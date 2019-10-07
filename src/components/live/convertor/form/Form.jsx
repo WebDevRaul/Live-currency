@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { set_from, set_to } from '../../../../redux/actions/convertor';
 import { createStructuredSelector } from 'reselect';
 import { select_keys, select_from, select_to, select_value } from '../../../../redux/selectors/live';
+import { toFixed4Decimals } from './utils/helper';
 
 import CustomSelect from '../../../common/select/CustomSelect';
 import CustomInput from '../../../common/input/CustomInput';
@@ -11,8 +12,8 @@ import Wrapper from './Wrapper';
 
 class Form extends Component {
   state = {
-    _from: 1,
-    _to: undefined,
+    _from: '1',
+    _to: '',
     value: undefined,
     error: {}
   }
@@ -39,6 +40,8 @@ class Form extends Component {
     const {  from, to, arr, set_from, set_to } = this.props;
     const { _from, _to, error, value } = this.state;
 
+    const result = toFixed4Decimals({ value, multiply: _from });
+    
     return (
       <form noValidate>
         <Wrapper>
@@ -49,7 +52,7 @@ class Form extends Component {
         </Wrapper>
         <Wrapper>
           <>
-            <CustomInput name='_to' value={_to} onChange={this.onChange} type='text' error={error.to} onFocus={this.onFocus} placeholder={value}/>
+            <CustomInput name='_to' value={result} onChange={this.onChange} type='text' error={error.to} onFocus={this.onFocus} placeholder={value}/>
             <CustomSelect name='to' value={to} onChange={e => set_to(e.target.value)} arr={arr} />
           </>
         </Wrapper>

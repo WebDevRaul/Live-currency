@@ -29,7 +29,7 @@ CustomInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   onFocus: PropTypes.func.isRequired,
   type: PropTypes.string.isRequired,
-  placeholder: PropTypes.number.isRequired,
+  placeholder: PropTypes.string.isRequired,
   error: PropTypes.string
 }
 
