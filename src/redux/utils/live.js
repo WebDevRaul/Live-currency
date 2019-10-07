@@ -1,5 +1,4 @@
 export const findTo = ({ rates, to }) => {
-  console.log(to)
   // Filter for to value
   const arr =  Object.entries(rates).filter(i => i[0] === to);
 

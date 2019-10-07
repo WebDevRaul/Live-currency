@@ -3,7 +3,7 @@ import { SET, ERROR } from '../actions/types';
 const initialState = {
   convertor: {
     rates: {},
-    from: 'GBP',
+    from: '',
     date: '',
     to: 'EUR'
 
