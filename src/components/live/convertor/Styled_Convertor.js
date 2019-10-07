@@ -32,7 +32,7 @@ const StyledConvertor = styled.section`
       margin: 0 20px;
       .children {
         display: flex;
-        margin: auto;
+        justify-content: center;
       }
     }
   }

@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 import { findTo, findKeys } from '../utils/live';
 
 const select_convertor_state = state => state.live.convertor;
+const select_state = state => state.live;
 
 export const select_rates = createSelector(
   [select_convertor_state],
@@ -31,4 +32,9 @@ export const select_value = createSelector(
 export const select_keys = createSelector(
   [select_convertor_state],
   convertor => findKeys(convertor.rates)
+);
+
+export const select_isLoading = createSelector(
+  [select_state],
+  live => live.isLoading
 );

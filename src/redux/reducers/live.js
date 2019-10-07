@@ -1,4 +1,4 @@
-import { SET, ERROR } from '../actions/types';
+import { SET, ERROR, LOADING } from '../actions/types';
 
 const initialState = {
   convertor: {
@@ -6,8 +6,8 @@ const initialState = {
     from: '',
     date: '',
     to: 'EUR'
-
   },
+  isLoading: false,
   error: {}
 };
 
@@ -39,6 +39,16 @@ const live = (state=initialState, action) => {
           ...state.convertor,
           to: payload
         }
+      }
+    case LOADING.IS_LOADING:
+      return {
+        ...state,
+        isLoading: payload
+      }
+    case LOADING.IS_LOADED:
+      return {
+        ...state,
+        isLoading: payload
       }
     case ERROR.SET_ERROR:
       return {

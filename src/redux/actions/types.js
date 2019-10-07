@@ -7,5 +7,9 @@ const SET = {
 const ERROR = {
   SET_ERROR: 'SET_ERROR'
 };
+const LOADING = {
+  IS_LOADING: 'IS_LOADING',
+  IS_LOADED: 'IS_LOADED'
+}
 
-export { SET, ERROR };
+export { SET, ERROR, LOADING };

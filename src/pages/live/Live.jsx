@@ -22,7 +22,7 @@ class Live extends Component {
   // Update Fetch
   componentDidUpdate(prevProps, prevState) {
     const { from, update_currency } = this.props;
-    if(from !== prevProps.from) update_currency(from);
+    if(from !== prevProps.from && from !== 'GBP') update_currency(from);
   }
   
 
