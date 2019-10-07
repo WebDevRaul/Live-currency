@@ -5,7 +5,7 @@ const initialState = {
     rates: {},
     base: '',
     date: '',
-    to: 'EUR'
+    to: 'RON'
 
   },
   error: {}
