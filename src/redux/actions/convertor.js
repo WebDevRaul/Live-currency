@@ -6,3 +6,8 @@ export const set_currency = () => GET({
   SUCCESS_TYPE: SET.CURRENCY,
   ERROR_TYPE: ERROR.ERROR
 });
+
+export const set_from = data => ({
+  type: SET.FROM,
+  payload: data
+})

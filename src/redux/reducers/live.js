@@ -3,9 +3,9 @@ import { SET, ERROR } from '../actions/types';
 const initialState = {
   convertor: {
     rates: {},
-    base: '',
+    from: 'GBP',
     date: '',
-    to: 'RON'
+    to: 'EUR'
 
   },
   error: {}
@@ -20,8 +20,16 @@ const live = (state=initialState, action) => {
         convertor: {
           ...state.convertor,
           rates: payload.rates,
-          base: payload.base,
+          from: payload.base,
           date: payload.date
+        }
+      }
+    case SET.FROM:
+      return {
+        ...state,
+        convertor: {
+          ...state.convertor,
+          from: payload
         }
       }
     case ERROR.SET_ERROR:

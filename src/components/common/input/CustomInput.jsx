@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import StyledInput from './Styled_Input';
 
 
-const Input = ({ name, value, onChange, onFocus, type, error }) => (
+const CustomInput = ({ name, value, onChange, onFocus, type, error }) => (
   <StyledInput>
     <div className='group'>
       <input 
@@ -22,14 +22,13 @@ const Input = ({ name, value, onChange, onFocus, type, error }) => (
   </StyledInput>
 );
 
-Input.propTypes = {
+CustomInput.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onFocus: PropTypes.func.isRequired,
-  label: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   error: PropTypes.string
 }
 
-export default Input;
+export default CustomInput;
