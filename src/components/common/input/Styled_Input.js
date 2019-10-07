@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { primaryColor, secondaryColor, mainBorderRadius, mainWhite, mainBlack } from '../../../index.scss';
+import { primaryColor, secondaryColor, mainBorderRadius, mainWhite } from '../../../index.scss';
 
 const StyledInput = styled.div`
   .group {
@@ -13,7 +13,7 @@ const StyledInput = styled.div`
       margin: 5px;
       width: 250px;
       font-size: 18px;
-      color: ${mainBlack};
+      color: ${primaryColor};
       background-color: ${mainWhite};
       border: 1px solid ${primaryColor};
       border-radius: ${mainBorderRadius};

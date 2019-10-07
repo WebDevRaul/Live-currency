@@ -32,6 +32,14 @@ const live = (state=initialState, action) => {
           from: payload
         }
       }
+    case SET.TO:
+      return {
+        ...state,
+        convertor: {
+          ...state.convertor,
+          to: payload
+        }
+      }
     case ERROR.SET_ERROR:
       return {
         ...state,

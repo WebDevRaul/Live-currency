@@ -28,6 +28,13 @@ const StyledConvertor = styled.section`
     .date {
       text-align: center;
     }
+    .form {
+      margin: 0 20px;
+      .children {
+        display: flex;
+        margin: auto;
+      }
+    }
   }
 `
 

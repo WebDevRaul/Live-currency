@@ -17,4 +17,9 @@ export const update_currency = data => GET({
 export const set_from = data => ({
   type: SET.FROM,
   payload: data
-})
+});
+
+export const set_to = data => ({
+  type: SET.TO,
+  payload: data
+});

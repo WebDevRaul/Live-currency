@@ -21,7 +21,9 @@ class Convertor extends Component {
               </div>
             </div>
             <div className='col col-md-7 m-auto'>
-              <Form />
+              <div className='form'>
+                <Form />
+              </div>
             </div>
           </div>
         </div>
