@@ -12,12 +12,16 @@ class Convertor extends Component {
         <div className='convertor'>
           <div className='row no-gutters'>
             <div className='col col-md-5'>
-              <Date />
-              <div className='base'>
+              <div className='date text-center'>
+                <Date />
+              </div>
+              <div className='base text-center'>
                 <Base />
               </div>
             </div>
-            <div className='col col-md-7'></div>
+            <div className='col col-md-7'>
+              
+            </div>
           </div>
         </div>
       </StyledConvertor>

@@ -1,15 +1,14 @@
 import styled from 'styled-components';
+import { primaryColor, mainBorderRadius } from '../../../index.scss';
 
 const StyledConvertor = styled.section`
   .convertor {
     padding: 20px;
-    background-color: rgba(245, 245, 245, 0.5);
-    border-radius: 10px;
-    box-shadow: 10px 10px 10px #bcc3ca;
     margin: 10px 0 30px 0;
+    background-color: rgba(245, 245, 245, 0.5);
+    box-shadow: 10px 10px 10px ${primaryColor};
+    border-radius: ${mainBorderRadius};
     .base {
-      padding-left: 30px;
-
       span {
         &:nth-child(1) {
         font-size: 40px;
