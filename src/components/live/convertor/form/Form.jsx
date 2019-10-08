@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { set_from_base, set_to_base } from '../../../../redux/actions/convertor';
 import { createStructuredSelector } from 'reselect';
-import { select_keys, select_from_base, select_to_base, select_value } from '../../../../redux/selectors/live';
+import { select_keys, select_from_base, select_to_base, select_value } from '../../../../redux/selectors/convertor';
 import { toFixed4Decimals } from './utils/helper';
 
 import CustomSelect from '../../../common/select/CustomSelect';

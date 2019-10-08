@@ -50,12 +50,12 @@ const convertor = (state=initialState, action) => {
           to_base: payload
         }
       }
-    case CONVERTOR.IS_LOADING:
+    case CONVERTOR.IS_LOADING_CONVERTOR:
       return {
         ...state,
         isLoading: payload
       }
-    case CONVERTOR.IS_LOADED:
+    case CONVERTOR.IS_LOADED_CONVERTOR:
       return {
         ...state,
         isLoading: payload

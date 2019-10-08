@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { set_currency, update_currency } from '../../redux/actions/convertor';
 import { createStructuredSelector } from 'reselect';
-import { select_from_base } from '../../redux/selectors/live';
+import { select_from_base } from '../../redux/selectors/convertor';
 
 import Convertor from '../../components/live/convertor/Convertor';
 import SearchBar from '../../components/live/searchBar/SearchBar';

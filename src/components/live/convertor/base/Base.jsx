@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { select_from_base, select_to_base, select_value, select_isLoading } from '../../../../redux/selectors/live';
+import { select_from_base, select_to_base, select_value, select_isLoading } from '../../../../redux/selectors/convertor';
 
 import Span from '../../../common/span/Span';
 import Spinner from '../../../common/spinner/Spinner';
