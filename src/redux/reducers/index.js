@@ -3,6 +3,7 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import convertor from './convertor';
+import rates from './rates';
 import loading from './loading';
 
 const persistConfig = {
@@ -13,6 +14,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   convertor,
+  rates,
   loading
 });
 
