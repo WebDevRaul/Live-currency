@@ -4,7 +4,7 @@ import storage from 'redux-persist/lib/storage';
 
 import convertor from './convertor';
 import rates from './rates';
-import loading from './loading';
+import live from './live';
 
 const persistConfig = {
   key: 'root',
@@ -15,7 +15,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   convertor,
   rates,
-  loading
+  live
 });
 
 export default persistReducer(persistConfig, rootReducer);

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { select_from_base, select_to_base, select_value, select_isLoading } from '../../../../redux/selectors/convertor';
+import { select_C_from_base, select_to_base, select_value, select_isLoading } from '../../../../redux/selectors/convertor';
 
 import Span from '../../../common/span/Span';
 import Spinner from '../../../common/spinner/Spinner';
@@ -25,7 +25,7 @@ Base.propTypes = {
 }
 
 const mapStateToProps = createStructuredSelector({
-  from_base: select_from_base,
+  from_base: select_C_from_base,
   to_base: select_to_base,
   value: select_value,
   isLoading: select_isLoading

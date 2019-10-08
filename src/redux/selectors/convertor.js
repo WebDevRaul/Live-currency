@@ -14,7 +14,7 @@ export const select_date = createSelector(
   data => data.date
 );
 
-export const select_from_base = createSelector(
+export const select_C_from_base = createSelector(
   [select_convertor_state],
   data => data.from_base
 );
@@ -36,5 +36,5 @@ export const select_keys = createSelector(
 
 export const select_isLoading = createSelector(
   [select_state],
-  live => live.isLoading
+  data => data.isLoading
 );

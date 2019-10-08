@@ -1,25 +1,31 @@
-import { LOADING } from '../actions/types';
+import { LIVE } from '../actions/types';
 
 const initialState = {
   isLoading: false,
+  error: {}
 };
 
-const loading = (state=initialState, action) => {
+const live = (state=initialState, action) => {
   const { payload } = action;
   switch(action.type) {
-    case LOADING.IS_LOADING:
+    case LIVE.IS_LOADING:
       return {
         ...state,
         isLoading: payload
       }
-    case LOADING.IS_LOADED:
+    case LIVE.IS_LOADED:
       return {
         ...state,
         isLoading: payload
+      }
+    case LIVE.SET_ERROR:
+      return {
+        ...state,
+        error: payload
       }
     default:
       return state;
   }
 };
 
-export default loading;
+export default live;

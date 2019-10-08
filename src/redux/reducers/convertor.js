@@ -1,4 +1,4 @@
-import { SET, CONVERTOR, ERROR } from '../actions/types';
+import { LIVE, CONVERTOR } from '../actions/types';
 
 const initialState = {
   data: {
@@ -14,7 +14,7 @@ const initialState = {
 const convertor = (state=initialState, action) => {
   const { payload } = action;
   switch(action.type) {
-    case SET.CURRENCY:
+    case LIVE.CURRENCY:
       return {
         ...state,
         data: {
@@ -60,7 +60,7 @@ const convertor = (state=initialState, action) => {
         ...state,
         isLoading: payload
       }
-    case ERROR.SET_ERROR:
+    case CONVERTOR.ERROR:
       return {
         ...state,
         error: payload

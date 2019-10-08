@@ -1,4 +1,4 @@
-import { SET, RATES, ERROR } from '../actions/types';
+import { LIVE, RATES } from '../actions/types';
 
 const initialState = {
   data: {
@@ -14,7 +14,7 @@ const initialState = {
 const rates = (state=initialState, action) => {
   const { payload } = action;
   switch(action.type) {
-    case SET.CURRENCY:
+    case LIVE.CURRENCY:
       return {
         ...state,
         data: {
@@ -22,6 +22,24 @@ const rates = (state=initialState, action) => {
           rates: payload.rates,
           from_base: payload.base,
           date: payload.date
+        }
+      }
+    case RATES.UPDATE:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          rates: payload.rates,
+          from_base: payload.base,
+          date: payload.date
+        }
+      }
+    case RATES.FROM_RATES:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          from_base: payload
         }
       }
     case RATES.LOADING_RATES:
@@ -34,7 +52,7 @@ const rates = (state=initialState, action) => {
         ...state,
         isLoading: payload
       }
-    case ERROR.SET_ERROR:
+    case RATES.ERROR:
         return {
           ...state,
           error: payload
