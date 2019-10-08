@@ -60,3 +60,7 @@ hr {
   margin-bottom: 0px;
   padding-bottom: 1rem;
 }
+
+input::-webkit-calendar-picker-indicator {
+	display: none;
+}

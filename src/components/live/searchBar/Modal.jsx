@@ -1,11 +1,25 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Modal = () => {
+
+import StyledModal from './Styled_Modal';
+
+const Modal = ({ onClick, modal }) => {
+  if(modal) return null;
   return (
-    <div>
-      
-    </div>
+    <StyledModal>
+      <div className='modal'>
+        <div className='inner-modal'>
+          <span onClick={onClick}>close</span>
+        </div>
+      </div>
+    </StyledModal>
   )
 }
 
-export default Modal
+Modal.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  modal: PropTypes.bool.isRequired
+}
+
+export default Modal;
