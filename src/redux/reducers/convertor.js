@@ -18,7 +18,7 @@ const convertor = (state=initialState, action) => {
       return {
         ...state,
         data: {
-          ...state.convertor,
+          ...state.data,
           rates: payload.rates,
           from_base: payload.base,
           date: payload.date
@@ -28,7 +28,7 @@ const convertor = (state=initialState, action) => {
       return {
         ...state,
         data: {
-          ...state.convertor,
+          ...state.data,
           rates: payload.rates,
           from_base: payload.base,
           date: payload.date
@@ -37,8 +37,8 @@ const convertor = (state=initialState, action) => {
     case CONVERTOR.FROM_BASE:
       return {
         ...state,
-        convertor: {
-          ...state.convertor,
+        data: {
+          ...state.data,
           from_base: payload
         }
       }
@@ -46,7 +46,7 @@ const convertor = (state=initialState, action) => {
       return {
         ...state,
         data: {
-          ...state.convertor,
+          ...state.data,
           to_base: payload
         }
       }

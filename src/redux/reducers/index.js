@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import live from './live';
+import convertor from './convertor';
 
 const persistConfig = {
   key: 'root',
@@ -11,7 +11,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  live
+  convertor
 });
 
 export default persistReducer(persistConfig, rootReducer);
