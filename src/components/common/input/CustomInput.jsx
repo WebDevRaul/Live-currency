@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import StyledInput from './Styled_Input';
 
 
-const CustomInput = ({ name, value, onChange, onFocus, type, error, placeholder }) => (
+const CustomInput = ({ name, value, onChange, type, error }) => (
   <StyledInput>
     <div className='group'>
       <input 
@@ -13,9 +13,7 @@ const CustomInput = ({ name, value, onChange, onFocus, type, error, placeholder 
         name={name}
         value={value}
         onChange={onChange}
-        onFocus={onFocus}
         type={type}
-        placeholder={placeholder}
         autoComplete='true'
         required
       />
@@ -23,13 +21,14 @@ const CustomInput = ({ name, value, onChange, onFocus, type, error, placeholder 
   </StyledInput>
 );
 
+CustomInput.defaultProps = {
+  type: 'text'
+}
+
 CustomInput.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  onFocus: PropTypes.func.isRequired,
-  type: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
   error: PropTypes.string
 }
 

@@ -1,6 +1,6 @@
-export const findTo = ({ rates, to }) => {
+export const findTo = ({ rates, to_base }) => {
   // Filter for to value
-  const arr =  Object.entries(rates).filter(i => i[0] === to);
+  const arr =  Object.entries(rates).filter(i => i[0] === to_base);
 
   // extract the value
   const value = arr.map(i => {

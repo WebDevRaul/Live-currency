@@ -2,31 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { select_from, select_to, select_value, select_isLoading } from '../../../../redux/selectors/live';
+import { select_from_base, select_to_base, select_value, select_isLoading } from '../../../../redux/selectors/live';
 
 import Span from '../../../common/span/Span';
 import Spinner from '../../../common/spinner/Spinner';
 
-const Base = ({ from, to, value, isLoading }) => (
+const Base = ({ from_base, to_base, value, isLoading }) => (
   <>
     <Span text={'1'}/>
-    <Span text={from}/>
+    <Span text={from_base}/>
     <Span text={'is'}/>
     {isLoading ? <Spinner /> : <Span text={value}/>}
-    <Span text={to}/>
+    <Span text={to_base}/>
   </>
 );
 
 Base.propTypes = {
-  from: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
+  from_base: PropTypes.string.isRequired,
+  to_base: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   isLoading: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = createStructuredSelector({
-  from: select_from,
-  to: select_to,
+  from_base: select_from_base,
+  to_base: select_to_base,
   value: select_value,
   isLoading: select_isLoading
 });

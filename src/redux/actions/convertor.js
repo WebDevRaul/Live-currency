@@ -14,12 +14,12 @@ export const update_currency = data => GET({
 
 })
 
-export const set_from = data => ({
-  type: SET.FROM,
+export const set_from_base = data => ({
+  type: SET.FROM_BASE,
   payload: data
 });
 
-export const set_to = data => ({
-  type: SET.TO,
+export const set_to_base = data => ({
+  type: SET.TO_BASE,
   payload: data
 });

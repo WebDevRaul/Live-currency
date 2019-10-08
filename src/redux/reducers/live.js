@@ -3,9 +3,9 @@ import { SET, ERROR, LOADING } from '../actions/types';
 const initialState = {
   convertor: {
     rates: {},
-    from: '',
+    from_base: '',
     date: '',
-    to: 'EUR'
+    to_base: 'EUR'
   },
   isLoading: false,
   error: {}
@@ -20,24 +20,24 @@ const live = (state=initialState, action) => {
         convertor: {
           ...state.convertor,
           rates: payload.rates,
-          from: payload.base,
+          from_base: payload.base,
           date: payload.date
         }
       }
-    case SET.FROM:
+    case SET.FROM_BASE:
       return {
         ...state,
         convertor: {
           ...state.convertor,
-          from: payload
+          from_base: payload
         }
       }
-    case SET.TO:
+    case SET.TO_BASE:
       return {
         ...state,
         convertor: {
           ...state.convertor,
-          to: payload
+          to_base: payload
         }
       }
     case LOADING.IS_LOADING:

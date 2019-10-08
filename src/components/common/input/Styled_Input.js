@@ -18,6 +18,10 @@ const StyledInput = styled.div`
       border: 1px solid ${primaryColor};
       border-radius: ${mainBorderRadius};
 
+      &::placeholder {
+        color: ${primaryColor};
+      }
+
       &:focus {
         outline: none;
       }

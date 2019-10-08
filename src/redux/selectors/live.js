@@ -14,14 +14,14 @@ export const select_date = createSelector(
   convertor => convertor.date
 );
 
-export const select_from = createSelector(
+export const select_from_base = createSelector(
   [select_convertor_state],
-  convertor => convertor.from
+  convertor => convertor.from_base
 );
 
-export const select_to = createSelector(
+export const select_to_base = createSelector(
   [select_convertor_state],
-  convertor => convertor.to
+  convertor => convertor.to_base
 );
 
 export const select_value = createSelector(

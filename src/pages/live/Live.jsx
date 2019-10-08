@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { set_currency, update_currency } from '../../redux/actions/convertor';
 import { createStructuredSelector } from 'reselect';
-import { select_from } from '../../redux/selectors/live';
+import { select_from_base } from '../../redux/selectors/live';
 
 import Convertor from '../../components/live/convertor/Convertor';
 import SearchBar from '../../components/live/searchBar/SearchBar';
@@ -21,8 +21,8 @@ class Live extends Component {
 
   // Update Fetch
   componentDidUpdate(prevProps, prevState) {
-    const { from, update_currency } = this.props;
-    if(from !== prevProps.from && from !== 'GBP') update_currency(from);
+    const { from_base, update_currency } = this.props;
+    if(from_base !== prevProps.from_base && from_base !== 'GBP') update_currency(from_base);
   }
   
 
@@ -59,11 +59,11 @@ class Live extends Component {
 Live.propTypes = {
   set_currency: PropTypes.func.isRequired,
   update_currency: PropTypes.func.isRequired,
-  from: PropTypes.string.isRequired
+  from_base: PropTypes.string.isRequired
 }
 
 const mapStateToProps = createStructuredSelector({
-  from: select_from
+  from_base: select_from_base
 })
 
 export default connect( mapStateToProps, { set_currency, update_currency } )(Live);
