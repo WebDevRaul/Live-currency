@@ -54,7 +54,7 @@ class SearchBar extends Component {
 };
 
 SearchBar.propTypes = {
-  arr: PropTypes.array.isRequired
+
 };
 
 const mapStateToProps = createStructuredSelector({

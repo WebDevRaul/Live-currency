@@ -15,7 +15,7 @@ const StyledModal = styled.div`
     .inner-modal {
       position: relative;
 
-      span{
+      button{
         position: absolute;
         right: 0;
         background-color: ${primaryColor};
@@ -32,6 +32,11 @@ const StyledModal = styled.div`
           border: 1px solid ${primaryColor};
           color: ${primaryColor};
         }
+      }
+      .list {
+        display: flex;
+        flex-direction: column;
+        background-color: grey;
       }
     }
   }
