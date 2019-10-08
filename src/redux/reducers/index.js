@@ -3,6 +3,7 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import convertor from './convertor';
+import loading from './loading';
 
 const persistConfig = {
   key: 'root',
@@ -11,7 +12,8 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  convertor
+  convertor,
+  loading
 });
 
 export default persistReducer(persistConfig, rootReducer);
