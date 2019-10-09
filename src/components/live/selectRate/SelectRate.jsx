@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { set_from_base } from '../../../redux/actions/rates';
 import { createStructuredSelector } from 'reselect';
-import { select_R_from_base, select_keys } from '../../../redux/selectors/rates';
+import { select_R_from_base } from '../../../redux/selectors/rates';
+import { select_keys } from '../../../redux/selectors/convertor';
 
 import StyledSelectRate from './Styled_SelectRate';
 import CustomSelect from '../../common/select/CustomSelect';

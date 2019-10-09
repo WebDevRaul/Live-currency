@@ -1,4 +1,4 @@
-import { LIVE, CONVERTOR } from '../actions/types';
+import { CONVERTOR } from '../actions/types';
 
 const initialState = {
   data: {
@@ -14,7 +14,7 @@ const initialState = {
 const convertor = (state=initialState, action) => {
   const { payload } = action;
   switch(action.type) {
-    case LIVE.CURRENCY:
+    case CONVERTOR.SET:
       return {
         ...state,
         data: {

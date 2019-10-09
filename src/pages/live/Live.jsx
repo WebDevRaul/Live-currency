@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { update_convertor } from '../../redux/actions/convertor';
-import { update_rates } from '../../redux/actions/rates';
-import { set_currency } from '../../redux/actions/live';
+import { set_convertor, update_convertor } from '../../redux/actions/convertor';
+import { set_rates, update_rates } from '../../redux/actions/rates';
 import { createStructuredSelector } from 'reselect';
 import { select_C_from_base } from '../../redux/selectors/convertor';
 import { select_R_from_base } from '../../redux/selectors/rates';
@@ -17,9 +16,11 @@ import StyledLive from './Styled_Live';
 
 
 class Live extends Component {
-  // Initial Fetch
   componentDidMount() {
-    this.props.set_currency();
+    // Set Convertor
+    this.props.set_convertor();
+    // Set Rates
+    this.props.set_rates();
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -71,4 +72,4 @@ const mapStateToProps = createStructuredSelector({
   rates: select_R_from_base
 })
 
-export default connect( mapStateToProps, { set_currency, update_convertor, update_rates } )(Live);
+export default connect( mapStateToProps, { set_convertor, update_convertor, set_rates, update_rates } )(Live);

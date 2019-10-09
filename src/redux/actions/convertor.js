@@ -1,8 +1,16 @@
 import {  CONVERTOR } from './types';
-import { GET } from './utils/helper';
+import { SET } from './utils/helper';
 
-export const update_convertor = data => GET({
-  endpoint: `https://api.exchangeratesapi.io/latest?base=${data}`,
+export const set_convertor = () => SET({
+  ENDPOINT: 'https://api.exchangeratesapi.io/latest?base=GBP',
+  SUCCESS_TYPE: CONVERTOR.SET,
+  ERROR_TYPE: CONVERTOR.ERROR,
+  LOADING: CONVERTOR.LOADING_CONVERTOR,
+  LOADED: CONVERTOR.LOADED_CONVERTOR
+});
+
+export const update_convertor = data => SET({
+  ENDPOINT: `https://api.exchangeratesapi.io/latest?base=${data}`,
   SUCCESS_TYPE: CONVERTOR.UPDATE,
   ERROR_TYPE: CONVERTOR.ERROR,
   LOADING: CONVERTOR.LOADING_CONVERTOR,
