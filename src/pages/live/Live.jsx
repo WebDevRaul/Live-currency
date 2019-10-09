@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { set_convertor, update_convertor } from '../../redux/actions/convertor';
-import { set_rates, update_rates } from '../../redux/actions/rates';
+import { set_rates, update_rates, set_lastYear, update_lastYear } from '../../redux/actions/rates';
 import { createStructuredSelector } from 'reselect';
 import { select_C_from_base } from '../../redux/selectors/convertor';
 import { select_R_from_base } from '../../redux/selectors/rates';
@@ -18,17 +18,21 @@ import StyledLive from './Styled_Live';
 class Live extends Component {
   componentDidMount() {
     // Set Convertor
-    this.props.set_convertor();
+    // this.props.set_convertor();
     // Set Rates
-    this.props.set_rates();
+    // this.props.set_rates();
+    // Set Last Year
+    this.props.set_lastYear();
   };
 
   componentDidUpdate(prevProps, prevState) {
-    const { convertor, update_convertor, rates, update_rates } = this.props;
+    const { convertor, update_convertor, rates, update_rates, update_lastYear } = this.props;
     // Update Convertor
-    if(convertor !== prevProps.convertor && convertor !== 'GBP') update_convertor(convertor);
-    // Update Rates
-    if(rates !== prevProps.rates && rates !== 'GBP') update_rates(rates);
+    // if(convertor !== prevProps.convertor && convertor !== 'GBP') update_convertor(convertor);
+    // // Update Rates
+    // if(rates !== prevProps.rates && rates !== 'GBP') update_rates(rates);
+    // // Update Last Year
+    // if(rates !== prevProps.rates && rates !== 'GBP') update_lastYear(rates);
   }
   
 
@@ -61,10 +65,7 @@ class Live extends Component {
 };
 
 Live.propTypes = {
-  set_currency: PropTypes.func.isRequired,
-  update_convertor: PropTypes.func.isRequired,
-  convertor: PropTypes.string.isRequired,
-  rates: PropTypes.string.isRequired
+  
 }
 
 const mapStateToProps = createStructuredSelector({
@@ -72,4 +73,4 @@ const mapStateToProps = createStructuredSelector({
   rates: select_R_from_base
 })
 
-export default connect( mapStateToProps, { set_convertor, update_convertor, set_rates, update_rates } )(Live);
+export default connect( mapStateToProps, { set_convertor, update_convertor, set_rates, update_rates, set_lastYear, update_lastYear } )(Live);

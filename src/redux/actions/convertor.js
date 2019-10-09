@@ -3,7 +3,7 @@ import { SET } from './utils/helper';
 
 export const set_convertor = () => SET({
   ENDPOINT: 'https://api.exchangeratesapi.io/latest?base=GBP',
-  SUCCESS_TYPE: CONVERTOR.SET,
+  SUCCESS_TYPE: CONVERTOR.UPDATE,
   ERROR_TYPE: CONVERTOR.ERROR,
   LOADING: CONVERTOR.LOADING_CONVERTOR,
   LOADED: CONVERTOR.LOADED_CONVERTOR

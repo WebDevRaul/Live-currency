@@ -14,16 +14,6 @@ const initialState = {
 const convertor = (state=initialState, action) => {
   const { payload } = action;
   switch(action.type) {
-    case CONVERTOR.SET:
-      return {
-        ...state,
-        data: {
-          ...state.data,
-          rates: payload.rates,
-          from_base: payload.base,
-          date: payload.date
-        }
-      }
     case CONVERTOR.UPDATE:
       return {
         ...state,

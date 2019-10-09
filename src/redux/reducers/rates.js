@@ -5,7 +5,8 @@ const initialState = {
     rates: {},
     from_base: '',
     date: '',
-    to_base: 'EUR'
+    to_base: 'EUR',
+    lastYear: {}
   },
   isLoading: false,
   error: {}
@@ -14,7 +15,7 @@ const initialState = {
 const rates = (state=initialState, action) => {
   const { payload } = action;
   switch(action.type) {
-    case RATES.SET:
+    case RATES.UPDATE:
       return {
         ...state,
         data: {
@@ -24,14 +25,12 @@ const rates = (state=initialState, action) => {
           date: payload.end_at
         }
       }
-    case RATES.UPDATE:
+    case RATES.UPDATE_LAST_YEAR:
       return {
         ...state,
         data: {
           ...state.data,
-          rates: payload.rates,
-          from_base: payload.base,
-          date: payload.end_at
+          lastYear: payload.rates
         }
       }
     case RATES.FROM_RATES:
