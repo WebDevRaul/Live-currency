@@ -4,10 +4,20 @@ import Flag from 'react-world-flags';
 
 const Data = ({ data: { flag, country, currency, code  }}) => (
   <div className='data'>
-    <span><Flag code={flag} width={30} /></span>
-    <span>{country}</span>
-    <span>{currency}</span>
-    <span>{code}</span>
+    <div className='row no-gutters'>
+      <div className='col-5'>
+          <div className='row no-gutters'>
+            <div className='col-12 col-sm-2'>
+                <p><Flag code={flag} width={30} /></p>
+            </div>
+            <div className='col-12 col-sm-10'>
+              <p className='country'>{country}</p>
+            </div>
+          </div>    
+      </div>
+      <div className='col-5'><p className='keep-height'>{currency}</p></div>
+      <div className='col-2'><p className='keep-height'>{code}</p></div>
+    </div>
   </div>
 )
 

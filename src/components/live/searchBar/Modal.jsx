@@ -9,7 +9,7 @@ import StyledModal from './Styled_Modal';
 import Data from './Data';
 
 const Modal = ({ onClick, modal, arr }) => {
-  if(modal) return null;
+  if(!modal) return null;
   const { data } = addToCountry(arr);
   return (
     <StyledModal>
