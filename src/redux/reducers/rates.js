@@ -5,7 +5,6 @@ const initialState = {
     rates: {},
     from_base: '',
     date: '',
-    to_base: 'EUR',
     lastYear: {}
   },
   isLoading: false,

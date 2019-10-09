@@ -18,11 +18,11 @@ import StyledLive from './Styled_Live';
 class Live extends Component {
   componentDidMount() {
     // Set Convertor
-    // this.props.set_convertor();
+    this.props.set_convertor();
     // Set Rates
     // this.props.set_rates();
     // Set Last Year
-    this.props.set_lastYear();
+    // this.props.set_lastYear();
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -65,7 +65,14 @@ class Live extends Component {
 };
 
 Live.propTypes = {
-  
+  convertor: PropTypes.string.isRequired,
+  rates: PropTypes.string.isRequired,
+  set_convertor: PropTypes.func.isRequired,
+  update_convertor: PropTypes.func.isRequired,
+  set_rates: PropTypes.func.isRequired,
+  update_rates: PropTypes.func.isRequired,
+  set_lastYear: PropTypes.func.isRequired,
+  update_lastYear: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = createStructuredSelector({
