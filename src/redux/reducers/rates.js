@@ -3,8 +3,9 @@ import { RATES } from '../actions/types';
 const initialState = {
   data: {
     rates: {},
-    from_base: '',
+    from_base: 'GBP',
     date: '',
+    keys: ['RON', 'PHP'],
     lastYear: {}
   },
   isLoading: false,
