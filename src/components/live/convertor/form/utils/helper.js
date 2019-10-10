@@ -11,16 +11,17 @@ export const toFixed4Decimals = ({ value, multiply }) => {
   // Multiply
   const total = String(value * multiply);
 
+  console.log(total)
   // Check if any decimals
   if(!total.includes('.')) return result = total;
 
   // Split the result
   const _result = total.split('.');
   _number = _result[0];
-  _decimal = _result[1]
+  _decimal = _result[1];
 
   // return the result
-  result = _number + '.' + Number(String(_decimal).substr(0, 4));
+  result = _number + '.' + _decimal.substr(0, 4);
 
   return result;
 }
