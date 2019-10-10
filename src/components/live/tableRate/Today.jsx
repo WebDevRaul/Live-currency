@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { select_date, select_values_today } from '../../../redux/selectors/today';
+import { select_date_today, select_values_today } from '../../../redux/selectors/today';
 
 import Span from '../../common/span/Span';
 import Rate from './Rate';
@@ -23,7 +23,7 @@ Today.propTypes = {
 };
 
 const mapStateToProps = createStructuredSelector({
-  date: select_date,
+  date: select_date_today,
   arr: select_values_today
 });
 

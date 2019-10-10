@@ -18,7 +18,7 @@ import StyledLive from './Styled_Live';
 class Live extends Component {
   componentDidMount() {
     // Set Convertor
-    // this.props.set_convertor();
+    this.props.set_convertor();
     // Set Rates
     this.props.set_rates();
     // Set Last Year

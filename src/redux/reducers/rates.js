@@ -4,7 +4,8 @@ const initialState = {
   data: {
     rates: {},
     from_base: 'GBP',
-    date: '',
+    start_at: '',
+    end_at: '',
     keys: ['RON', 'PHP'],
     lastYear: {}
   },
@@ -22,7 +23,8 @@ const rates = (state=initialState, action) => {
           ...state.data,
           rates: payload.rates,
           from_base: payload.base,
-          date: payload.end_at
+          start_at: payload.start_at,
+          end_at: payload.end_at
         }
       }
     case RATES.UPDATE_LAST_YEAR:
