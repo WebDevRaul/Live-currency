@@ -1,13 +1,18 @@
 export const toFixedOne = ({ rates, to_base }) => {
-  if(!!!rates) return null;
   // Filter for to value
   const arr =  Object.entries(rates).filter(i => i[0] === to_base);
 
   // extract the value
   const value = arr.map(i => i[1]);
+  const data = String(value[0]);
+  if(!data.includes('.')) return data;
 
-  // return 4 decimals (return String because <Span /> require string as prop)
-  return String(Number(value[0]).toFixed(4))
+  // Split the data
+  const result = data.split('.');
+  const number = result[0];
+  const decimals = result[1];
+
+  return number+'.'+decimals.substr(0,4)
 };
 
 export const toFixedFuncArr = data => {
