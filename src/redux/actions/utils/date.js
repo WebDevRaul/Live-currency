@@ -27,4 +27,4 @@ export const TODAY = getToday(date);
 export const DAY_BEFORE = getDay(date);
 export const TWO_DAYS_BEFORE = getDay(date);
 export const TREE_DAYS_BEFORE = getDay(date);
-export const LAST_YEAR = getYear(date);
+export const LAST_YEAR = getYear(new Date(TODAY));

@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { findTo, findKeys } from '../utils/live';
+import { toFixedOne, findKeys } from '../utils/live';
 
 const select_convertor_state = state => state.convertor.data;
 const select_state = state => state.convertor;
@@ -26,7 +26,7 @@ export const select_to_base = createSelector(
 
 export const select_value = createSelector(
   [select_convertor_state],
-  data => findTo(data)
+  data => toFixedOne(data)
 );
 
 export const select_keys = createSelector(

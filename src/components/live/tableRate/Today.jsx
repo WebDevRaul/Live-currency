@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { select_date_today, select_values_today } from '../../../redux/selectors/today';
+import { select_date_today, select_values_today } from '../../../redux/selectors/rates';
 
 import Span from '../../common/span/Span';
 import Rate from './Rate';

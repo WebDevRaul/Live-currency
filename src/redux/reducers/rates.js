@@ -7,7 +7,8 @@ const initialState = {
     start_at: '',
     end_at: '',
     keys: ['RON', 'PHP'],
-    lastYear: {}
+    lastYear: {},
+    year_at: ''
   },
   isLoading: false,
   error: {}
@@ -32,7 +33,8 @@ const rates = (state=initialState, action) => {
         ...state,
         data: {
           ...state.data,
-          lastYear: payload.rates
+          lastYear: payload.rates,
+          year_at: payload.start_at
         }
       }
     case RATES.FROM_RATES:
