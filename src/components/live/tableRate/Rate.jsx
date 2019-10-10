@@ -10,7 +10,7 @@ const Rate = ({ name, value }) => (
 
 Rate.propTypes = {
   name: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired
+  value: PropTypes.string.isRequired
 }
 
 export default Rate;

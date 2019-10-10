@@ -15,13 +15,30 @@ export const toFixedOne = ({ rates, to_base }) => {
   return number+'.'+decimals.substr(0,4)
 };
 
-export const toFixedFuncArr = data => {
-  if(!!!data) return null;
-  let result = [];
-  data.map(i => {
-    return result.push([i[0], i[1].toFixed(4)])
-  })
-  return result
+export const toFixedFuncArr = ({ row, data: { rates, keys } }) => {
+  // Select array index
+  const arr = Object.values(rates)[row];
+  if(!!!arr) return null;
+  let response = []
+  
+  keys.map((el, index) => {
+    response.push([el, arr[`${keys[index]}`]])
+  });
+  // const nestedArr = keys.map(el =>  Object.entries(arr).filter(i => i[0].indexOf(el) !== -1))
+  // const flattened = [].concat.apply([],nestedArr);
+  // return flattened;
+
+  const toFixedFunc = response.map(i => {
+    const key = i[0];
+    const value = i[1];
+    const data = String(value).split('.');
+    const number = data[0];
+    const decimals = data[1];
+    const result = number+'.'+decimals.substr(0,4);
+    return [key, result]
+  });
+  
+  return toFixedFunc;
 }
 
 export const findKeys = data => {

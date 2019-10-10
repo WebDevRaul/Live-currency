@@ -26,7 +26,7 @@ export const select_date_today = createSelector(
 
 export const select_values_today = createSelector(
   [select_rates_state],
-  data => findArr({ data, row: 0 })
+  data => toFixedFuncArr({ data, row: 0 })
 );
 
 export const select_date_dayBefore = createSelector(
@@ -36,7 +36,7 @@ export const select_date_dayBefore = createSelector(
 
 export const select_values_dayBefore = createSelector(
   [select_rates_state],
-  data => toFixedFuncArr(findArr({ data, row: 1 }))
+  data => toFixedFuncArr({ data, row: 1 })
 );
 
 export const select_date_lastYear = createSelector(
