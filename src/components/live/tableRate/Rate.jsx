@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Rate = ({ name, value }) => (
   <div className='rate'>
     <p>{name} :</p>
-    <span>{value}</span>
+    <p>{value}</p>
   </div>
 )
 

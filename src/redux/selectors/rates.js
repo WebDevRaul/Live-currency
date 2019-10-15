@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { findKeys, findArr, toFixedFuncArr } from '../utils/live';
+import { findKeys, toFixedFuncArr } from '../utils/live';
 
 const select_rates_state = state => state.rates.data;
 const select_state = state => state.rates;
@@ -46,5 +46,5 @@ export const select_date_lastYear = createSelector(
 
 export const select_values_lastYear = createSelector(
   [select_rates_state],
-  data => findArr({ data: { keys: data.keys, rates: Object.values(data.lastYear) }, row: 0 })
+  data => toFixedFuncArr({ data: { keys: data.keys, rates: Object.values(data.lastYear) }, row: 0 })
 );
