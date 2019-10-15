@@ -6,6 +6,7 @@ import { select_date_lastYear, select_values_lastYear, select_isLoading_lastYear
 
 import Span from '../../common/span/Span';
 import Rate from './Rate';
+import NoData from './NoData';
 
 const LastYear = ({ date, arr, isLoading }) => {
   if(isLoading) return <>is loading</>;
@@ -15,7 +16,7 @@ const LastYear = ({ date, arr, isLoading }) => {
       {
         !!arr
         ? arr.map(i => <Rate key={i} name={i[0]} value={i[1]} />)
-        : <p>no data</p>
+        : <NoData />
       }
     </>
   )

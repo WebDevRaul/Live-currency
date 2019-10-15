@@ -6,6 +6,7 @@ import { select_date_dayBefore, select_values_dayBefore, select_isLoading } from
 
 import Span from '../../common/span/Span';
 import Rate from './Rate';
+import NoData from './NoData';
 
 const DayBefore = ({ date, arr, isLoading }) => {
   if(isLoading) return <>is loading</>;
@@ -15,7 +16,7 @@ const DayBefore = ({ date, arr, isLoading }) => {
       {
         !!arr
         ? arr.map(i => <Rate key={i} name={i[0]} value={i[1]} />)
-        : <p>no data</p>
+        : <NoData />
       }
     </>
   )

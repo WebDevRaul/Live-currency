@@ -13,6 +13,16 @@ const StyledTableRate = styled.section`
       margin-left: calc(100% / 3.3);
       font-size: 1.2rem;
     }
+    .no-data {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h5 {
+        margin: 0px;
+        text-transform: uppercase;
+      }
+    }
   }
 `
 

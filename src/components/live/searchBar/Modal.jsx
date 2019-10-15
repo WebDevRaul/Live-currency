@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { select_keys } from '../../../redux/selectors/rates';
+import { select_keys, select_isLoading } from '../../../redux/selectors/convertor';
 import addToCountry from './utils/addCountry';
 
 import StyledModal from './Styled_Modal';
 import Data from './Data';
 
-const Modal = ({ onClick, modal, arr }) => {
-  if(!modal) return null;
+const Modal = ({ onClick, modal, arr, isLoading }) => {
+  if(isLoading || !modal) return null;
   const { data } = addToCountry(arr);
   return (
     <StyledModal>
@@ -30,11 +30,13 @@ const Modal = ({ onClick, modal, arr }) => {
 Modal.propTypes = {
   onClick: PropTypes.func.isRequired,
   modal: PropTypes.bool.isRequired,
-  arr: PropTypes.array.isRequired
+  arr: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = createStructuredSelector({
-  arr: select_keys
+  arr: select_keys,
+  isLoading: select_isLoading
 });
 
 export default connect( mapStateToProps, null )(Modal);
