@@ -43,3 +43,8 @@ export const set_from_base = data => ({
   type: RATES.FROM_RATES,
   payload: data
 });
+
+export const add_rate = data => ({
+  type: RATES.ADD_RATE,
+  payload: data
+})

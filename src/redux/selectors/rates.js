@@ -10,6 +10,11 @@ export const select_R_from_base = createSelector(
   data => data.from_base
 );
 
+export const select_keys = createSelector(
+  [select_state],
+  data => data.keys
+);
+
 // TODAY
 export const select_date_today = createSelector(
   [select_rates_state],

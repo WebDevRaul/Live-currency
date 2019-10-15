@@ -48,6 +48,11 @@ const rates = (state=initialState, action) => {
           from_base: payload
         }
       }
+    case RATES.ADD_RATE:
+      return {
+        ...state,
+        keys: [...state.keys, payload]
+      }
     case RATES.LOADING_RATES:
       return {
         ...state,
