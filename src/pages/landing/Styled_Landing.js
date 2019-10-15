@@ -43,9 +43,9 @@ const StyledLanding = styled.div`
         -webkit-transform:translateX(100%);	
         transform:translateX(100%);
         /* Apply animation to this element */	
-        -moz-animation: scroll-left 8s linear infinite;
-        -webkit-animation: scroll-left 8s linear infinite;
-        animation: scroll-left 8s linear infinite;
+        -moz-animation: scroll-left 20s linear infinite;
+        -webkit-animation: scroll-left 20s linear infinite;
+        animation: scroll-left 20s linear infinite;
       }
     }
 
@@ -61,23 +61,14 @@ const StyledLanding = styled.div`
     .landing {
       .info {
         p {
-          -moz-animation: scroll-left 20s linear infinite;
-          -webkit-animation: scroll-left 20s linear infinite;
-          animation: scroll-left 20s linear infinite;
+          -moz-animation: scroll-left 8s linear infinite;
+          -webkit-animation: scroll-left 8s linear infinite;
+          animation: scroll-left 8s linear infinite;
         }
       }
     }
   }
 
-  /* Move it (define the animation) */
-  /* @-moz-keyframes scroll-left {
-    0%   { -moz-transform: translateX(100%); }
-    100% { -moz-transform: translateX(-100%); }
-  }
-  @-webkit-keyframes scroll-left {
-    0%   { -webkit-transform: translateX(100%); }
-    100% { -webkit-transform: translateX(-100%); }
-  } */
   @keyframes scroll-left {
     0% { 
     -moz-transform: translateX(100%);

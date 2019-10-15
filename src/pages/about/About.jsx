@@ -1,7 +1,7 @@
 import React from 'react';
-import { oldProject, newProject } from './utils/project';
+import { oldProject, newProject } from '../../components/about/utils/project';
 
-import Project from './Project';
+import Project from '../../components/about/Project';
 
 import StyledAbout from './Styled_About';
 

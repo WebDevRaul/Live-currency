@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 import CustomButton from '../../components/common/button/CustomButton';
-import InfoText from './InfoText';
+import InfoText from '../../components/landing/InfoText';
 
 import StyledLanding from './Styled_Landing';
 
