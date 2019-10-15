@@ -13,11 +13,13 @@ const Today = ({ date, arr, isLoading }) => {
   return (
     <>
       <Span text={date} />
-      {
-        !!arr
-        ? arr.map(i => <Rate key={i} name={i[0]} value={i[1]} />)
-        : <NoData />
-      }
+      <div className='data'>
+        {
+          !!arr
+          ? arr.map(i => <Rate key={i} name={i[0]} value={i[1]} />)
+          : <NoData />
+        }
+      </div>
     </>
   )
 }
