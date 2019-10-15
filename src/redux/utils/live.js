@@ -1,3 +1,5 @@
+import isEmpty from '../../components/common/isEmpty/isEmpty';
+
 export const toFixedOne = ({ rates, to_base }) => {
   // Filter for to value
   const arr =  Object.entries(rates).filter(i => i[0] === to_base);
@@ -15,9 +17,11 @@ export const toFixedOne = ({ rates, to_base }) => {
   return number+'.'+decimals.substr(0,4)
 };
 
-export const toFixedFuncArr = ({ row, data: { rates, keys } }) => {
+export const toFixedFuncArr = ({ rates, keys, row }) => {
+  if(isEmpty(rates)) return null;
   // Select array index
   const arr = Object.values(rates)[row];
+  // Check row[1]
   if(!!!arr) return null;
   let response = []
   

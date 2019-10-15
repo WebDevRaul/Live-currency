@@ -21,7 +21,7 @@ const newProject = [
     text: 'Redux',
   },
   {
-    text: 'Async/await',
+    text: 'Axios & Async/await',
   },
   {
     text: 'styled-components',

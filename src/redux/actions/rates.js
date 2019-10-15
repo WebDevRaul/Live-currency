@@ -25,8 +25,8 @@ export const set_lastYear = () => GET_RATES_LAST_YEAR({
   ENDPOINT: `https://api.exchangeratesapi.io/history?start_at=${LAST_YEAR}&end_at=${LAST_YEAR}`,
   SUCCESS_TYPE: RATES.UPDATE_LAST_YEAR,
   ERROR_TYPE: RATES.ERROR,
-  LOADING: RATES.LOADING_RATES,
-  LOADED: RATES.LOADED_RATES
+  LOADING: RATES.LOADING_LAST_YEAR,
+  LOADED: RATES.LOADED_LAST_YEAR
 });
 
 export const update_lastYear = BASE => GET_RATES_LAST_YEAR({
@@ -34,8 +34,8 @@ export const update_lastYear = BASE => GET_RATES_LAST_YEAR({
   ENDPOINT: `https://api.exchangeratesapi.io/history?start_at=${LAST_YEAR}&end_at=${LAST_YEAR}`,
   SUCCESS_TYPE: RATES.UPDATE_LAST_YEAR,
   ERROR_TYPE: RATES.ERROR,
-  LOADING: RATES.LOADING_RATES,
-  LOADED: RATES.LOADED_RATES
+  LOADING: RATES.LOADING_LAST_YEAR,
+  LOADED: RATES.LOADED_LAST_YEAR
 });
 
 

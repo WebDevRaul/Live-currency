@@ -6,11 +6,14 @@ const initialState = {
     from_base: 'GBP',
     start_at: '',
     end_at: '',
-    keys: ['RON', 'PHP'],
-    lastYear: {},
-    year_at: ''
+    isLoading: false
   },
-  isLoading: false,
+  data_two: {
+    lastYear: {},
+    year_at: '',
+    isLoading: false,
+  },
+  keys: ['RON', 'PHP'],
   error: {}
 };
 
@@ -31,8 +34,8 @@ const rates = (state=initialState, action) => {
     case RATES.UPDATE_LAST_YEAR:
       return {
         ...state,
-        data: {
-          ...state.data,
+        data_two: {
+          ...state.data_two,
           lastYear: payload.rates,
           year_at: payload.start_at
         }
@@ -48,13 +51,37 @@ const rates = (state=initialState, action) => {
     case RATES.LOADING_RATES:
       return {
         ...state,
-        isLoading: payload
+        data: {
+          ...state.data,
+          isLoading: payload
+        }
       }
     case RATES.LOADED_RATES:
       return {
         ...state,
-        isLoading: payload
+        data: {
+          ...state.data,
+          isLoading: payload
+        }
       }
+    case RATES.LOADING_LAST_YEAR: {
+      return {
+        ...state,
+        data_two: {
+          ...state.data_two,
+          isLoading: payload
+        }
+      }
+    }
+    case RATES.LOADED_LAST_YEAR : {
+      return {
+        ...state,
+        data_two: {
+          ...state.data_two,
+          isLoading: payload
+        }
+      }
+    }
     case RATES.ERROR:
         return {
           ...state,
