@@ -57,5 +57,5 @@ export const select_isLoading_lastYear = createSelector(
 
 export const select_values_lastYear = createSelector(
   [select_state],
-  data => toFixedFuncArr({ rates: data.data_two.rates, keys: data.keys, row: 0 })
+  data => toFixedFuncArr({ rates: data.data_two.lastYear, keys: data.keys, row: 0 })
 );

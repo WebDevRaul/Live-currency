@@ -13,7 +13,7 @@ const initialState = {
     year_at: '',
     isLoading: false,
   },
-  keys: ['RON', 'PHP', 'ISK', 'DKK', 'SEK', 'RUB'],
+  keys: ['AUD', 'CAD', 'CHF', 'USD', 'RUB'],
   error: {}
 };
 

@@ -34,8 +34,9 @@ export const toFixedFuncArr = ({ rates, keys, row }) => {
 
   const toFixedFunc = response.map(i => {
     const key = i[0];
-    const value = i[1];
-    const data = String(value).split('.');
+    const value = String(i[1]);
+    if(!value.includes('.')) return [key, value];
+    const data = value.split('.');
     const number = data[0];
     const decimals = data[1];
     const result = number+'.'+decimals.substr(0,4);
