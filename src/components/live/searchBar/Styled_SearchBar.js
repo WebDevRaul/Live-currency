@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { primaryColor, mainWhite, mainTransition } from '../../../index.scss';
+import { primaryColor, mainWhite, mainTransition, secondaryColor } from '../../../index.scss';
 
 
 const StyledSearchBar = styled.section`
@@ -31,6 +31,16 @@ const StyledSearchBar = styled.section`
 
         &:hover {
           cursor: pointer;
+        }
+      }
+    }
+
+    .error {
+      input {
+        border-bottom-color: ${secondaryColor};
+        &::placeholder {
+          color: ${secondaryColor};
+          font-size: 1rem;
         }
       }
     }

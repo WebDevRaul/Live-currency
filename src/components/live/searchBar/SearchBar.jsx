@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { add_rate } from '../../../redux/actions/rates';
 import { createStructuredSelector } from 'reselect';
@@ -19,7 +20,12 @@ class SearchBar extends Component {
     error: ''
   }
 
-  onChange = e => this.setState({ value: e.target.value })
+  onChange = e => this.setState({ value: e.target.value });
+
+  onFocus = () => {
+    const { error } = this.state;
+    if(error.length > 1) this.setState({ error: '' })
+  }
 
   onSubmit = () => {
     const { value } = this.state;
@@ -31,7 +37,7 @@ class SearchBar extends Component {
 
     // Validate the value
     const { errors, isValid } = validateForm({ data, arr });
-    if(!isValid) return this.setState({ value: '', error: errors });
+    if(!isValid) return this.setState({ value: '', error: errors.search });
 
     // Submit the form
     this.props.add_rate(data);
@@ -47,7 +53,7 @@ class SearchBar extends Component {
     return (
       <StyledSearchBar click={click}>
         <div className='search-bar'>
-          <form noValidate>
+          <form noValidate className={classnames({ 'error': error })}>
             <input 
               className='search-input'
               autoComplete='off'
@@ -55,9 +61,9 @@ class SearchBar extends Component {
               list='list'
               value={value}
               onChange={this.onChange}
-              error = {error}
+              placeholder={error}
+              onFocus={this.onFocus}
             />
-            {console.log(error)}
             <Icon />
             <List value={value} />
           </form>
