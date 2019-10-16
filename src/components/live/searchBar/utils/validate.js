@@ -7,11 +7,11 @@ const validateForm = ({ data, arr }) => {
   // Check if Empty
   data = !isEmpty(data) ? data : '';
 
-  // Validate valid value
-  if(!arr.includes(data)) {
-    // if(arr.filter(i => i === value).length > 0)
-    errors.search = 'Enter a valid value!'
-  }
+  // Validate valid value array keys
+  // if(!arr.includes(data)) {
+  //   // if(arr.filter(i => i === value).length > 0)
+  //   errors.search = 'Enter a valid value!'
+  // }
 
   // Validate unique value
   if(arr.includes(data)) {
