@@ -10,6 +10,8 @@ custom select btns
 more mobile responsive on modal
 error when base is EUR and you have EUR in list
 reselect new base duplicate of base
-search validation
 new scroll bar for modal
 update read me
+
+
+search validation 

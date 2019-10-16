@@ -8,9 +8,9 @@ import { select_keys } from '../../../redux/selectors/rates';
 import CustomButton from '../../common/button/CustomButton';
 import List from './List';
 import Icon from './Icon';
+import validateForm from './utils/validate';
 
 import StyledSearchBar from './Styled_SearchBar';
-
 
 class SearchBar extends Component {
   state = {
@@ -24,12 +24,17 @@ class SearchBar extends Component {
   onSubmit = () => {
     const { value } = this.state;
     const { arr } = this.props;
+    const data  = String(value).toUpperCase();
+
     this.setState({ click: true });
     this.timer = setTimeout(() => this.setState({ click: false }), 300);
-    // Check form contained value
-    if(arr.includes(value)) return this.setState({ value: '' });
-    // if(arr.filter(i => i === value).length > 0) return this.setState({ value: '' });
-    this.props.add_rate(value);
+
+    // Validate the value
+    const { errors, isValid } = validateForm({ data, arr });
+    if(!isValid) return this.setState({ value: '', error: errors });
+
+    // Submit the form
+    this.props.add_rate(data);
     this.setState({ value: '' });
   }
 
@@ -52,6 +57,7 @@ class SearchBar extends Component {
               onChange={this.onChange}
               error = {error}
             />
+            {console.log(error)}
             <Icon />
             <List value={value} />
           </form>
