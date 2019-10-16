@@ -11,10 +11,10 @@ export const toFixedOne = ({ rates, to_base }) => {
 
   // Split the data
   const result = data.split('.');
-  const number = result[0];
-  const decimals = result[1];
 
-  return number+'.'+decimals.substr(0,4)
+  const [ number, decimals ] = result;
+
+  return number + '.' + decimals.substr(0,4)
 };
 
 export const toFixedFuncArr = ({ rates, keys, row }) => {
@@ -33,13 +33,15 @@ export const toFixedFuncArr = ({ rates, keys, row }) => {
   // return flattened;
 
   const toFixedFunc = response.map(i => {
-    const key = i[0];
-    const value = String(i[1]);
-    if(!value.includes('.')) return [key, value];
-    const data = value.split('.');
-    const number = data[0];
-    const decimals = data[1];
-    const result = number+'.'+decimals.substr(0,4);
+    const [ key, value ] = i;
+    const valueToString = String(value);
+
+    if(!valueToString.includes('.')) return [key, valueToString];
+    const float = valueToString.split('.');
+
+    const [number, decimals] = float;
+    const result = number + '.' + decimals.substr(0,4);
+
     return [key, result]
   });
   

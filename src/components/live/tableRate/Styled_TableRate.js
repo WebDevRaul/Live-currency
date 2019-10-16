@@ -4,6 +4,7 @@ import { primaryColor } from '../../../index.scss';
 const StyledTableRate = styled.section`
   .table-rate {
     margin-bottom: 50px;
+    min-height: 300px;
     span {
       display: flex;
       justify-content: center;
