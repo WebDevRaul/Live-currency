@@ -8,7 +8,7 @@ const StyledSearchBar = styled.section`
     justify-content: center;
     min-height: 58px;
 
-    form {
+    .form {
       position: relative;
       .search-input {
         z-index: -1;

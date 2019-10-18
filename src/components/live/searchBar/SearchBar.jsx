@@ -55,7 +55,7 @@ class SearchBar extends Component {
     return (
       <StyledSearchBar click={click}>
         <div className='search-bar'>
-          <form noValidate className={classnames({ 'error': error })}>
+          <div noValidate className={classnames('form', { 'error': error })}>
             <input 
               className='search-input'
               autoComplete='off'
@@ -68,7 +68,7 @@ class SearchBar extends Component {
             />
             <Icon />
             <List value={value} />
-          </form>
+          </div>
           <CustomButton value='search' isClass='submit' onClick={this.onSubmit} isLoading={false} />
         </div>
       </StyledSearchBar>

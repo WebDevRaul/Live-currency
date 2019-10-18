@@ -13,9 +13,9 @@ const Modal = ({ onClick, modal, arr, isLoading }) => {
   const { data } = addToCountry(arr);
   const myRef = React.createRef();
 
-  onClick = () => {
+  const onScroll = () => {
     // document.getElementById(id).scrollIntoView({ behavior: "smooth" })
-    myRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    myRef.current.scrollIntoView({ behavior: 'smooth' });
   }
 
   return (
@@ -27,7 +27,7 @@ const Modal = ({ onClick, modal, arr, isLoading }) => {
             {
               data.map((i, index) => <Data key={index} data={i} />)
             }
-            <div className='arrow' onClick={onClick}><i className="far fa-2x fa-arrow-alt-circle-up"></i></div>
+            <div className='arrow' onClick={onScroll}><i className="far fa-2x fa-arrow-alt-circle-up"></i></div>
           </div>
         </div>
       </div>
