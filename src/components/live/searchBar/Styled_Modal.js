@@ -12,14 +12,30 @@ const StyledModal = styled.div`
     background-color: rgba(0, 0, 0, 0.3);
     padding: 5% 10%;
     z-index: 50;
-    overflow-y: scroll;
+
+    &:hover {
+      cursor: default !important;
+    }
     
     .inner-modal {
+      height: 100%;
       position: relative;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 10px;
+        border-radius:10px;
+      } 
+      
+      &::-webkit-scrollbar-thumb {
+        background-color: ${primaryColor};
+        border-radius:10px;
+      }
 
       button{
         position: absolute;
-        right: 0;
+        right: 10px;
+        top: 10px;
         background-color: ${primaryColor};
         color: ${mainWhite};
         font-size: 1.3rem;

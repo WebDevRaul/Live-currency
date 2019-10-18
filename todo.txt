@@ -7,11 +7,10 @@ fix mobile view footer exit out of the page
 loading to fix the error in live (maybe loading on input value?(second 1));
 loading placeholder?
 custom select btns
-more mobile responsive on modal
 error when base is EUR and you have EUR in list
 reselect new base duplicate of base
-new scroll bar for modal
 update read me
 
 
-search validation 
+
+more mobile responsive on modal
