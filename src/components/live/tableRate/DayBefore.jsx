@@ -11,7 +11,7 @@ import NoData from './NoData';
 const DayBefore = ({ date, arr, isLoading }) => {
   if(isLoading) return <>is loading</>;
   return (
-    <>
+    <div className='wrapper'>
       <Span text={date} />
       <div className='data'>
         {
@@ -20,7 +20,7 @@ const DayBefore = ({ date, arr, isLoading }) => {
           : <NoData />
         }
       </div>
-    </>
+    </div>
   )
 }
 

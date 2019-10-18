@@ -1,37 +1,40 @@
 import styled from 'styled-components';
 import { primaryColor } from '../../../index.scss';
+import { device } from '../../../utils/devices';
 
 const StyledTableRate = styled.section`
   .table-rate {
-    margin-bottom: 50px;
-    min-height: 300px;
-    span {
+    min-height: 250px;
+    .wrapper {
+      min-height: 250px;
       display: flex;
-      justify-content: center;
-      font-size: 1.4rem;
-      margin: 10px 0 20px;
-    }
+      flex-direction: column;
 
-    .data {
-      height: 100%;
-      justify-content: center;
-      align-items: center;
-
-      .rate {
+      span {
+        margin: 10px auto 20px;
+        font-size: 1.4em;
+      }
+      .data {
         display: flex;
-        margin-left: calc((100% / 3.3) + 5px);
-        font-size: 1.2rem;
-        p {
-          margin-right: 5px;
-          
-          &:nth-child(2) {
-            color: ${primaryColor};
+        flex-direction: column;
+        margin: auto;
+
+        .rate {
+          display: flex;
+          margin: 0 auto;
+          font-size: 1.2em;
+          p {
+            &:nth-child(1) {
+              margin-right: 5px;
+            }
+            
+            &:nth-child(2) {
+              color: ${primaryColor};
+            }
           }
         }
       }
-
       .no-data {
-        height: 80%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -41,6 +44,17 @@ const StyledTableRate = styled.section`
           text-align: center;
         }
       }
+    }
+  }
+
+  @media ${device.tablet} {
+    .table-rate {
+      font-size: 0.8rem;
+    }
+  }
+  @media ${device.mobileM} {
+    .table-rate {
+      font-size: 0.6rem;
     }
   }
 `
