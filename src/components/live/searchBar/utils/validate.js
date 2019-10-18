@@ -1,21 +1,21 @@
 import Validator from 'validator';
 import isEmpty from '../../../common/isEmpty/isEmpty';
 
-const validateForm = ({ data, arr }) => {
+const validateForm = ({ data, arr, selected }) => {
   let errors = {};
 
   // Check if Empty
   data = !isEmpty(data) ? data : '';
 
   // Validate valid value array keys
-  // if(!arr.includes(data)) {
-  //   // if(arr.filter(i => i === value).length > 0)
-  //   errors.search = 'Enter a valid value!'
-  // }
+  if(!arr.includes(data)) {
+    // if(arr.filter(i => i === data).length > 0)
+    errors.search = 'Enter a valid value!'
+  }
 
   // Validate unique value
-  if(arr.includes(data)) {
-    // if(arr.filter(i => i === value).length > 0)
+  if(selected.includes(data)) {
+    if(arr.filter(i => i === data).length > 0)
     errors.search = 'Specified value exits!'
   }
 

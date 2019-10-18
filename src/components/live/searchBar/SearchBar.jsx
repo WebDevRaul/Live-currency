@@ -4,7 +4,8 @@ import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { add_rate } from '../../../redux/actions/rates';
 import { createStructuredSelector } from 'reselect';
-import { select_keys } from '../../../redux/selectors/rates';
+import { select_selected_keys } from '../../../redux/selectors/rates';
+import { select_keys } from '../../../redux/selectors/convertor';
 
 import CustomButton from '../../common/button/CustomButton';
 import List from './List';
@@ -29,14 +30,15 @@ class SearchBar extends Component {
 
   onSubmit = () => {
     const { value } = this.state;
-    const { arr } = this.props;
+    const { arr, selected } = this.props;
     const data  = String(value).toUpperCase();
 
+    // Button animation
     this.setState({ click: true });
     this.timer = setTimeout(() => this.setState({ click: false }), 300);
 
     // Validate the value
-    const { errors, isValid } = validateForm({ data, arr });
+    const { errors, isValid } = validateForm({ data, arr, selected });
     if(!isValid) return this.setState({ value: '', error: errors.search });
 
     // Submit the form
@@ -76,11 +78,13 @@ class SearchBar extends Component {
 
 SearchBar.propTypes = {
   add_rate: PropTypes.func.isRequired,
-  arr: PropTypes.array.isRequired
+  arr: PropTypes.array.isRequired,
+  selected: PropTypes.array.isRequired
 };
 
 const mapStateToProps = createStructuredSelector({
-  arr: select_keys
+  arr: select_keys,
+  selected: select_selected_keys
 })
 
 export default connect( mapStateToProps, { add_rate } )(SearchBar);

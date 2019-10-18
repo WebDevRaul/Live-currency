@@ -10,7 +10,7 @@ export const select_R_from_base = createSelector(
   data => data.from_base
 );
 
-export const select_keys = createSelector(
+export const select_selected_keys = createSelector(
   [select_state],
   data => data.keys
 );
