@@ -6,23 +6,23 @@ import Landing from './pages/landing/Landing';
 import About from './pages/about/About';
 import Live from './pages/live/Live';
 import Footer from './layout/footer/Footer';
+import NotFound from './components/not_Found/NotFound';
 
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <Switch>
-          <>
-            <div className='container'>
-              <Navbar />
-              <Route  exact path='/' component={Landing} />
-              <Route  exact path='/about' component={About} />
-              <Route  exact path='/live' component={Live} />
-              <Footer />
-            </div>
-          </>
-        </Switch>
+        <div className='container'>
+          <Navbar />
+          <Switch>
+            <Route  exact path='/' component={Landing} />
+            <Route  exact path='/about' component={About} />
+            <Route  exact path='/live' component={Live} />
+            <Route  path='*' component={NotFound} />
+          </Switch>
+          <Footer />
+        </div>
       </Router>
     );
   }
