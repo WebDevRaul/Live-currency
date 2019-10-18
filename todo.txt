@@ -12,5 +12,3 @@ reselect new base duplicate of base
 update read me
 
 
-
-more mobile responsive on modal

@@ -8,15 +8,19 @@ const Data = ({ data: { flag, country, currency, code  }}) => (
       <div className='col-5'>
           <div className='row no-gutters'>
             <div className='col-12 col-sm-2'>
-                <p><Flag code={flag} width={30} /></p>
+                <div className='flag'>
+                  <spam><Flag code={flag} width={30} /></spam>
+                </div>
             </div>
             <div className='col-12 col-sm-10'>
-              <p className='country'>{country}</p>
+              <div className='country'>
+                <span>{country}</span>
+              </div>
             </div>
           </div>    
       </div>
-      <div className='col-5'><p className='keep-height'>{currency}</p></div>
-      <div className='col-2'><p className='keep-height'>{code}</p></div>
+      <div className='col-5'><div className='currency'><span>{currency}</span></div></div>
+      <div className='col-2'><div className='code'><span>{code}</span></div></div>
     </div>
   </div>
 )

@@ -32,7 +32,7 @@ const StyledModal = styled.div`
         border-radius:10px;
       }
 
-      button{
+      button {
         position: absolute;
         right: 10px;
         top: 10px;
@@ -52,6 +52,7 @@ const StyledModal = styled.div`
           color: ${primaryColor};
         }
       }
+      
       .list {
         display: flex;
         flex-direction: column;
@@ -66,16 +67,52 @@ const StyledModal = styled.div`
           background-color: ${mainWhite};
           border-radius: ${mainBorderRadius};
 
-          p {
+          .flag, .country, .currency, .code {
             height: 60px;
-            display: flex;
-            text-align: center;
-            align-items: center;
-            margin-bottom: 0px;
+            
+            span, img {
+              display: flex;
+              align-items: center;
+              height: 100%;
+            }
           }
-          .country {
+          .code {
+            display: flex;
+            justify-content: flex-end;
+          }
+        }
+      }
+    }
+  }
+  @media ${device.tablet} {
+    .modal {
+      .data {
+        .flag, .country, .currency, .code {
+          font-size: .9em !important;
+        }
+        .country, .currency {
+          span {
             margin-left: 10px;
           }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .modal {
+      .data {
+        .flag, .country {
+          height: 30px !important;
+        }
+        .country {
+          font-size: .5em !important;
+        }
+        .flag, .currency, .code {
+          font-size: .7em !important;
+        }
+        span {
+          margin: 0px !important;
         }
       }
     }
@@ -84,29 +121,15 @@ const StyledModal = styled.div`
   @media ${device.mobileL} {
     .modal {
       .data {
-        font-size: 0.7rem !important;
-      }
-    }
-  }
-  @media (max-width: 576px) {
-    .modal {
-      .data {
-        p {
-          height: 30px!important;
+        .flag, .country {
+          height: 30px !important;
         }
         .country {
-          margin-left: 0px !important;
+          font-size: .4em !important;
         }
-        .keep-height {
-          height: 60px !important;
+        .flag, .currency, .code {
+          font-size: .5em !important;
         }
-      }
-    }
-  }
-  @media ${device.tablet} {
-    .modal {
-      .data {
-        font-size: 1rem !important;
       }
     }
   }

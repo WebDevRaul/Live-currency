@@ -21,6 +21,7 @@ const Modal = ({ onClick, modal, arr, isLoading }) => {
               data.map((i, index) => <Data key={index} data={i} />)
             }
           </div>
+          <button className='buttom' onClick={onClick}>close</button>
         </div>
       </div>
     </StyledModal>
