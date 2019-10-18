@@ -3,7 +3,7 @@ import Modal from './Modal';
 
 class Icon extends Component {
   state = {
-    modal: true
+    modal: false
   }
 
   onClick = () => {

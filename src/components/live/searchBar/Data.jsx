@@ -9,7 +9,7 @@ const Data = ({ data: { flag, country, currency, code  }}) => (
           <div className='row no-gutters'>
             <div className='col-12 col-sm-2'>
                 <div className='flag'>
-                  <spam><Flag code={flag} width={30} /></spam>
+                  <span><Flag code={flag} width={30} /></span>
                 </div>
             </div>
             <div className='col-12 col-sm-10'>

@@ -11,17 +11,24 @@ import Data from './Data';
 const Modal = ({ onClick, modal, arr, isLoading }) => {
   if(isLoading || !modal) return null;
   const { data } = addToCountry(arr);
+  const myRef = React.createRef();
+
+  onClick = () => {
+    // document.getElementById(id).scrollIntoView({ behavior: "smooth" })
+    myRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
   return (
     <StyledModal>
       <div className='modal'>
         <div className='inner-modal'>
-          <button onClick={onClick}>close</button>
+          <button onClick={onClick} ref={myRef}>close</button>
           <div className='list'>
             {
               data.map((i, index) => <Data key={index} data={i} />)
             }
+            <div className='arrow' onClick={onClick}><i className="far fa-2x fa-arrow-alt-circle-up"></i></div>
           </div>
-          <button className='buttom' onClick={onClick}>close</button>
         </div>
       </div>
     </StyledModal>

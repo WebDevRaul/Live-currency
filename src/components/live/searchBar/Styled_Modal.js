@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { primaryColor, mainWhite, mainBorderRadius, mainSpacing } from '../../../index.scss';
+import { primaryColor, secondaryColor, mainWhite, mainBorderRadius, mainSpacing } from '../../../index.scss';
 import { device } from '../../../utils/devices';
 
 const StyledModal = styled.div`
@@ -59,6 +59,21 @@ const StyledModal = styled.div`
         background-color: grey;
         padding: 60px 10px 10px 10px;
         border-radius: ${mainBorderRadius};
+
+        .arrow {
+          display: flex;
+          justify-content: flex-end;
+          margin-right: 10px;
+          z-index: 20;
+          i {
+            margin: 5px;
+
+            &:hover {
+              cursor: pointer;
+              color: ${secondaryColor};
+            }
+          }
+        }
 
         .data {
           font-size: 1.3rem;
