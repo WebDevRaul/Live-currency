@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { bootstrap } from '../../utils/devices';
 import { mainTransition, mainSpacing, primaryColor, secondaryColor } from '../../index.scss';
 
 const mixin = () => `
@@ -86,7 +87,7 @@ const StyledNavbar = styled.div`
   }
 }
 
-@media screen and (max-width: 992px) {
+@media ${bootstrap.lg}{
   .navbar {
 
     .nav-wrapper {

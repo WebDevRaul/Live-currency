@@ -13,7 +13,9 @@ const StyledAbout = styled.section`
     .info {
       margin: 20px 0;
       p {
-        margin-bottom: 0px;
+        &:nth-child(2) {
+          text-align: center;
+        }
       }
       a {
         color: ${primaryColor};
