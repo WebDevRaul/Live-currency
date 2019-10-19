@@ -6,7 +6,7 @@ import Landing from './pages/landing/Landing';
 import About from './pages/about/About';
 import Live from './pages/live/Live';
 import Footer from './layout/footer/Footer';
-import NotFound from './components/not_Found/NotFound';
+import NotFound from './pages/notFound/NotFound';
 
 
 class App extends Component {

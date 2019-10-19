@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import CustomButton from '../common/button/CustomButton';
+import CustomButton from '../../components/common/button/CustomButton';
 
 import StyledNotFound from './Styled_NotFound';
 
