@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { portrait } from '../../../utils/devices';
 import { primaryColor, mainBorderRadius } from '../../../index.scss';
 
 const StyledConvertor = styled.section`
@@ -12,16 +13,20 @@ const StyledConvertor = styled.section`
 
     .base {
       text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      margin: 5px 0;
       span {
+        font-size: 1em;
+        margin: 0 6px;
+      }
+      h1 {
+        font-size: 1.2em;
+        margin: 0 6px;
+
         &:nth-child(1) {
-        font-size: 40px;
-        }
-        &:nth-child(2), &:nth-child(5) {
-          font-size: 25px;
-          padding: 0 0 0 10px;
-        }
-        &:nth-child(3) {
-          padding: 0 10px;
+          font-size: 2em;
         }
       }
     }
@@ -33,6 +38,40 @@ const StyledConvertor = styled.section`
       .children {
         display: flex;
         justify-content: center;
+      }
+    }
+  }
+
+  @media ${portrait.laptop} {
+    .convertor {
+      .base {
+        span {
+          margin: 0 4px;
+          font-size: .7em;
+        }
+        h1 {
+          margin: 0 4px;
+          font-size: .9em;
+        }
+      }
+      .form {
+        .form-input {
+          width: 90%;
+        }
+      }
+    }
+  }
+
+  @media ${portrait.mobileL} {
+    .convertor {
+      .form {
+        .form-input {
+          width: 90%;
+        }
+        .custom-select {
+          background: none;
+          padding: 0px;
+        }
       }
     }
   }

@@ -2,6 +2,7 @@
 
 $primaryColor: rgb(145, 121, 40);
 $secondaryColor: rgb(252, 5, 5);
+$textColor: rgb(71, 79, 86);
 $backgroundColor: rgb(201, 248, 201);
 $mainWhite: #fff;
 $mainBlack: #222;
@@ -26,7 +27,7 @@ $mainTransition: all 0.3s linear;
 
 body {
   font-family: "Lato", sans-serif;
-  color: $mainBlack;
+  color: $textColor;
   background: $mainWhite;
   line-height: 1.4;
   font-size: 1rem;
@@ -37,7 +38,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Poppins", sans-serif;
   margin-bottom: 1.25rem;
   letter-spacing: $mainSpacing;
 }

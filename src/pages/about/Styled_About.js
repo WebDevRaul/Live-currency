@@ -3,7 +3,7 @@ import { primaryColor, secondaryColor } from '../../index.scss';
 
 const StyledAbout = styled.section`
   .about {
-    min-height: calc(100vh - 230px);
+    min-height: calc(100vh - 235px);
     display: flex;
     flex-direction: column;
     align-items: center;

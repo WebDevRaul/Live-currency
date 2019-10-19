@@ -6,14 +6,15 @@ import { select_C_from_base, select_to_base, select_value, select_isLoading } fr
 
 import Span from '../../../common/span/Span';
 import Spinner from '../../../common/spinner/Spinner';
+import Title from '../../../common/title/Title';
 
 const Base = ({ from_base, to_base, value, isLoading }) => (
   <>
-    <Span text={'1'}/>
-    <Span text={from_base}/>
+    <Title text={'1'} />
+    <Title text={from_base}/>
     <Span text={'is'}/>
     {isLoading ? <Spinner /> : <Span text={value}/>}
-    <Span text={to_base}/>
+    <Title text={to_base}/>
   </>
 );
 

@@ -5,7 +5,7 @@ const StyledSelect = styled.div`
   .custom-select {
     border: none !important;
     background-color: rgba(245, 245, 245, 0.5);
-    padding: 0px;
+    padding: 0 10px 0 0;
     margin: 10px;
     text-align: center;
     vertical-align: none;

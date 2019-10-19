@@ -11,7 +11,7 @@ const Convertor = () => (
   <StyledConvertor>
     <div className='convertor'>
       <div className='row no-gutters'>
-        <div className='col col-md-5 m-auto'>
+        <div className='col-12 col-md-5 m-auto'>
           <div className='date'>
             <Date />
           </div>
@@ -19,7 +19,7 @@ const Convertor = () => (
             <Base />
           </div>
         </div>
-        <div className='col col-md-7 m-auto'>
+        <div className='col-12 col-md-7 m-auto'>
           <div className='form'>
             <Form />
           </div>
