@@ -28,11 +28,11 @@ class Live extends Component {
   componentDidUpdate(prevProps, prevState) {
     const { convertor, update_convertor, rates, update_rates, update_lastYear } = this.props;
     // Update Convertor
-    if(convertor !== prevProps.convertor && convertor !== 'GBP') update_convertor(convertor);
+    if(convertor !== prevProps.convertor) update_convertor(convertor);
     // Update Rates
-    if(rates !== prevProps.rates && rates !== 'GBP') update_rates(rates);
+    if(rates !== prevProps.rates) update_rates(rates);
     // Update Last Year
-    if(rates !== prevProps.rates && rates !== 'GBP') update_lastYear(rates);
+    if(rates !== prevProps.rates) update_lastYear(rates);
   }
   
 

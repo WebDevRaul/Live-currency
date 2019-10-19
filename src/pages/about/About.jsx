@@ -1,6 +1,5 @@
 import React from 'react';
 import { oldProject, newProject } from '../../components/about/utils/project';
-
 import Project from '../../components/about/Project';
 
 import StyledAbout from './Styled_About';

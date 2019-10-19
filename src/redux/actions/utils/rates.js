@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { DAY_BEFORE, TWO_DAYS_BEFORE, TREE_DAYS_BEFORE } from './date';
+import { TODAY, DAY_BEFORE, TWO_DAYS_BEFORE, TREE_DAYS_BEFORE } from './date';
 import isEmpty from '../../../components/common/isEmpty/isEmpty';
 
 const HISTORY = `https://api.exchangeratesapi.io/history?`;
@@ -25,8 +25,9 @@ export const GET_RATES = ({
       dispatch({ type: LOADING, payload: true });
       const response = await axios.get(`${ENDPOINT}&base=${BASE}`);
       const success = response.data;
+      const DAY = Object.keys(success.rates);
       // If response is empty
-      if(await isEmpty(success.rates)) {
+      if(await isEmpty(success.rates) || DAY !== TODAY) {
         const response = await axios.get(`${HISTORY}start_at=${TWO_DAYS_BEFORE}&end_at=${DAY_BEFORE}&base=${BASE}`);
         const success = response.data;
         // if response is empty

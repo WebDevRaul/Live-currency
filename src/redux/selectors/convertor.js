@@ -31,7 +31,7 @@ export const select_value = createSelector(
 
 export const select_keys = createSelector(
   [select_convertor_state],
-  data => findKeys(data.rates)
+  data => findKeys(data.rates).sort()
 );
 
 export const select_isLoading = createSelector(

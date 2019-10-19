@@ -2,7 +2,7 @@ const date = new Date();
 const hour = date.getHours();
 let update = 0;
 
-if(hour < 16 || hour > 24) update = 1;
+if(hour < 17 || hour > 24) update = 1;
 
 const getToday = value => {
   const seconds = value.setDate(value.getDate() - update);
