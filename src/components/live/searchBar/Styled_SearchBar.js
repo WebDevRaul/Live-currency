@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { portrait } from '../../../utils/devices';
 import { primaryColor, mainWhite, mainTransition, secondaryColor } from '../../../index.scss';
 
 
@@ -7,7 +8,6 @@ const StyledSearchBar = styled.section`
     display: flex;
     justify-content: center;
     min-height: 58px;
-
     .form {
       position: relative;
       .search-input {
@@ -18,7 +18,6 @@ const StyledSearchBar = styled.section`
         margin-top: 10px;
         font-size: 1.3rem;
         padding-right: 10px;
-
         &:focus {
           outline: none;
         }
@@ -28,13 +27,11 @@ const StyledSearchBar = styled.section`
         bottom: 25px;
         right: 5px;
         z-index: 20;
-
         &:hover {
           cursor: pointer;
         }
       }
     }
-
     .error {
       input {
         border-bottom-color: ${secondaryColor};
@@ -44,7 +41,6 @@ const StyledSearchBar = styled.section`
         }
       }
     }
-
     .custom-button {
       position: relative;
       background-color: ${mainWhite};
@@ -52,11 +48,9 @@ const StyledSearchBar = styled.section`
       min-width: 0;
       font-size: 1.1rem;
       padding: 0px !important;
-
       &:hover {
         border: none;
       }
-
       &::before {
         content: '';
         position: absolute;
@@ -71,11 +65,23 @@ const StyledSearchBar = styled.section`
         transition: transform .3s;
       }
     }
-    
     .submit {
       margin: 0 20px;
       transition: ${mainTransition};
       text-shadow: ${props => props.click ? '0.1px 0.1px 0.1px' : '5px 5px 5px'}${primaryColor}; 
+    }
+  }
+
+  @media ${portrait.mobileL} {
+    .search-bar {
+      .custom-button {
+        margin: 0 0 0 10px;
+      }
+      .form {
+        .search-input {
+          width: 90%;
+        }
+      }
     }
   }
 `

@@ -47,16 +47,57 @@ const StyledTableRate = styled.section`
     }
   }
 
-  /* @media ${portrait.tablet} {
+  @media ${portrait.tablet} {
     .table-rate {
-      font-size: 0.8rem;
+      .wrapper {
+        span {
+          font-size: 1.2em;
+        }
+        .data {
+          .rate {
+            p {
+              font-size: .9em;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media ${portrait.mobileL} {
+    .table-rate {
+      .wrapper {
+        span {
+          font-size: 1.1em;
+        }
+        .data {
+          .rate {
+            p {
+              font-size: .8em;
+            }
+          }
+        }
+      }
     }
   }
   @media ${portrait.mobileM} {
     .table-rate {
-      font-size: 0.6rem;
+      .wrapper {
+        span {
+          font-size: .9em;
+        }
+        .data {
+          .rate {
+            p {
+              font-size: .6em;
+              &:nth-child(1) {
+                margin-right: 3px;
+              }
+            }
+          }
+        }
+      }
     }
-  } */
+  }
 `
 
 export default StyledTableRate;

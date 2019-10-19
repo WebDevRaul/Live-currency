@@ -46,14 +46,14 @@ class Live extends Component {
             </div>
           </div>
           <div className='row no-gutters'>
-            <div className='col-12 col-sm-6'>
+            <div className='col-12 col-md-6'>
               <SelectRate />
             </div>
-            <div className='col-12 col-sm-6'>
+            <div className='col-12 col-md-6'>
               <SearchBar />
             </div>
           </div>
-          <div className='row no-gutters'>
+          <div className='row no-gutters test'>
             <div className='col'>
               <TableRate />
             </div>
