@@ -1,20 +1,27 @@
-const size = {
-  mobileS: '320px',
-  mobileM: '375px',
-  mobileL: '425px',
-  tablet: '768px',
-  laptop: '1024px',
-  laptopL: '1440px',
-  desktop: '2560px'
+export const portrait = {
+  mobileS: '(max-width: 320px)',
+  mobileM: '(max-width: 375px)',
+  mobileL: '(max-width: 425px)',
+  tablet: '(max-width: 768px)',
+  laptop: '(max-width: 1024px)',
+  laptopL: '(max-width: 1440px)',
+  desktop: '(max-width: 2560px)'
 };
 
-export const device = {
-  mobileS: `(max-width: ${size.mobileS})`,
-  mobileM: `(max-width: ${size.mobileM})`,
-  mobileL: `(max-width: ${size.mobileL})`,
-  tablet: `(max-width: ${size.tablet})`,
-  laptop: `(max-width: ${size.laptop})`,
-  laptopL: `(max-width: ${size.laptopL})`,
-  desktop: `(max-width: ${size.desktop})`,
-  desktopL: `(max-width: ${size.desktop})`
-};
+export const landscape = {
+  mobileS: `(max-width: 576px) and (max-height: 425px)`,
+  mobileM: `(max-width: 768px) and (max-height: 425px)`,
+  mobileL: `(max-width: 992px) and (max-height: 425px)`,
+}
+
+export const bootstrap = {
+  sm: `(max-width: 576px)`,
+  md: `(max-width: 768px)`,
+  lg: `(max-width: 992px)`,
+  xl: `(max-width: 1200px)`
+}
+
+export const orientation = {
+  landscape: `(orientation: landscape)`,
+  portrait: `(orientation: portrait)`
+}

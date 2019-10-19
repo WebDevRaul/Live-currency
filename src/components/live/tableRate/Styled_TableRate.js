@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { primaryColor } from '../../../index.scss';
-import { device } from '../../../utils/devices';
+import { portrait } from '../../../utils/devices';
 
 const StyledTableRate = styled.section`
   .table-rate {
@@ -47,16 +47,16 @@ const StyledTableRate = styled.section`
     }
   }
 
-  @media ${device.tablet} {
+  /* @media ${portrait.tablet} {
     .table-rate {
       font-size: 0.8rem;
     }
   }
-  @media ${device.mobileM} {
+  @media ${portrait.mobileM} {
     .table-rate {
       font-size: 0.6rem;
     }
-  }
+  } */
 `
 
 export default StyledTableRate;

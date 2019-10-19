@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { landscape } from '../../utils/devices';
 import { primaryColor, secondaryColor, mainWhite, mainSpacing } from '../../index.scss';
 
 const StyledFooter = styled.footer`
@@ -41,6 +42,33 @@ const StyledFooter = styled.footer`
             color: ${secondaryColor};
             transition: 0.5s;
           }
+        }
+      }
+    }
+  }
+
+  @media ${landscape.mobileM} {
+    hr {
+      display: none;
+    }
+    .footer {
+      .info {
+        padding: 0px;
+
+        .logo {
+          .logo {
+            padding: 4px;
+            .inner-logo {
+              padding: 4px;
+            }
+          }
+        }
+      }
+      .social {
+        padding-bottom: 0px;
+
+        p {
+          display: none;
         }
       }
     }

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { primaryColor, secondaryColor, mainWhite, mainBorderRadius, mainSpacing } from '../../../index.scss';
-import { device } from '../../../utils/devices';
+import { portrait } from '../../../utils/devices';
 
 const StyledModal = styled.div`
   .modal {
@@ -99,7 +99,7 @@ const StyledModal = styled.div`
       }
     }
   }
-  @media ${device.tablet} {
+  /* @media ${portrait.tablet} {
     .modal {
       .data {
         .flag, .country, .currency, .code {
@@ -133,7 +133,7 @@ const StyledModal = styled.div`
     }
   }
 
-  @media ${device.mobileL} {
+  @media ${portrait.mobileL} {
     .modal {
       .data {
         .flag, .country {
@@ -147,7 +147,7 @@ const StyledModal = styled.div`
         }
       }
     }
-  }
+  } */
 `
 
 export default StyledModal;
