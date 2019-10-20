@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -8,32 +8,52 @@ import addToCountry from './utils/addCountry';
 import StyledModal from './Styled_Modal';
 import Data from './Data';
 
-const Modal = ({ onClick, modal, arr, isLoading }) => {
-  if(isLoading || !modal) return null;
-  const { data } = addToCountry(arr);
-  const myRef = React.createRef();
+class Modal extends Component {
 
-  const onScroll = () => {
-    // document.getElementById(id).scrollIntoView({ behavior: "smooth" })
-    myRef.current.scrollIntoView({ behavior: 'smooth' });
+  buttonRef = React.createRef();
+  outsideRef = React.createRef();
+
+  componentDidMount() {
+    document.addEventListener("mousedown", this.handleClickOutside);
   }
 
-  return (
-    <StyledModal>
-      <div className='modal'>
-        <div className='inner-modal'>
-          <button onClick={onClick} ref={myRef}>close</button>
-          <div className='list'>
-            {
-              data.map((i, index) => <Data key={index} data={i} />)
-            }
-            <div className='arrow' onClick={onScroll}><i className="far fa-2x fa-arrow-alt-circle-up"></i></div>
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleClickOutside);
+  }
+
+  handleClickOutside = e => {
+    const { current } = this.outsideRef;
+    if(current === null) return null;
+    if(e.target.className !== 'modal') return null;
+    this.props.onClick();
+  };
+
+  onScroll = () => {
+    // document.getElementById(id).scrollIntoView({ behavior: "smooth" })
+    this.buttonRef.current.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  render() {
+    const { isLoading, modal, arr, onClick } = this.props;
+    if(isLoading || !modal) return null;
+    const { data } = addToCountry(arr);
+    return (
+      <StyledModal>
+        <div className='modal' ref={this.outsideRef}>
+          <div className='inner-modal'>
+            <button onClick={onClick} ref={this.buttonRef}>close</button>
+            <div className='list'>
+              {
+                data.map((i, index) => <Data key={index} data={i} />)
+              }
+              <div className='arrow' onClick={this.onScroll}><i className="far fa-2x fa-arrow-alt-circle-up"></i></div>
+            </div>
           </div>
         </div>
-      </div>
-    </StyledModal>
-  )
-};
+      </StyledModal>
+    )
+  }
+}
 
 Modal.propTypes = {
   onClick: PropTypes.func.isRequired,

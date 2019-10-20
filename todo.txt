@@ -1,6 +1,3 @@
 loading placeholder?
 custom select btns
 update read me
-
-
-show msg when no data for sat,sun and mon until update?
