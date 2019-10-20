@@ -1,7 +1,6 @@
 loading placeholder?
 custom select btns
-reselect new base duplicate of base
 update read me
+
+
 show msg when no data for sat,sun and mon until update?
-
-

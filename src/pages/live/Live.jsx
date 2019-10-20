@@ -11,6 +11,7 @@ import Convertor from '../../components/live/convertor/Convertor';
 import SearchBar from '../../components/live/searchBar/SearchBar';
 import SelectRate from '../../components/live/selectRate/SelectRate';
 import TableRate from '../../components/live/tableRate/TableRate';
+import NoData from '../../components/live/noData/NoData';
 
 import StyledLive from './Styled_Live';
 
@@ -41,6 +42,11 @@ class Live extends Component {
     return (
       <StyledLive>
         <div className='live'>
+          <div className="row no-gutters">
+            <div className="col">
+              <NoData />
+            </div>
+          </div>
           <div className='row no-gutters'>
             <div className='col'>
               <Convertor />
