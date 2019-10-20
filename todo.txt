@@ -6,4 +6,3 @@ show msg when no data for sat,sun and mon until update?
 
 
 
-error when base is EUR and you have EUR in list
