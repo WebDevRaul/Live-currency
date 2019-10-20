@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { set_convertor, update_convertor } from '../../redux/actions/convertor';
 import { set_rates, update_rates, set_lastYear, update_lastYear } from '../../redux/actions/rates';
 import { createStructuredSelector } from 'reselect';
-import { select_C_from_base } from '../../redux/selectors/convertor';
-import { select_R_from_base } from '../../redux/selectors/rates';
+import { select_C_from_base, select_date } from '../../redux/selectors/convertor';
+import { select_R_from_base, select_date_today, select_date_lastYear } from '../../redux/selectors/rates';
 
 import Convertor from '../../components/live/convertor/Convertor';
 import SearchBar from '../../components/live/searchBar/SearchBar';
@@ -17,12 +17,13 @@ import StyledLive from './Styled_Live';
 
 class Live extends Component {
   componentDidMount() {
-    // Set Convertor
-    this.props.set_convertor();
+    const { convertorDate, rateDate, lastYearDate } = this.props;
+    // Set Convertor 
+    if(!(convertorDate.length > 1)) this.props.set_convertor();
     // Set Rates
-    this.props.set_rates();
+    if(!(rateDate.length > 1)) this.props.set_rates();
     // Set Last Year
-    this.props.set_lastYear();
+    if(!(lastYearDate.length > 1)) this.props.set_lastYear();
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -73,11 +74,17 @@ Live.propTypes = {
   update_rates: PropTypes.func.isRequired,
   set_lastYear: PropTypes.func.isRequired,
   update_lastYear: PropTypes.func.isRequired,
-}
+  rateDate: PropTypes.string.isRequired,
+  lastYearDate: PropTypes.string.isRequired,
+  convertorDate: PropTypes.string.isRequired,
+};
 
 const mapStateToProps = createStructuredSelector({
   convertor: select_C_from_base,
-  rates: select_R_from_base
-})
+  rates: select_R_from_base,
+  rateDate: select_date_today,
+  lastYearDate: select_date_lastYear,
+  convertorDate: select_date
+});
 
 export default connect( mapStateToProps, { set_convertor, update_convertor, set_rates, update_rates, set_lastYear, update_lastYear } )(Live);
