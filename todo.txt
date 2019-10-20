@@ -1,3 +1,6 @@
-loading placeholder?
 custom select btns
+change list arr on select rate
 update read me
+
+
+loading placeholder?

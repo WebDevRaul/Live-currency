@@ -13,7 +13,7 @@ const Base = ({ from_base, to_base, value, isLoading }) => (
     <Title text={'1'} />
     <Title text={from_base}/>
     <Span text={'is'}/>
-    {isLoading ? <Spinner /> : <Span text={value}/>}
+    {true ? <Spinner /> : <Span text={value}/>}
     <Title text={to_base}/>
   </>
 );

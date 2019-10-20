@@ -7,9 +7,10 @@ import { select_date_today, select_values_today, select_isLoading } from '../../
 import Span from '../../common/span/Span';
 import Rate from './Rate';
 import NoData from './NoData';
+import Loading from './Loading';
 
 const Today = ({ date, arr, isLoading }) => {
-  if(isLoading) return <>is loading</>;
+  if(isLoading) return <Loading />;
   return (
     <div className='wrapper'>
       <Span text={date} />

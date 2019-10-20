@@ -18,7 +18,7 @@ export const select_selected_keys = createSelector(
 // TODAY
 export const select_date_today = createSelector(
   [select_rates_state],
-  data => data.end_at
+  data => data.start_at
 );
 
 export const select_isLoading = createSelector(

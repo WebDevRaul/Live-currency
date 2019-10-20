@@ -7,9 +7,10 @@ import { select_date_lastYear, select_values_lastYear, select_isLoading_lastYear
 import Span from '../../common/span/Span';
 import Rate from './Rate';
 import NoData from './NoData';
+import Loading from './Loading';
 
 const LastYear = ({ date, arr, isLoading }) => {
-  if(isLoading) return <>is loading</>;
+  if(isLoading) return <Loading />;
   return (
     <div className='wrapper'>
       <Span text={date} />

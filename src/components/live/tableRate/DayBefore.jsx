@@ -7,9 +7,10 @@ import { select_date_dayBefore, select_values_dayBefore, select_isLoading } from
 import Span from '../../common/span/Span';
 import Rate from './Rate';
 import NoData from './NoData';
+import Loading from './Loading';
 
 const DayBefore = ({ date, arr, isLoading }) => {
-  if(isLoading) return <>is loading</>;
+  if(isLoading) return <Loading />;
   return (
     <div className='wrapper'>
       <Span text={date} />

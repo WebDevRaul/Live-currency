@@ -13,7 +13,7 @@ const extractDate = date => {
   const twoDaysBefore = new Date(TWO_DAYS_BEFORE).getTime();
 
   if(actualDate > today) arrDate = [...arrDate, day];
-  if(today > incDate) arrDate = [...arrDate, TODAY];
+  if(today > incDate && TODAY !== day) arrDate = [...arrDate, TODAY];
   if(dayBefore > incDate) arrDate = [...arrDate, DAY_BEFORE];
   if(twoDaysBefore > incDate) arrDate = [...arrDate, TWO_DAYS_BEFORE];
 
