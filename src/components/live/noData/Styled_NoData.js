@@ -18,17 +18,21 @@ const StyledNoData = styled.section`
 
   @media ${bootstrap.md} {
     .no-data {
-      font-size: 1.1em;
-    }
-  }
-  @media ${bootstrap.sm} {
-    .no-data {
       flex-direction: column;
       align-content: center;
       align-items: center;
     }
   }
   @media ${portrait.mobileL} {
+    .no-data {
+      p {
+        span {
+          font-size: .8em;
+        }
+      }
+    }
+  }
+  @media ${portrait.mobileM} {
     .no-data {
       p {
         span {

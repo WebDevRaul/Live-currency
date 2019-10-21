@@ -100,6 +100,11 @@ const StyledTableRate = styled.section`
               font-size: .9em;
             }
           }
+          .no-data {
+            h5 {
+              font-size: 1em;
+            }
+          }
         }
       }
     }
@@ -113,6 +118,11 @@ const StyledTableRate = styled.section`
         .data {
           .rate {
             p {
+              font-size: .8em;
+            }
+          }
+          .no-data {
+            h5 {
               font-size: .8em;
             }
           }
