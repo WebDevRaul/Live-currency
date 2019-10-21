@@ -5,16 +5,19 @@ const StyledLoading = styled.div`
   .loading {
     display: flex;
     flex-direction: column;
-    min-height: 25px;
+    min-height: 26px;
 
     p, span {
-      margin-bottom: 0px;
       min-width: 125px;
       animation: loading 2s linear infinite forwards;
       min-height: 25px;
       background: linear-gradient(to right, #e0e0e0 8%, #F0F0F0 18%, #e0e0e0 33%);
       background-size: 800px 104px;
       position: relative;
+    }
+    span {
+      height: 30px;
+      margin: 10px 0 30px 0;
     }
   }
 
