@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { HOUR, DAY, TODAY, DAY_BEFORE, TWO_DAYS_BEFORE, TREE_DAYS_BEFORE, LAST_YEAR } from './date';
+import { MINUTES, HOUR, DAY, TODAY, DAY_BEFORE, TWO_DAYS_BEFORE, TREE_DAYS_BEFORE, LAST_YEAR } from './date';
 import insertEUR from './insertEUR';
 
 const HISTORY = `https://api.exchangeratesapi.io/history?`;
@@ -26,7 +26,7 @@ export const GET_RATES = ({
       response = await axios.get(`${HISTORY}start_at=${DAY_BEFORE}&end_at=${TODAY}&base=${BASE}`);
       if(DAY === 'Monday') {
         response = await axios.get(`${HISTORY}start_at=${TREE_DAYS_BEFORE}&end_at=${TWO_DAYS_BEFORE}&base=${BASE}`);
-        if(HOUR>17) response = await axios.get(`${HISTORY}start_at=${DAY_BEFORE}&end_at=${TODAY}&base=${BASE}`);
+        if((HOUR === 16 && MINUTES > 30) || HOUR > 16) response = await axios.get(`${HISTORY}start_at=${DAY_BEFORE}&end_at=${TODAY}&base=${BASE}`);
       }
       if(DAY === 'Sunday') {
         response = await axios.get(`${HISTORY}start_at=${TREE_DAYS_BEFORE}&end_at=${TWO_DAYS_BEFORE}&base=${BASE}`);

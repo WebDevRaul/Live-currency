@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { set_from_base } from '../../../redux/actions/rates';
 import { createStructuredSelector } from 'reselect';
-import { select_R_from_base } from '../../../redux/selectors/rates';
-import { select_keys, select_isLoading } from '../../../redux/selectors/convertor';
+import { select_R_from_base, select_keys, select_isLoading } from '../../../redux/selectors/rates';
 
 import StyledSelectRate from './Styled_SelectRate';
 import CustomSelect from '../../common/select/CustomSelect';
 
 const SelectRate = ({ from_base, arr, set_from_base, isLoading }) => {
+  if(!!!arr) return null;
   if(isLoading) return null;
   return (
     <StyledSelectRate>
@@ -25,7 +25,7 @@ const SelectRate = ({ from_base, arr, set_from_base, isLoading }) => {
 
 SelectRate.propTypes = {
   from_base: PropTypes.string.isRequired,
-  arr: PropTypes.array.isRequired,
+  arr: PropTypes.array,
   set_from_base: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired
 };

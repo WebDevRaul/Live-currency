@@ -52,3 +52,10 @@ export const findKeys = data => {
   const key =  Object.keys(data).map(i => i);
   return key;
 }
+
+export const findKeysRates = data => {
+  if(isEmpty(data)) return null;
+  const row = Object.values(data)[0];
+  const keys = Object.keys(row).sort()
+  return keys;
+}
