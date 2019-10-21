@@ -9,7 +9,6 @@ import StyledSelectRate from './Styled_SelectRate';
 import CustomSelect from '../../common/select/CustomSelect';
 
 const SelectRate = ({ from_base, arr, set_from_base, isLoading }) => {
-  if(!!!arr) return null;
   if(isLoading) return null;
   return (
     <StyledSelectRate>

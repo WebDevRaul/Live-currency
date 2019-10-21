@@ -5,10 +5,11 @@ const StyledLoading = styled.div`
   .loading {
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
     min-height: 26px;
+    width: 80%;
 
     p, span {
-      min-width: 125px;
       animation: loading 2s linear infinite forwards;
       min-height: 25px;
       background: linear-gradient(to right, #e0e0e0 8%, #F0F0F0 18%, #e0e0e0 33%);
@@ -27,14 +28,6 @@ const StyledLoading = styled.div`
     }
     100%{
         background-position: 468px 0
-    }
-  }
-
-  @media ${portrait.mobileL} {
-    .loading {
-      p {
-        min-width: 75px;
-      }
     }
   }
 `

@@ -2,5 +2,3 @@ custom select btns
 update read me
 
 
-
-change list arr on select rate

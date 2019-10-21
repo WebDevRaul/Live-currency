@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { toFixedFuncArr, findKeysRates } from '../utils/live';
+import { toFixedFuncArr, findKeysForRates } from '../utils/live';
 
 const select_state = state => state.rates;
 const select_rates_state = state => state.rates.data;
@@ -17,7 +17,7 @@ export const select_selected_keys = createSelector(
 
 export const select_keys = createSelector(
   [select_rates_state],
-  data => findKeysRates(data.rates)
+  data => findKeysForRates(data.rates)
 )
 
 // TODAY

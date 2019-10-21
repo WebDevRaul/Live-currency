@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { toFixedOne, findKeys } from '../utils/live';
+import { toFixedOne, findKeysForConvertor } from '../utils/live';
 
 const select_convertor_state = state => state.convertor.data;
 const select_state = state => state.convertor;
@@ -31,7 +31,7 @@ export const select_value = createSelector(
 
 export const select_keys = createSelector(
   [select_convertor_state],
-  data => findKeys(data.rates).sort()
+  data => findKeysForConvertor(data.rates).sort()
 );
 
 export const select_isLoading = createSelector(

@@ -10,7 +10,7 @@ import NoData from './NoData';
 import WithLoading from './WithLoading';
 
 const DayBefore = ({ date, arr, isLoading }) => {
-  if(isLoading) return <WithLoading />;
+  if(true) return <WithLoading />;
   return (
     <div className='wrapper'>
       <Span text={date} />

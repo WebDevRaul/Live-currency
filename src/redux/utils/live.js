@@ -48,12 +48,12 @@ export const toFixedFuncArr = ({ rates, keys, row }) => {
   return toFixedFunc;
 }
 
-export const findKeys = data => {
+export const findKeysForConvertor = data => {
   const key =  Object.keys(data).map(i => i);
   return key;
 }
 
-export const findKeysRates = data => {
+export const findKeysForRates = data => {
   if(isEmpty(data)) return null;
   const row = Object.values(data)[0];
   const keys = Object.keys(row).sort()

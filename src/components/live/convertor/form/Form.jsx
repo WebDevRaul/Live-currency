@@ -32,7 +32,8 @@ class Form extends Component {
   render() {
     const {  from_base, to_base, arr, set_from_base, set_to_base } = this.props;
     const { from, error, value } = this.state;
-    const result = toFixed4Decimals({ value, multiply: from });
+    const resultToFix = toFixed4Decimals({ value, multiply: from });
+    const result = !!resultToFix ? 'undefined' : resultToFix;
     
     return (
       <form noValidate>

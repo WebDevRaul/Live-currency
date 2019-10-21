@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import StyledSelect from './Styled_Select';
 
 const CustomSelect = ({ onChange, arr, value }) => {
-  const option = arr.map(i => <option key={i} value={i}>{i}</option>);
+  const option = !!!arr 
+    ? <option />
+    : arr.map(i => <option key={i} value={i}>{i}</option>)
   return (
     <StyledSelect>
       <select
@@ -21,7 +23,7 @@ const CustomSelect = ({ onChange, arr, value }) => {
 
 CustomSelect.propTypes = {
   onChange: PropTypes.func.isRequired,
-  arr: PropTypes.array.isRequired,
+  arr: PropTypes.array,
   value: PropTypes.string.isRequired
 }
 
