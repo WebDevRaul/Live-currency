@@ -1,13 +1,11 @@
 import axios from 'axios';
-import { TODAY, DAY_BEFORE, TWO_DAYS_BEFORE, TREE_DAYS_BEFORE } from './date';
-import isEmpty from '../../../components/common/isEmpty/isEmpty';
+import { HOUR, DAY, TODAY, DAY_BEFORE, TWO_DAYS_BEFORE, TREE_DAYS_BEFORE, LAST_YEAR } from './date';
 import insertEUR from './insertEUR';
 
 const HISTORY = `https://api.exchangeratesapi.io/history?`;
 
 export const GET_RATES = ({ 
   BASE,
-  ENDPOINT,
   ERROR_TYPE,
   SUCCESS_TYPE,
   LOADING,
@@ -24,27 +22,21 @@ export const GET_RATES = ({
     };
     try {
       dispatch({ type: LOADING, payload: true });
-      const response = await axios.get(`${ENDPOINT}&base=${BASE}`);
+      let response;
+      response = await axios.get(`${HISTORY}start_at=${DAY_BEFORE}&end_at=${TODAY}&base=${BASE}`);
+      if(DAY === 'Monday') {
+        response = await axios.get(`${HISTORY}start_at=${TREE_DAYS_BEFORE}&end_at=${TWO_DAYS_BEFORE}&base=${BASE}`);
+        if(HOUR>17) response = await axios.get(`${HISTORY}start_at=${DAY_BEFORE}&end_at=${TODAY}&base=${BASE}`);
+      }
+      if(DAY === 'Sunday') {
+        response = await axios.get(`${HISTORY}start_at=${TREE_DAYS_BEFORE}&end_at=${TWO_DAYS_BEFORE}&base=${BASE}`);
+      }
+      if(DAY === 'Saturday') {
+        response = await axios.get(`${HISTORY}start_at=${TWO_DAYS_BEFORE}&end_at=${DAY_BEFORE}&base=${BASE}`);
+      }
       const data = response.data;
       // If BASE === EUR insert EUR: 1
       const success = BASE === 'EUR' ? {...data, rates: { ...data.rates, EUR: 1 }} : data;
-      const DAY = Object.keys(success.rates);
-      // If response is empty or response.date !== TODAY date
-      if(await isEmpty(success.rates) || DAY !== TODAY) {
-        const response = await axios.get(`${HISTORY}start_at=${TWO_DAYS_BEFORE}&end_at=${DAY_BEFORE}&base=${BASE}`);
-        const data = response.data;
-        // If BASE === EUR
-        const { success } = insertEUR({data, BASE});
-        // if response is empty
-        if(await isEmpty(success.rates)) {
-          const response = await axios.get(`${HISTORY}start_at=${TREE_DAYS_BEFORE}&end_at=${TWO_DAYS_BEFORE}&base=${BASE}`);
-          const data = response.data;
-          // If BASE === EUR
-          const { success } = insertEUR({data, BASE});
-          return onSuccess(success);
-        }
-        return onSuccess(success);
-      }
       return onSuccess(success);
     } catch (error) {
       return onError(error);
@@ -71,7 +63,7 @@ export const GET_RATES_LAST_YEAR = ({
     };
     try {
       dispatch({ type: LOADING, payload: true });
-      const response = await axios.get(`${ENDPOINT}&base=${BASE}`);
+      const response = await axios.get(`${HISTORY}start_at=${LAST_YEAR}&end_at=${LAST_YEAR}&base=${BASE}`);
       const data = response.data;
       // If BASE === EUR insert EUR: 1
       const { success } = insertEUR({ data, BASE });

@@ -1,30 +1,33 @@
-const date = new Date();
-const hour = date.getHours();
-let update = 0;
+const TIME = new Date();
+const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+export const HOUR = TIME.getHours() - 2;
+export const DAY = DAYS[ TIME.getDay() ];
 
-if(hour < 17 || hour > 24) update = 1;
+let UPDATE = 0;
 
-const getToday = value => {
-  const seconds = value.setDate(value.getDate() - update);
-  const date = new Date(seconds).toISOString().slice(0,10);
-  return date;
-};
-const getDay = value => {
-  const seconds = value.setDate(value.getDate() - 1);
-  const date = new Date(seconds).toISOString().slice(0,10);
-  return date;
-};
+if(HOUR < 17 || HOUR > 24) UPDATE = 1;
 
-
-const getYear = value => {;
-  const year = value.getFullYear() - 1;
-  value.setFullYear(year);
-  const last_year = value.toISOString().slice(0,10);
-  return last_year;
+const GET_TODAY = value => {
+  const SECONDS = value.setDate(value.getDate() - UPDATE);
+  const TIME = new Date(SECONDS).toISOString().slice(0,10);
+  return TIME;
 }
 
-export const TODAY = getToday(date);
-export const DAY_BEFORE = getDay(date);
-export const TWO_DAYS_BEFORE = getDay(date);
-export const TREE_DAYS_BEFORE = getDay(date);
-export const LAST_YEAR = getYear(new Date(TODAY));
+const GET_DAY = value => {
+  const SECONDS = value.setDate(value.getDate() - 1);
+  const TIME = new Date(SECONDS).toISOString().slice(0,10);
+  return TIME;
+};
+
+const GET_YEAR = value => {;
+  const YEAR = value.getFullYear() - 1;
+  value.setFullYear(YEAR);
+  const LAST_YEAR = value.toISOString().slice(0,10);
+  return LAST_YEAR;
+}
+
+export const TODAY = GET_TODAY(TIME);
+export const DAY_BEFORE = GET_DAY(TIME);
+export const TWO_DAYS_BEFORE = GET_DAY(TIME);
+export const TREE_DAYS_BEFORE = GET_DAY(TIME);
+export const LAST_YEAR = GET_YEAR(new Date(TODAY));
