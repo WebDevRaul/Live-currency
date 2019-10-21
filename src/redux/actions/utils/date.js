@@ -4,7 +4,7 @@ export const HOUR = TIME.getHours() - 2;
 export const MINUTES = TIME.getMinutes();
 export const DAY = DAYS[ TIME.getDay() ];
 
-let UPDATE = 1;
+export let UPDATE = 1;
 
 if((HOUR === 16 && MINUTES > 30) || (HOUR >= 17 && HOUR < 24)) UPDATE = 0;
 

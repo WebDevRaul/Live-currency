@@ -10,6 +10,7 @@ import StyledNoData from './Styled_NoData';
 const NoData = ({ date }) => {
   const arrDate = extractDate(date);
   const length = arrDate.length;
+  if(!length) return null;
   const data = arrDate.map((i, index) => <span key={index}>" {i} "</span>)
   return (
     <StyledNoData>
