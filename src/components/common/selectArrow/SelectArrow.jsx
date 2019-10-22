@@ -4,7 +4,7 @@ import StyledSelectArrow from './Styled_SelectArrow';
 
 const SelectArrow = ({ rotate }) => {
   return (
-    <StyledSelectArrow rotate={rotate}>
+    <StyledSelectArrow rotate={rotate ? 'rotate' : undefined}>
       <div className='arrow'>
         <span className='left-up'></span>
         <span className='right-up'></span>

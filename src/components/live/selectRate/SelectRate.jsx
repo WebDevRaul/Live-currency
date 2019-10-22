@@ -60,7 +60,7 @@ class SelectRate extends Component {
             {
               isLoading
               ? <Loading><><p /></></Loading>
-              : <CustomSelect onClick={this.onClick} value={from_base} onChange={e => set_from_base(e.target.value)} arr={arr} />
+              : <CustomSelect name='select' onClick={this.onClick} value={from_base} onChange={e => set_from_base(e.target.value)} arr={arr} />
             }
             <SelectArrow rotate={arrow} />
           </form>

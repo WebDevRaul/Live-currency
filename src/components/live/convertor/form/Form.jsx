@@ -13,26 +13,40 @@ import SelectArrow from '../../../common/selectArrow/SelectArrow';
 
 class Form extends Component {
   state = {
+    arrow_one: false,
+    arrow_two: false,
     from: '1',
     to: '',
     error: {}
-  }
+  };
 
   static getDerivedStateFromProps(nextProps, prevState){
-    const { value } = nextProps;
-    if( value !== prevState.value ) return { value };
+    const { value, from_base, to_base } = nextProps;
+    if( value !== prevState.value || from_base !== prevState.from_base || to_base !== prevState.to_base ) return { value, from_base, to_base };
     else return null;
-  }
+  };
+
+  componentDidMount() {
+    document.addEventListener("mousedown", this.handleClickOutside);
+  };
   
   onChange = e => {
     if(e.target.value.indexOf(' ') >= 0) return null;
     if(isNaN(e.target.value)) return null;
     this.setState({ [e.target.name]: e.target.value });
-  }
+  };
+
+  onClick = () => {
+
+  };
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleClickOutside);
+  };
 
   render() {
-    const {  from_base, to_base, arr, set_from_base, set_to_base } = this.props;
-    const { from, error, value } = this.state;
+    const { arr, set_from_base, set_to_base } = this.props;
+    const { from, error, value, arrow_one, arrow_two, from_base, to_base } = this.state;
     const resultToFix = toFixed4Decimals({ value, multiply: from });
     const result = !!resultToFix ? 'undefined' : resultToFix;
     
@@ -41,15 +55,15 @@ class Form extends Component {
         <Wrapper>
           <>
             <CustomInput name='from' value={from} onChange={this.onChange} error={error.from} />
-            <CustomSelect value={from_base} onChange={e => set_from_base(e.target.value)} arr={arr} />
-            <SelectArrow />
+            <CustomSelect name='from_base' onClick={this.onClick} value={from_base} onChange={e => set_from_base(e.target.value)} arr={arr} />
+            <SelectArrow rotate={arrow_one} />
           </>
         </Wrapper>
         <Wrapper>
           <>
             <CustomInput name='to' value={result} onChange={this.onChange} error={error.to} />
-            <CustomSelect value={to_base} onChange={e => set_to_base(e.target.value)} arr={arr} />
-            <SelectArrow />
+            <CustomSelect name='to_base' onClick={this.onClick} value={to_base} onChange={e => set_to_base(e.target.value)} arr={arr} />
+            <SelectArrow rotate={arrow_two} />
           </>
         </Wrapper>
       </form>
