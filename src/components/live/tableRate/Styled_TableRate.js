@@ -4,9 +4,9 @@ import { portrait } from '../../../utils/devices';
 
 const StyledTableRate = styled.section`
   .table-rate {
-    min-height: 250px;
+    min-height: 200px;
     .wrapper {
-      min-height: 250px;
+      min-height: 200px;
       display: flex;
       flex-direction: column;
 

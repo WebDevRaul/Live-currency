@@ -6,7 +6,7 @@ const StyledConvertor = styled.section`
   .convertor {
     font-size: 1.5em;
     padding: 20px;
-    margin: 10px 0 30px 0;
+    margin: 10px 10px 30px 0;
     background-color: rgba(245, 245, 245, 0.5);
     box-shadow: 10px 10px 10px ${primaryColor};
     border-radius: ${mainBorderRadius};
@@ -29,6 +29,9 @@ const StyledConvertor = styled.section`
           font-size: 2em;
         }
       }
+      .loading {
+        width: 150px;
+      }
     }
     .date {
       text-align: center;
@@ -45,6 +48,9 @@ const StyledConvertor = styled.section`
   @media ${portrait.laptop} {
     .convertor {
       .base {
+        .loading {
+          width: 120px;
+        }
         span {
           margin: 0 4px;
           font-size: .7em;
@@ -62,8 +68,26 @@ const StyledConvertor = styled.section`
     }
   }
 
+  @media ${portrait.tablet} {
+    .convertor {
+      .base {
+        .loading {
+          width: 150px;
+        }
+        h1 {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+
   @media ${portrait.mobileL} {
     .convertor {
+      .base {
+        .loading {
+          width: 100px;
+        }
+      }
       .form {
         .form-input {
           width: 90%;
