@@ -20,11 +20,11 @@ const StyledSelectArrow = styled.div`
     }
     .left-up {
       left: 0;
-      transform: ${props => props.rotate ? 'rotate(45deg)' : 'rotate(-45deg)'}
+      transform: ${props => props.rotate ? 'rotate(-45deg)' : 'rotate(45deg)'}
     }
     .right-up {
       right: 0;
-      transform: ${props => props.rotate ? 'rotate(-45deg)' : 'rotate(45deg)'}
+      transform: ${props => props.rotate ? 'rotate(45deg)' : 'rotate(-45deg)'}
     }
   }
 `
