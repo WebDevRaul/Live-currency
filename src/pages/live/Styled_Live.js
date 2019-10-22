@@ -3,7 +3,7 @@ import { portrait } from '../../utils/devices';
 
 const StyledLive = styled.div`
   .live {
-    min-height: calc(100vh - 230px);
+    min-height: calc(100vh - 235px);
   }
 
   @media ${portrait.laptopL} {

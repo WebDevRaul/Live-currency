@@ -99,6 +99,29 @@ const StyledConvertor = styled.section`
       }
     }
   }
+
+  @media ${portrait.mobileM} {
+    .convertor {
+      font-size: 1em;
+      .date {
+        font-size: 1em;
+      }
+      .base {
+        span {
+          font-size: .8em;
+        }
+        h1 {
+          font-size: .9em;
+          &:nth-child(2), :nth-child(5) {
+            font-size: 1em;
+          }
+        }
+      }
+      .loading {
+        width: 75px;
+      }
+    }
+  }
 `
 
 export default StyledConvertor;

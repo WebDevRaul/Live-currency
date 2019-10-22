@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { primaryColor } from '../../../index.scss';
-import { portrait } from '../../../utils/devices';
+import { portrait, bootstrap } from '../../../utils/devices';
 
 const StyledTableRate = styled.section`
   .table-rate {
@@ -47,6 +47,17 @@ const StyledTableRate = styled.section`
     }
   }
 
+  @media ${bootstrap.lg} {
+    .table-rate {
+      .wrapper {
+        .no-data {
+          h5 {
+            font-size: 1.1em;
+          }
+        }
+      }
+    }
+  }
 
   @media ${portrait.tablet} {
     .table-rate {
@@ -62,13 +73,14 @@ const StyledTableRate = styled.section`
           }
           .no-data {
             h5 {
-              font-size: 1em;
+              font-size: .9em;
             }
           }
         }
       }
     }
   }
+
   @media ${portrait.mobileL} {
     .table-rate {
       .wrapper {
