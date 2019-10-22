@@ -7,6 +7,7 @@ import { select_R_from_base, select_keys, select_isLoading } from '../../../redu
 
 import StyledSelectRate from './Styled_SelectRate';
 import CustomSelect from '../../common/select/CustomSelect';
+import SelectArrow from '../../common/selectArrow/SelectArrow';
 
 const SelectRate = ({ from_base, arr, set_from_base, isLoading }) => {
   if(isLoading) return null;
@@ -16,6 +17,7 @@ const SelectRate = ({ from_base, arr, set_from_base, isLoading }) => {
         <p>Change base Rate :</p>
         <form noValidate>
           <CustomSelect value={from_base} onChange={e => set_from_base(e.target.value)} arr={arr} />
+          <SelectArrow />
         </form>
       </div>
     </StyledSelectRate>

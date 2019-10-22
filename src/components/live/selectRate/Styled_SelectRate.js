@@ -14,6 +14,7 @@ const StyledSelectRate = styled.section`
     }
 
     form {
+      display: flex;
       .custom-select {
         background-color: ${mainWhite}!important;
       }

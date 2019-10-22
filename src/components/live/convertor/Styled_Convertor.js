@@ -35,6 +35,10 @@ const StyledConvertor = styled.section`
     }
     .date {
       text-align: center;
+      .loading {
+        width: 175px;
+        margin: 0 auto;
+      }
     }
     .form {
       margin: 0 20px;
@@ -91,10 +95,6 @@ const StyledConvertor = styled.section`
       .form {
         .form-input {
           width: 90%;
-        }
-        .custom-select {
-          background: none;
-          padding: 0px;
         }
       }
     }

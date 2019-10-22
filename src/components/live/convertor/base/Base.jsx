@@ -13,12 +13,8 @@ const Base = ({ from_base, to_base, value, isLoading }) => (
     <Title text={'1'} />
     <Title text={from_base}/>
     <Span text={'is'}/>
-    {true 
-      ? <Loading>
-          <>
-            <p></p>
-          </>
-        </Loading>
+    {isLoading 
+      ? <Loading><><p></p></></Loading>
       : <Span text={value}/>
     }
     <Title text={to_base}/>

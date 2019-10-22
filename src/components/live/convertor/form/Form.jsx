@@ -9,6 +9,7 @@ import { toFixed4Decimals } from './utils/helper';
 import CustomSelect from '../../../common/select/CustomSelect';
 import CustomInput from '../../../common/input/CustomInput';
 import Wrapper from './Wrapper';
+import SelectArrow from '../../../common/selectArrow/SelectArrow';
 
 class Form extends Component {
   state = {
@@ -41,12 +42,14 @@ class Form extends Component {
           <>
             <CustomInput name='from' value={from} onChange={this.onChange} error={error.from} />
             <CustomSelect value={from_base} onChange={e => set_from_base(e.target.value)} arr={arr} />
+            <SelectArrow />
           </>
         </Wrapper>
         <Wrapper>
           <>
             <CustomInput name='to' value={result} onChange={this.onChange} error={error.to} />
             <CustomSelect value={to_base} onChange={e => set_to_base(e.target.value)} arr={arr} />
+            <SelectArrow />
           </>
         </Wrapper>
       </form>
