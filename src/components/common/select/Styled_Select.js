@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const StyledSelect = styled.div`
+  display: flex;
   margin: auto 0;
   .custom-select {
     border: none !important;

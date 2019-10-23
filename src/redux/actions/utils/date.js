@@ -27,6 +27,7 @@ const GET_YEAR = value => {;
   return LAST_YEAR;
 }
 
+export const DATE = new Date().toISOString().slice(0,10);
 export const TODAY = GET_TODAY(TIME);
 export const DAY_BEFORE = GET_DAY(TIME);
 export const TWO_DAYS_BEFORE = GET_DAY(TIME);

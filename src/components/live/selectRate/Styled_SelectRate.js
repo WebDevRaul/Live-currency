@@ -14,7 +14,6 @@ const StyledSelectRate = styled.section`
     }
 
     form {
-      display: flex;
       .loading {
         width: 50px;
       }

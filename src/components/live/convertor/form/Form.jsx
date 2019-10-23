@@ -9,25 +9,18 @@ import { toFixed4Decimals } from './utils/helper';
 import CustomSelect from '../../../common/select/CustomSelect';
 import CustomInput from '../../../common/input/CustomInput';
 import Wrapper from './Wrapper';
-import SelectArrow from '../../../common/selectArrow/SelectArrow';
 
 class Form extends Component {
   state = {
-    arrow_one: false,
-    arrow_two: false,
     from: '1',
     to: '',
     error: {}
   };
 
   static getDerivedStateFromProps(nextProps, prevState){
-    const { value, from_base, to_base } = nextProps;
-    if( value !== prevState.value || from_base !== prevState.from_base || to_base !== prevState.to_base ) return { value, from_base, to_base };
+    const { value } = nextProps;
+    if( value !== prevState.value ) return { value };
     else return null;
-  };
-
-  componentDidMount() {
-    document.addEventListener("mousedown", this.handleClickOutside);
   };
   
   onChange = e => {
@@ -36,34 +29,27 @@ class Form extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onClick = () => {
-
-  };
-
-  componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleClickOutside);
-  };
-
   render() {
-    const { arr, set_from_base, set_to_base } = this.props;
-    const { from, error, value, arrow_one, arrow_two, from_base, to_base } = this.state;
+    const { arr, set_from_base, set_to_base, from_base, to_base } = this.props;
+    const { from, error, value } = this.state;
     const resultToFix = toFixed4Decimals({ value, multiply: from });
-    const result = !!resultToFix ? 'undefined' : resultToFix;
-    
+    const result = isNaN(resultToFix) ? 'undefined' : resultToFix;
     return (
       <form noValidate>
         <Wrapper>
           <>
             <CustomInput name='from' value={from} onChange={this.onChange} error={error.from} />
-            <CustomSelect name='from_base' onClick={this.onClick} value={from_base} onChange={e => set_from_base(e.target.value)} arr={arr} />
-            <SelectArrow rotate={arrow_one} />
+            <div ref={this.outsideRefOne}>
+              <CustomSelect base={from_base} value={from_base} onChange={e => set_from_base(e.target.value)} arr={arr} />
+            </div>
           </>
         </Wrapper>
         <Wrapper>
           <>
             <CustomInput name='to' value={result} onChange={this.onChange} error={error.to} />
-            <CustomSelect name='to_base' onClick={this.onClick} value={to_base} onChange={e => set_to_base(e.target.value)} arr={arr} />
-            <SelectArrow rotate={arrow_two} />
+            <div ref={this.outsideRefTwo}>
+              <CustomSelect base={to_base} value={to_base} onChange={e => set_to_base(e.target.value)} arr={arr} />
+            </div>
           </>
         </Wrapper>
       </form>
