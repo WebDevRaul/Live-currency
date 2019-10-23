@@ -78,6 +78,10 @@ const StyledLanding = styled.div`
 
   @media ${portrait.tablet} {
     .landing {
+      min-height: calc(100vh - 305px);
+      .continue {
+        top: calc(100vh - 410px);
+      }
       .info {
         p {
           width: 110%;
@@ -91,10 +95,6 @@ const StyledLanding = styled.div`
 
   @media ${portrait.mobileL} {
     .landing {
-      min-height: calc(100vh - 305px);
-      .continue {
-        top: calc(100vh - 410px);
-      }
       .info {
         p {
           width: 230%;

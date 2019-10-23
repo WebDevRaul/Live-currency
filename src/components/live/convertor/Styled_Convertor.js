@@ -45,6 +45,10 @@ const StyledConvertor = styled.section`
       .children {
         display: flex;
         justify-content: center;
+
+        .custom-select {
+          width: 50px;
+        }
       }
     }
   }
@@ -114,6 +118,13 @@ const StyledConvertor = styled.section`
           font-size: .9em;
           &:nth-child(2), :nth-child(5) {
             font-size: 1em;
+          }
+        }
+      }
+      .form {
+        .children {
+          .custom-select {
+            width: 35px;
           }
         }
       }

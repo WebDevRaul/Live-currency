@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { primaryColor } from '../../../index.scss';
+import { portrait } from '../../../utils/devices';
 
 const StyledSelectArrow = styled.div`
   margin: auto 0;
+  padding-top: 4px;
   .arrow {
     display: flex;
     margin: auto;
@@ -25,6 +27,15 @@ const StyledSelectArrow = styled.div`
     .right-up {
       right: 0;
       transform: ${({ rotate }) => rotate ? 'rotate(45deg)' : 'rotate(-45deg)'}
+    }
+  }
+
+  @media ${portrait.mobileM} {
+    .arrow {
+      width: 12px;
+      span {
+        width: 7px
+      }
     }
   }
 `
