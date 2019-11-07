@@ -99,7 +99,7 @@ const StyledModal = styled.div`
       }
     }
   }
-  /* @media ${portrait.tablet} {
+  @media ${portrait.tablet} {
     .modal {
       .data {
         .flag, .country, .currency, .code {
@@ -147,7 +147,7 @@ const StyledModal = styled.div`
         }
       }
     }
-  } */
+  }
 `
 
 export default StyledModal;

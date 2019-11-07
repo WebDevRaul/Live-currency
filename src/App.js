@@ -13,20 +13,22 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className='container'>
-          <Route  exact path='/' component={Landing} />
-          <Route path='/(.+)' render={() => (
-            <>
-              <Navbar />
-                <Switch>
-                <Route  exact path='/about' component={About} />
-                <Route  exact path='/live' component={Live} />
-                <Route  path='*' component={NotFound} />
-                </Switch>
-              <Footer />
-            </>
-          )} />
-        </div>
+        <>
+        <Route  exact path='/' component={Landing} />
+          <div className='container'>
+            <Route path='/(.+)' render={() => (
+              <>
+                <Navbar />
+                  <Switch>
+                  <Route  exact path='/about' component={About} />
+                  <Route  exact path='/live' component={Live} />
+                  <Route  path='*' component={NotFound} />
+                  </Switch>
+                <Footer />
+              </>
+            )} />
+          </div>
+        </>
       </Router>
     );
   }

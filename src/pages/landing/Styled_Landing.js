@@ -22,33 +22,24 @@ const scrollEnd = () => `
 const StyledLanding = styled.div`
   .landing {
     min-height: 100vh;
-    
-    .background {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -20;
-      background-image: url(${photo});
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
+    background-image: url(${photo});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding: 50px;
 
     .info {
-      position: relative;
-      top: 40px;
       width:100%;
       padding: 10px 0;
       font-size: 1.2rem;
-      text-align: center;
       color: ${mainWhite};
       background-color: ${primaryColor};
       white-space: nowrap;
       overflow: hidden;
 
       p {
+        text-align: center;
         margin: 0;
         /* Starting position */
         -moz-transform:translateX(100%);
@@ -62,10 +53,9 @@ const StyledLanding = styled.div`
     }
 
     .continue {
-      position: relative;
-      display: flex;
-      justify-content: flex-end;
-      top: calc(100vh - 40vh);
+      position: absolute;
+      top: calc(100vh - 25%);
+      right: 50px;
     }
   }
 
@@ -82,7 +72,7 @@ const StyledLanding = styled.div`
     .landing {
       .info {
         p {
-          width: 110%;
+          width: 150%;
           -moz-animation: scroll-left 13s linear infinite;
           -webkit-animation: scroll-left 13s linear infinite;
           animation: scroll-left 13s linear infinite;
@@ -95,7 +85,7 @@ const StyledLanding = styled.div`
     .landing {
       .info {
         p {
-          width: 230%;
+          width: 260%;
         }
       }
     }
@@ -106,11 +96,11 @@ const StyledLanding = styled.div`
     }
   }
 
-  @media ${portrait.mobileS} {
+  @media ${portrait.mobileM} {
     .landing {
       .info {
         p {
-          width: 260%;
+          width: 330%;
         }
       }
     }
@@ -120,7 +110,7 @@ const StyledLanding = styled.div`
     .landing {
       .info {
         p {
-          width: 110%;
+          width: 100%;
           -moz-animation: scroll-left 13s linear infinite;
           -webkit-animation: scroll-left 13s linear infinite;
           animation: scroll-left 13s linear infinite;
@@ -133,7 +123,7 @@ const StyledLanding = styled.div`
     .landing {
       .info {
         p {
-          width: 150%;
+          width: 120%;
         }
       }
     }
@@ -142,7 +132,9 @@ const StyledLanding = styled.div`
   @media ${landscape.mobileS} {
     .landing {
       .info {
-        padding: 5px 0;
+        P {
+          width: 160%;
+        }
       }
     }
   }

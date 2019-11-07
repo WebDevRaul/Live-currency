@@ -31,7 +31,6 @@ class Landing extends Component {
     return (
       <StyledLanding>
         <div className='landing'>
-          <div className='background'></div>
           <InfoText />
           <div className='continue'>
             <CustomButton value='continue' isClass='' onClick={this.onClick} isLoading={false}/>
