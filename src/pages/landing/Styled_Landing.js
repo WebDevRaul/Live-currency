@@ -21,7 +21,7 @@ const scrollEnd = () => `
 
 const StyledLanding = styled.div`
   .landing {
-    min-height: calc(100vh - 235px);
+    min-height: 100vh;
     
     .background {
       width: 100%;
@@ -37,6 +37,8 @@ const StyledLanding = styled.div`
     }
 
     .info {
+      position: relative;
+      top: 40px;
       width:100%;
       padding: 10px 0;
       font-size: 1.2rem;
@@ -61,9 +63,9 @@ const StyledLanding = styled.div`
 
     .continue {
       position: relative;
-      top: calc(100vh - 340px);
       display: flex;
       justify-content: flex-end;
+      top: calc(100vh - 40vh);
     }
   }
 
@@ -78,10 +80,6 @@ const StyledLanding = styled.div`
 
   @media ${portrait.tablet} {
     .landing {
-      min-height: calc(100vh - 305px);
-      .continue {
-        top: calc(100vh - 410px);
-      }
       .info {
         p {
           width: 110%;
@@ -133,10 +131,6 @@ const StyledLanding = styled.div`
 
   @media ${landscape.mobileM} {
     .landing {
-      min-height: calc(100vh - 170px);
-      .continue {
-        top: calc(100vh - 280px);
-      }
       .info {
         p {
           width: 150%;
@@ -148,10 +142,7 @@ const StyledLanding = styled.div`
   @media ${landscape.mobileS} {
     .landing {
       .info {
-          padding: 5px 0;
-      }
-      .continue {
-        top: calc(100vh - 265px);
+        padding: 5px 0;
       }
     }
   }
