@@ -8,7 +8,7 @@ const extractDate = date => {
   if(DAY === 'Monday') {
     if(UPDATE) arrDate = [...arrDate, TODAY, DAY_BEFORE, TWO_DAYS_BEFORE ];
   }
-  if(DAY === 'Sunday') arrDate = [...arrDate, TODAY, DAY_BEFORE];
+  if(DAY === 'Sunday') arrDate = [...arrDate, TODAY];
   if(DAY === 'Saturday') arrDate = [...arrDate, TODAY];
   if(DAY !== 'Monday' || 'Sunday' || 'Saturday') arrDate = [...arrDate, DATE];
 

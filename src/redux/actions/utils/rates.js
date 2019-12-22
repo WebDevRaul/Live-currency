@@ -29,10 +29,10 @@ export const GET_RATES = ({
         if((HOUR === 16 && MINUTES > 30) || HOUR > 16) response = await axios.get(`${HISTORY}start_at=${DAY_BEFORE}&end_at=${TODAY}&base=${BASE}`);
       }
       if(DAY === 'Sunday') {
-        response = await axios.get(`${HISTORY}start_at=${TREE_DAYS_BEFORE}&end_at=${TWO_DAYS_BEFORE}&base=${BASE}`);
+        response = await axios.get(`${HISTORY}start_at=${TWO_DAYS_BEFORE}&end_at=${DAY_BEFORE}&base=${BASE}`);
       }
       if(DAY === 'Saturday') {
-        response = await axios.get(`${HISTORY}start_at=${TWO_DAYS_BEFORE}&end_at=${DAY_BEFORE}&base=${BASE}`);
+        response = await axios.get(`${HISTORY}start_at=${DAY_BEFORE}&end_at=${TODAY}&base=${BASE}`);
       }
       const data = response.data;
       // If BASE === EUR insert EUR: 1
