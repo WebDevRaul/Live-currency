@@ -1,10 +1,8 @@
 # Live Currency
-This site provides information about the latest exchange rates of the most important currencies of the world.
+Today's exchange rates from throughout the world. Select your currency and we'll show you how it's faring against other currencies throughout the world.
 
-## Title
-
-
-### Title
+## Currency Converter  
+With our free Currency Converter tool, you can convert any amount of money from one foreign currency to another with one click of a button.
 
 ## Screenshots
 | Landing | Convertor | Rates | About |
