@@ -25,4 +25,5 @@ export const TODAY = new Date().toISOString().slice(0,10);
 export const DAY_BEFORE = GET_DAY(TIME);
 export const TWO_DAYS_BEFORE = GET_DAY(TIME);
 export const TREE_DAYS_BEFORE = GET_DAY(TIME);
+export const FOUR_DAYS_BEFORE = GET_DAY(TIME);
 export const LAST_YEAR = GET_YEAR(new Date(TODAY));
