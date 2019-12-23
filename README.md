@@ -1,7 +1,8 @@
 # Live Currency
-
+This site provides information about the latest exchange rates of the most important currencies of the world.
 
 ## Title
+
 
 ### Title
 
