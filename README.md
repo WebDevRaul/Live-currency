@@ -1,7 +1,7 @@
 # Live Currency
 Today's exchange rates from throughout the world. Select your currency and we'll show you how it's faring against other currencies throughout the world.
 
-## Currency Converter  
+## Currency Convertor  
 With our free Currency Converter tool, you can convert any amount of money from one foreign currency to another with one click of a button.
 
 ## Screenshots
