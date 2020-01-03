@@ -5,8 +5,7 @@ export const MINUTES = TIME.getMinutes();
 export const DAY = DAYS[ TIME.getDay() ];
 
 export let UPDATE = false;
-
-if((HOUR === 16 && MINUTES > 30) || (HOUR >= 17 && HOUR < 24)) UPDATE = true;
+if((HOUR === 16 && MINUTES > 30) || HOUR > 16) UPDATE = true;
 
 const GET_DAY = value => {
   const SECONDS = value.setDate(value.getDate() - 1);

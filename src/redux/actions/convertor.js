@@ -3,7 +3,6 @@ import { GET } from './utils/convertor';
 
 export const set_convertor = () => GET({
   BASE: 'GBP',
-  ENDPOINT: 'https://api.exchangeratesapi.io/latest?',
   SUCCESS_TYPE: CONVERTOR.UPDATE,
   ERROR_TYPE: CONVERTOR.ERROR,
   LOADING: CONVERTOR.LOADING_CONVERTOR,
@@ -12,7 +11,6 @@ export const set_convertor = () => GET({
 
 export const update_convertor = BASE => GET({
   BASE: BASE,
-  ENDPOINT: `https://api.exchangeratesapi.io/latest?`,
   SUCCESS_TYPE: CONVERTOR.UPDATE,
   ERROR_TYPE: CONVERTOR.ERROR,
   LOADING: CONVERTOR.LOADING_CONVERTOR,

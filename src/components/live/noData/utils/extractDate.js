@@ -11,8 +11,8 @@ const extractDate = date => {
   }
   if(DAY === 'Sunday') arrDate = [...arrDate, TODAY, DAY_BEFORE];
   if(DAY === 'Saturday') arrDate = [...arrDate, TODAY];
-  if(DAY !== ('Monday' || 'Sunday' || 'Saturday') && UPDATE) arrDate = [...arrDate, TODAY];
-
+  if((DAY !== 'Monday' || 'Sunday' || 'Saturday') && !UPDATE) arrDate = [TODAY];
+  
   return arrDate;
 };
 
