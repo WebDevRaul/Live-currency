@@ -9,10 +9,10 @@ const extractDate = date => {
   if(DAY === 'Monday') {
     if(!UPDATE) return arrDate = [...arrDate, TODAY, DAY_BEFORE, TWO_DAYS_BEFORE ];
   }
-  if(DAY === 'Sunday') arrDate = [...arrDate, TODAY, DAY_BEFORE];
-  if(DAY === 'Saturday') arrDate = [...arrDate, TODAY];
-  if((DAY !== 'Monday' || 'Sunday' || 'Saturday') && !UPDATE) arrDate = [TODAY];
-  
+  if(DAY === 'Sunday') return arrDate = [...arrDate, TODAY, DAY_BEFORE];
+  if(DAY === 'Saturday') return arrDate = [...arrDate, TODAY];
+  if((DAY !== 'Monday' || 'Sunday' || 'Saturday') && !UPDATE) return arrDate = [TODAY];
+
   return arrDate;
 };
 

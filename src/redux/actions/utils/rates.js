@@ -53,7 +53,6 @@ export const GET_RATES = ({
 
 export const GET_RATES_LAST_YEAR = ({ 
   BASE,
-  ENDPOINT,
   ERROR_TYPE,
   SUCCESS_TYPE,
   LOADING,
